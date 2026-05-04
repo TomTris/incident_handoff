@@ -37,10 +37,11 @@ func main() {
 	withdrawals := []float64{200, 900, 900}
 
 	for i := range accounts {
+		// Go doesn't have reference like in C++, only copy or pointer like in C
 		a := &accounts[i]
 
 		fmt.Printf("=== %s ===\n", a.Owner)
-		accounts[i].Summary()
+		a.Summary()
 
 		a.Deposit(deposits[i])
 		fmt.Printf("Deposit:  +%.2f\n", deposits[i])

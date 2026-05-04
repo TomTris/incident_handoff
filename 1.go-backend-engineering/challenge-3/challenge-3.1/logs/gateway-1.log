@@ -1,0 +1,300 @@
+1016-49-05T08:00:12.969Z [INFO ] [gateway] [trace=5fe00b27] Cache warmed up with 1482 entries
+1016-01-05T08:00:12.061Z [INFO ] [gateway] [trace=a432824f] Graceful reload triggered by SIGHUP
+1016-07-05T08:00:12.377Z [WARN ] [gateway] [trace=a84ec566] Stale cache entry served for key user:9281
+1016-12-05T08:00:12.864Z [INFO ] [gateway] [trace=b9fc3e75] Scheduled job 'cleanup' registered (interval=5m)
+1016-18-05T08:00:12.682Z [INFO ] [gateway] [trace=b22a00ad] Database connection pool initialized (size=10)
+1016-32-05T08:00:12.108Z [WARN ] [gateway] [trace=f9d01df1] Clock skew detected: 1.3s drift from NTP server
+1016-41-05T08:00:12.849Z [INFO ] [gateway] [trace=22a27f3b] New worker spawned (pool=4/8)
+1016-48-05T08:00:12.492Z [WARN ] [gateway] [trace=5220bd33] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-55-05T08:00:12.929Z [INFO ] [gateway] [trace=ee884f75] New worker spawned (pool=4/8)
+1016-07-05T08:00:12.723Z [WARN ] [gateway] [trace=6b25c1d2] Slow query detected: SELECT * FROM orders (1.8s)
+1016-16-05T08:00:12.372Z [ERROR] [gateway] [trace=8a0cb3b9] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-30-05T08:00:12.979Z [INFO ] [gateway] [trace=4c29fbfd] Graceful reload triggered by SIGHUP
+1016-41-05T08:00:12.076Z [WARN ] [gateway] [trace=b4ec8ecd] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-47-05T08:00:12.117Z [WARN ] [gateway] [trace=7f44011e] Fallback to secondary DNS resolver
+1016-01-05T08:00:12.452Z [WARN ] [gateway] [trace=a309138c] Partial response returned: 3 of 5 shards responded
+1016-08-05T08:00:12.014Z [WARN ] [gateway] [trace=708e8c82] Unrecognized query parameter 'debug' ignored
+1016-22-05T08:00:12.488Z [WARN ] [gateway] [trace=37a7f2e2] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-26-05T08:00:12.873Z [INFO ] [gateway] [trace=fd25835a] Health check endpoint responding on :8080/health
+1016-30-05T08:00:12.860Z [INFO ] [gateway] [trace=b7db798c] Scheduled job 'cleanup' registered (interval=5m)
+1016-39-05T08:00:12.606Z [WARN ] [gateway] [trace=4eb4d008] Partial response returned: 3 of 5 shards responded
+1016-42-05T08:00:12.210Z [INFO ] [gateway] [trace=37aea96f] Configuration loaded from /etc/app/config.yaml
+1016-49-05T08:00:12.332Z [INFO ] [gateway] [trace=c84f6cb4] Rate limiter reset for tenant acme-corp
+1016-56-05T08:00:12.375Z [INFO ] [gateway] [trace=6d07a067] Scheduled job 'cleanup' registered (interval=5m)
+1016-07-05T08:00:12.923Z [INFO ] [gateway] [trace=dfc9c0f5] New worker spawned (pool=4/8)
+1016-10-05T08:00:12.456Z [INFO ] [gateway] [trace=7551f8cc] Graceful reload triggered by SIGHUP
+1016-18-05T08:00:12.195Z [INFO ] [gateway] [trace=06730584] Metrics exported to Prometheus
+1016-20-05T08:00:12.705Z [INFO ] [gateway] [trace=7366bd70] Batch import completed: 350 records
+1016-34-05T08:00:12.207Z [WARN ] [gateway] [trace=475bec40] Retry attempt 2/5 for upstream service payment-api
+1016-47-05T08:00:12.795Z [ERROR] [gateway] [trace=262893dc] Out of memory: cannot allocate 256MB for image processing
+1016-58-05T08:00:12.444Z [INFO ] [gateway] [trace=89bec4cd] Request processed in 42ms
+1016-07-05T08:00:12.838Z [INFO ] [gateway] [trace=c4d01b40] Graceful reload triggered by SIGHUP
+1016-21-05T08:00:12.090Z [INFO ] [gateway] [trace=775059d9] Batch import completed: 350 records
+1016-25-05T08:00:12.307Z [INFO ] [gateway] [trace=0cfdbfdd] Service started successfully
+1016-32-05T08:00:12.397Z [INFO ] [gateway] [trace=5af4a48e] Scheduled job 'cleanup' registered (interval=5m)
+1016-44-05T08:00:12.578Z [INFO ] [gateway] [trace=5a256e94] Webhook delivered to https://hooks.example.com/notify
+1016-50-05T08:00:12.626Z [INFO ] [gateway] [trace=ef68af9d] Graceful reload triggered by SIGHUP
+1016-56-05T08:00:12.316Z [INFO ] [gateway] [trace=fcdd2da8] Database connection pool initialized (size=10)
+1016-05-05T08:00:12.179Z [INFO ] [gateway] [trace=cc2c02b6] Health check endpoint responding on :8080/health
+1016-07-05T08:00:12.988Z [INFO ] [gateway] [trace=352dadf0] User session created
+1016-22-05T08:00:12.330Z [INFO ] [gateway] [trace=9aebd7f7] Scheduled job 'cleanup' registered (interval=5m)
+1016-32-05T08:00:12.014Z [INFO ] [gateway] [trace=7e3a926f] Graceful reload triggered by SIGHUP
+1016-33-05T08:00:12.094Z [WARN ] [gateway] [trace=e652c9c3] Unrecognized query parameter 'debug' ignored
+1016-44-05T08:00:12.485Z [INFO ] [gateway] [trace=4717b39e] Database connection pool initialized (size=10)
+1016-47-05T08:00:12.274Z [INFO ] [gateway] [trace=9929f259] Rate limiter reset for tenant acme-corp
+1016-59-05T08:00:12.465Z [INFO ] [gateway] [trace=1976ad8c] Service started successfully
+1016-09-05T08:00:12.114Z [ERROR] [gateway] [trace=ab631bf7] TLS handshake failed: certificate signed by unknown authority
+1016-23-05T08:00:12.720Z [WARN ] [gateway] [trace=51170f7d] Connection pool nearing capacity (8/10)
+1016-36-05T08:00:12.082Z [INFO ] [gateway] [trace=36571735] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.347Z [WARN ] [gateway] [trace=aaee53fe] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-01-05T08:00:12.156Z [INFO ] [gateway] [trace=1dc77752] Database connection pool initialized (size=10)
+1016-10-05T08:00:12.605Z [INFO ] [gateway] [trace=297ecc08] TLS certificate valid until 2027-03-15
+1016-15-05T08:00:12.853Z [INFO ] [gateway] [trace=1e372f02] Graceful reload triggered by SIGHUP
+1016-17-05T08:00:12.919Z [ERROR] [gateway] [trace=cc5aad58] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-24-05T08:00:12.565Z [WARN ] [gateway] [trace=17a0dcb1] Unrecognized query parameter 'debug' ignored
+1016-34-05T08:00:12.688Z [INFO ] [gateway] [trace=92899820] Request processed in 42ms
+1016-47-05T08:00:12.763Z [WARN ] [gateway] [trace=8b8b1c7f] Response time exceeded 500ms threshold (actual=623ms)
+1016-02-05T08:00:12.004Z [INFO ] [gateway] [trace=8182d7c7] Database connection pool initialized (size=10)
+1016-10-05T08:00:12.558Z [INFO ] [gateway] [trace=8e8afc18] TLS certificate valid until 2027-03-15
+1016-20-05T08:00:12.689Z [WARN ] [gateway] [trace=0eff0caa] Slow query detected: SELECT * FROM orders (1.8s)
+1016-34-05T08:00:12.725Z [INFO ] [gateway] [trace=6fad332b] Configuration loaded from /etc/app/config.yaml
+1016-44-05T08:00:12.705Z [INFO ] [gateway] [trace=2b0e0322] Database connection pool initialized (size=10)
+1016-59-05T08:00:12.461Z [WARN ] [gateway] [trace=97daf756] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-01-05T08:00:12.096Z [INFO ] [gateway] [trace=c5221888] Cache warmed up with 1482 entries
+1016-13-05T08:00:12.188Z [INFO ] [gateway] [trace=5b45bd31] Rate limiter reset for tenant acme-corp
+1016-16-05T08:00:12.426Z [INFO ] [gateway] [trace=a0774678] Health check endpoint responding on :8080/health
+1016-27-05T08:00:12.702Z [WARN ] [gateway] [trace=7ed063fb] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-29-05T08:00:12.226Z [INFO ] [gateway] [trace=1b8e2d8e] Scheduled job 'cleanup' registered (interval=5m)
+1016-43-05T08:00:12.839Z [INFO ] [gateway] [trace=f5a30f67] Service started successfully
+1016-53-05T08:00:12.416Z [INFO ] [gateway] [trace=b1f62901] Cache warmed up with 1482 entries
+1016-04-05T08:00:12.033Z [ERROR] [gateway] [trace=1fe024c5] Unhandled exception in middleware chain: nil pointer dereference
+1016-10-05T08:00:12.938Z [ERROR] [gateway] [trace=b8228956] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-21-05T08:00:12.269Z [INFO ] [gateway] [trace=677ad549] Graceful reload triggered by SIGHUP
+1016-27-05T08:00:12.678Z [INFO ] [gateway] [trace=b8f4ba76] Batch import completed: 350 records
+1016-40-05T08:00:12.017Z [WARN ] [gateway] [trace=0aecce73] Certificate expires in 30 days
+1016-54-05T08:00:12.622Z [ERROR] [gateway] [trace=e36f550b] Failed to connect to postgres://db:5432/app — connection refused
+1016-56-05T08:00:12.728Z [INFO ] [gateway] [trace=e5857f00] TLS certificate valid until 2027-03-15
+1016-59-05T08:00:12.212Z [WARN ] [gateway] [trace=3843bf79] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-06-05T08:00:12.051Z [WARN ] [gateway] [trace=5a06836b] Disk usage at 82%% on /var/lib/data
+1016-18-05T08:00:12.999Z [WARN ] [gateway] [trace=0f68ee9e] Response time exceeded 500ms threshold (actual=623ms)
+1016-33-05T08:00:12.662Z [INFO ] [gateway] [trace=5546e350] Graceful reload triggered by SIGHUP
+1016-42-05T08:00:12.607Z [INFO ] [gateway] [trace=6962cd68] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.094Z [INFO ] [gateway] [trace=2002163d] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.429Z [WARN ] [gateway] [trace=aa42e575] Retry attempt 2/5 for upstream service payment-api
+1016-11-05T08:00:12.940Z [INFO ] [gateway] [trace=01934052] Webhook delivered to https://hooks.example.com/notify
+1016-25-05T08:00:12.717Z [INFO ] [gateway] [trace=37668360] Rate limiter reset for tenant acme-corp
+1016-28-05T08:00:12.580Z [ERROR] [gateway] [trace=90871ecc] Migration 0042_add_index.sql failed: duplicate column name
+1016-36-05T08:00:12.425Z [INFO ] [gateway] [trace=210d4baa] Batch import completed: 350 records
+1016-50-05T08:00:12.992Z [INFO ] [gateway] [trace=160bd058] Service started successfully
+1016-56-05T08:00:12.754Z [INFO ] [gateway] [trace=2ebf9437] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.932Z [INFO ] [gateway] [trace=9982a139] Configuration loaded from /etc/app/config.yaml
+1016-13-05T08:00:12.070Z [ERROR] [gateway] [trace=f38a3c78] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-27-05T08:00:12.389Z [INFO ] [gateway] [trace=0942298e] Configuration loaded from /etc/app/config.yaml
+1016-34-05T08:00:12.324Z [INFO ] [gateway] [trace=b54e01e6] Service started successfully
+1016-43-05T08:00:12.870Z [INFO ] [gateway] [trace=3cdf96e7] New worker spawned (pool=4/8)
+1016-57-05T08:00:12.086Z [WARN ] [gateway] [trace=12de8b93] Rate limit approaching for API key sk-...a3f9
+1016-02-05T08:00:12.414Z [INFO ] [gateway] [trace=b6d86208] Database connection pool initialized (size=10)
+1016-15-05T08:00:12.542Z [WARN ] [gateway] [trace=d5654a86] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-30-05T08:00:12.355Z [INFO ] [gateway] [trace=a4fe4aca] Configuration loaded from /etc/app/config.yaml
+1016-44-05T08:00:12.348Z [INFO ] [gateway] [trace=18d76be7] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.162Z [WARN ] [gateway] [trace=88aa8399] Slow query detected: SELECT * FROM orders (1.8s)
+1016-00-05T08:00:12.866Z [INFO ] [gateway] [trace=dff6dc3f] Request processed in 42ms
+1016-04-05T08:00:12.257Z [INFO ] [gateway] [trace=2a65aad3] Scheduled job 'cleanup' registered (interval=5m)
+1016-19-05T08:00:12.134Z [INFO ] [gateway] [trace=4ac2b68a] Scheduled job 'cleanup' registered (interval=5m)
+1016-28-05T08:00:12.430Z [WARN ] [gateway] [trace=474b1295] Fallback to secondary DNS resolver
+1016-36-05T08:00:12.140Z [ERROR] [gateway] [trace=5debf9d3] Failed to connect to postgres://db:5432/app — connection refused
+1016-43-05T08:00:12.279Z [INFO ] [gateway] [trace=0c18b1ba] Service started successfully
+1016-52-05T08:00:12.400Z [INFO ] [gateway] [trace=d5207f57] User session created
+1016-00-05T08:00:12.798Z [INFO ] [gateway] [trace=a0b2994b] Graceful reload triggered by SIGHUP
+1016-13-05T08:00:12.614Z [INFO ] [gateway] [trace=0b47467c] New worker spawned (pool=4/8)
+1016-25-05T08:00:12.926Z [WARN ] [gateway] [trace=92aff65a] Connection pool nearing capacity (8/10)
+1016-39-05T08:00:12.072Z [INFO ] [gateway] [trace=b0c59259] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.596Z [INFO ] [gateway] [trace=d96eaed7] New worker spawned (pool=4/8)
+1016-54-05T08:00:12.985Z [INFO ] [gateway] [trace=e0a876c9] Scheduled job 'cleanup' registered (interval=5m)
+1016-02-05T08:00:12.039Z [ERROR] [gateway] [trace=bf75b885] Migration 0042_add_index.sql failed: duplicate column name
+1016-14-05T08:00:12.408Z [INFO ] [gateway] [trace=3fd75145] Rate limiter reset for tenant acme-corp
+1016-25-05T08:00:12.455Z [INFO ] [gateway] [trace=a8bf0e4a] Metrics exported to Prometheus
+1016-35-05T08:00:12.820Z [INFO ] [gateway] [trace=02876e37] Configuration loaded from /etc/app/config.yaml
+1016-40-05T08:00:12.085Z [WARN ] [gateway] [trace=f3f9864a] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-51-05T08:00:12.487Z [INFO ] [gateway] [trace=b546ad75] Batch import completed: 350 records
+1016-01-05T08:00:12.773Z [INFO ] [gateway] [trace=dfda7185] TLS certificate valid until 2027-03-15
+1016-16-05T08:00:12.354Z [INFO ] [gateway] [trace=7ce7aeed] Cache warmed up with 1482 entries
+1016-30-05T08:00:12.434Z [INFO ] [gateway] [trace=50c482f2] Service started successfully
+1016-35-05T08:00:12.608Z [INFO ] [gateway] [trace=2bd94546] Service started successfully
+1016-49-05T08:00:12.037Z [WARN ] [gateway] [trace=538033bc] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-01-05T08:00:12.113Z [INFO ] [gateway] [trace=54c8a650] Database connection pool initialized (size=10)
+1016-14-05T08:00:12.170Z [WARN ] [gateway] [trace=01ef2e2e] Rate limit approaching for API key sk-...a3f9
+1016-19-05T08:00:12.970Z [INFO ] [gateway] [trace=99bfad20] Scheduled job 'cleanup' registered (interval=5m)
+1016-32-05T08:00:12.595Z [WARN ] [gateway] [trace=8f2f228a] Connection pool nearing capacity (8/10)
+1016-39-05T08:00:12.225Z [INFO ] [gateway] [trace=4928c880] Cache warmed up with 1482 entries
+1016-47-05T08:00:12.030Z [INFO ] [gateway] [trace=70f9a357] Cache warmed up with 1482 entries
+1016-56-05T08:00:12.036Z [ERROR] [gateway] [trace=4e954af7] Invalid JWT token: signature verification failed
+1016-58-05T08:00:12.533Z [INFO ] [gateway] [trace=a8dc76aa] New worker spawned (pool=4/8)
+1016-05-05T08:00:12.661Z [INFO ] [gateway] [trace=51b132af] Cache warmed up with 1482 entries
+1016-14-05T08:00:12.409Z [INFO ] [gateway] [trace=396c8257] Rate limiter reset for tenant acme-corp
+1016-24-05T08:00:12.424Z [INFO ] [gateway] [trace=0f754fbe] Graceful reload triggered by SIGHUP
+1016-37-05T08:00:12.087Z [INFO ] [gateway] [trace=c0acc880] Health check endpoint responding on :8080/health
+1016-51-05T08:00:12.444Z [INFO ] [gateway] [trace=08ad87cd] TLS certificate valid until 2027-03-15
+1016-05-05T08:00:12.298Z [INFO ] [gateway] [trace=21b42cbb] Health check endpoint responding on :8080/health
+1016-20-05T08:00:12.065Z [INFO ] [gateway] [trace=bdf35e5f] Rate limiter reset for tenant acme-corp
+1016-23-05T08:00:12.768Z [INFO ] [gateway] [trace=44a4a3e3] Webhook delivered to https://hooks.example.com/notify
+1016-33-05T08:00:12.162Z [WARN ] [gateway] [trace=789079aa] Stale cache entry served for key user:9281
+1016-39-05T08:00:12.262Z [WARN ] [gateway] [trace=b50955b4] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-42-05T08:00:12.855Z [INFO ] [gateway] [trace=268a3a14] Service started successfully
+1016-49-05T08:00:12.933Z [INFO ] [gateway] [trace=3fd0e74f] Metrics exported to Prometheus
+1016-55-05T08:00:12.549Z [INFO ] [gateway] [trace=8ad99113] Webhook delivered to https://hooks.example.com/notify
+1016-56-05T08:00:12.696Z [INFO ] [gateway] [trace=efa7a313] New worker spawned (pool=4/8)
+1016-02-05T08:00:12.911Z [INFO ] [gateway] [trace=3ed4e90a] Scheduled job 'cleanup' registered (interval=5m)
+1016-14-05T08:00:12.623Z [INFO ] [gateway] [trace=db0d904d] User session created
+1016-27-05T08:00:12.834Z [INFO ] [gateway] [trace=fd043d62] Request processed in 42ms
+1016-41-05T08:00:12.274Z [INFO ] [gateway] [trace=c41ebdaa] Metrics exported to Prometheus
+1016-48-05T08:00:12.652Z [INFO ] [gateway] [trace=11d7b1a6] Configuration loaded from /etc/app/config.yaml
+1016-59-05T08:00:12.300Z [WARN ] [gateway] [trace=0754cda9] Connection pool nearing capacity (8/10)
+1016-05-05T08:00:12.091Z [INFO ] [gateway] [trace=7a49b9ab] New worker spawned (pool=4/8)
+1016-08-05T08:00:12.687Z [ERROR] [gateway] [trace=d52976e2] Failed to connect to postgres://db:5432/app — connection refused
+1016-23-05T08:00:12.556Z [INFO ] [gateway] [trace=386265db] New worker spawned (pool=4/8)
+1016-37-05T08:00:12.707Z [WARN ] [gateway] [trace=530cde00] Certificate expires in 30 days
+1016-40-05T08:00:12.708Z [INFO ] [gateway] [trace=ee64b814] Health check endpoint responding on :8080/health
+1016-51-05T08:00:12.251Z [INFO ] [gateway] [trace=fe976edc] Cache warmed up with 1482 entries
+1016-06-05T08:00:12.206Z [INFO ] [gateway] [trace=59abed31] Scheduled job 'cleanup' registered (interval=5m)
+1016-09-05T08:00:12.560Z [WARN ] [gateway] [trace=8ad18d78] Partial response returned: 3 of 5 shards responded
+1016-14-05T08:00:12.292Z [INFO ] [gateway] [trace=b9a95307] TLS certificate valid until 2027-03-15
+1016-16-05T08:00:12.027Z [INFO ] [gateway] [trace=05e67449] Scheduled job 'cleanup' registered (interval=5m)
+1016-19-05T08:00:12.912Z [WARN ] [gateway] [trace=3f676e39] Fallback to secondary DNS resolver
+1016-31-05T08:00:12.747Z [INFO ] [gateway] [trace=35e4aa7e] Health check endpoint responding on :8080/health
+1016-40-05T08:00:12.508Z [INFO ] [gateway] [trace=d0d8bfa3] Cache warmed up with 1482 entries
+1016-50-05T08:00:12.858Z [WARN ] [gateway] [trace=d79105e1] Slow query detected: SELECT * FROM orders (1.8s)
+1016-53-05T08:00:12.217Z [INFO ] [gateway] [trace=5e1605a6] Database connection pool initialized (size=10)
+1016-05-05T08:00:12.426Z [INFO ] [gateway] [trace=226ccdc1] Graceful reload triggered by SIGHUP
+1016-20-05T08:00:12.145Z [INFO ] [gateway] [trace=abe0fef7] Rate limiter reset for tenant acme-corp
+1016-24-05T08:00:12.021Z [INFO ] [gateway] [trace=3b645e55] Webhook delivered to https://hooks.example.com/notify
+1016-38-05T08:00:12.188Z [WARN ] [gateway] [trace=f1567882] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-39-05T08:00:12.421Z [INFO ] [gateway] [trace=98bcc7d3] Metrics exported to Prometheus
+1016-46-05T08:00:12.389Z [ERROR] [gateway] [trace=bfcdf759] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-00-05T08:00:12.150Z [WARN ] [gateway] [trace=fe903a5f] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-10-05T08:00:12.416Z [WARN ] [gateway] [trace=c3aab61f] Memory usage above 75%% (current=78%%)
+1016-24-05T08:00:12.119Z [INFO ] [gateway] [trace=56ce5f3a] New worker spawned (pool=4/8)
+1016-38-05T08:00:12.659Z [WARN ] [gateway] [trace=1b03b1f1] Certificate expires in 30 days
+1016-40-05T08:00:12.009Z [INFO ] [gateway] [trace=9856ea3d] Service started successfully
+1016-47-05T08:00:12.681Z [WARN ] [gateway] [trace=1100a060] Rate limit approaching for API key sk-...a3f9
+1016-01-05T08:00:12.810Z [INFO ] [gateway] [trace=61066615] Service started successfully
+1016-03-05T08:00:12.387Z [WARN ] [gateway] [trace=30b265f9] Retry attempt 2/5 for upstream service payment-api
+1016-11-05T08:00:12.608Z [WARN ] [gateway] [trace=c595f3e8] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-18-05T08:00:12.690Z [INFO ] [gateway] [trace=c3dd0e69] User session created
+1016-23-05T08:00:12.024Z [INFO ] [gateway] [trace=ef2f9523] Webhook delivered to https://hooks.example.com/notify
+1016-26-05T08:00:12.996Z [ERROR] [gateway] [trace=975a35df] Request timeout after 30s: POST /api/v1/reports/generate
+1016-34-05T08:00:12.565Z [INFO ] [gateway] [trace=358f8b46] User session created
+1016-48-05T08:00:12.385Z [WARN ] [gateway] [trace=c3239017] Connection pool nearing capacity (8/10)
+1016-52-05T08:00:12.221Z [INFO ] [gateway] [trace=735ac1ac] Batch import completed: 350 records
+1016-58-05T08:00:12.789Z [INFO ] [gateway] [trace=554de41f] Graceful reload triggered by SIGHUP
+1016-01-05T08:00:12.888Z [INFO ] [gateway] [trace=529eb8fb] Scheduled job 'cleanup' registered (interval=5m)
+1016-08-05T08:00:12.327Z [WARN ] [gateway] [trace=4773f62f] Rate limit approaching for API key sk-...a3f9
+1016-16-05T08:00:12.967Z [INFO ] [gateway] [trace=726675d2] Scheduled job 'cleanup' registered (interval=5m)
+1016-21-05T08:00:12.951Z [INFO ] [gateway] [trace=7d48b210] Service started successfully
+1016-23-05T08:00:12.945Z [INFO ] [gateway] [trace=36c7e9a3] Batch import completed: 350 records
+1016-29-05T08:00:12.042Z [ERROR] [gateway] [trace=d04c5fdf] Authentication failed for user admin@example.com (attempt 5/5)
+1016-39-05T08:00:12.496Z [ERROR] [gateway] [trace=08bcc919] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-48-05T08:00:12.898Z [INFO ] [gateway] [trace=4de963eb] Rate limiter reset for tenant acme-corp
+1016-00-05T08:00:12.572Z [INFO ] [gateway] [trace=de267c30] Metrics exported to Prometheus
+1016-09-05T08:00:12.623Z [INFO ] [gateway] [trace=a3fe5d6e] Health check endpoint responding on :8080/health
+1016-16-05T08:00:12.815Z [INFO ] [gateway] [trace=f80dad9f] Metrics exported to Prometheus
+1016-26-05T08:00:12.688Z [INFO ] [gateway] [trace=b7a37f42] Webhook delivered to https://hooks.example.com/notify
+1016-34-05T08:00:12.359Z [WARN ] [gateway] [trace=d57358c4] Clock skew detected: 1.3s drift from NTP server
+1016-39-05T08:00:12.662Z [INFO ] [gateway] [trace=83b4ce2a] Configuration loaded from /etc/app/config.yaml
+1016-41-05T08:00:12.940Z [INFO ] [gateway] [trace=38490586] Metrics exported to Prometheus
+1016-55-05T08:00:12.658Z [INFO ] [gateway] [trace=5ce1769b] Webhook delivered to https://hooks.example.com/notify
+1016-58-05T08:00:12.450Z [INFO ] [gateway] [trace=40852d66] Batch import completed: 350 records
+1016-03-05T08:00:12.843Z [WARN ] [gateway] [trace=b76e40ad] Unrecognized query parameter 'debug' ignored
+1016-17-05T08:00:12.308Z [INFO ] [gateway] [trace=050b63f8] Service started successfully
+1016-23-05T08:00:12.392Z [INFO ] [gateway] [trace=ca671780] New worker spawned (pool=4/8)
+1016-33-05T08:00:12.214Z [INFO ] [gateway] [trace=5205b7d0] Configuration loaded from /etc/app/config.yaml
+1016-40-05T08:00:12.830Z [INFO ] [gateway] [trace=cfa677e6] Service started successfully
+1016-52-05T08:00:12.321Z [ERROR] [gateway] [trace=6059f5fc] S3 upload failed: AccessDenied on bucket prod-assets
+1016-57-05T08:00:12.784Z [INFO ] [gateway] [trace=684b7f67] Request processed in 42ms
+1016-07-05T08:00:12.615Z [INFO ] [gateway] [trace=49804a0a] Scheduled job 'cleanup' registered (interval=5m)
+1016-18-05T08:00:12.407Z [INFO ] [gateway] [trace=a5c73d9b] Database connection pool initialized (size=10)
+1016-27-05T08:00:12.170Z [INFO ] [gateway] [trace=5ca8fb8a] Health check endpoint responding on :8080/health
+1016-31-05T08:00:12.902Z [INFO ] [gateway] [trace=e7dcb0cd] Graceful reload triggered by SIGHUP
+1016-41-05T08:00:12.702Z [WARN ] [gateway] [trace=35fce6a8] Unrecognized query parameter 'debug' ignored
+1016-46-05T08:00:12.815Z [INFO ] [gateway] [trace=ff5b5327] Request processed in 42ms
+1016-59-05T08:00:12.149Z [INFO ] [gateway] [trace=f58fd8bf] Cache warmed up with 1482 entries
+1016-04-05T08:00:12.062Z [INFO ] [gateway] [trace=d2f196e7] Graceful reload triggered by SIGHUP
+1016-11-05T08:00:12.139Z [INFO ] [gateway] [trace=2dce5b4a] Cache warmed up with 1482 entries
+1016-21-05T08:00:12.612Z [INFO ] [gateway] [trace=876143de] Configuration loaded from /etc/app/config.yaml
+1016-34-05T08:00:12.694Z [INFO ] [gateway] [trace=68a8d534] Rate limiter reset for tenant acme-corp
+1016-47-05T08:00:12.541Z [INFO ] [gateway] [trace=f0bb765c] Health check endpoint responding on :8080/health
+1016-02-05T08:00:12.283Z [WARN ] [gateway] [trace=6f25aed8] Memory usage above 75%% (current=78%%)
+1016-17-05T08:00:12.063Z [INFO ] [gateway] [trace=69a70a1f] New worker spawned (pool=4/8)
+1016-19-05T08:00:12.245Z [INFO ] [gateway] [trace=81f9fcf4] Graceful reload triggered by SIGHUP
+1016-26-05T08:00:12.938Z [INFO ] [gateway] [trace=6cf2b017] TLS certificate valid until 2027-03-15
+1016-29-05T08:00:12.050Z [INFO ] [gateway] [trace=de3607fb] Health check endpoint responding on :8080/health
+1016-34-05T08:00:12.668Z [INFO ] [gateway] [trace=7688e381] User session created
+1016-45-05T08:00:12.320Z [ERROR] [gateway] [trace=ae9cd536] Failed to connect to postgres://db:5432/app — connection refused
+1016-49-05T08:00:12.299Z [INFO ] [gateway] [trace=e5abd949] Configuration loaded from /etc/app/config.yaml
+1016-59-05T08:00:12.810Z [INFO ] [gateway] [trace=ca8a0522] Metrics exported to Prometheus
+1016-14-05T08:00:12.116Z [INFO ] [gateway] [trace=0d159448] Request processed in 42ms
+1016-25-05T08:00:12.378Z [INFO ] [gateway] [trace=570a2961] Database connection pool initialized (size=10)
+1016-31-05T08:00:12.444Z [INFO ] [gateway] [trace=80b9a961] Rate limiter reset for tenant acme-corp
+1016-40-05T08:00:12.107Z [INFO ] [gateway] [trace=c550eb06] Graceful reload triggered by SIGHUP
+1016-45-05T08:00:12.063Z [WARN ] [gateway] [trace=b2de12fb] Rate limit approaching for API key sk-...a3f9
+1016-58-05T08:00:12.143Z [INFO ] [gateway] [trace=2c209549] Health check endpoint responding on :8080/health
+1016-09-05T08:00:12.245Z [WARN ] [gateway] [trace=708a8f65] Partial response returned: 3 of 5 shards responded
+1016-12-05T08:00:12.788Z [INFO ] [gateway] [trace=36e94e78] Configuration loaded from /etc/app/config.yaml
+1016-21-05T08:00:12.655Z [INFO ] [gateway] [trace=64f31cc6] Cache warmed up with 1482 entries
+1016-29-05T08:00:12.625Z [INFO ] [gateway] [trace=8a316208] Service started successfully
+1016-33-05T08:00:12.985Z [INFO ] [gateway] [trace=e8e0eb16] Scheduled job 'cleanup' registered (interval=5m)
+1016-45-05T08:00:12.414Z [INFO ] [gateway] [trace=c43ce1cc] New worker spawned (pool=4/8)
+1016-49-05T08:00:12.623Z [INFO ] [gateway] [trace=6fca7bd8] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.476Z [INFO ] [gateway] [trace=c8b343fa] Batch import completed: 350 records
+1016-04-05T08:00:12.766Z [INFO ] [gateway] [trace=5f7ffda7] Cache warmed up with 1482 entries
+1016-13-05T08:00:12.349Z [INFO ] [gateway] [trace=6109ac9b] Batch import completed: 350 records
+1016-20-05T08:00:12.941Z [INFO ] [gateway] [trace=3e480af5] Cache warmed up with 1482 entries
+1016-25-05T08:00:12.234Z [INFO ] [gateway] [trace=ad07f5a7] User session created
+1016-34-05T08:00:12.995Z [INFO ] [gateway] [trace=2221172f] Service started successfully
+1016-47-05T08:00:12.991Z [INFO ] [gateway] [trace=e37b1647] Service started successfully
+1016-53-05T08:00:12.101Z [INFO ] [gateway] [trace=42f95213] Batch import completed: 350 records
+1016-57-05T08:00:12.291Z [INFO ] [gateway] [trace=c1697e03] Graceful reload triggered by SIGHUP
+1016-58-05T08:00:12.523Z [INFO ] [gateway] [trace=6729d837] Rate limiter reset for tenant acme-corp
+1016-01-05T08:00:12.218Z [INFO ] [gateway] [trace=19854980] Graceful reload triggered by SIGHUP
+1016-03-05T08:00:12.395Z [WARN ] [gateway] [trace=92955553] Partial response returned: 3 of 5 shards responded
+1016-17-05T08:00:12.906Z [WARN ] [gateway] [trace=d02478a2] Partial response returned: 3 of 5 shards responded
+1016-25-05T08:00:12.031Z [INFO ] [gateway] [trace=a6a7bc9d] Rate limiter reset for tenant acme-corp
+1016-33-05T08:00:12.378Z [WARN ] [gateway] [trace=092bda3f] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-43-05T08:00:12.531Z [INFO ] [gateway] [trace=fed37bc1] Configuration loaded from /etc/app/config.yaml
+1016-53-05T08:00:12.848Z [WARN ] [gateway] [trace=2c6a9531] Certificate expires in 30 days
+1016-03-05T08:00:12.137Z [WARN ] [gateway] [trace=45cf9140] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-16-05T08:00:12.853Z [ERROR] [gateway] [trace=82779a44] Failed to connect to postgres://db:5432/app — connection refused
+1016-27-05T08:00:12.334Z [INFO ] [gateway] [trace=04f9c77a] Request processed in 42ms
+1016-35-05T08:00:12.736Z [INFO ] [gateway] [trace=0771b421] Batch import completed: 350 records
+1016-44-05T08:00:12.136Z [INFO ] [gateway] [trace=e6506e76] Metrics exported to Prometheus
+1016-48-05T08:00:12.668Z [INFO ] [gateway] [trace=20f23ad7] Graceful reload triggered by SIGHUP
+1016-03-05T08:00:12.181Z [INFO ] [gateway] [trace=8f60ec71] Health check endpoint responding on :8080/health
+1016-09-05T08:00:12.637Z [INFO ] [gateway] [trace=9385c2dd] Webhook delivered to https://hooks.example.com/notify
+1016-23-05T08:00:12.422Z [INFO ] [gateway] [trace=9ab88f26] TLS certificate valid until 2027-03-15
+1016-33-05T08:00:12.557Z [WARN ] [gateway] [trace=ddd119af] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-42-05T08:00:12.594Z [INFO ] [gateway] [trace=ab89edbc] Graceful reload triggered by SIGHUP
+1016-52-05T08:00:12.644Z [INFO ] [gateway] [trace=51a30efe] Database connection pool initialized (size=10)
+1016-02-05T08:00:12.097Z [INFO ] [gateway] [trace=ce91d934] Database connection pool initialized (size=10)
+1016-05-05T08:00:12.721Z [INFO ] [gateway] [trace=2d8e0616] Rate limiter reset for tenant acme-corp
+1016-10-05T08:00:12.340Z [INFO ] [gateway] [trace=0303ab19] Batch import completed: 350 records
+1016-18-05T08:00:12.206Z [INFO ] [gateway] [trace=02ef41f5] Metrics exported to Prometheus
+1016-27-05T08:00:12.317Z [INFO ] [gateway] [trace=c79edaa4] Rate limiter reset for tenant acme-corp
+1016-33-05T08:00:12.934Z [WARN ] [gateway] [trace=23740a30] Clock skew detected: 1.3s drift from NTP server
+1016-37-05T08:00:12.460Z [INFO ] [gateway] [trace=0a1d4684] Configuration loaded from /etc/app/config.yaml
+1016-45-05T08:00:12.774Z [INFO ] [gateway] [trace=a56227f7] Webhook delivered to https://hooks.example.com/notify
+1016-47-05T08:00:12.834Z [INFO ] [gateway] [trace=e2080e33] Batch import completed: 350 records
+1016-57-05T08:00:12.730Z [INFO ] [gateway] [trace=cc2dee80] Rate limiter reset for tenant acme-corp
+1016-02-05T08:00:12.401Z [INFO ] [gateway] [trace=dcc32126] Cache warmed up with 1482 entries
+1016-09-05T08:00:12.857Z [WARN ] [gateway] [trace=c3d8b417] Rate limit approaching for API key sk-...a3f9
+1016-17-05T08:00:12.524Z [INFO ] [gateway] [trace=43314d6d] Scheduled job 'cleanup' registered (interval=5m)
+1016-26-05T08:00:12.911Z [INFO ] [gateway] [trace=e9502add] Health check endpoint responding on :8080/health
+1016-28-05T08:00:12.699Z [WARN ] [gateway] [trace=3c23278e] Retry attempt 2/5 for upstream service payment-api
+1016-36-05T08:00:12.497Z [INFO ] [gateway] [trace=cec7c89d] Health check endpoint responding on :8080/health
+1016-46-05T08:00:12.972Z [INFO ] [gateway] [trace=6cd440dd] Graceful reload triggered by SIGHUP
+1016-55-05T08:00:12.933Z [ERROR] [gateway] [trace=97eff0d2] Disk write failed: /var/log/app.log — no space left on device
+1016-59-05T08:00:12.818Z [INFO ] [gateway] [trace=dd7fcee8] Database connection pool initialized (size=10)
+1016-07-05T08:00:12.133Z [INFO ] [gateway] [trace=c5d4de34] Configuration loaded from /etc/app/config.yaml
+1016-08-05T08:00:12.895Z [INFO ] [gateway] [trace=9556e2f0] User session created
+1016-21-05T08:00:12.149Z [WARN ] [gateway] [trace=66f0963c] Response time exceeded 500ms threshold (actual=623ms)
+1016-23-05T08:00:12.359Z [INFO ] [gateway] [trace=67b18bb7] TLS certificate valid until 2027-03-15
+1016-34-05T08:00:12.685Z [INFO ] [gateway] [trace=05736286] Graceful reload triggered by SIGHUP

@@ -1,0 +1,4 @@
+{"time":"2026-03-25 23:17:17","level":"INFO","message":"The computer is starting"}
+{"time":"2026-03-25 23:17:17","level":"DEBUG","message":"There is a bug"}
+{"time":"2026-03-25 23:17:17","level":"WARN","message":"There is race possibility. Please have a look!"}
+{"time":"2026-03-25 23:17:17","level":"ERROR","message":"The computer is shutdown unexpectedly!"}

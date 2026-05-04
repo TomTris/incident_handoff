@@ -1,0 +1,300 @@
+1016-57-05T08:00:12.048Z [INFO ] [inventory-sync] [trace=82bddc9d] Scheduled job 'cleanup' registered (interval=5m)
+1016-11-05T08:00:12.012Z [INFO ] [inventory-sync] [trace=f83ac3d2] Rate limiter reset for tenant acme-corp
+1016-25-05T08:00:12.810Z [ERROR] [inventory-sync] [trace=59ae6dd2] Disk write failed: /var/log/app.log — no space left on device
+1016-39-05T08:00:12.123Z [INFO ] [inventory-sync] [trace=33bd277c] Database connection pool initialized (size=10)
+1016-47-05T08:00:12.395Z [ERROR] [inventory-sync] [trace=416c74de] Migration 0042_add_index.sql failed: duplicate column name
+1016-01-05T08:00:12.947Z [INFO ] [inventory-sync] [trace=6df32b11] Database connection pool initialized (size=10)
+1016-07-05T08:00:12.898Z [ERROR] [inventory-sync] [trace=1d1440ee] S3 upload failed: AccessDenied on bucket prod-assets
+1016-16-05T08:00:12.304Z [INFO ] [inventory-sync] [trace=d88f03ce] Service started successfully
+1016-20-05T08:00:12.720Z [INFO ] [inventory-sync] [trace=4ee2443d] Database connection pool initialized (size=10)
+1016-32-05T08:00:12.245Z [INFO ] [inventory-sync] [trace=62d8f68d] Database connection pool initialized (size=10)
+1016-45-05T08:00:12.825Z [WARN ] [inventory-sync] [trace=47ba9551] Slow query detected: SELECT * FROM orders (1.8s)
+1016-58-05T08:00:12.820Z [WARN ] [inventory-sync] [trace=18425b88] Certificate expires in 30 days
+1016-06-05T08:00:12.251Z [INFO ] [inventory-sync] [trace=a88586ab] Database connection pool initialized (size=10)
+1016-08-05T08:00:12.318Z [INFO ] [inventory-sync] [trace=de51e242] Health check endpoint responding on :8080/health
+1016-11-05T08:00:12.329Z [INFO ] [inventory-sync] [trace=92c1becc] Graceful reload triggered by SIGHUP
+1016-23-05T08:00:12.454Z [WARN ] [inventory-sync] [trace=eb74df7a] Response time exceeded 500ms threshold (actual=623ms)
+1016-34-05T08:00:12.869Z [INFO ] [inventory-sync] [trace=aaf7999e] Metrics exported to Prometheus
+1016-36-05T08:00:12.504Z [INFO ] [inventory-sync] [trace=7bcc396a] Rate limiter reset for tenant acme-corp
+1016-44-05T08:00:12.541Z [INFO ] [inventory-sync] [trace=19655b01] Health check endpoint responding on :8080/health
+1016-58-05T08:00:12.137Z [WARN ] [inventory-sync] [trace=a094a756] Disk usage at 82%% on /var/lib/data
+1016-09-05T08:00:12.588Z [INFO ] [inventory-sync] [trace=52c35e90] Metrics exported to Prometheus
+1016-16-05T08:00:12.935Z [INFO ] [inventory-sync] [trace=66337b04] Configuration loaded from /etc/app/config.yaml
+1016-22-05T08:00:12.321Z [WARN ] [inventory-sync] [trace=cf647c5c] Slow query detected: SELECT * FROM orders (1.8s)
+1016-34-05T08:00:12.486Z [INFO ] [inventory-sync] [trace=2ebe580d] Database connection pool initialized (size=10)
+1016-44-05T08:00:12.701Z [ERROR] [inventory-sync] [trace=8a22fff5] Migration 0042_add_index.sql failed: duplicate column name
+1016-57-05T08:00:12.268Z [INFO ] [inventory-sync] [trace=30d3a4fa] Configuration loaded from /etc/app/config.yaml
+1016-09-05T08:00:12.998Z [INFO ] [inventory-sync] [trace=7eeaadaa] Configuration loaded from /etc/app/config.yaml
+1016-12-05T08:00:12.608Z [INFO ] [inventory-sync] [trace=2d3ebcf4] User session created
+1016-26-05T08:00:12.678Z [WARN ] [inventory-sync] [trace=001283c2] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-37-05T08:00:12.931Z [INFO ] [inventory-sync] [trace=90dfe3cc] Metrics exported to Prometheus
+1016-42-05T08:00:12.296Z [INFO ] [inventory-sync] [trace=611b6a98] Service started successfully
+1016-43-05T08:00:12.635Z [INFO ] [inventory-sync] [trace=2f9cc7e6] Webhook delivered to https://hooks.example.com/notify
+1016-46-05T08:00:12.497Z [WARN ] [inventory-sync] [trace=75e4f90a] Slow query detected: SELECT * FROM orders (1.8s)
+1016-50-05T08:00:12.782Z [WARN ] [inventory-sync] [trace=fbc2944f] Stale cache entry served for key user:9281
+1016-58-05T08:00:12.578Z [INFO ] [inventory-sync] [trace=9eaf5451] Health check endpoint responding on :8080/health
+1016-09-05T08:00:12.729Z [ERROR] [inventory-sync] [trace=c2ef5b2a] Authentication failed for user admin@example.com (attempt 5/5)
+1016-14-05T08:00:12.585Z [INFO ] [inventory-sync] [trace=2c6fd601] Scheduled job 'cleanup' registered (interval=5m)
+1016-28-05T08:00:12.334Z [INFO ] [inventory-sync] [trace=f36b6740] Webhook delivered to https://hooks.example.com/notify
+1016-32-05T08:00:12.424Z [INFO ] [inventory-sync] [trace=834f4911] Graceful reload triggered by SIGHUP
+1016-37-05T08:00:12.108Z [INFO ] [inventory-sync] [trace=5d7848ce] Rate limiter reset for tenant acme-corp
+1016-38-05T08:00:12.258Z [INFO ] [inventory-sync] [trace=de6dab97] Service started successfully
+1016-52-05T08:00:12.023Z [INFO ] [inventory-sync] [trace=95456269] Configuration loaded from /etc/app/config.yaml
+1016-59-05T08:00:12.338Z [WARN ] [inventory-sync] [trace=a1cbbb92] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-11-05T08:00:12.292Z [INFO ] [inventory-sync] [trace=ec499a57] Request processed in 42ms
+1016-13-05T08:00:12.487Z [INFO ] [inventory-sync] [trace=2ffe7b21] Service started successfully
+1016-25-05T08:00:12.814Z [INFO ] [inventory-sync] [trace=13333816] Database connection pool initialized (size=10)
+1016-33-05T08:00:12.659Z [INFO ] [inventory-sync] [trace=bb3ccbcc] Cache warmed up with 1482 entries
+1016-34-05T08:00:12.712Z [INFO ] [inventory-sync] [trace=d39594a9] Configuration loaded from /etc/app/config.yaml
+1016-47-05T08:00:12.499Z [INFO ] [inventory-sync] [trace=16348c57] Graceful reload triggered by SIGHUP
+1016-01-05T08:00:12.635Z [INFO ] [inventory-sync] [trace=db6d15a4] Webhook delivered to https://hooks.example.com/notify
+1016-04-05T08:00:12.690Z [INFO ] [inventory-sync] [trace=e4d8c9ad] New worker spawned (pool=4/8)
+1016-15-05T08:00:12.400Z [INFO ] [inventory-sync] [trace=b63dc7c2] User session created
+1016-16-05T08:00:12.623Z [INFO ] [inventory-sync] [trace=ca29866b] Batch import completed: 350 records
+1016-29-05T08:00:12.592Z [ERROR] [inventory-sync] [trace=ab60f82a] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-31-05T08:00:12.736Z [INFO ] [inventory-sync] [trace=84afab3a] Webhook delivered to https://hooks.example.com/notify
+1016-35-05T08:00:12.777Z [INFO ] [inventory-sync] [trace=af12b55b] Graceful reload triggered by SIGHUP
+1016-46-05T08:00:12.505Z [INFO ] [inventory-sync] [trace=0653e934] Configuration loaded from /etc/app/config.yaml
+1016-49-05T08:00:12.519Z [WARN ] [inventory-sync] [trace=87def4a0] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-03-05T08:00:12.581Z [WARN ] [inventory-sync] [trace=7a133452] Partial response returned: 3 of 5 shards responded
+1016-10-05T08:00:12.516Z [INFO ] [inventory-sync] [trace=b1f0d43e] Service started successfully
+1016-20-05T08:00:12.638Z [WARN ] [inventory-sync] [trace=1577909e] Slow query detected: SELECT * FROM orders (1.8s)
+1016-21-05T08:00:12.698Z [INFO ] [inventory-sync] [trace=e0bc41d2] Batch import completed: 350 records
+1016-32-05T08:00:12.416Z [WARN ] [inventory-sync] [trace=9ce44970] Memory usage above 75%% (current=78%%)
+1016-46-05T08:00:12.011Z [INFO ] [inventory-sync] [trace=e304aed5] Database connection pool initialized (size=10)
+1016-52-05T08:00:12.882Z [ERROR] [inventory-sync] [trace=8cd0ea8c] S3 upload failed: AccessDenied on bucket prod-assets
+1016-07-05T08:00:12.873Z [INFO ] [inventory-sync] [trace=deacf9e4] Configuration loaded from /etc/app/config.yaml
+1016-12-05T08:00:12.373Z [INFO ] [inventory-sync] [trace=6662f2b8] Database connection pool initialized (size=10)
+1016-15-05T08:00:12.837Z [INFO ] [inventory-sync] [trace=46daef60] Rate limiter reset for tenant acme-corp
+1016-30-05T08:00:12.661Z [INFO ] [inventory-sync] [trace=bcc3d734] Scheduled job 'cleanup' registered (interval=5m)
+1016-35-05T08:00:12.182Z [INFO ] [inventory-sync] [trace=0d27a14c] User session created
+1016-49-05T08:00:12.095Z [INFO ] [inventory-sync] [trace=476ec302] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.377Z [WARN ] [inventory-sync] [trace=97816289] Disk usage at 82%% on /var/lib/data
+1016-07-05T08:00:12.290Z [INFO ] [inventory-sync] [trace=5ad027d7] Scheduled job 'cleanup' registered (interval=5m)
+1016-11-05T08:00:12.481Z [ERROR] [inventory-sync] [trace=fc453dd2] TLS handshake failed: certificate signed by unknown authority
+1016-19-05T08:00:12.827Z [INFO ] [inventory-sync] [trace=8b48012b] Rate limiter reset for tenant acme-corp
+1016-31-05T08:00:12.852Z [WARN ] [inventory-sync] [trace=44431868] Unrecognized query parameter 'debug' ignored
+1016-34-05T08:00:12.827Z [INFO ] [inventory-sync] [trace=e149b54d] Batch import completed: 350 records
+1016-48-05T08:00:12.844Z [INFO ] [inventory-sync] [trace=4d69aa25] New worker spawned (pool=4/8)
+1016-59-05T08:00:12.223Z [INFO ] [inventory-sync] [trace=7b90443f] Request processed in 42ms
+1016-14-05T08:00:12.205Z [INFO ] [inventory-sync] [trace=e11a7503] Service started successfully
+1016-28-05T08:00:12.388Z [WARN ] [inventory-sync] [trace=b921e994] Response time exceeded 500ms threshold (actual=623ms)
+1016-36-05T08:00:12.395Z [INFO ] [inventory-sync] [trace=6b1fd511] Service started successfully
+1016-49-05T08:00:12.578Z [INFO ] [inventory-sync] [trace=ca8de446] Batch import completed: 350 records
+1016-54-05T08:00:12.920Z [INFO ] [inventory-sync] [trace=000e6822] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.282Z [INFO ] [inventory-sync] [trace=9293f488] TLS certificate valid until 2027-03-15
+1016-12-05T08:00:12.115Z [INFO ] [inventory-sync] [trace=ef3bcd86] Configuration loaded from /etc/app/config.yaml
+1016-20-05T08:00:12.122Z [INFO ] [inventory-sync] [trace=3715006f] Database connection pool initialized (size=10)
+1016-30-05T08:00:12.443Z [ERROR] [inventory-sync] [trace=65d7fefe] S3 upload failed: AccessDenied on bucket prod-assets
+1016-41-05T08:00:12.032Z [WARN ] [inventory-sync] [trace=d31570e4] Disk usage at 82%% on /var/lib/data
+1016-44-05T08:00:12.723Z [INFO ] [inventory-sync] [trace=0bf574b0] TLS certificate valid until 2027-03-15
+1016-57-05T08:00:12.888Z [INFO ] [inventory-sync] [trace=944d5f25] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.302Z [ERROR] [inventory-sync] [trace=ec5c8982] Unhandled exception in middleware chain: nil pointer dereference
+1016-10-05T08:00:12.795Z [INFO ] [inventory-sync] [trace=58466422] Database connection pool initialized (size=10)
+1016-22-05T08:00:12.802Z [INFO ] [inventory-sync] [trace=55487c99] Scheduled job 'cleanup' registered (interval=5m)
+1016-34-05T08:00:12.880Z [INFO ] [inventory-sync] [trace=d0a4f554] Database connection pool initialized (size=10)
+1016-38-05T08:00:12.335Z [INFO ] [inventory-sync] [trace=644301a6] Service started successfully
+1016-46-05T08:00:12.606Z [INFO ] [inventory-sync] [trace=27f9ffc0] Service started successfully
+1016-51-05T08:00:12.275Z [WARN ] [inventory-sync] [trace=3c412eb2] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-56-05T08:00:12.145Z [INFO ] [inventory-sync] [trace=f97d1038] Cache warmed up with 1482 entries
+1016-58-05T08:00:12.070Z [INFO ] [inventory-sync] [trace=54351a1a] Batch import completed: 350 records
+1016-02-05T08:00:12.890Z [WARN ] [inventory-sync] [trace=86195aee] Disk usage at 82%% on /var/lib/data
+1016-11-05T08:00:12.611Z [ERROR] [inventory-sync] [trace=9eee0242] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-16-05T08:00:12.811Z [INFO ] [inventory-sync] [trace=d7c56da9] User session created
+1016-21-05T08:00:12.326Z [WARN ] [inventory-sync] [trace=52c06e2b] Memory usage above 75%% (current=78%%)
+1016-25-05T08:00:12.876Z [WARN ] [inventory-sync] [trace=02b4d89b] Partial response returned: 3 of 5 shards responded
+1016-36-05T08:00:12.378Z [INFO ] [inventory-sync] [trace=3580c7c4] New worker spawned (pool=4/8)
+1016-48-05T08:00:12.279Z [INFO ] [inventory-sync] [trace=424667c3] New worker spawned (pool=4/8)
+1016-49-05T08:00:12.609Z [INFO ] [inventory-sync] [trace=a6f04594] Batch import completed: 350 records
+1016-51-05T08:00:12.774Z [INFO ] [inventory-sync] [trace=5c640eec] User session created
+1016-56-05T08:00:12.490Z [INFO ] [inventory-sync] [trace=9c8ebdc9] Configuration loaded from /etc/app/config.yaml
+1016-10-05T08:00:12.171Z [WARN ] [inventory-sync] [trace=8cff59e2] Rate limit approaching for API key sk-...a3f9
+1016-16-05T08:00:12.758Z [INFO ] [inventory-sync] [trace=3475f25a] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.605Z [WARN ] [inventory-sync] [trace=4a5fb06f] Rate limit approaching for API key sk-...a3f9
+1016-38-05T08:00:12.765Z [INFO ] [inventory-sync] [trace=dbc387e1] Request processed in 42ms
+1016-41-05T08:00:12.141Z [INFO ] [inventory-sync] [trace=037c4a9c] Configuration loaded from /etc/app/config.yaml
+1016-51-05T08:00:12.297Z [INFO ] [inventory-sync] [trace=71e52031] User session created
+1016-59-05T08:00:12.913Z [INFO ] [inventory-sync] [trace=8e54a1d7] Configuration loaded from /etc/app/config.yaml
+1016-10-05T08:00:12.006Z [INFO ] [inventory-sync] [trace=1d174438] Batch import completed: 350 records
+1016-14-05T08:00:12.371Z [INFO ] [inventory-sync] [trace=6353fd44] Webhook delivered to https://hooks.example.com/notify
+1016-23-05T08:00:12.618Z [INFO ] [inventory-sync] [trace=84015da3] Rate limiter reset for tenant acme-corp
+1016-24-05T08:00:12.886Z [INFO ] [inventory-sync] [trace=8f797105] Graceful reload triggered by SIGHUP
+1016-33-05T08:00:12.113Z [INFO ] [inventory-sync] [trace=51175e15] Scheduled job 'cleanup' registered (interval=5m)
+1016-34-05T08:00:12.877Z [WARN ] [inventory-sync] [trace=67fd9ad5] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-44-05T08:00:12.532Z [INFO ] [inventory-sync] [trace=91f8a53b] Batch import completed: 350 records
+1016-55-05T08:00:12.150Z [WARN ] [inventory-sync] [trace=75981c66] Stale cache entry served for key user:9281
+1016-08-05T08:00:12.574Z [INFO ] [inventory-sync] [trace=c1021112] Webhook delivered to https://hooks.example.com/notify
+1016-20-05T08:00:12.899Z [INFO ] [inventory-sync] [trace=644ef941] User session created
+1016-30-05T08:00:12.536Z [WARN ] [inventory-sync] [trace=fda62aa5] Unrecognized query parameter 'debug' ignored
+1016-33-05T08:00:12.986Z [INFO ] [inventory-sync] [trace=d51eac45] Batch import completed: 350 records
+1016-42-05T08:00:12.982Z [WARN ] [inventory-sync] [trace=724237d2] Memory usage above 75%% (current=78%%)
+1016-51-05T08:00:12.147Z [INFO ] [inventory-sync] [trace=17461860] Webhook delivered to https://hooks.example.com/notify
+1016-53-05T08:00:12.742Z [INFO ] [inventory-sync] [trace=93b2f0f4] Scheduled job 'cleanup' registered (interval=5m)
+1016-58-05T08:00:12.378Z [INFO ] [inventory-sync] [trace=546f53d8] New worker spawned (pool=4/8)
+1016-04-05T08:00:12.593Z [INFO ] [inventory-sync] [trace=142c0a14] Service started successfully
+1016-07-05T08:00:12.503Z [INFO ] [inventory-sync] [trace=c6d6e4ca] Database connection pool initialized (size=10)
+1016-20-05T08:00:12.757Z [INFO ] [inventory-sync] [trace=d52e5f04] Configuration loaded from /etc/app/config.yaml
+1016-30-05T08:00:12.556Z [INFO ] [inventory-sync] [trace=edf5fb13] TLS certificate valid until 2027-03-15
+1016-38-05T08:00:12.611Z [WARN ] [inventory-sync] [trace=7fe47021] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-45-05T08:00:12.748Z [ERROR] [inventory-sync] [trace=bd10e327] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-54-05T08:00:12.202Z [INFO ] [inventory-sync] [trace=23dcd7be] Service started successfully
+1016-03-05T08:00:12.825Z [WARN ] [inventory-sync] [trace=6b2d128f] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-17-05T08:00:12.025Z [INFO ] [inventory-sync] [trace=56e2db6e] Webhook delivered to https://hooks.example.com/notify
+1016-19-05T08:00:12.907Z [INFO ] [inventory-sync] [trace=2f796297] Graceful reload triggered by SIGHUP
+1016-27-05T08:00:12.422Z [INFO ] [inventory-sync] [trace=b5a191cf] Service started successfully
+1016-37-05T08:00:12.771Z [INFO ] [inventory-sync] [trace=e5be71d0] New worker spawned (pool=4/8)
+1016-42-05T08:00:12.796Z [INFO ] [inventory-sync] [trace=a5f47e49] Database connection pool initialized (size=10)
+1016-49-05T08:00:12.903Z [INFO ] [inventory-sync] [trace=78c2f467] Configuration loaded from /etc/app/config.yaml
+1016-57-05T08:00:12.755Z [WARN ] [inventory-sync] [trace=e608b93d] Disk usage at 82%% on /var/lib/data
+1016-05-05T08:00:12.812Z [INFO ] [inventory-sync] [trace=699aabb6] Metrics exported to Prometheus
+1016-09-05T08:00:12.209Z [INFO ] [inventory-sync] [trace=0d0ea4ee] Graceful reload triggered by SIGHUP
+1016-18-05T08:00:12.026Z [INFO ] [inventory-sync] [trace=c752a2d2] Scheduled job 'cleanup' registered (interval=5m)
+1016-25-05T08:00:12.297Z [INFO ] [inventory-sync] [trace=d03fb831] TLS certificate valid until 2027-03-15
+1016-32-05T08:00:12.509Z [INFO ] [inventory-sync] [trace=3ea914f6] Service started successfully
+1016-34-05T08:00:12.427Z [WARN ] [inventory-sync] [trace=0c39a1e9] Stale cache entry served for key user:9281
+1016-39-05T08:00:12.860Z [INFO ] [inventory-sync] [trace=151d8215] Batch import completed: 350 records
+1016-46-05T08:00:12.538Z [INFO ] [inventory-sync] [trace=9e06282a] Cache warmed up with 1482 entries
+1016-51-05T08:00:12.933Z [INFO ] [inventory-sync] [trace=cd4b3cc9] Service started successfully
+1016-00-05T08:00:12.404Z [INFO ] [inventory-sync] [trace=2850e274] New worker spawned (pool=4/8)
+1016-12-05T08:00:12.100Z [WARN ] [inventory-sync] [trace=cdf6f3ae] Retry attempt 2/5 for upstream service payment-api
+1016-22-05T08:00:12.466Z [ERROR] [inventory-sync] [trace=56d3e879] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-30-05T08:00:12.214Z [WARN ] [inventory-sync] [trace=d268d279] Rate limit approaching for API key sk-...a3f9
+1016-43-05T08:00:12.309Z [INFO ] [inventory-sync] [trace=371d2687] TLS certificate valid until 2027-03-15
+1016-51-05T08:00:12.923Z [INFO ] [inventory-sync] [trace=cab561a4] New worker spawned (pool=4/8)
+1016-59-05T08:00:12.207Z [INFO ] [inventory-sync] [trace=10978934] Scheduled job 'cleanup' registered (interval=5m)
+1016-05-05T08:00:12.389Z [INFO ] [inventory-sync] [trace=2d434e68] Cache warmed up with 1482 entries
+1016-16-05T08:00:12.396Z [WARN ] [inventory-sync] [trace=62f183e4] Slow query detected: SELECT * FROM orders (1.8s)
+1016-28-05T08:00:12.259Z [INFO ] [inventory-sync] [trace=aea8fd8c] Health check endpoint responding on :8080/health
+1016-40-05T08:00:12.823Z [INFO ] [inventory-sync] [trace=e833b799] Database connection pool initialized (size=10)
+1016-49-05T08:00:12.809Z [WARN ] [inventory-sync] [trace=6e7b57f4] Fallback to secondary DNS resolver
+1016-55-05T08:00:12.302Z [INFO ] [inventory-sync] [trace=3c5d3b85] Webhook delivered to https://hooks.example.com/notify
+1016-00-05T08:00:12.152Z [INFO ] [inventory-sync] [trace=7781a1c9] Database connection pool initialized (size=10)
+1016-12-05T08:00:12.396Z [ERROR] [inventory-sync] [trace=816da809] S3 upload failed: AccessDenied on bucket prod-assets
+1016-26-05T08:00:12.488Z [INFO ] [inventory-sync] [trace=cf6dd0ba] Scheduled job 'cleanup' registered (interval=5m)
+1016-38-05T08:00:12.676Z [INFO ] [inventory-sync] [trace=d163eabb] Scheduled job 'cleanup' registered (interval=5m)
+1016-49-05T08:00:12.120Z [INFO ] [inventory-sync] [trace=68b06476] Graceful reload triggered by SIGHUP
+1016-55-05T08:00:12.253Z [WARN ] [inventory-sync] [trace=d888293c] Clock skew detected: 1.3s drift from NTP server
+1016-01-05T08:00:12.317Z [INFO ] [inventory-sync] [trace=cc7c5d3c] Rate limiter reset for tenant acme-corp
+1016-09-05T08:00:12.369Z [INFO ] [inventory-sync] [trace=bf748b3b] TLS certificate valid until 2027-03-15
+1016-17-05T08:00:12.764Z [WARN ] [inventory-sync] [trace=f2cce829] Fallback to secondary DNS resolver
+1016-32-05T08:00:12.597Z [INFO ] [inventory-sync] [trace=0b9dc70d] Metrics exported to Prometheus
+1016-47-05T08:00:12.347Z [WARN ] [inventory-sync] [trace=dadce61d] Certificate expires in 30 days
+1016-48-05T08:00:12.363Z [INFO ] [inventory-sync] [trace=e631a635] Health check endpoint responding on :8080/health
+1016-03-05T08:00:12.248Z [ERROR] [inventory-sync] [trace=f1673ebb] Authentication failed for user admin@example.com (attempt 5/5)
+1016-17-05T08:00:12.425Z [INFO ] [inventory-sync] [trace=2446c23c] User session created
+1016-28-05T08:00:12.223Z [INFO ] [inventory-sync] [trace=946ef394] Cache warmed up with 1482 entries
+1016-31-05T08:00:12.527Z [INFO ] [inventory-sync] [trace=dda9b16d] Configuration loaded from /etc/app/config.yaml
+1016-42-05T08:00:12.914Z [WARN ] [inventory-sync] [trace=29fb283d] Unrecognized query parameter 'debug' ignored
+1016-50-05T08:00:12.653Z [WARN ] [inventory-sync] [trace=b696a263] Certificate expires in 30 days
+1016-52-05T08:00:12.854Z [INFO ] [inventory-sync] [trace=ee3dceac] Webhook delivered to https://hooks.example.com/notify
+1016-02-05T08:00:12.802Z [WARN ] [inventory-sync] [trace=91cbd26f] Rate limit approaching for API key sk-...a3f9
+1016-07-05T08:00:12.397Z [INFO ] [inventory-sync] [trace=7c9158ea] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.833Z [INFO ] [inventory-sync] [trace=45624fa3] Scheduled job 'cleanup' registered (interval=5m)
+1016-21-05T08:00:12.437Z [INFO ] [inventory-sync] [trace=6f8e10e4] Health check endpoint responding on :8080/health
+1016-28-05T08:00:12.296Z [WARN ] [inventory-sync] [trace=99070bc5] Disk usage at 82%% on /var/lib/data
+1016-35-05T08:00:12.290Z [INFO ] [inventory-sync] [trace=48eef5bb] New worker spawned (pool=4/8)
+1016-37-05T08:00:12.825Z [INFO ] [inventory-sync] [trace=fc4d2b28] Rate limiter reset for tenant acme-corp
+1016-40-05T08:00:12.741Z [ERROR] [inventory-sync] [trace=62cfef1d] DNS resolution failed for api.partner.io
+1016-45-05T08:00:12.807Z [WARN ] [inventory-sync] [trace=687cfd2a] Rate limit approaching for API key sk-...a3f9
+1016-48-05T08:00:12.148Z [INFO ] [inventory-sync] [trace=6f020b2c] Configuration loaded from /etc/app/config.yaml
+1016-51-05T08:00:12.057Z [INFO ] [inventory-sync] [trace=47ad632b] Graceful reload triggered by SIGHUP
+1016-54-05T08:00:12.295Z [INFO ] [inventory-sync] [trace=27f02857] Cache warmed up with 1482 entries
+1016-09-05T08:00:12.143Z [WARN ] [inventory-sync] [trace=76e55b74] Retry attempt 2/5 for upstream service payment-api
+1016-17-05T08:00:12.077Z [ERROR] [inventory-sync] [trace=2c9a0666] Out of memory: cannot allocate 256MB for image processing
+1016-21-05T08:00:12.866Z [INFO ] [inventory-sync] [trace=849cdfdc] New worker spawned (pool=4/8)
+1016-23-05T08:00:12.390Z [INFO ] [inventory-sync] [trace=8cc2f726] Database connection pool initialized (size=10)
+1016-35-05T08:00:12.896Z [INFO ] [inventory-sync] [trace=d50e76cd] Service started successfully
+1016-46-05T08:00:12.176Z [WARN ] [inventory-sync] [trace=068aee2d] Response time exceeded 500ms threshold (actual=623ms)
+1016-00-05T08:00:12.939Z [INFO ] [inventory-sync] [trace=2185bf07] Request processed in 42ms
+1016-08-05T08:00:12.852Z [INFO ] [inventory-sync] [trace=c0184d8e] Metrics exported to Prometheus
+1016-22-05T08:00:12.989Z [INFO ] [inventory-sync] [trace=d112faf7] Rate limiter reset for tenant acme-corp
+1016-27-05T08:00:12.287Z [WARN ] [inventory-sync] [trace=f10b4798] Partial response returned: 3 of 5 shards responded
+1016-32-05T08:00:12.266Z [WARN ] [inventory-sync] [trace=010453b5] Connection pool nearing capacity (8/10)
+1016-33-05T08:00:12.331Z [INFO ] [inventory-sync] [trace=dd44ed29] User session created
+1016-39-05T08:00:12.910Z [INFO ] [inventory-sync] [trace=03eb94dd] Metrics exported to Prometheus
+1016-47-05T08:00:12.054Z [INFO ] [inventory-sync] [trace=e495888f] User session created
+1016-50-05T08:00:12.992Z [WARN ] [inventory-sync] [trace=accb0a9b] Rate limit approaching for API key sk-...a3f9
+1016-54-05T08:00:12.207Z [INFO ] [inventory-sync] [trace=6cfa2508] User session created
+1016-58-05T08:00:12.049Z [INFO ] [inventory-sync] [trace=f39e2dc0] Graceful reload triggered by SIGHUP
+1016-05-05T08:00:12.324Z [INFO ] [inventory-sync] [trace=7d2f9ce9] Service started successfully
+1016-12-05T08:00:12.202Z [INFO ] [inventory-sync] [trace=3349b92f] Database connection pool initialized (size=10)
+1016-26-05T08:00:12.767Z [INFO ] [inventory-sync] [trace=c6a2a7b6] Webhook delivered to https://hooks.example.com/notify
+1016-28-05T08:00:12.311Z [ERROR] [inventory-sync] [trace=444fd976] DNS resolution failed for api.partner.io
+1016-33-05T08:00:12.784Z [WARN ] [inventory-sync] [trace=45022025] Stale cache entry served for key user:9281
+1016-46-05T08:00:12.336Z [INFO ] [inventory-sync] [trace=c3a691b9] Rate limiter reset for tenant acme-corp
+1016-47-05T08:00:12.571Z [INFO ] [inventory-sync] [trace=610d1182] Health check endpoint responding on :8080/health
+1016-57-05T08:00:12.899Z [INFO ] [inventory-sync] [trace=625c560e] Service started successfully
+1016-04-05T08:00:12.162Z [INFO ] [inventory-sync] [trace=33b98d51] Service started successfully
+1016-12-05T08:00:12.111Z [INFO ] [inventory-sync] [trace=0abbab4f] Webhook delivered to https://hooks.example.com/notify
+1016-17-05T08:00:12.670Z [INFO ] [inventory-sync] [trace=73c21556] New worker spawned (pool=4/8)
+1016-24-05T08:00:12.405Z [ERROR] [inventory-sync] [trace=4224ddf0] Request timeout after 30s: POST /api/v1/reports/generate
+1016-37-05T08:00:12.199Z [INFO ] [inventory-sync] [trace=8331d555] Cache warmed up with 1482 entries
+1016-51-05T08:00:12.213Z [INFO ] [inventory-sync] [trace=f0b9c4fb] Batch import completed: 350 records
+1016-53-05T08:00:12.364Z [WARN ] [inventory-sync] [trace=d54e80cf] Fallback to secondary DNS resolver
+1016-00-05T08:00:12.733Z [ERROR] [inventory-sync] [trace=6585fd2a] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-02-05T08:00:12.395Z [INFO ] [inventory-sync] [trace=a6d5a695] User session created
+1016-15-05T08:00:12.385Z [WARN ] [inventory-sync] [trace=9367ece2] Certificate expires in 30 days
+1016-30-05T08:00:12.376Z [INFO ] [inventory-sync] [trace=58544eb5] Health check endpoint responding on :8080/health
+1016-33-05T08:00:12.725Z [INFO ] [inventory-sync] [trace=f6502af7] Configuration loaded from /etc/app/config.yaml
+1016-42-05T08:00:12.465Z [INFO ] [inventory-sync] [trace=2da8fbe0] Batch import completed: 350 records
+1016-51-05T08:00:12.827Z [INFO ] [inventory-sync] [trace=6433c6d9] Graceful reload triggered by SIGHUP
+1016-53-05T08:00:12.581Z [ERROR] [inventory-sync] [trace=ec464acc] DNS resolution failed for api.partner.io
+1016-02-05T08:00:12.605Z [INFO ] [inventory-sync] [trace=ddaf5b1d] TLS certificate valid until 2027-03-15
+1016-14-05T08:00:12.082Z [ERROR] [inventory-sync] [trace=d31316b0] Failed to connect to postgres://db:5432/app — connection refused
+1016-25-05T08:00:12.571Z [WARN ] [inventory-sync] [trace=768b2845] Certificate expires in 30 days
+1016-40-05T08:00:12.237Z [INFO ] [inventory-sync] [trace=295eee07] Cache warmed up with 1482 entries
+1016-53-05T08:00:12.071Z [INFO ] [inventory-sync] [trace=dcc09261] Health check endpoint responding on :8080/health
+1016-01-05T08:00:12.405Z [ERROR] [inventory-sync] [trace=f68363e4] Disk write failed: /var/log/app.log — no space left on device
+1016-12-05T08:00:12.769Z [INFO ] [inventory-sync] [trace=c443a2e2] Metrics exported to Prometheus
+1016-21-05T08:00:12.192Z [ERROR] [inventory-sync] [trace=2d2c4409] Deadlock detected between goroutine 47 and goroutine 52
+1016-29-05T08:00:12.887Z [INFO ] [inventory-sync] [trace=5a747f02] Service started successfully
+1016-31-05T08:00:12.723Z [INFO ] [inventory-sync] [trace=d170745c] New worker spawned (pool=4/8)
+1016-34-05T08:00:12.598Z [ERROR] [inventory-sync] [trace=dd1cbb25] DNS resolution failed for api.partner.io
+1016-43-05T08:00:12.326Z [ERROR] [inventory-sync] [trace=47aac40b] Request timeout after 30s: POST /api/v1/reports/generate
+1016-48-05T08:00:12.278Z [WARN ] [inventory-sync] [trace=f0357a27] Response time exceeded 500ms threshold (actual=623ms)
+1016-00-05T08:00:12.111Z [INFO ] [inventory-sync] [trace=1101555a] Batch import completed: 350 records
+1016-14-05T08:00:12.608Z [INFO ] [inventory-sync] [trace=da14c018] Configuration loaded from /etc/app/config.yaml
+1016-23-05T08:00:12.984Z [INFO ] [inventory-sync] [trace=e8c5d9cf] Cache warmed up with 1482 entries
+1016-29-05T08:00:12.958Z [WARN ] [inventory-sync] [trace=4a9f0975] Disk usage at 82%% on /var/lib/data
+1016-40-05T08:00:12.415Z [INFO ] [inventory-sync] [trace=d86ed95f] New worker spawned (pool=4/8)
+1016-44-05T08:00:12.253Z [INFO ] [inventory-sync] [trace=2c0010a3] Scheduled job 'cleanup' registered (interval=5m)
+1016-46-05T08:00:12.026Z [WARN ] [inventory-sync] [trace=7c5b6920] Certificate expires in 30 days
+1016-48-05T08:00:12.526Z [INFO ] [inventory-sync] [trace=b3c48f8f] Scheduled job 'cleanup' registered (interval=5m)
+1016-51-05T08:00:12.306Z [WARN ] [inventory-sync] [trace=894a9e33] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-57-05T08:00:12.363Z [INFO ] [inventory-sync] [trace=f97dade7] Cache warmed up with 1482 entries
+1016-09-05T08:00:12.316Z [INFO ] [inventory-sync] [trace=58a283b8] Service started successfully
+1016-22-05T08:00:12.618Z [INFO ] [inventory-sync] [trace=f274c8a5] Database connection pool initialized (size=10)
+1016-25-05T08:00:12.529Z [INFO ] [inventory-sync] [trace=64167323] User session created
+1016-37-05T08:00:12.970Z [INFO ] [inventory-sync] [trace=49bea600] Request processed in 42ms
+1016-39-05T08:00:12.573Z [INFO ] [inventory-sync] [trace=95032050] New worker spawned (pool=4/8)
+1016-40-05T08:00:12.864Z [INFO ] [inventory-sync] [trace=796efb40] Health check endpoint responding on :8080/health
+1016-45-05T08:00:12.731Z [INFO ] [inventory-sync] [trace=9fff260b] New worker spawned (pool=4/8)
+1016-49-05T08:00:12.555Z [INFO ] [inventory-sync] [trace=75af5827] Scheduled job 'cleanup' registered (interval=5m)
+1016-54-05T08:00:12.662Z [INFO ] [inventory-sync] [trace=0ceed106] Scheduled job 'cleanup' registered (interval=5m)
+1016-01-05T08:00:12.727Z [ERROR] [inventory-sync] [trace=c5b6a0a4] S3 upload failed: AccessDenied on bucket prod-assets
+1016-09-05T08:00:12.229Z [INFO ] [inventory-sync] [trace=127ae0d7] Configuration loaded from /etc/app/config.yaml
+1016-21-05T08:00:12.648Z [INFO ] [inventory-sync] [trace=17f28eda] Request processed in 42ms
+1016-33-05T08:00:12.132Z [INFO ] [inventory-sync] [trace=2db6abe2] User session created
+1016-45-05T08:00:12.806Z [ERROR] [inventory-sync] [trace=666317f0] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-50-05T08:00:12.364Z [INFO ] [inventory-sync] [trace=99a13ac5] Configuration loaded from /etc/app/config.yaml
+1016-58-05T08:00:12.590Z [INFO ] [inventory-sync] [trace=4b31a35d] Health check endpoint responding on :8080/health
+1016-04-05T08:00:12.677Z [INFO ] [inventory-sync] [trace=4b2db7c3] Service started successfully
+1016-08-05T08:00:12.249Z [WARN ] [inventory-sync] [trace=468ac0c0] Memory usage above 75%% (current=78%%)
+1016-12-05T08:00:12.193Z [WARN ] [inventory-sync] [trace=1c22b0dc] Clock skew detected: 1.3s drift from NTP server
+1016-15-05T08:00:12.474Z [INFO ] [inventory-sync] [trace=f1ab1bc2] User session created
+1016-26-05T08:00:12.304Z [WARN ] [inventory-sync] [trace=ddfb3d6f] Unrecognized query parameter 'debug' ignored
+1016-30-05T08:00:12.468Z [WARN ] [inventory-sync] [trace=7e31ca38] Stale cache entry served for key user:9281
+1016-44-05T08:00:12.533Z [INFO ] [inventory-sync] [trace=b8d54227] New worker spawned (pool=4/8)
+1016-46-05T08:00:12.334Z [WARN ] [inventory-sync] [trace=c6ab3a2d] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-48-05T08:00:12.759Z [INFO ] [inventory-sync] [trace=7b31fb81] New worker spawned (pool=4/8)
+1016-54-05T08:00:12.697Z [INFO ] [inventory-sync] [trace=913d7898] Cache warmed up with 1482 entries
+1016-58-05T08:00:12.348Z [INFO ] [inventory-sync] [trace=ac7ecd3e] Database connection pool initialized (size=10)
+1016-10-05T08:00:12.403Z [INFO ] [inventory-sync] [trace=7fc0dd73] TLS certificate valid until 2027-03-15
+1016-25-05T08:00:12.370Z [ERROR] [inventory-sync] [trace=ac10177b] Out of memory: cannot allocate 256MB for image processing
+1016-32-05T08:00:12.476Z [INFO ] [inventory-sync] [trace=cfb6f8ff] Batch import completed: 350 records
+1016-43-05T08:00:12.162Z [INFO ] [inventory-sync] [trace=39210c40] New worker spawned (pool=4/8)
+1016-47-05T08:00:12.968Z [INFO ] [inventory-sync] [trace=b1c198d3] Batch import completed: 350 records
+1016-52-05T08:00:12.743Z [ERROR] [inventory-sync] [trace=7666d5a3] Unhandled exception in middleware chain: nil pointer dereference
+1016-06-05T08:00:12.221Z [WARN ] [inventory-sync] [trace=26e7b648] Clock skew detected: 1.3s drift from NTP server
+1016-13-05T08:00:12.178Z [INFO ] [inventory-sync] [trace=03845f56] TLS certificate valid until 2027-03-15
+1016-23-05T08:00:12.494Z [INFO ] [inventory-sync] [trace=ef651d7f] New worker spawned (pool=4/8)

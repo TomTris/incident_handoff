@@ -1,0 +1,300 @@
+1016-50-05T08:00:12.965Z [INFO ] [order-engine] [trace=11ba5ea1] New worker spawned (pool=4/8)
+1016-05-05T08:00:12.924Z [INFO ] [order-engine] [trace=42378a2a] Cache warmed up with 1482 entries
+1016-16-05T08:00:12.988Z [INFO ] [order-engine] [trace=31f7c179] TLS certificate valid until 2027-03-15
+1016-23-05T08:00:12.259Z [INFO ] [order-engine] [trace=d69a9502] Rate limiter reset for tenant acme-corp
+1016-34-05T08:00:12.637Z [INFO ] [order-engine] [trace=bbbf1bb0] Health check endpoint responding on :8080/health
+1016-40-05T08:00:12.573Z [INFO ] [order-engine] [trace=9a146f02] User session created
+1016-44-05T08:00:12.261Z [INFO ] [order-engine] [trace=fca1a5ca] Database connection pool initialized (size=10)
+1016-56-05T08:00:12.611Z [INFO ] [order-engine] [trace=faac4e9f] Rate limiter reset for tenant acme-corp
+1016-06-05T08:00:12.255Z [ERROR] [order-engine] [trace=0a6e213d] DNS resolution failed for api.partner.io
+1016-17-05T08:00:12.047Z [INFO ] [order-engine] [trace=3f727dd0] User session created
+1016-26-05T08:00:12.670Z [INFO ] [order-engine] [trace=b381990a] Rate limiter reset for tenant acme-corp
+1016-37-05T08:00:12.012Z [INFO ] [order-engine] [trace=b39e20ec] Database connection pool initialized (size=10)
+1016-38-05T08:00:12.673Z [INFO ] [order-engine] [trace=f4e9eb52] Webhook delivered to https://hooks.example.com/notify
+1016-43-05T08:00:12.321Z [WARN ] [order-engine] [trace=841b8ba2] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-47-05T08:00:12.731Z [INFO ] [order-engine] [trace=51e85a5f] Rate limiter reset for tenant acme-corp
+1016-55-05T08:00:12.161Z [INFO ] [order-engine] [trace=db58d37d] Configuration loaded from /etc/app/config.yaml
+1016-01-05T08:00:12.112Z [WARN ] [order-engine] [trace=dfd50617] Disk usage at 82%% on /var/lib/data
+1016-03-05T08:00:12.224Z [INFO ] [order-engine] [trace=6fb0946e] TLS certificate valid until 2027-03-15
+1016-11-05T08:00:12.449Z [WARN ] [order-engine] [trace=9326af3f] Fallback to secondary DNS resolver
+1016-21-05T08:00:12.704Z [INFO ] [order-engine] [trace=d456e137] Graceful reload triggered by SIGHUP
+1016-25-05T08:00:12.402Z [INFO ] [order-engine] [trace=283de603] New worker spawned (pool=4/8)
+1016-32-05T08:00:12.609Z [INFO ] [order-engine] [trace=7bf82fa7] Scheduled job 'cleanup' registered (interval=5m)
+1016-41-05T08:00:12.761Z [WARN ] [order-engine] [trace=65f2054a] Connection pool nearing capacity (8/10)
+1016-53-05T08:00:12.306Z [ERROR] [order-engine] [trace=da293ceb] Invalid JWT token: signature verification failed
+1016-04-05T08:00:12.353Z [INFO ] [order-engine] [trace=c0c72872] Graceful reload triggered by SIGHUP
+1016-11-05T08:00:12.754Z [INFO ] [order-engine] [trace=fcd1b9d8] Webhook delivered to https://hooks.example.com/notify
+1016-26-05T08:00:12.344Z [INFO ] [order-engine] [trace=0019fe4e] Configuration loaded from /etc/app/config.yaml
+1016-28-05T08:00:12.958Z [ERROR] [order-engine] [trace=15bb25f7] Invalid JWT token: signature verification failed
+1016-36-05T08:00:12.003Z [INFO ] [order-engine] [trace=6f646476] User session created
+1016-39-05T08:00:12.132Z [INFO ] [order-engine] [trace=90226fa2] Service started successfully
+1016-49-05T08:00:12.082Z [INFO ] [order-engine] [trace=1147dd9e] Health check endpoint responding on :8080/health
+1016-58-05T08:00:12.567Z [ERROR] [order-engine] [trace=2d564181] Unhandled exception in middleware chain: nil pointer dereference
+1016-07-05T08:00:12.441Z [INFO ] [order-engine] [trace=11ff4b8f] Database connection pool initialized (size=10)
+1016-20-05T08:00:12.534Z [INFO ] [order-engine] [trace=3316a1ab] Request processed in 42ms
+1016-33-05T08:00:12.642Z [INFO ] [order-engine] [trace=bc3e9ca9] Metrics exported to Prometheus
+1016-42-05T08:00:12.753Z [INFO ] [order-engine] [trace=c1829fcd] Graceful reload triggered by SIGHUP
+1016-56-05T08:00:12.948Z [ERROR] [order-engine] [trace=268acf4f] Unhandled exception in middleware chain: nil pointer dereference
+1016-06-05T08:00:12.717Z [ERROR] [order-engine] [trace=f94f4951] Invalid JWT token: signature verification failed
+1016-19-05T08:00:12.705Z [ERROR] [order-engine] [trace=0fa4563c] Request timeout after 30s: POST /api/v1/reports/generate
+1016-32-05T08:00:12.280Z [INFO ] [order-engine] [trace=ab45bf5d] Metrics exported to Prometheus
+1016-36-05T08:00:12.730Z [INFO ] [order-engine] [trace=edd53aad] Request processed in 42ms
+1016-39-05T08:00:12.396Z [INFO ] [order-engine] [trace=ed3f585f] Webhook delivered to https://hooks.example.com/notify
+1016-53-05T08:00:12.676Z [ERROR] [order-engine] [trace=381fe8e1] Out of memory: cannot allocate 256MB for image processing
+1016-59-05T08:00:12.683Z [ERROR] [order-engine] [trace=360ab050] Failed to connect to postgres://db:5432/app — connection refused
+1016-07-05T08:00:12.872Z [INFO ] [order-engine] [trace=0db03501] Rate limiter reset for tenant acme-corp
+1016-12-05T08:00:12.828Z [INFO ] [order-engine] [trace=65fc9bc0] Cache warmed up with 1482 entries
+1016-24-05T08:00:12.917Z [ERROR] [order-engine] [trace=5043fde3] Unhandled exception in middleware chain: nil pointer dereference
+1016-27-05T08:00:12.237Z [WARN ] [order-engine] [trace=20eab03e] Fallback to secondary DNS resolver
+1016-41-05T08:00:12.087Z [WARN ] [order-engine] [trace=6480b303] Stale cache entry served for key user:9281
+1016-44-05T08:00:12.329Z [ERROR] [order-engine] [trace=71b26392] S3 upload failed: AccessDenied on bucket prod-assets
+1016-54-05T08:00:12.553Z [INFO ] [order-engine] [trace=e774e0f7] Cache warmed up with 1482 entries
+1016-56-05T08:00:12.420Z [ERROR] [order-engine] [trace=4679499c] TLS handshake failed: certificate signed by unknown authority
+1016-02-05T08:00:12.909Z [INFO ] [order-engine] [trace=873a77c6] Configuration loaded from /etc/app/config.yaml
+1016-06-05T08:00:12.642Z [ERROR] [order-engine] [trace=758f8853] Unhandled exception in middleware chain: nil pointer dereference
+1016-14-05T08:00:12.915Z [INFO ] [order-engine] [trace=7b974571] Service started successfully
+1016-23-05T08:00:12.744Z [INFO ] [order-engine] [trace=fbb76f34] Scheduled job 'cleanup' registered (interval=5m)
+1016-37-05T08:00:12.021Z [WARN ] [order-engine] [trace=e7f64657] Fallback to secondary DNS resolver
+1016-47-05T08:00:12.196Z [INFO ] [order-engine] [trace=01986751] Webhook delivered to https://hooks.example.com/notify
+1016-01-05T08:00:12.619Z [ERROR] [order-engine] [trace=e8c1244d] Authentication failed for user admin@example.com (attempt 5/5)
+1016-11-05T08:00:12.393Z [WARN ] [order-engine] [trace=ed898240] Connection pool nearing capacity (8/10)
+1016-19-05T08:00:12.718Z [INFO ] [order-engine] [trace=b27ed7de] User session created
+1016-31-05T08:00:12.215Z [INFO ] [order-engine] [trace=0843e9f4] Cache warmed up with 1482 entries
+1016-37-05T08:00:12.401Z [INFO ] [order-engine] [trace=7f773b6c] Configuration loaded from /etc/app/config.yaml
+1016-47-05T08:00:12.696Z [INFO ] [order-engine] [trace=47781a76] Health check endpoint responding on :8080/health
+1016-54-05T08:00:12.356Z [INFO ] [order-engine] [trace=7a74cafa] Scheduled job 'cleanup' registered (interval=5m)
+1016-08-05T08:00:12.333Z [INFO ] [order-engine] [trace=1eb83263] Database connection pool initialized (size=10)
+1016-18-05T08:00:12.035Z [INFO ] [order-engine] [trace=d41bed47] TLS certificate valid until 2027-03-15
+1016-27-05T08:00:12.134Z [INFO ] [order-engine] [trace=9f3e1e20] TLS certificate valid until 2027-03-15
+1016-31-05T08:00:12.328Z [INFO ] [order-engine] [trace=15e34556] Configuration loaded from /etc/app/config.yaml
+1016-38-05T08:00:12.362Z [ERROR] [order-engine] [trace=cb27aca5] S3 upload failed: AccessDenied on bucket prod-assets
+1016-50-05T08:00:12.231Z [INFO ] [order-engine] [trace=b97db184] Metrics exported to Prometheus
+1016-00-05T08:00:12.735Z [ERROR] [order-engine] [trace=aaaa2393] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-12-05T08:00:12.669Z [INFO ] [order-engine] [trace=6e88dd72] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.493Z [INFO ] [order-engine] [trace=ab26c3c6] Service started successfully
+1016-35-05T08:00:12.092Z [INFO ] [order-engine] [trace=0320e8d2] Request processed in 42ms
+1016-44-05T08:00:12.596Z [INFO ] [order-engine] [trace=a9903944] Database connection pool initialized (size=10)
+1016-52-05T08:00:12.361Z [INFO ] [order-engine] [trace=c44af09b] Request processed in 42ms
+1016-06-05T08:00:12.697Z [INFO ] [order-engine] [trace=2d53f520] Service started successfully
+1016-08-05T08:00:12.378Z [INFO ] [order-engine] [trace=066dcf5d] New worker spawned (pool=4/8)
+1016-18-05T08:00:12.288Z [INFO ] [order-engine] [trace=194afcf6] Scheduled job 'cleanup' registered (interval=5m)
+1016-31-05T08:00:12.954Z [INFO ] [order-engine] [trace=119f381f] TLS certificate valid until 2027-03-15
+1016-46-05T08:00:12.810Z [INFO ] [order-engine] [trace=4d4866e6] Cache warmed up with 1482 entries
+1016-00-05T08:00:12.049Z [WARN ] [order-engine] [trace=57f00b1d] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-06-05T08:00:12.536Z [INFO ] [order-engine] [trace=8800f33d] Configuration loaded from /etc/app/config.yaml
+1016-14-05T08:00:12.222Z [WARN ] [order-engine] [trace=7b74fdf3] Slow query detected: SELECT * FROM orders (1.8s)
+1016-28-05T08:00:12.154Z [ERROR] [order-engine] [trace=2c52b31e] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-29-05T08:00:12.854Z [INFO ] [order-engine] [trace=29e71137] Request processed in 42ms
+1016-39-05T08:00:12.180Z [INFO ] [order-engine] [trace=40266c4a] Webhook delivered to https://hooks.example.com/notify
+1016-41-05T08:00:12.419Z [INFO ] [order-engine] [trace=5903012c] Metrics exported to Prometheus
+1016-50-05T08:00:12.427Z [WARN ] [order-engine] [trace=636ec315] Stale cache entry served for key user:9281
+1016-57-05T08:00:12.925Z [INFO ] [order-engine] [trace=a32a0379] TLS certificate valid until 2027-03-15
+1016-09-05T08:00:12.745Z [INFO ] [order-engine] [trace=9ee87887] Graceful reload triggered by SIGHUP
+1016-11-05T08:00:12.333Z [WARN ] [order-engine] [trace=2495c61b] Rate limit approaching for API key sk-...a3f9
+1016-20-05T08:00:12.786Z [INFO ] [order-engine] [trace=5c993159] Request processed in 42ms
+1016-22-05T08:00:12.177Z [INFO ] [order-engine] [trace=4e142864] Graceful reload triggered by SIGHUP
+1016-28-05T08:00:12.678Z [INFO ] [order-engine] [trace=02514480] Metrics exported to Prometheus
+1016-42-05T08:00:12.080Z [INFO ] [order-engine] [trace=b2773bdf] Request processed in 42ms
+1016-44-05T08:00:12.222Z [INFO ] [order-engine] [trace=a5e39d9b] Health check endpoint responding on :8080/health
+1016-55-05T08:00:12.317Z [INFO ] [order-engine] [trace=6672475f] New worker spawned (pool=4/8)
+1016-09-05T08:00:12.739Z [INFO ] [order-engine] [trace=6e4c05d1] Webhook delivered to https://hooks.example.com/notify
+1016-12-05T08:00:12.033Z [WARN ] [order-engine] [trace=6d6cafd9] Certificate expires in 30 days
+1016-17-05T08:00:12.382Z [INFO ] [order-engine] [trace=2bb1fbdb] Graceful reload triggered by SIGHUP
+1016-19-05T08:00:12.127Z [ERROR] [order-engine] [trace=ee4ba1a3] Failed to connect to postgres://db:5432/app — connection refused
+1016-29-05T08:00:12.224Z [WARN ] [order-engine] [trace=1e54417e] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-32-05T08:00:12.267Z [ERROR] [order-engine] [trace=d51a6f63] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-33-05T08:00:12.865Z [INFO ] [order-engine] [trace=3d118885] Health check endpoint responding on :8080/health
+1016-36-05T08:00:12.554Z [INFO ] [order-engine] [trace=2b29114f] Scheduled job 'cleanup' registered (interval=5m)
+1016-42-05T08:00:12.037Z [INFO ] [order-engine] [trace=f7f1c7f4] Graceful reload triggered by SIGHUP
+1016-52-05T08:00:12.194Z [INFO ] [order-engine] [trace=cdf5b93d] Database connection pool initialized (size=10)
+1016-06-05T08:00:12.954Z [ERROR] [order-engine] [trace=b1afbba8] Migration 0042_add_index.sql failed: duplicate column name
+1016-08-05T08:00:12.403Z [WARN ] [order-engine] [trace=e9153a4d] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-20-05T08:00:12.398Z [INFO ] [order-engine] [trace=70f1b3fc] Request processed in 42ms
+1016-31-05T08:00:12.297Z [INFO ] [order-engine] [trace=4809aa17] Health check endpoint responding on :8080/health
+1016-32-05T08:00:12.710Z [INFO ] [order-engine] [trace=87cde304] User session created
+1016-39-05T08:00:12.540Z [INFO ] [order-engine] [trace=d998935d] Cache warmed up with 1482 entries
+1016-46-05T08:00:12.157Z [INFO ] [order-engine] [trace=aa01cb57] Health check endpoint responding on :8080/health
+1016-52-05T08:00:12.962Z [INFO ] [order-engine] [trace=26c53f75] Metrics exported to Prometheus
+1016-57-05T08:00:12.066Z [INFO ] [order-engine] [trace=5111c2fe] User session created
+1016-58-05T08:00:12.291Z [WARN ] [order-engine] [trace=26e385b9] Connection pool nearing capacity (8/10)
+1016-03-05T08:00:12.884Z [INFO ] [order-engine] [trace=a44395f0] Scheduled job 'cleanup' registered (interval=5m)
+1016-09-05T08:00:12.304Z [INFO ] [order-engine] [trace=21617659] Rate limiter reset for tenant acme-corp
+1016-13-05T08:00:12.577Z [INFO ] [order-engine] [trace=250c4f73] New worker spawned (pool=4/8)
+1016-27-05T08:00:12.677Z [INFO ] [order-engine] [trace=52acea27] Cache warmed up with 1482 entries
+1016-38-05T08:00:12.393Z [INFO ] [order-engine] [trace=815755e7] Metrics exported to Prometheus
+1016-48-05T08:00:12.038Z [INFO ] [order-engine] [trace=9a273f0c] TLS certificate valid until 2027-03-15
+1016-55-05T08:00:12.358Z [INFO ] [order-engine] [trace=90e47c71] Webhook delivered to https://hooks.example.com/notify
+1016-03-05T08:00:12.190Z [INFO ] [order-engine] [trace=0b8f73c3] Metrics exported to Prometheus
+1016-06-05T08:00:12.173Z [INFO ] [order-engine] [trace=148cce56] Health check endpoint responding on :8080/health
+1016-07-05T08:00:12.512Z [WARN ] [order-engine] [trace=35d288f0] Clock skew detected: 1.3s drift from NTP server
+1016-17-05T08:00:12.578Z [INFO ] [order-engine] [trace=ebcca0dd] Batch import completed: 350 records
+1016-23-05T08:00:12.472Z [INFO ] [order-engine] [trace=6f76afb7] Configuration loaded from /etc/app/config.yaml
+1016-25-05T08:00:12.212Z [WARN ] [order-engine] [trace=b9ba6c55] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-34-05T08:00:12.104Z [WARN ] [order-engine] [trace=2397c404] Fallback to secondary DNS resolver
+1016-37-05T08:00:12.915Z [ERROR] [order-engine] [trace=a343165f] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-48-05T08:00:12.899Z [INFO ] [order-engine] [trace=6e73a635] Graceful reload triggered by SIGHUP
+1016-57-05T08:00:12.027Z [WARN ] [order-engine] [trace=9c04d4a0] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-00-05T08:00:12.213Z [INFO ] [order-engine] [trace=f5831522] New worker spawned (pool=4/8)
+1016-10-05T08:00:12.347Z [ERROR] [order-engine] [trace=dd785550] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-15-05T08:00:12.408Z [INFO ] [order-engine] [trace=b1121529] Metrics exported to Prometheus
+1016-19-05T08:00:12.584Z [ERROR] [order-engine] [trace=657b406a] Disk write failed: /var/log/app.log — no space left on device
+1016-25-05T08:00:12.593Z [WARN ] [order-engine] [trace=a4a2b534] Retry attempt 2/5 for upstream service payment-api
+1016-27-05T08:00:12.203Z [WARN ] [order-engine] [trace=e417f04e] Connection pool nearing capacity (8/10)
+1016-39-05T08:00:12.393Z [INFO ] [order-engine] [trace=9c60294f] Batch import completed: 350 records
+1016-41-05T08:00:12.886Z [ERROR] [order-engine] [trace=1bac8e59] Invalid JWT token: signature verification failed
+1016-56-05T08:00:12.739Z [INFO ] [order-engine] [trace=19131743] Webhook delivered to https://hooks.example.com/notify
+1016-02-05T08:00:12.477Z [INFO ] [order-engine] [trace=f630e3b2] Service started successfully
+1016-07-05T08:00:12.555Z [WARN ] [order-engine] [trace=52868d17] Partial response returned: 3 of 5 shards responded
+1016-16-05T08:00:12.806Z [ERROR] [order-engine] [trace=93859917] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-29-05T08:00:12.934Z [INFO ] [order-engine] [trace=c6bec321] Batch import completed: 350 records
+1016-32-05T08:00:12.584Z [INFO ] [order-engine] [trace=c077666b] Graceful reload triggered by SIGHUP
+1016-43-05T08:00:12.012Z [INFO ] [order-engine] [trace=158695c8] Scheduled job 'cleanup' registered (interval=5m)
+1016-53-05T08:00:12.731Z [INFO ] [order-engine] [trace=4086e3c6] Scheduled job 'cleanup' registered (interval=5m)
+1016-05-05T08:00:12.254Z [INFO ] [order-engine] [trace=955793f7] Webhook delivered to https://hooks.example.com/notify
+1016-19-05T08:00:12.867Z [INFO ] [order-engine] [trace=9d0286ad] Database connection pool initialized (size=10)
+1016-26-05T08:00:12.651Z [INFO ] [order-engine] [trace=c663b748] TLS certificate valid until 2027-03-15
+1016-41-05T08:00:12.379Z [INFO ] [order-engine] [trace=7c0a5bae] Health check endpoint responding on :8080/health
+1016-44-05T08:00:12.726Z [INFO ] [order-engine] [trace=f5228e74] Metrics exported to Prometheus
+1016-55-05T08:00:12.881Z [WARN ] [order-engine] [trace=e5e01000] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-59-05T08:00:12.409Z [INFO ] [order-engine] [trace=ca884c00] Batch import completed: 350 records
+1016-14-05T08:00:12.393Z [INFO ] [order-engine] [trace=a8484713] Webhook delivered to https://hooks.example.com/notify
+1016-17-05T08:00:12.301Z [INFO ] [order-engine] [trace=abd0f986] Request processed in 42ms
+1016-21-05T08:00:12.512Z [INFO ] [order-engine] [trace=79779b7d] Request processed in 42ms
+1016-26-05T08:00:12.343Z [WARN ] [order-engine] [trace=cceea3c4] Memory usage above 75%% (current=78%%)
+1016-27-05T08:00:12.526Z [INFO ] [order-engine] [trace=78847cc8] Health check endpoint responding on :8080/health
+1016-39-05T08:00:12.588Z [INFO ] [order-engine] [trace=5ffd6ac7] Database connection pool initialized (size=10)
+1016-42-05T08:00:12.821Z [INFO ] [order-engine] [trace=b2a22317] Graceful reload triggered by SIGHUP
+1016-45-05T08:00:12.104Z [INFO ] [order-engine] [trace=0e00f448] Cache warmed up with 1482 entries
+1016-46-05T08:00:12.471Z [INFO ] [order-engine] [trace=c0c1771f] Rate limiter reset for tenant acme-corp
+1016-58-05T08:00:12.860Z [INFO ] [order-engine] [trace=cf7092b6] Health check endpoint responding on :8080/health
+1016-08-05T08:00:12.411Z [INFO ] [order-engine] [trace=60bbe17e] Request processed in 42ms
+1016-15-05T08:00:12.720Z [INFO ] [order-engine] [trace=8f4b3f5b] Request processed in 42ms
+1016-28-05T08:00:12.413Z [INFO ] [order-engine] [trace=dc3d75d7] Graceful reload triggered by SIGHUP
+1016-32-05T08:00:12.687Z [INFO ] [order-engine] [trace=083e290b] Service started successfully
+1016-45-05T08:00:12.601Z [INFO ] [order-engine] [trace=28ce78f1] Batch import completed: 350 records
+1016-52-05T08:00:12.630Z [INFO ] [order-engine] [trace=4da712fc] Health check endpoint responding on :8080/health
+1016-04-05T08:00:12.743Z [WARN ] [order-engine] [trace=938c31cd] Slow query detected: SELECT * FROM orders (1.8s)
+1016-08-05T08:00:12.507Z [INFO ] [order-engine] [trace=bbb33c19] Cache warmed up with 1482 entries
+1016-15-05T08:00:12.402Z [INFO ] [order-engine] [trace=10a5f418] Database connection pool initialized (size=10)
+1016-16-05T08:00:12.880Z [INFO ] [order-engine] [trace=cebd3b6d] Rate limiter reset for tenant acme-corp
+1016-28-05T08:00:12.403Z [INFO ] [order-engine] [trace=c0d7aefc] Scheduled job 'cleanup' registered (interval=5m)
+1016-42-05T08:00:12.358Z [INFO ] [order-engine] [trace=25be3955] Metrics exported to Prometheus
+1016-44-05T08:00:12.140Z [INFO ] [order-engine] [trace=9c13685a] New worker spawned (pool=4/8)
+1016-51-05T08:00:12.436Z [INFO ] [order-engine] [trace=8a19b8fa] Configuration loaded from /etc/app/config.yaml
+1016-05-05T08:00:12.896Z [WARN ] [order-engine] [trace=d135fff0] Disk usage at 82%% on /var/lib/data
+1016-08-05T08:00:12.811Z [INFO ] [order-engine] [trace=463860af] Configuration loaded from /etc/app/config.yaml
+1016-23-05T08:00:12.490Z [WARN ] [order-engine] [trace=1260412a] Certificate expires in 30 days
+1016-37-05T08:00:12.762Z [INFO ] [order-engine] [trace=7492708c] Configuration loaded from /etc/app/config.yaml
+1016-41-05T08:00:12.847Z [WARN ] [order-engine] [trace=c36fbb80] Clock skew detected: 1.3s drift from NTP server
+1016-53-05T08:00:12.777Z [INFO ] [order-engine] [trace=dcbd71f3] Metrics exported to Prometheus
+1016-54-05T08:00:12.838Z [INFO ] [order-engine] [trace=194a4964] Rate limiter reset for tenant acme-corp
+1016-01-05T08:00:12.351Z [INFO ] [order-engine] [trace=7f922578] User session created
+1016-08-05T08:00:12.745Z [INFO ] [order-engine] [trace=7f940656] Health check endpoint responding on :8080/health
+1016-21-05T08:00:12.506Z [WARN ] [order-engine] [trace=dbf4e743] Disk usage at 82%% on /var/lib/data
+1016-26-05T08:00:12.285Z [INFO ] [order-engine] [trace=b9762f20] User session created
+1016-35-05T08:00:12.070Z [INFO ] [order-engine] [trace=ed3b9db6] Batch import completed: 350 records
+1016-44-05T08:00:12.364Z [WARN ] [order-engine] [trace=7baf6729] Certificate expires in 30 days
+1016-47-05T08:00:12.395Z [INFO ] [order-engine] [trace=97483265] New worker spawned (pool=4/8)
+1016-56-05T08:00:12.221Z [INFO ] [order-engine] [trace=68825460] Metrics exported to Prometheus
+1016-05-05T08:00:12.028Z [WARN ] [order-engine] [trace=59acb66e] Retry attempt 2/5 for upstream service payment-api
+1016-17-05T08:00:12.335Z [INFO ] [order-engine] [trace=25ff37f6] Configuration loaded from /etc/app/config.yaml
+1016-24-05T08:00:12.732Z [INFO ] [order-engine] [trace=7a597274] Request processed in 42ms
+1016-38-05T08:00:12.725Z [ERROR] [order-engine] [trace=fb61ce5c] Deadlock detected between goroutine 47 and goroutine 52
+1016-51-05T08:00:12.850Z [INFO ] [order-engine] [trace=9487cb2f] Request processed in 42ms
+1016-56-05T08:00:12.369Z [WARN ] [order-engine] [trace=f1afeda0] Unrecognized query parameter 'debug' ignored
+1016-10-05T08:00:12.691Z [INFO ] [order-engine] [trace=c716b355] Health check endpoint responding on :8080/health
+1016-18-05T08:00:12.723Z [ERROR] [order-engine] [trace=ed34e6c7] Unhandled exception in middleware chain: nil pointer dereference
+1016-23-05T08:00:12.480Z [INFO ] [order-engine] [trace=68bbed85] New worker spawned (pool=4/8)
+1016-36-05T08:00:12.938Z [INFO ] [order-engine] [trace=450fa6b6] Scheduled job 'cleanup' registered (interval=5m)
+1016-47-05T08:00:12.867Z [INFO ] [order-engine] [trace=ec6170c3] Configuration loaded from /etc/app/config.yaml
+1016-54-05T08:00:12.503Z [INFO ] [order-engine] [trace=34bd92c1] Cache warmed up with 1482 entries
+1016-08-05T08:00:12.993Z [INFO ] [order-engine] [trace=13dc262f] Webhook delivered to https://hooks.example.com/notify
+1016-12-05T08:00:12.207Z [INFO ] [order-engine] [trace=db1a0636] TLS certificate valid until 2027-03-15
+1016-17-05T08:00:12.267Z [INFO ] [order-engine] [trace=fcbf7f4c] User session created
+1016-27-05T08:00:12.308Z [INFO ] [order-engine] [trace=9e932166] Metrics exported to Prometheus
+1016-32-05T08:00:12.179Z [INFO ] [order-engine] [trace=48fe3465] Graceful reload triggered by SIGHUP
+1016-40-05T08:00:12.536Z [ERROR] [order-engine] [trace=3a49c04a] Authentication failed for user admin@example.com (attempt 5/5)
+1016-52-05T08:00:12.178Z [INFO ] [order-engine] [trace=9a255e70] Cache warmed up with 1482 entries
+1016-05-05T08:00:12.318Z [INFO ] [order-engine] [trace=d263e7de] Webhook delivered to https://hooks.example.com/notify
+1016-08-05T08:00:12.163Z [WARN ] [order-engine] [trace=1bfe901f] Fallback to secondary DNS resolver
+1016-15-05T08:00:12.642Z [INFO ] [order-engine] [trace=f124d643] Configuration loaded from /etc/app/config.yaml
+1016-21-05T08:00:12.932Z [WARN ] [order-engine] [trace=00d14515] Connection pool nearing capacity (8/10)
+1016-27-05T08:00:12.419Z [INFO ] [order-engine] [trace=3f66a3f6] Request processed in 42ms
+1016-32-05T08:00:12.993Z [INFO ] [order-engine] [trace=2006a8a6] Metrics exported to Prometheus
+1016-44-05T08:00:12.919Z [INFO ] [order-engine] [trace=0453a506] Graceful reload triggered by SIGHUP
+1016-58-05T08:00:12.181Z [INFO ] [order-engine] [trace=841925ad] Service started successfully
+1016-01-05T08:00:12.702Z [WARN ] [order-engine] [trace=1d35399c] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-13-05T08:00:12.696Z [INFO ] [order-engine] [trace=65374119] Batch import completed: 350 records
+1016-21-05T08:00:12.780Z [INFO ] [order-engine] [trace=a7096efb] Webhook delivered to https://hooks.example.com/notify
+1016-33-05T08:00:12.984Z [ERROR] [order-engine] [trace=b2de51e3] TLS handshake failed: certificate signed by unknown authority
+1016-36-05T08:00:12.962Z [INFO ] [order-engine] [trace=86177c23] Service started successfully
+1016-38-05T08:00:12.157Z [INFO ] [order-engine] [trace=043cfec4] Request processed in 42ms
+1016-40-05T08:00:12.762Z [WARN ] [order-engine] [trace=28c44d1c] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-50-05T08:00:12.182Z [WARN ] [order-engine] [trace=c0ac1ce6] Fallback to secondary DNS resolver
+1016-04-05T08:00:12.554Z [ERROR] [order-engine] [trace=cc3e4f94] DNS resolution failed for api.partner.io
+1016-10-05T08:00:12.290Z [INFO ] [order-engine] [trace=8a5e88ca] Service started successfully
+1016-22-05T08:00:12.242Z [INFO ] [order-engine] [trace=aa0e9b42] Metrics exported to Prometheus
+1016-24-05T08:00:12.949Z [WARN ] [order-engine] [trace=e05d605a] Stale cache entry served for key user:9281
+1016-36-05T08:00:12.001Z [INFO ] [order-engine] [trace=39e0ea6c] User session created
+1016-41-05T08:00:12.273Z [INFO ] [order-engine] [trace=5b1fe5a6] Metrics exported to Prometheus
+1016-53-05T08:00:12.652Z [WARN ] [order-engine] [trace=fa3bf566] Clock skew detected: 1.3s drift from NTP server
+1016-00-05T08:00:12.681Z [INFO ] [order-engine] [trace=0e0392aa] Health check endpoint responding on :8080/health
+1016-13-05T08:00:12.566Z [WARN ] [order-engine] [trace=71e98383] Slow query detected: SELECT * FROM orders (1.8s)
+1016-25-05T08:00:12.431Z [WARN ] [order-engine] [trace=2ebc66c7] Response time exceeded 500ms threshold (actual=623ms)
+1016-30-05T08:00:12.563Z [INFO ] [order-engine] [trace=d92eeca0] Health check endpoint responding on :8080/health
+1016-38-05T08:00:12.934Z [INFO ] [order-engine] [trace=d933a044] Health check endpoint responding on :8080/health
+1016-53-05T08:00:12.891Z [INFO ] [order-engine] [trace=7aa93de4] Scheduled job 'cleanup' registered (interval=5m)
+1016-01-05T08:00:12.539Z [INFO ] [order-engine] [trace=92672600] Database connection pool initialized (size=10)
+1016-09-05T08:00:12.237Z [INFO ] [order-engine] [trace=fb68cce1] Service started successfully
+1016-19-05T08:00:12.193Z [INFO ] [order-engine] [trace=baa2f505] Health check endpoint responding on :8080/health
+1016-29-05T08:00:12.994Z [WARN ] [order-engine] [trace=dbab4a57] Unrecognized query parameter 'debug' ignored
+1016-37-05T08:00:12.460Z [ERROR] [order-engine] [trace=be8e883b] S3 upload failed: AccessDenied on bucket prod-assets
+1016-44-05T08:00:12.834Z [INFO ] [order-engine] [trace=3a433dec] Cache warmed up with 1482 entries
+1016-50-05T08:00:12.830Z [INFO ] [order-engine] [trace=42ed309d] User session created
+1016-05-05T08:00:12.141Z [INFO ] [order-engine] [trace=0494bc5c] Cache warmed up with 1482 entries
+1016-09-05T08:00:12.255Z [WARN ] [order-engine] [trace=574ac5eb] Slow query detected: SELECT * FROM orders (1.8s)
+1016-11-05T08:00:12.754Z [INFO ] [order-engine] [trace=811efc09] Metrics exported to Prometheus
+1016-21-05T08:00:12.208Z [INFO ] [order-engine] [trace=43b8f925] Service started successfully
+1016-25-05T08:00:12.892Z [INFO ] [order-engine] [trace=f0c488ab] Configuration loaded from /etc/app/config.yaml
+1016-39-05T08:00:12.509Z [INFO ] [order-engine] [trace=7d70c68d] Database connection pool initialized (size=10)
+1016-41-05T08:00:12.271Z [INFO ] [order-engine] [trace=9511093d] Metrics exported to Prometheus
+1016-52-05T08:00:12.577Z [INFO ] [order-engine] [trace=0859ef22] Webhook delivered to https://hooks.example.com/notify
+1016-05-05T08:00:12.224Z [INFO ] [order-engine] [trace=3371565e] Configuration loaded from /etc/app/config.yaml
+1016-18-05T08:00:12.732Z [INFO ] [order-engine] [trace=49da49b8] Service started successfully
+1016-26-05T08:00:12.539Z [INFO ] [order-engine] [trace=7373a0f2] TLS certificate valid until 2027-03-15
+1016-27-05T08:00:12.575Z [INFO ] [order-engine] [trace=ed3cf6f9] Configuration loaded from /etc/app/config.yaml
+1016-32-05T08:00:12.480Z [INFO ] [order-engine] [trace=4e5ea7d7] Scheduled job 'cleanup' registered (interval=5m)
+1016-39-05T08:00:12.907Z [INFO ] [order-engine] [trace=6b96e05d] Metrics exported to Prometheus
+1016-48-05T08:00:12.384Z [INFO ] [order-engine] [trace=83a7143b] New worker spawned (pool=4/8)
+1016-01-05T08:00:12.809Z [INFO ] [order-engine] [trace=6a4c46f8] Database connection pool initialized (size=10)
+1016-12-05T08:00:12.519Z [INFO ] [order-engine] [trace=d800cc4a] Webhook delivered to https://hooks.example.com/notify
+1016-23-05T08:00:12.336Z [INFO ] [order-engine] [trace=66be3fbe] Metrics exported to Prometheus
+1016-34-05T08:00:12.297Z [INFO ] [order-engine] [trace=45c57e75] Batch import completed: 350 records
+1016-39-05T08:00:12.807Z [INFO ] [order-engine] [trace=6a706a18] Scheduled job 'cleanup' registered (interval=5m)
+1016-49-05T08:00:12.967Z [WARN ] [order-engine] [trace=db8f459e] Fallback to secondary DNS resolver
+1016-56-05T08:00:12.647Z [INFO ] [order-engine] [trace=3c346b9f] Scheduled job 'cleanup' registered (interval=5m)
+1016-02-05T08:00:12.454Z [INFO ] [order-engine] [trace=feb0f779] TLS certificate valid until 2027-03-15
+1016-13-05T08:00:12.037Z [WARN ] [order-engine] [trace=a00bba38] Unrecognized query parameter 'debug' ignored
+1016-26-05T08:00:12.544Z [WARN ] [order-engine] [trace=708754d8] Fallback to secondary DNS resolver
+1016-40-05T08:00:12.370Z [INFO ] [order-engine] [trace=0d1ad264] Webhook delivered to https://hooks.example.com/notify
+1016-45-05T08:00:12.018Z [INFO ] [order-engine] [trace=700f042b] Service started successfully
+1016-54-05T08:00:12.687Z [INFO ] [order-engine] [trace=b23b627f] Rate limiter reset for tenant acme-corp
+1016-03-05T08:00:12.911Z [WARN ] [order-engine] [trace=aa071f7b] Response time exceeded 500ms threshold (actual=623ms)
+1016-13-05T08:00:12.417Z [WARN ] [order-engine] [trace=480efc6e] Retry attempt 2/5 for upstream service payment-api
+1016-16-05T08:00:12.540Z [INFO ] [order-engine] [trace=0a53955b] Service started successfully
+1016-28-05T08:00:12.544Z [ERROR] [order-engine] [trace=a5519864] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-38-05T08:00:12.219Z [WARN ] [order-engine] [trace=5c1a1988] Connection pool nearing capacity (8/10)
+1016-41-05T08:00:12.443Z [INFO ] [order-engine] [trace=71d18f9c] User session created
+1016-45-05T08:00:12.103Z [INFO ] [order-engine] [trace=4599e602] Rate limiter reset for tenant acme-corp
+1016-59-05T08:00:12.147Z [INFO ] [order-engine] [trace=5b420ec8] User session created
+1016-08-05T08:00:12.163Z [INFO ] [order-engine] [trace=687bfa94] Request processed in 42ms
+1016-22-05T08:00:12.093Z [WARN ] [order-engine] [trace=7a9de90c] Partial response returned: 3 of 5 shards responded
+1016-36-05T08:00:12.525Z [WARN ] [order-engine] [trace=b53ffef1] Retry attempt 2/5 for upstream service payment-api
+1016-41-05T08:00:12.936Z [WARN ] [order-engine] [trace=8843bc08] Retry attempt 2/5 for upstream service payment-api
+1016-55-05T08:00:12.004Z [INFO ] [order-engine] [trace=93e2a885] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.032Z [INFO ] [order-engine] [trace=e72c3112] Request processed in 42ms
+1016-19-05T08:00:12.321Z [INFO ] [order-engine] [trace=568f99f1] Rate limiter reset for tenant acme-corp
+1016-28-05T08:00:12.388Z [INFO ] [order-engine] [trace=8b511d4a] TLS certificate valid until 2027-03-15
+1016-41-05T08:00:12.618Z [INFO ] [order-engine] [trace=b1247e66] Batch import completed: 350 records
+1016-53-05T08:00:12.816Z [INFO ] [order-engine] [trace=4fbe21f4] TLS certificate valid until 2027-03-15
+1016-01-05T08:00:12.563Z [INFO ] [order-engine] [trace=1afed8f2] Webhook delivered to https://hooks.example.com/notify

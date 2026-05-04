@@ -1,0 +1,300 @@
+1016-01-05T08:00:12.272Z [INFO ] [payment-api] [trace=04d3009a] Health check endpoint responding on :8080/health
+1016-14-05T08:00:12.498Z [INFO ] [payment-api] [trace=5f943a66] Request processed in 42ms
+1016-18-05T08:00:12.676Z [INFO ] [payment-api] [trace=34d4b091] New worker spawned (pool=4/8)
+1016-20-05T08:00:12.935Z [INFO ] [payment-api] [trace=e36a5df8] Configuration loaded from /etc/app/config.yaml
+1016-28-05T08:00:12.901Z [WARN ] [payment-api] [trace=c5b98039] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-31-05T08:00:12.945Z [WARN ] [payment-api] [trace=a06c1c2e] Certificate expires in 30 days
+1016-33-05T08:00:12.472Z [INFO ] [payment-api] [trace=b706065a] TLS certificate valid until 2027-03-15
+1016-47-05T08:00:12.961Z [INFO ] [payment-api] [trace=b6ae3393] Rate limiter reset for tenant acme-corp
+1016-00-05T08:00:12.085Z [INFO ] [payment-api] [trace=682a3668] Request processed in 42ms
+1016-08-05T08:00:12.896Z [INFO ] [payment-api] [trace=2c3e90a6] Scheduled job 'cleanup' registered (interval=5m)
+1016-10-05T08:00:12.271Z [INFO ] [payment-api] [trace=2cf6a2c3] User session created
+1016-15-05T08:00:12.136Z [INFO ] [payment-api] [trace=440f6931] Rate limiter reset for tenant acme-corp
+1016-23-05T08:00:12.297Z [INFO ] [payment-api] [trace=c2c0198d] New worker spawned (pool=4/8)
+1016-33-05T08:00:12.204Z [INFO ] [payment-api] [trace=db33b211] Webhook delivered to https://hooks.example.com/notify
+1016-34-05T08:00:12.594Z [INFO ] [payment-api] [trace=b860405f] Graceful reload triggered by SIGHUP
+1016-43-05T08:00:12.840Z [INFO ] [payment-api] [trace=3d6f6d1a] Request processed in 42ms
+1016-57-05T08:00:12.507Z [WARN ] [payment-api] [trace=77944672] Slow query detected: SELECT * FROM orders (1.8s)
+1016-04-05T08:00:12.915Z [WARN ] [payment-api] [trace=99287aba] Response time exceeded 500ms threshold (actual=623ms)
+1016-18-05T08:00:12.168Z [INFO ] [payment-api] [trace=609e64fa] Graceful reload triggered by SIGHUP
+1016-28-05T08:00:12.708Z [INFO ] [payment-api] [trace=1e14f93b] Metrics exported to Prometheus
+1016-33-05T08:00:12.153Z [INFO ] [payment-api] [trace=8e0bc385] Webhook delivered to https://hooks.example.com/notify
+1016-39-05T08:00:12.511Z [WARN ] [payment-api] [trace=83d2162d] Stale cache entry served for key user:9281
+1016-49-05T08:00:12.121Z [ERROR] [payment-api] [trace=392ef177] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-02-05T08:00:12.258Z [INFO ] [payment-api] [trace=a6dfb9d4] Metrics exported to Prometheus
+1016-03-05T08:00:12.671Z [INFO ] [payment-api] [trace=5dc73929] New worker spawned (pool=4/8)
+1016-17-05T08:00:12.124Z [ERROR] [payment-api] [trace=1d26efd5] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-19-05T08:00:12.085Z [INFO ] [payment-api] [trace=cb67889e] TLS certificate valid until 2027-03-15
+1016-21-05T08:00:12.578Z [INFO ] [payment-api] [trace=cc12fe67] Batch import completed: 350 records
+1016-25-05T08:00:12.076Z [INFO ] [payment-api] [trace=32fd2aa6] Graceful reload triggered by SIGHUP
+1016-39-05T08:00:12.592Z [INFO ] [payment-api] [trace=b0e8089b] Health check endpoint responding on :8080/health
+1016-50-05T08:00:12.689Z [INFO ] [payment-api] [trace=66e0890d] Health check endpoint responding on :8080/health
+1016-03-05T08:00:12.902Z [INFO ] [payment-api] [trace=00c32c3b] Rate limiter reset for tenant acme-corp
+1016-06-05T08:00:12.122Z [INFO ] [payment-api] [trace=70ea98db] Graceful reload triggered by SIGHUP
+1016-09-05T08:00:12.750Z [INFO ] [payment-api] [trace=035e59d2] Request processed in 42ms
+1016-23-05T08:00:12.516Z [WARN ] [payment-api] [trace=61662e86] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-34-05T08:00:12.369Z [ERROR] [payment-api] [trace=2c4ee6ec] Unhandled exception in middleware chain: nil pointer dereference
+1016-42-05T08:00:12.852Z [INFO ] [payment-api] [trace=01c6eb2b] Cache warmed up with 1482 entries
+1016-50-05T08:00:12.665Z [INFO ] [payment-api] [trace=7a747b74] Configuration loaded from /etc/app/config.yaml
+1016-05-05T08:00:12.514Z [INFO ] [payment-api] [trace=818e64dc] TLS certificate valid until 2027-03-15
+1016-18-05T08:00:12.826Z [INFO ] [payment-api] [trace=b3a8a801] Scheduled job 'cleanup' registered (interval=5m)
+1016-21-05T08:00:12.695Z [INFO ] [payment-api] [trace=09ebdc08] User session created
+1016-35-05T08:00:12.471Z [INFO ] [payment-api] [trace=381f4ff9] TLS certificate valid until 2027-03-15
+1016-41-05T08:00:12.861Z [ERROR] [payment-api] [trace=ed2fc0cb] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-56-05T08:00:12.381Z [INFO ] [payment-api] [trace=648f92e9] User session created
+1016-10-05T08:00:12.260Z [WARN ] [payment-api] [trace=18f07199] Clock skew detected: 1.3s drift from NTP server
+1016-23-05T08:00:12.218Z [INFO ] [payment-api] [trace=91514d2b] User session created
+1016-31-05T08:00:12.769Z [INFO ] [payment-api] [trace=1347fe06] User session created
+1016-42-05T08:00:12.246Z [INFO ] [payment-api] [trace=fb888a38] Cache warmed up with 1482 entries
+1016-50-05T08:00:12.125Z [INFO ] [payment-api] [trace=41ffccb6] Health check endpoint responding on :8080/health
+1016-01-05T08:00:12.902Z [INFO ] [payment-api] [trace=4d384e4f] Batch import completed: 350 records
+1016-06-05T08:00:12.891Z [INFO ] [payment-api] [trace=97e2a458] Health check endpoint responding on :8080/health
+1016-09-05T08:00:12.598Z [INFO ] [payment-api] [trace=8d43b4a7] TLS certificate valid until 2027-03-15
+1016-16-05T08:00:12.460Z [WARN ] [payment-api] [trace=8b522ef5] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-21-05T08:00:12.934Z [WARN ] [payment-api] [trace=7a24bd79] Stale cache entry served for key user:9281
+1016-28-05T08:00:12.935Z [INFO ] [payment-api] [trace=6df1ae5a] Webhook delivered to https://hooks.example.com/notify
+1016-39-05T08:00:12.020Z [INFO ] [payment-api] [trace=5959b29b] TLS certificate valid until 2027-03-15
+1016-45-05T08:00:12.011Z [INFO ] [payment-api] [trace=898f6c1d] Scheduled job 'cleanup' registered (interval=5m)
+1016-50-05T08:00:12.319Z [INFO ] [payment-api] [trace=f8bb5f93] Batch import completed: 350 records
+1016-02-05T08:00:12.079Z [WARN ] [payment-api] [trace=f1bc2ccf] Connection pool nearing capacity (8/10)
+1016-12-05T08:00:12.593Z [ERROR] [payment-api] [trace=f423c25f] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-15-05T08:00:12.929Z [INFO ] [payment-api] [trace=fc883355] Service started successfully
+1016-24-05T08:00:12.783Z [WARN ] [payment-api] [trace=9e380846] Retry attempt 2/5 for upstream service payment-api
+1016-31-05T08:00:12.692Z [WARN ] [payment-api] [trace=60a647d5] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-35-05T08:00:12.032Z [INFO ] [payment-api] [trace=983f9890] Rate limiter reset for tenant acme-corp
+1016-36-05T08:00:12.719Z [INFO ] [payment-api] [trace=0ef7b207] Rate limiter reset for tenant acme-corp
+1016-46-05T08:00:12.149Z [INFO ] [payment-api] [trace=a17b9381] User session created
+1016-55-05T08:00:12.350Z [INFO ] [payment-api] [trace=d4283ffd] Request processed in 42ms
+1016-05-05T08:00:12.946Z [WARN ] [payment-api] [trace=da57b20a] Response time exceeded 500ms threshold (actual=623ms)
+1016-13-05T08:00:12.233Z [INFO ] [payment-api] [trace=c67676cf] Scheduled job 'cleanup' registered (interval=5m)
+1016-20-05T08:00:12.499Z [INFO ] [payment-api] [trace=ed74bb18] Configuration loaded from /etc/app/config.yaml
+1016-24-05T08:00:12.328Z [WARN ] [payment-api] [trace=5a4518cb] Retry attempt 2/5 for upstream service payment-api
+1016-38-05T08:00:12.109Z [INFO ] [payment-api] [trace=614c58c9] User session created
+1016-51-05T08:00:12.882Z [WARN ] [payment-api] [trace=55dcdff9] Certificate expires in 30 days
+1016-05-05T08:00:12.766Z [INFO ] [payment-api] [trace=d33793a3] Metrics exported to Prometheus
+1016-14-05T08:00:12.618Z [INFO ] [payment-api] [trace=550f5f76] TLS certificate valid until 2027-03-15
+1016-28-05T08:00:12.819Z [INFO ] [payment-api] [trace=dd8416d4] Webhook delivered to https://hooks.example.com/notify
+1016-40-05T08:00:12.861Z [ERROR] [payment-api] [trace=54dfc30b] Migration 0042_add_index.sql failed: duplicate column name
+1016-42-05T08:00:12.314Z [INFO ] [payment-api] [trace=84075e1e] Graceful reload triggered by SIGHUP
+1016-52-05T08:00:12.820Z [ERROR] [payment-api] [trace=58aa6d65] Failed to connect to postgres://db:5432/app — connection refused
+1016-02-05T08:00:12.237Z [INFO ] [payment-api] [trace=7b81e41d] Database connection pool initialized (size=10)
+1016-09-05T08:00:12.828Z [INFO ] [payment-api] [trace=c0475a5c] Database connection pool initialized (size=10)
+1016-12-05T08:00:12.054Z [INFO ] [payment-api] [trace=225224ea] TLS certificate valid until 2027-03-15
+1016-16-05T08:00:12.321Z [INFO ] [payment-api] [trace=e4e98b3d] Cache warmed up with 1482 entries
+1016-30-05T08:00:12.294Z [WARN ] [payment-api] [trace=11ee0647] Slow query detected: SELECT * FROM orders (1.8s)
+1016-40-05T08:00:12.656Z [WARN ] [payment-api] [trace=cb69fa7d] Connection pool nearing capacity (8/10)
+1016-47-05T08:00:12.488Z [WARN ] [payment-api] [trace=6099e2a8] Unrecognized query parameter 'debug' ignored
+1016-01-05T08:00:12.328Z [INFO ] [payment-api] [trace=8d492dc0] Scheduled job 'cleanup' registered (interval=5m)
+1016-16-05T08:00:12.009Z [INFO ] [payment-api] [trace=bc270ed1] Graceful reload triggered by SIGHUP
+1016-25-05T08:00:12.850Z [INFO ] [payment-api] [trace=9e00051a] Batch import completed: 350 records
+1016-29-05T08:00:12.609Z [INFO ] [payment-api] [trace=1cb9e37d] Configuration loaded from /etc/app/config.yaml
+1016-39-05T08:00:12.008Z [WARN ] [payment-api] [trace=92fdbe14] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-46-05T08:00:12.609Z [INFO ] [payment-api] [trace=9ddeaa6e] Scheduled job 'cleanup' registered (interval=5m)
+1016-53-05T08:00:12.398Z [INFO ] [payment-api] [trace=d316f563] Configuration loaded from /etc/app/config.yaml
+1016-54-05T08:00:12.961Z [INFO ] [payment-api] [trace=f1a2b0b9] Rate limiter reset for tenant acme-corp
+1016-07-05T08:00:12.418Z [ERROR] [payment-api] [trace=2ce84c4d] Disk write failed: /var/log/app.log — no space left on device
+1016-13-05T08:00:12.813Z [WARN ] [payment-api] [trace=7e30eaa4] Clock skew detected: 1.3s drift from NTP server
+1016-26-05T08:00:12.889Z [INFO ] [payment-api] [trace=70f2dcd1] Service started successfully
+1016-30-05T08:00:12.480Z [INFO ] [payment-api] [trace=32b907c4] Configuration loaded from /etc/app/config.yaml
+1016-37-05T08:00:12.836Z [INFO ] [payment-api] [trace=6fcaeda7] Service started successfully
+1016-51-05T08:00:12.287Z [INFO ] [payment-api] [trace=164c3812] Metrics exported to Prometheus
+1016-04-05T08:00:12.302Z [INFO ] [payment-api] [trace=bdc0eddc] Service started successfully
+1016-06-05T08:00:12.106Z [ERROR] [payment-api] [trace=7cccbee4] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-07-05T08:00:12.152Z [INFO ] [payment-api] [trace=9d8d0c0e] Request processed in 42ms
+1016-10-05T08:00:12.949Z [INFO ] [payment-api] [trace=1b244509] Graceful reload triggered by SIGHUP
+1016-18-05T08:00:12.947Z [INFO ] [payment-api] [trace=551a539d] Service started successfully
+1016-28-05T08:00:12.719Z [INFO ] [payment-api] [trace=161047fd] Configuration loaded from /etc/app/config.yaml
+1016-35-05T08:00:12.248Z [INFO ] [payment-api] [trace=034fcec4] Rate limiter reset for tenant acme-corp
+1016-45-05T08:00:12.438Z [INFO ] [payment-api] [trace=92e9efe3] Health check endpoint responding on :8080/health
+1016-57-05T08:00:12.328Z [ERROR] [payment-api] [trace=b82f1d6d] Migration 0042_add_index.sql failed: duplicate column name
+1016-09-05T08:00:12.888Z [WARN ] [payment-api] [trace=4f6b22c7] Fallback to secondary DNS resolver
+1016-21-05T08:00:12.689Z [WARN ] [payment-api] [trace=7ea0ddc3] Slow query detected: SELECT * FROM orders (1.8s)
+1016-35-05T08:00:12.866Z [INFO ] [payment-api] [trace=a9cfc34f] Scheduled job 'cleanup' registered (interval=5m)
+1016-43-05T08:00:12.906Z [WARN ] [payment-api] [trace=90128ed7] Fallback to secondary DNS resolver
+1016-47-05T08:00:12.710Z [INFO ] [payment-api] [trace=e1392d16] Database connection pool initialized (size=10)
+1016-56-05T08:00:12.019Z [WARN ] [payment-api] [trace=018a1584] Disk usage at 82%% on /var/lib/data
+1016-04-05T08:00:12.146Z [INFO ] [payment-api] [trace=790453ea] Graceful reload triggered by SIGHUP
+1016-13-05T08:00:12.432Z [WARN ] [payment-api] [trace=dc93e7ae] Slow query detected: SELECT * FROM orders (1.8s)
+1016-26-05T08:00:12.496Z [INFO ] [payment-api] [trace=23ecf12b] Scheduled job 'cleanup' registered (interval=5m)
+1016-30-05T08:00:12.654Z [WARN ] [payment-api] [trace=04b8b885] Disk usage at 82%% on /var/lib/data
+1016-35-05T08:00:12.973Z [INFO ] [payment-api] [trace=cf0cf3b8] Request processed in 42ms
+1016-40-05T08:00:12.522Z [INFO ] [payment-api] [trace=75bdbb68] TLS certificate valid until 2027-03-15
+1016-51-05T08:00:12.604Z [INFO ] [payment-api] [trace=6776819e] Configuration loaded from /etc/app/config.yaml
+1016-04-05T08:00:12.881Z [WARN ] [payment-api] [trace=37ea8f6e] Memory usage above 75%% (current=78%%)
+1016-06-05T08:00:12.871Z [INFO ] [payment-api] [trace=cf4b62b9] Request processed in 42ms
+1016-10-05T08:00:12.505Z [INFO ] [payment-api] [trace=6c2e085d] Rate limiter reset for tenant acme-corp
+1016-15-05T08:00:12.091Z [INFO ] [payment-api] [trace=0ad5c2b5] Health check endpoint responding on :8080/health
+1016-16-05T08:00:12.602Z [INFO ] [payment-api] [trace=9ef8d439] Request processed in 42ms
+1016-19-05T08:00:12.088Z [INFO ] [payment-api] [trace=03ff3507] Health check endpoint responding on :8080/health
+1016-24-05T08:00:12.779Z [INFO ] [payment-api] [trace=ba0384b5] Configuration loaded from /etc/app/config.yaml
+1016-37-05T08:00:12.985Z [WARN ] [payment-api] [trace=11ed248c] Certificate expires in 30 days
+1016-45-05T08:00:12.512Z [INFO ] [payment-api] [trace=86a94006] Database connection pool initialized (size=10)
+1016-58-05T08:00:12.325Z [INFO ] [payment-api] [trace=d98f525e] Configuration loaded from /etc/app/config.yaml
+1016-07-05T08:00:12.728Z [WARN ] [payment-api] [trace=99b43355] Rate limit approaching for API key sk-...a3f9
+1016-22-05T08:00:12.480Z [INFO ] [payment-api] [trace=e9816101] Database connection pool initialized (size=10)
+1016-29-05T08:00:12.625Z [INFO ] [payment-api] [trace=364ed8e9] Graceful reload triggered by SIGHUP
+1016-32-05T08:00:12.395Z [INFO ] [payment-api] [trace=8e4064b7] New worker spawned (pool=4/8)
+1016-39-05T08:00:12.913Z [INFO ] [payment-api] [trace=51c62b66] New worker spawned (pool=4/8)
+1016-46-05T08:00:12.078Z [WARN ] [payment-api] [trace=f6b1e7c0] Rate limit approaching for API key sk-...a3f9
+1016-00-05T08:00:12.586Z [ERROR] [payment-api] [trace=d41a1cf1] DNS resolution failed for api.partner.io
+1016-06-05T08:00:12.432Z [INFO ] [payment-api] [trace=fbb96782] User session created
+1016-14-05T08:00:12.097Z [INFO ] [payment-api] [trace=18eb856c] New worker spawned (pool=4/8)
+1016-18-05T08:00:12.577Z [ERROR] [payment-api] [trace=bd68deeb] S3 upload failed: AccessDenied on bucket prod-assets
+1016-23-05T08:00:12.624Z [INFO ] [payment-api] [trace=314c5135] Cache warmed up with 1482 entries
+1016-38-05T08:00:12.204Z [INFO ] [payment-api] [trace=e009c044] Webhook delivered to https://hooks.example.com/notify
+1016-45-05T08:00:12.446Z [INFO ] [payment-api] [trace=32647bef] Health check endpoint responding on :8080/health
+1016-56-05T08:00:12.711Z [WARN ] [payment-api] [trace=1b236998] Stale cache entry served for key user:9281
+1016-09-05T08:00:12.862Z [INFO ] [payment-api] [trace=f19ff8f6] TLS certificate valid until 2027-03-15
+1016-11-05T08:00:12.168Z [INFO ] [payment-api] [trace=8a0986c3] Webhook delivered to https://hooks.example.com/notify
+1016-19-05T08:00:12.734Z [INFO ] [payment-api] [trace=bcd003dd] Health check endpoint responding on :8080/health
+1016-30-05T08:00:12.613Z [INFO ] [payment-api] [trace=a92346f0] User session created
+1016-38-05T08:00:12.223Z [INFO ] [payment-api] [trace=d20b9375] Metrics exported to Prometheus
+1016-44-05T08:00:12.405Z [ERROR] [payment-api] [trace=75bd03b8] Migration 0042_add_index.sql failed: duplicate column name
+1016-46-05T08:00:12.805Z [INFO ] [payment-api] [trace=39c37e3f] Service started successfully
+1016-01-05T08:00:12.663Z [INFO ] [payment-api] [trace=4bfa5486] Service started successfully
+1016-08-05T08:00:12.233Z [INFO ] [payment-api] [trace=c2fc9335] New worker spawned (pool=4/8)
+1016-15-05T08:00:12.637Z [INFO ] [payment-api] [trace=62e664a4] Rate limiter reset for tenant acme-corp
+1016-21-05T08:00:12.746Z [INFO ] [payment-api] [trace=16f31fa1] Scheduled job 'cleanup' registered (interval=5m)
+1016-32-05T08:00:12.114Z [INFO ] [payment-api] [trace=63fb55fd] Configuration loaded from /etc/app/config.yaml
+1016-45-05T08:00:12.487Z [INFO ] [payment-api] [trace=1c24772d] Rate limiter reset for tenant acme-corp
+1016-46-05T08:00:12.808Z [INFO ] [payment-api] [trace=76aacd4d] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.155Z [WARN ] [payment-api] [trace=89f55bf4] Response time exceeded 500ms threshold (actual=623ms)
+1016-55-05T08:00:12.763Z [INFO ] [payment-api] [trace=ed68bfb0] Batch import completed: 350 records
+1016-08-05T08:00:12.694Z [INFO ] [payment-api] [trace=5baf4039] Metrics exported to Prometheus
+1016-11-05T08:00:12.293Z [WARN ] [payment-api] [trace=4ba555ee] Certificate expires in 30 days
+1016-19-05T08:00:12.249Z [INFO ] [payment-api] [trace=3df72f89] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.677Z [INFO ] [payment-api] [trace=298f849a] TLS certificate valid until 2027-03-15
+1016-37-05T08:00:12.916Z [INFO ] [payment-api] [trace=466ed360] Request processed in 42ms
+1016-52-05T08:00:12.820Z [INFO ] [payment-api] [trace=07f7c2f2] Database connection pool initialized (size=10)
+1016-55-05T08:00:12.044Z [INFO ] [payment-api] [trace=1d3f8a94] Request processed in 42ms
+1016-00-05T08:00:12.651Z [ERROR] [payment-api] [trace=a966c1ed] Migration 0042_add_index.sql failed: duplicate column name
+1016-13-05T08:00:12.116Z [INFO ] [payment-api] [trace=6c3f9c01] Service started successfully
+1016-26-05T08:00:12.761Z [INFO ] [payment-api] [trace=ee1e7993] Health check endpoint responding on :8080/health
+1016-31-05T08:00:12.898Z [INFO ] [payment-api] [trace=2a313a3d] Scheduled job 'cleanup' registered (interval=5m)
+1016-34-05T08:00:12.924Z [INFO ] [payment-api] [trace=e497d17a] Request processed in 42ms
+1016-45-05T08:00:12.339Z [ERROR] [payment-api] [trace=abfe48c6] Unhandled exception in middleware chain: nil pointer dereference
+1016-53-05T08:00:12.058Z [INFO ] [payment-api] [trace=892264aa] New worker spawned (pool=4/8)
+1016-02-05T08:00:12.509Z [INFO ] [payment-api] [trace=c73e5fd4] Rate limiter reset for tenant acme-corp
+1016-10-05T08:00:12.387Z [INFO ] [payment-api] [trace=f3c5df07] Metrics exported to Prometheus
+1016-14-05T08:00:12.790Z [INFO ] [payment-api] [trace=7f680a6b] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.016Z [INFO ] [payment-api] [trace=ad5a9686] Rate limiter reset for tenant acme-corp
+1016-32-05T08:00:12.411Z [INFO ] [payment-api] [trace=3d8af954] Metrics exported to Prometheus
+1016-42-05T08:00:12.238Z [WARN ] [payment-api] [trace=78e75096] Clock skew detected: 1.3s drift from NTP server
+1016-48-05T08:00:12.054Z [INFO ] [payment-api] [trace=d8a3ee6e] Webhook delivered to https://hooks.example.com/notify
+1016-54-05T08:00:12.046Z [INFO ] [payment-api] [trace=75cba07c] Database connection pool initialized (size=10)
+1016-09-05T08:00:12.000Z [WARN ] [payment-api] [trace=b5726eb4] Response time exceeded 500ms threshold (actual=623ms)
+1016-16-05T08:00:12.250Z [INFO ] [payment-api] [trace=dc63ac08] Graceful reload triggered by SIGHUP
+1016-28-05T08:00:12.962Z [ERROR] [payment-api] [trace=1b399da8] Unhandled exception in middleware chain: nil pointer dereference
+1016-42-05T08:00:12.046Z [INFO ] [payment-api] [trace=50f87264] Cache warmed up with 1482 entries
+1016-44-05T08:00:12.404Z [ERROR] [payment-api] [trace=2978a7c7] DNS resolution failed for api.partner.io
+1016-46-05T08:00:12.119Z [INFO ] [payment-api] [trace=bc6d146b] Rate limiter reset for tenant acme-corp
+1016-59-05T08:00:12.609Z [INFO ] [payment-api] [trace=49a6f900] TLS certificate valid until 2027-03-15
+1016-04-05T08:00:12.601Z [ERROR] [payment-api] [trace=3cc36c01] Unhandled exception in middleware chain: nil pointer dereference
+1016-14-05T08:00:12.862Z [INFO ] [payment-api] [trace=1777d368] Scheduled job 'cleanup' registered (interval=5m)
+1016-17-05T08:00:12.887Z [INFO ] [payment-api] [trace=28705ccd] Graceful reload triggered by SIGHUP
+1016-27-05T08:00:12.825Z [INFO ] [payment-api] [trace=b561a39a] Graceful reload triggered by SIGHUP
+1016-40-05T08:00:12.106Z [WARN ] [payment-api] [trace=0a81e5e1] Partial response returned: 3 of 5 shards responded
+1016-46-05T08:00:12.835Z [ERROR] [payment-api] [trace=a758834a] Invalid JWT token: signature verification failed
+1016-56-05T08:00:12.398Z [INFO ] [payment-api] [trace=8bab328b] Configuration loaded from /etc/app/config.yaml
+1016-08-05T08:00:12.841Z [WARN ] [payment-api] [trace=f999710c] Disk usage at 82%% on /var/lib/data
+1016-14-05T08:00:12.261Z [INFO ] [payment-api] [trace=f71424f2] Scheduled job 'cleanup' registered (interval=5m)
+1016-27-05T08:00:12.101Z [WARN ] [payment-api] [trace=24f321cb] Fallback to secondary DNS resolver
+1016-41-05T08:00:12.363Z [INFO ] [payment-api] [trace=af60b8ba] Rate limiter reset for tenant acme-corp
+1016-43-05T08:00:12.287Z [INFO ] [payment-api] [trace=0fb336a3] Webhook delivered to https://hooks.example.com/notify
+1016-53-05T08:00:12.039Z [INFO ] [payment-api] [trace=ca9926bb] Database connection pool initialized (size=10)
+1016-55-05T08:00:12.336Z [INFO ] [payment-api] [trace=1168d1d1] Scheduled job 'cleanup' registered (interval=5m)
+1016-09-05T08:00:12.720Z [INFO ] [payment-api] [trace=ba33153c] Health check endpoint responding on :8080/health
+1016-19-05T08:00:12.502Z [INFO ] [payment-api] [trace=f81e245b] Database connection pool initialized (size=10)
+1016-29-05T08:00:12.016Z [INFO ] [payment-api] [trace=a7bdf10b] Configuration loaded from /etc/app/config.yaml
+1016-31-05T08:00:12.246Z [INFO ] [payment-api] [trace=4f14ac0f] Health check endpoint responding on :8080/health
+1016-35-05T08:00:12.327Z [INFO ] [payment-api] [trace=b4ecfcf7] Cache warmed up with 1482 entries
+1016-48-05T08:00:12.017Z [INFO ] [payment-api] [trace=840e718e] Database connection pool initialized (size=10)
+1016-56-05T08:00:12.250Z [INFO ] [payment-api] [trace=785f8320] Service started successfully
+1016-01-05T08:00:12.149Z [ERROR] [payment-api] [trace=db7d3d7e] Deadlock detected between goroutine 47 and goroutine 52
+1016-04-05T08:00:12.297Z [INFO ] [payment-api] [trace=9242588c] Scheduled job 'cleanup' registered (interval=5m)
+1016-08-05T08:00:12.716Z [INFO ] [payment-api] [trace=f22e8827] New worker spawned (pool=4/8)
+1016-20-05T08:00:12.220Z [ERROR] [payment-api] [trace=c071f5dc] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-27-05T08:00:12.517Z [ERROR] [payment-api] [trace=b9fba257] Disk write failed: /var/log/app.log — no space left on device
+1016-40-05T08:00:12.537Z [INFO ] [payment-api] [trace=781de8c9] Graceful reload triggered by SIGHUP
+1016-55-05T08:00:12.059Z [ERROR] [payment-api] [trace=7ca6b9b3] Failed to connect to postgres://db:5432/app — connection refused
+1016-01-05T08:00:12.846Z [INFO ] [payment-api] [trace=3670076f] Service started successfully
+1016-07-05T08:00:12.495Z [INFO ] [payment-api] [trace=d51718c9] Cache warmed up with 1482 entries
+1016-17-05T08:00:12.402Z [INFO ] [payment-api] [trace=2bcbdced] Metrics exported to Prometheus
+1016-29-05T08:00:12.077Z [INFO ] [payment-api] [trace=ea600e75] Metrics exported to Prometheus
+1016-43-05T08:00:12.104Z [INFO ] [payment-api] [trace=f3932f16] Health check endpoint responding on :8080/health
+1016-55-05T08:00:12.799Z [WARN ] [payment-api] [trace=2f65468b] Stale cache entry served for key user:9281
+1016-06-05T08:00:12.280Z [WARN ] [payment-api] [trace=c273af8f] Retry attempt 2/5 for upstream service payment-api
+1016-11-05T08:00:12.055Z [INFO ] [payment-api] [trace=8eb725f7] Metrics exported to Prometheus
+1016-18-05T08:00:12.138Z [INFO ] [payment-api] [trace=470f62a8] Cache warmed up with 1482 entries
+1016-24-05T08:00:12.954Z [INFO ] [payment-api] [trace=5a9e552f] Request processed in 42ms
+1016-33-05T08:00:12.231Z [INFO ] [payment-api] [trace=bbf0d797] Request processed in 42ms
+1016-44-05T08:00:12.525Z [INFO ] [payment-api] [trace=0429a604] Database connection pool initialized (size=10)
+1016-46-05T08:00:12.107Z [INFO ] [payment-api] [trace=52162508] Batch import completed: 350 records
+1016-49-05T08:00:12.509Z [INFO ] [payment-api] [trace=fe57b4db] Graceful reload triggered by SIGHUP
+1016-00-05T08:00:12.183Z [INFO ] [payment-api] [trace=c6032d40] User session created
+1016-10-05T08:00:12.933Z [INFO ] [payment-api] [trace=87f7f305] Configuration loaded from /etc/app/config.yaml
+1016-25-05T08:00:12.265Z [WARN ] [payment-api] [trace=d00cb242] Rate limit approaching for API key sk-...a3f9
+1016-37-05T08:00:12.296Z [WARN ] [payment-api] [trace=fd3c01a1] Partial response returned: 3 of 5 shards responded
+1016-46-05T08:00:12.170Z [INFO ] [payment-api] [trace=d94eac5f] Metrics exported to Prometheus
+1016-57-05T08:00:12.449Z [INFO ] [payment-api] [trace=eafaf191] New worker spawned (pool=4/8)
+1016-02-05T08:00:12.647Z [INFO ] [payment-api] [trace=dcf8685d] New worker spawned (pool=4/8)
+1016-14-05T08:00:12.785Z [INFO ] [payment-api] [trace=e7664216] Health check endpoint responding on :8080/health
+1016-19-05T08:00:12.451Z [WARN ] [payment-api] [trace=f060d9ef] Rate limit approaching for API key sk-...a3f9
+1016-28-05T08:00:12.048Z [ERROR] [payment-api] [trace=7c08013d] Out of memory: cannot allocate 256MB for image processing
+1016-40-05T08:00:12.345Z [INFO ] [payment-api] [trace=24cc866e] Configuration loaded from /etc/app/config.yaml
+1016-42-05T08:00:12.050Z [INFO ] [payment-api] [trace=26342947] Graceful reload triggered by SIGHUP
+1016-53-05T08:00:12.329Z [INFO ] [payment-api] [trace=629cd72e] Database connection pool initialized (size=10)
+1016-03-05T08:00:12.869Z [WARN ] [payment-api] [trace=4afccb7e] Clock skew detected: 1.3s drift from NTP server
+1016-05-05T08:00:12.322Z [INFO ] [payment-api] [trace=b5296171] Database connection pool initialized (size=10)
+1016-20-05T08:00:12.160Z [INFO ] [payment-api] [trace=d78b8c18] User session created
+1016-35-05T08:00:12.049Z [INFO ] [payment-api] [trace=11a711ab] User session created
+1016-43-05T08:00:12.251Z [INFO ] [payment-api] [trace=7d3fbe4a] User session created
+1016-53-05T08:00:12.588Z [INFO ] [payment-api] [trace=72ada85a] Configuration loaded from /etc/app/config.yaml
+1016-56-05T08:00:12.309Z [INFO ] [payment-api] [trace=8b4826e0] Graceful reload triggered by SIGHUP
+1016-08-05T08:00:12.548Z [ERROR] [payment-api] [trace=aa72ded5] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-13-05T08:00:12.200Z [INFO ] [payment-api] [trace=64fb42fa] Rate limiter reset for tenant acme-corp
+1016-23-05T08:00:12.898Z [INFO ] [payment-api] [trace=f1293a06] Scheduled job 'cleanup' registered (interval=5m)
+1016-32-05T08:00:12.241Z [INFO ] [payment-api] [trace=da5998cc] TLS certificate valid until 2027-03-15
+1016-41-05T08:00:12.475Z [INFO ] [payment-api] [trace=6a8117ff] Rate limiter reset for tenant acme-corp
+1016-50-05T08:00:12.644Z [INFO ] [payment-api] [trace=902bb322] TLS certificate valid until 2027-03-15
+1016-54-05T08:00:12.503Z [INFO ] [payment-api] [trace=179a70cb] Webhook delivered to https://hooks.example.com/notify
+1016-55-05T08:00:12.613Z [INFO ] [payment-api] [trace=feed6d2b] Request processed in 42ms
+1016-04-05T08:00:12.530Z [INFO ] [payment-api] [trace=7f23e32d] Webhook delivered to https://hooks.example.com/notify
+1016-07-05T08:00:12.806Z [INFO ] [payment-api] [trace=a7eb41f0] Database connection pool initialized (size=10)
+1016-12-05T08:00:12.586Z [WARN ] [payment-api] [trace=102c8a37] Disk usage at 82%% on /var/lib/data
+1016-25-05T08:00:12.561Z [INFO ] [payment-api] [trace=2191a759] Metrics exported to Prometheus
+1016-28-05T08:00:12.062Z [ERROR] [payment-api] [trace=670a8362] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-38-05T08:00:12.979Z [INFO ] [payment-api] [trace=9317c437] User session created
+1016-43-05T08:00:12.430Z [INFO ] [payment-api] [trace=36a987e2] Cache warmed up with 1482 entries
+1016-48-05T08:00:12.192Z [WARN ] [payment-api] [trace=95bfa801] Connection pool nearing capacity (8/10)
+1016-01-05T08:00:12.575Z [INFO ] [payment-api] [trace=92766c44] Database connection pool initialized (size=10)
+1016-10-05T08:00:12.404Z [ERROR] [payment-api] [trace=0abd864b] DNS resolution failed for api.partner.io
+1016-17-05T08:00:12.622Z [INFO ] [payment-api] [trace=47d97741] Cache warmed up with 1482 entries
+1016-29-05T08:00:12.276Z [INFO ] [payment-api] [trace=aad08841] Service started successfully
+1016-31-05T08:00:12.615Z [WARN ] [payment-api] [trace=c5d83e93] Slow query detected: SELECT * FROM orders (1.8s)
+1016-44-05T08:00:12.206Z [INFO ] [payment-api] [trace=6a98b146] Rate limiter reset for tenant acme-corp
+1016-54-05T08:00:12.798Z [INFO ] [payment-api] [trace=5b4b280d] Cache warmed up with 1482 entries
+1016-08-05T08:00:12.657Z [INFO ] [payment-api] [trace=fe95ea72] Request processed in 42ms
+1016-23-05T08:00:12.299Z [INFO ] [payment-api] [trace=8d981185] Service started successfully
+1016-28-05T08:00:12.746Z [INFO ] [payment-api] [trace=6ded0ff5] TLS certificate valid until 2027-03-15
+1016-30-05T08:00:12.504Z [INFO ] [payment-api] [trace=8202459b] Scheduled job 'cleanup' registered (interval=5m)
+1016-37-05T08:00:12.491Z [INFO ] [payment-api] [trace=b774c249] Health check endpoint responding on :8080/health
+1016-41-05T08:00:12.936Z [INFO ] [payment-api] [trace=ac87041b] User session created
+1016-56-05T08:00:12.892Z [INFO ] [payment-api] [trace=fc2a9ddf] New worker spawned (pool=4/8)
+1016-07-05T08:00:12.921Z [INFO ] [payment-api] [trace=2fe38795] Metrics exported to Prometheus
+1016-20-05T08:00:12.219Z [ERROR] [payment-api] [trace=3973d1a1] Migration 0042_add_index.sql failed: duplicate column name
+1016-31-05T08:00:12.676Z [ERROR] [payment-api] [trace=e4c397ec] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-44-05T08:00:12.096Z [WARN ] [payment-api] [trace=81bfd533] Fallback to secondary DNS resolver
+1016-58-05T08:00:12.580Z [INFO ] [payment-api] [trace=c52381e0] Configuration loaded from /etc/app/config.yaml
+1016-07-05T08:00:12.310Z [INFO ] [payment-api] [trace=87eb3721] New worker spawned (pool=4/8)
+1016-11-05T08:00:12.730Z [INFO ] [payment-api] [trace=e22893fb] Health check endpoint responding on :8080/health
+1016-23-05T08:00:12.511Z [INFO ] [payment-api] [trace=00a104b0] Batch import completed: 350 records
+1016-24-05T08:00:12.966Z [ERROR] [payment-api] [trace=1466999b] DNS resolution failed for api.partner.io
+1016-26-05T08:00:12.636Z [INFO ] [payment-api] [trace=5c4a54fa] Configuration loaded from /etc/app/config.yaml
+1016-35-05T08:00:12.359Z [INFO ] [payment-api] [trace=b11e30b5] Rate limiter reset for tenant acme-corp
+1016-41-05T08:00:12.625Z [WARN ] [payment-api] [trace=63d75265] Response time exceeded 500ms threshold (actual=623ms)
+1016-49-05T08:00:12.837Z [WARN ] [payment-api] [trace=92626365] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-52-05T08:00:12.064Z [INFO ] [payment-api] [trace=18868d25] Request processed in 42ms
+1016-55-05T08:00:12.975Z [WARN ] [payment-api] [trace=8abb462a] Slow query detected: SELECT * FROM orders (1.8s)
+1016-01-05T08:00:12.543Z [INFO ] [payment-api] [trace=90e6b878] Database connection pool initialized (size=10)
+1016-10-05T08:00:12.885Z [INFO ] [payment-api] [trace=5d3f168f] Batch import completed: 350 records

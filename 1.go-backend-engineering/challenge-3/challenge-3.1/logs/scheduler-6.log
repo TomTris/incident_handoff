@@ -1,0 +1,300 @@
+1016-50-05T08:00:12.619Z [INFO ] [scheduler] [trace=4eb1b5da] Batch import completed: 350 records
+1016-57-05T08:00:12.839Z [WARN ] [scheduler] [trace=e64268da] Retry attempt 2/5 for upstream service payment-api
+1016-04-05T08:00:12.528Z [INFO ] [scheduler] [trace=d0b2fcf1] Database connection pool initialized (size=10)
+1016-19-05T08:00:12.341Z [INFO ] [scheduler] [trace=fe8d7fe1] TLS certificate valid until 2027-03-15
+1016-29-05T08:00:12.862Z [ERROR] [scheduler] [trace=edb9c5c2] Failed to connect to postgres://db:5432/app — connection refused
+1016-40-05T08:00:12.147Z [INFO ] [scheduler] [trace=e4bada3c] Request processed in 42ms
+1016-44-05T08:00:12.105Z [INFO ] [scheduler] [trace=bbbda659] Health check endpoint responding on :8080/health
+1016-49-05T08:00:12.489Z [INFO ] [scheduler] [trace=ad74be28] Configuration loaded from /etc/app/config.yaml
+1016-51-05T08:00:12.856Z [INFO ] [scheduler] [trace=0885bb02] Rate limiter reset for tenant acme-corp
+1016-58-05T08:00:12.365Z [INFO ] [scheduler] [trace=35c80805] User session created
+1016-12-05T08:00:12.929Z [INFO ] [scheduler] [trace=e3a693f5] Database connection pool initialized (size=10)
+1016-26-05T08:00:12.307Z [WARN ] [scheduler] [trace=dd27a445] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-39-05T08:00:12.416Z [INFO ] [scheduler] [trace=3a16ee91] User session created
+1016-50-05T08:00:12.395Z [WARN ] [scheduler] [trace=7675f708] Unrecognized query parameter 'debug' ignored
+1016-59-05T08:00:12.564Z [INFO ] [scheduler] [trace=106cd3c3] New worker spawned (pool=4/8)
+1016-06-05T08:00:12.191Z [INFO ] [scheduler] [trace=be35ae9c] Request processed in 42ms
+1016-17-05T08:00:12.893Z [WARN ] [scheduler] [trace=051ea1a4] Connection pool nearing capacity (8/10)
+1016-25-05T08:00:12.528Z [WARN ] [scheduler] [trace=6207a72c] Response time exceeded 500ms threshold (actual=623ms)
+1016-29-05T08:00:12.319Z [INFO ] [scheduler] [trace=f7effec9] Graceful reload triggered by SIGHUP
+1016-32-05T08:00:12.500Z [WARN ] [scheduler] [trace=742cea53] Retry attempt 2/5 for upstream service payment-api
+1016-37-05T08:00:12.981Z [INFO ] [scheduler] [trace=4ddcdaab] Service started successfully
+1016-50-05T08:00:12.495Z [INFO ] [scheduler] [trace=0af3afff] Configuration loaded from /etc/app/config.yaml
+1016-54-05T08:00:12.343Z [INFO ] [scheduler] [trace=52119a56] Database connection pool initialized (size=10)
+1016-06-05T08:00:12.114Z [WARN ] [scheduler] [trace=7c68d3cd] Disk usage at 82%% on /var/lib/data
+1016-10-05T08:00:12.010Z [ERROR] [scheduler] [trace=9a4092cd] DNS resolution failed for api.partner.io
+1016-14-05T08:00:12.345Z [WARN ] [scheduler] [trace=82dc2ab3] Retry attempt 2/5 for upstream service payment-api
+1016-28-05T08:00:12.873Z [INFO ] [scheduler] [trace=41fca7b7] Webhook delivered to https://hooks.example.com/notify
+1016-43-05T08:00:12.320Z [INFO ] [scheduler] [trace=e68e5b24] Webhook delivered to https://hooks.example.com/notify
+1016-49-05T08:00:12.287Z [INFO ] [scheduler] [trace=b5768d29] Configuration loaded from /etc/app/config.yaml
+1016-52-05T08:00:12.428Z [ERROR] [scheduler] [trace=3b34ffa5] Request timeout after 30s: POST /api/v1/reports/generate
+1016-07-05T08:00:12.228Z [INFO ] [scheduler] [trace=2598a762] User session created
+1016-11-05T08:00:12.921Z [INFO ] [scheduler] [trace=d967e93f] Database connection pool initialized (size=10)
+1016-16-05T08:00:12.319Z [INFO ] [scheduler] [trace=1bffd905] Configuration loaded from /etc/app/config.yaml
+1016-29-05T08:00:12.412Z [INFO ] [scheduler] [trace=6a1d0c5b] Service started successfully
+1016-31-05T08:00:12.004Z [INFO ] [scheduler] [trace=5151aa1f] Service started successfully
+1016-43-05T08:00:12.752Z [WARN ] [scheduler] [trace=9f8407a4] Rate limit approaching for API key sk-...a3f9
+1016-56-05T08:00:12.248Z [INFO ] [scheduler] [trace=3a352af0] Graceful reload triggered by SIGHUP
+1016-00-05T08:00:12.255Z [ERROR] [scheduler] [trace=c3ed5548] DNS resolution failed for api.partner.io
+1016-07-05T08:00:12.526Z [INFO ] [scheduler] [trace=bbe1cb95] Webhook delivered to https://hooks.example.com/notify
+1016-11-05T08:00:12.996Z [INFO ] [scheduler] [trace=d715977a] Service started successfully
+1016-25-05T08:00:12.396Z [ERROR] [scheduler] [trace=0c96b6d2] Migration 0042_add_index.sql failed: duplicate column name
+1016-37-05T08:00:12.347Z [INFO ] [scheduler] [trace=ecd0b0d7] Webhook delivered to https://hooks.example.com/notify
+1016-49-05T08:00:12.857Z [INFO ] [scheduler] [trace=630d5a71] Metrics exported to Prometheus
+1016-01-05T08:00:12.661Z [INFO ] [scheduler] [trace=ae8d88e8] Metrics exported to Prometheus
+1016-04-05T08:00:12.900Z [WARN ] [scheduler] [trace=efb238dd] Rate limit approaching for API key sk-...a3f9
+1016-06-05T08:00:12.302Z [WARN ] [scheduler] [trace=9e8e5c85] Slow query detected: SELECT * FROM orders (1.8s)
+1016-18-05T08:00:12.159Z [INFO ] [scheduler] [trace=d0c1d967] Webhook delivered to https://hooks.example.com/notify
+1016-27-05T08:00:12.680Z [INFO ] [scheduler] [trace=828c97d1] Webhook delivered to https://hooks.example.com/notify
+1016-36-05T08:00:12.051Z [INFO ] [scheduler] [trace=dd56286b] Database connection pool initialized (size=10)
+1016-39-05T08:00:12.089Z [INFO ] [scheduler] [trace=c89f19fd] New worker spawned (pool=4/8)
+1016-41-05T08:00:12.411Z [INFO ] [scheduler] [trace=28e176af] Request processed in 42ms
+1016-46-05T08:00:12.222Z [ERROR] [scheduler] [trace=a3f1609f] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-49-05T08:00:12.711Z [INFO ] [scheduler] [trace=7b27e443] Rate limiter reset for tenant acme-corp
+1016-57-05T08:00:12.095Z [INFO ] [scheduler] [trace=b46426ae] Webhook delivered to https://hooks.example.com/notify
+1016-58-05T08:00:12.855Z [INFO ] [scheduler] [trace=4a40b004] Service started successfully
+1016-07-05T08:00:12.060Z [INFO ] [scheduler] [trace=6922d336] User session created
+1016-09-05T08:00:12.893Z [ERROR] [scheduler] [trace=0f31eb92] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-13-05T08:00:12.797Z [INFO ] [scheduler] [trace=e5f5137a] Webhook delivered to https://hooks.example.com/notify
+1016-15-05T08:00:12.649Z [INFO ] [scheduler] [trace=6e81420c] Request processed in 42ms
+1016-22-05T08:00:12.985Z [INFO ] [scheduler] [trace=f50f5d3b] Batch import completed: 350 records
+1016-37-05T08:00:12.600Z [INFO ] [scheduler] [trace=8c5bfbe2] Configuration loaded from /etc/app/config.yaml
+1016-48-05T08:00:12.261Z [INFO ] [scheduler] [trace=942d17ba] Configuration loaded from /etc/app/config.yaml
+1016-51-05T08:00:12.877Z [INFO ] [scheduler] [trace=a5c2f4e2] Cache warmed up with 1482 entries
+1016-58-05T08:00:12.759Z [INFO ] [scheduler] [trace=1aa8b503] New worker spawned (pool=4/8)
+1016-07-05T08:00:12.062Z [ERROR] [scheduler] [trace=a0a3ef46] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-14-05T08:00:12.579Z [INFO ] [scheduler] [trace=238e0f28] Cache warmed up with 1482 entries
+1016-28-05T08:00:12.309Z [WARN ] [scheduler] [trace=abb614a0] Disk usage at 82%% on /var/lib/data
+1016-36-05T08:00:12.205Z [INFO ] [scheduler] [trace=151b8ffd] New worker spawned (pool=4/8)
+1016-49-05T08:00:12.853Z [WARN ] [scheduler] [trace=c6b69ea9] Disk usage at 82%% on /var/lib/data
+1016-54-05T08:00:12.717Z [INFO ] [scheduler] [trace=ac40b41b] TLS certificate valid until 2027-03-15
+1016-55-05T08:00:12.824Z [INFO ] [scheduler] [trace=0ff6aac4] Request processed in 42ms
+1016-01-05T08:00:12.298Z [INFO ] [scheduler] [trace=3f119e78] Webhook delivered to https://hooks.example.com/notify
+1016-04-05T08:00:12.693Z [WARN ] [scheduler] [trace=fb3cde14] Retry attempt 2/5 for upstream service payment-api
+1016-12-05T08:00:12.842Z [INFO ] [scheduler] [trace=ebdc97f0] Database connection pool initialized (size=10)
+1016-16-05T08:00:12.004Z [INFO ] [scheduler] [trace=df1b8f57] Batch import completed: 350 records
+1016-21-05T08:00:12.414Z [WARN ] [scheduler] [trace=d3942a0d] Partial response returned: 3 of 5 shards responded
+1016-31-05T08:00:12.186Z [INFO ] [scheduler] [trace=f83b114d] Configuration loaded from /etc/app/config.yaml
+1016-43-05T08:00:12.053Z [ERROR] [scheduler] [trace=7d60c56e] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-49-05T08:00:12.990Z [INFO ] [scheduler] [trace=5fefd382] Request processed in 42ms
+1016-57-05T08:00:12.328Z [INFO ] [scheduler] [trace=ea0c8636] Database connection pool initialized (size=10)
+1016-04-05T08:00:12.650Z [INFO ] [scheduler] [trace=6a42f576] User session created
+1016-18-05T08:00:12.883Z [WARN ] [scheduler] [trace=05e9da6a] Memory usage above 75%% (current=78%%)
+1016-27-05T08:00:12.500Z [INFO ] [scheduler] [trace=9b7e766b] Database connection pool initialized (size=10)
+1016-36-05T08:00:12.872Z [INFO ] [scheduler] [trace=c6812503] Request processed in 42ms
+1016-38-05T08:00:12.984Z [WARN ] [scheduler] [trace=5fbee7e1] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-43-05T08:00:12.960Z [WARN ] [scheduler] [trace=12761191] Clock skew detected: 1.3s drift from NTP server
+1016-51-05T08:00:12.578Z [ERROR] [scheduler] [trace=01798162] Authentication failed for user admin@example.com (attempt 5/5)
+1016-01-05T08:00:12.493Z [WARN ] [scheduler] [trace=d1e46b72] Response time exceeded 500ms threshold (actual=623ms)
+1016-05-05T08:00:12.092Z [INFO ] [scheduler] [trace=ebcbfbb9] Metrics exported to Prometheus
+1016-06-05T08:00:12.785Z [INFO ] [scheduler] [trace=d6c82cb5] Health check endpoint responding on :8080/health
+1016-20-05T08:00:12.633Z [INFO ] [scheduler] [trace=0bc8789d] User session created
+1016-30-05T08:00:12.202Z [INFO ] [scheduler] [trace=c5e2e0c9] Database connection pool initialized (size=10)
+1016-38-05T08:00:12.768Z [INFO ] [scheduler] [trace=816486f8] Graceful reload triggered by SIGHUP
+1016-50-05T08:00:12.465Z [INFO ] [scheduler] [trace=86e95bd0] TLS certificate valid until 2027-03-15
+1016-00-05T08:00:12.461Z [INFO ] [scheduler] [trace=5cd83883] Batch import completed: 350 records
+1016-11-05T08:00:12.455Z [INFO ] [scheduler] [trace=90896dbf] Rate limiter reset for tenant acme-corp
+1016-20-05T08:00:12.640Z [INFO ] [scheduler] [trace=b1fbdd4b] Metrics exported to Prometheus
+1016-32-05T08:00:12.463Z [INFO ] [scheduler] [trace=9dbd5729] Webhook delivered to https://hooks.example.com/notify
+1016-42-05T08:00:12.445Z [INFO ] [scheduler] [trace=7bcaf0f9] Rate limiter reset for tenant acme-corp
+1016-46-05T08:00:12.716Z [WARN ] [scheduler] [trace=d525bfb8] Retry attempt 2/5 for upstream service payment-api
+1016-56-05T08:00:12.798Z [ERROR] [scheduler] [trace=32b68da0] Out of memory: cannot allocate 256MB for image processing
+1016-10-05T08:00:12.483Z [INFO ] [scheduler] [trace=a906a66b] Configuration loaded from /etc/app/config.yaml
+1016-14-05T08:00:12.200Z [INFO ] [scheduler] [trace=90df412a] TLS certificate valid until 2027-03-15
+1016-27-05T08:00:12.795Z [INFO ] [scheduler] [trace=ba911430] Scheduled job 'cleanup' registered (interval=5m)
+1016-35-05T08:00:12.406Z [WARN ] [scheduler] [trace=560ad3a7] Connection pool nearing capacity (8/10)
+1016-45-05T08:00:12.525Z [INFO ] [scheduler] [trace=effe28e6] Health check endpoint responding on :8080/health
+1016-48-05T08:00:12.503Z [INFO ] [scheduler] [trace=800d9c10] Health check endpoint responding on :8080/health
+1016-54-05T08:00:12.101Z [INFO ] [scheduler] [trace=02e5d4a2] Graceful reload triggered by SIGHUP
+1016-58-05T08:00:12.223Z [INFO ] [scheduler] [trace=e21a7999] Graceful reload triggered by SIGHUP
+1016-11-05T08:00:12.555Z [INFO ] [scheduler] [trace=7c014cb7] TLS certificate valid until 2027-03-15
+1016-24-05T08:00:12.844Z [INFO ] [scheduler] [trace=6b7ddc35] Database connection pool initialized (size=10)
+1016-29-05T08:00:12.945Z [INFO ] [scheduler] [trace=90dc40fb] Webhook delivered to https://hooks.example.com/notify
+1016-33-05T08:00:12.279Z [INFO ] [scheduler] [trace=99f62e96] Health check endpoint responding on :8080/health
+1016-37-05T08:00:12.569Z [INFO ] [scheduler] [trace=39925d1c] Webhook delivered to https://hooks.example.com/notify
+1016-43-05T08:00:12.453Z [INFO ] [scheduler] [trace=c450b62a] Scheduled job 'cleanup' registered (interval=5m)
+1016-55-05T08:00:12.803Z [INFO ] [scheduler] [trace=899cd044] Scheduled job 'cleanup' registered (interval=5m)
+1016-07-05T08:00:12.802Z [INFO ] [scheduler] [trace=0e998f2f] New worker spawned (pool=4/8)
+1016-12-05T08:00:12.403Z [INFO ] [scheduler] [trace=fd94cbcb] Health check endpoint responding on :8080/health
+1016-21-05T08:00:12.376Z [INFO ] [scheduler] [trace=a7e652cb] User session created
+1016-25-05T08:00:12.411Z [INFO ] [scheduler] [trace=668410bb] Scheduled job 'cleanup' registered (interval=5m)
+1016-33-05T08:00:12.098Z [INFO ] [scheduler] [trace=2d2894aa] Request processed in 42ms
+1016-36-05T08:00:12.832Z [INFO ] [scheduler] [trace=648a1235] Service started successfully
+1016-42-05T08:00:12.473Z [INFO ] [scheduler] [trace=1133901b] New worker spawned (pool=4/8)
+1016-56-05T08:00:12.729Z [INFO ] [scheduler] [trace=705f7337] TLS certificate valid until 2027-03-15
+1016-01-05T08:00:12.446Z [WARN ] [scheduler] [trace=75be2ad2] Slow query detected: SELECT * FROM orders (1.8s)
+1016-09-05T08:00:12.293Z [INFO ] [scheduler] [trace=7f057b86] Metrics exported to Prometheus
+1016-10-05T08:00:12.587Z [INFO ] [scheduler] [trace=f315a3b6] Scheduled job 'cleanup' registered (interval=5m)
+1016-13-05T08:00:12.877Z [WARN ] [scheduler] [trace=a545730f] Partial response returned: 3 of 5 shards responded
+1016-27-05T08:00:12.495Z [INFO ] [scheduler] [trace=65b72541] Health check endpoint responding on :8080/health
+1016-39-05T08:00:12.500Z [ERROR] [scheduler] [trace=63d66e2c] Request timeout after 30s: POST /api/v1/reports/generate
+1016-44-05T08:00:12.611Z [ERROR] [scheduler] [trace=4e2cc67c] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-47-05T08:00:12.243Z [INFO ] [scheduler] [trace=1f68af92] Webhook delivered to https://hooks.example.com/notify
+1016-59-05T08:00:12.597Z [INFO ] [scheduler] [trace=a5dbba20] Graceful reload triggered by SIGHUP
+1016-01-05T08:00:12.759Z [INFO ] [scheduler] [trace=bfd91f51] New worker spawned (pool=4/8)
+1016-13-05T08:00:12.776Z [WARN ] [scheduler] [trace=66f58897] Rate limit approaching for API key sk-...a3f9
+1016-24-05T08:00:12.520Z [ERROR] [scheduler] [trace=8e76bd65] Request timeout after 30s: POST /api/v1/reports/generate
+1016-34-05T08:00:12.628Z [INFO ] [scheduler] [trace=b01c3e54] Rate limiter reset for tenant acme-corp
+1016-46-05T08:00:12.099Z [INFO ] [scheduler] [trace=e76d01db] Batch import completed: 350 records
+1016-50-05T08:00:12.971Z [WARN ] [scheduler] [trace=da370161] Disk usage at 82%% on /var/lib/data
+1016-52-05T08:00:12.634Z [WARN ] [scheduler] [trace=8236275f] Certificate expires in 30 days
+1016-55-05T08:00:12.963Z [WARN ] [scheduler] [trace=297ac7f5] Unrecognized query parameter 'debug' ignored
+1016-05-05T08:00:12.710Z [INFO ] [scheduler] [trace=b063fdf9] Metrics exported to Prometheus
+1016-08-05T08:00:12.883Z [INFO ] [scheduler] [trace=c2af8cc6] User session created
+1016-16-05T08:00:12.435Z [INFO ] [scheduler] [trace=07775d8b] Rate limiter reset for tenant acme-corp
+1016-22-05T08:00:12.989Z [INFO ] [scheduler] [trace=b072bd46] Configuration loaded from /etc/app/config.yaml
+1016-28-05T08:00:12.692Z [WARN ] [scheduler] [trace=641b9166] Rate limit approaching for API key sk-...a3f9
+1016-41-05T08:00:12.634Z [INFO ] [scheduler] [trace=1af083ca] Batch import completed: 350 records
+1016-55-05T08:00:12.375Z [INFO ] [scheduler] [trace=0027bc00] Batch import completed: 350 records
+1016-59-05T08:00:12.931Z [INFO ] [scheduler] [trace=75ca7192] Service started successfully
+1016-10-05T08:00:12.999Z [INFO ] [scheduler] [trace=55f8a1ec] Webhook delivered to https://hooks.example.com/notify
+1016-19-05T08:00:12.300Z [INFO ] [scheduler] [trace=9d13add7] User session created
+1016-26-05T08:00:12.672Z [INFO ] [scheduler] [trace=4236021e] Request processed in 42ms
+1016-34-05T08:00:12.350Z [INFO ] [scheduler] [trace=6f29a057] Request processed in 42ms
+1016-45-05T08:00:12.193Z [INFO ] [scheduler] [trace=bbd4487e] Rate limiter reset for tenant acme-corp
+1016-47-05T08:00:12.330Z [INFO ] [scheduler] [trace=f480ff3b] Database connection pool initialized (size=10)
+1016-49-05T08:00:12.153Z [INFO ] [scheduler] [trace=b280b3a6] TLS certificate valid until 2027-03-15
+1016-03-05T08:00:12.044Z [INFO ] [scheduler] [trace=588fedc6] Health check endpoint responding on :8080/health
+1016-09-05T08:00:12.830Z [INFO ] [scheduler] [trace=a4788df3] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.771Z [INFO ] [scheduler] [trace=cdecaa3f] User session created
+1016-33-05T08:00:12.045Z [INFO ] [scheduler] [trace=aa20cd3d] Batch import completed: 350 records
+1016-38-05T08:00:12.786Z [INFO ] [scheduler] [trace=bb87b5f4] Webhook delivered to https://hooks.example.com/notify
+1016-51-05T08:00:12.851Z [WARN ] [scheduler] [trace=cad9c6c6] Disk usage at 82%% on /var/lib/data
+1016-55-05T08:00:12.080Z [INFO ] [scheduler] [trace=bc076ba2] Webhook delivered to https://hooks.example.com/notify
+1016-59-05T08:00:12.010Z [WARN ] [scheduler] [trace=cc0494bc] Partial response returned: 3 of 5 shards responded
+1016-07-05T08:00:12.536Z [INFO ] [scheduler] [trace=78927a42] New worker spawned (pool=4/8)
+1016-14-05T08:00:12.274Z [INFO ] [scheduler] [trace=05148686] TLS certificate valid until 2027-03-15
+1016-19-05T08:00:12.577Z [INFO ] [scheduler] [trace=dfa45b8b] Batch import completed: 350 records
+1016-24-05T08:00:12.913Z [INFO ] [scheduler] [trace=5fc5f836] Batch import completed: 350 records
+1016-39-05T08:00:12.413Z [INFO ] [scheduler] [trace=caf98381] New worker spawned (pool=4/8)
+1016-50-05T08:00:12.601Z [WARN ] [scheduler] [trace=9618f216] Disk usage at 82%% on /var/lib/data
+1016-56-05T08:00:12.833Z [INFO ] [scheduler] [trace=608fb8e0] Database connection pool initialized (size=10)
+1016-59-05T08:00:12.458Z [WARN ] [scheduler] [trace=af0b3f9e] Retry attempt 2/5 for upstream service payment-api
+1016-04-05T08:00:12.098Z [INFO ] [scheduler] [trace=3ba7c2da] Rate limiter reset for tenant acme-corp
+1016-17-05T08:00:12.178Z [ERROR] [scheduler] [trace=f84546f1] Invalid JWT token: signature verification failed
+1016-20-05T08:00:12.445Z [WARN ] [scheduler] [trace=311548a6] Rate limit approaching for API key sk-...a3f9
+1016-24-05T08:00:12.069Z [INFO ] [scheduler] [trace=2641c5e1] Database connection pool initialized (size=10)
+1016-37-05T08:00:12.607Z [INFO ] [scheduler] [trace=77698865] Scheduled job 'cleanup' registered (interval=5m)
+1016-48-05T08:00:12.238Z [INFO ] [scheduler] [trace=e5effda9] Health check endpoint responding on :8080/health
+1016-55-05T08:00:12.972Z [INFO ] [scheduler] [trace=9596582f] Webhook delivered to https://hooks.example.com/notify
+1016-58-05T08:00:12.206Z [INFO ] [scheduler] [trace=9b5f0af5] User session created
+1016-06-05T08:00:12.730Z [INFO ] [scheduler] [trace=e63f1640] Rate limiter reset for tenant acme-corp
+1016-12-05T08:00:12.617Z [INFO ] [scheduler] [trace=3aa4a6a8] TLS certificate valid until 2027-03-15
+1016-16-05T08:00:12.791Z [ERROR] [scheduler] [trace=6ab6dce0] Failed to connect to postgres://db:5432/app — connection refused
+1016-24-05T08:00:12.535Z [WARN ] [scheduler] [trace=17ab7af1] Disk usage at 82%% on /var/lib/data
+1016-36-05T08:00:12.818Z [INFO ] [scheduler] [trace=7980fe01] Metrics exported to Prometheus
+1016-37-05T08:00:12.934Z [INFO ] [scheduler] [trace=076fbe36] Webhook delivered to https://hooks.example.com/notify
+1016-51-05T08:00:12.359Z [INFO ] [scheduler] [trace=29161bc8] New worker spawned (pool=4/8)
+1016-00-05T08:00:12.029Z [INFO ] [scheduler] [trace=e8d29029] Webhook delivered to https://hooks.example.com/notify
+1016-04-05T08:00:12.312Z [INFO ] [scheduler] [trace=075bb38c] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.676Z [INFO ] [scheduler] [trace=6da3387b] Rate limiter reset for tenant acme-corp
+1016-24-05T08:00:12.208Z [INFO ] [scheduler] [trace=305ea9ad] Database connection pool initialized (size=10)
+1016-29-05T08:00:12.004Z [INFO ] [scheduler] [trace=911b3979] Request processed in 42ms
+1016-40-05T08:00:12.617Z [WARN ] [scheduler] [trace=84192364] Disk usage at 82%% on /var/lib/data
+1016-45-05T08:00:12.728Z [INFO ] [scheduler] [trace=d955edc3] User session created
+1016-54-05T08:00:12.369Z [INFO ] [scheduler] [trace=3a99a0cd] Batch import completed: 350 records
+1016-06-05T08:00:12.918Z [INFO ] [scheduler] [trace=069b3fe8] Rate limiter reset for tenant acme-corp
+1016-15-05T08:00:12.434Z [INFO ] [scheduler] [trace=b4f03184] Request processed in 42ms
+1016-20-05T08:00:12.858Z [WARN ] [scheduler] [trace=ce82d9ac] Retry attempt 2/5 for upstream service payment-api
+1016-22-05T08:00:12.419Z [INFO ] [scheduler] [trace=e15aec70] TLS certificate valid until 2027-03-15
+1016-34-05T08:00:12.283Z [WARN ] [scheduler] [trace=32729141] Response time exceeded 500ms threshold (actual=623ms)
+1016-41-05T08:00:12.453Z [INFO ] [scheduler] [trace=ecef5aed] Request processed in 42ms
+1016-53-05T08:00:12.960Z [INFO ] [scheduler] [trace=3b6b8285] Health check endpoint responding on :8080/health
+1016-05-05T08:00:12.405Z [WARN ] [scheduler] [trace=a929558c] Certificate expires in 30 days
+1016-16-05T08:00:12.101Z [INFO ] [scheduler] [trace=97fe1d06] Scheduled job 'cleanup' registered (interval=5m)
+1016-23-05T08:00:12.776Z [INFO ] [scheduler] [trace=1557c58d] New worker spawned (pool=4/8)
+1016-37-05T08:00:12.630Z [WARN ] [scheduler] [trace=00e5e2a7] Retry attempt 2/5 for upstream service payment-api
+1016-49-05T08:00:12.004Z [INFO ] [scheduler] [trace=1a5304a5] Batch import completed: 350 records
+1016-00-05T08:00:12.230Z [ERROR] [scheduler] [trace=d3518fea] Authentication failed for user admin@example.com (attempt 5/5)
+1016-02-05T08:00:12.921Z [INFO ] [scheduler] [trace=07e3d884] Service started successfully
+1016-16-05T08:00:12.236Z [INFO ] [scheduler] [trace=0f17c033] Batch import completed: 350 records
+1016-18-05T08:00:12.631Z [INFO ] [scheduler] [trace=83fd73ce] Database connection pool initialized (size=10)
+1016-28-05T08:00:12.286Z [INFO ] [scheduler] [trace=113509a9] Database connection pool initialized (size=10)
+1016-37-05T08:00:12.791Z [WARN ] [scheduler] [trace=29fc1d23] Rate limit approaching for API key sk-...a3f9
+1016-40-05T08:00:12.948Z [INFO ] [scheduler] [trace=b2f03d7d] Request processed in 42ms
+1016-48-05T08:00:12.992Z [INFO ] [scheduler] [trace=bb3a0bfa] Scheduled job 'cleanup' registered (interval=5m)
+1016-58-05T08:00:12.192Z [INFO ] [scheduler] [trace=f3b83acb] TLS certificate valid until 2027-03-15
+1016-03-05T08:00:12.560Z [INFO ] [scheduler] [trace=8cd2e03d] Health check endpoint responding on :8080/health
+1016-12-05T08:00:12.438Z [INFO ] [scheduler] [trace=9ac68d22] Graceful reload triggered by SIGHUP
+1016-18-05T08:00:12.138Z [INFO ] [scheduler] [trace=88a4714a] Request processed in 42ms
+1016-28-05T08:00:12.086Z [WARN ] [scheduler] [trace=41675814] Slow query detected: SELECT * FROM orders (1.8s)
+1016-31-05T08:00:12.966Z [ERROR] [scheduler] [trace=1cb83ae2] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-44-05T08:00:12.738Z [INFO ] [scheduler] [trace=b0cc9208] User session created
+1016-49-05T08:00:12.288Z [WARN ] [scheduler] [trace=66295c9d] Fallback to secondary DNS resolver
+1016-01-05T08:00:12.686Z [WARN ] [scheduler] [trace=db7ac7b2] Memory usage above 75%% (current=78%%)
+1016-07-05T08:00:12.113Z [INFO ] [scheduler] [trace=3d5aa919] Configuration loaded from /etc/app/config.yaml
+1016-17-05T08:00:12.026Z [INFO ] [scheduler] [trace=e1a5b486] Database connection pool initialized (size=10)
+1016-21-05T08:00:12.283Z [INFO ] [scheduler] [trace=93603747] Service started successfully
+1016-33-05T08:00:12.022Z [WARN ] [scheduler] [trace=33bcd73d] Slow query detected: SELECT * FROM orders (1.8s)
+1016-41-05T08:00:12.352Z [INFO ] [scheduler] [trace=6df08b51] Graceful reload triggered by SIGHUP
+1016-51-05T08:00:12.359Z [ERROR] [scheduler] [trace=83b3be5f] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-04-05T08:00:12.956Z [INFO ] [scheduler] [trace=55db8dbe] TLS certificate valid until 2027-03-15
+1016-12-05T08:00:12.140Z [INFO ] [scheduler] [trace=2eeb5b17] Rate limiter reset for tenant acme-corp
+1016-25-05T08:00:12.429Z [WARN ] [scheduler] [trace=f99d6495] Fallback to secondary DNS resolver
+1016-32-05T08:00:12.650Z [INFO ] [scheduler] [trace=90439eda] Service started successfully
+1016-44-05T08:00:12.366Z [WARN ] [scheduler] [trace=ab4fa5b3] Clock skew detected: 1.3s drift from NTP server
+1016-46-05T08:00:12.957Z [INFO ] [scheduler] [trace=d6c4299f] Batch import completed: 350 records
+1016-59-05T08:00:12.615Z [ERROR] [scheduler] [trace=d5fad7c4] Unhandled exception in middleware chain: nil pointer dereference
+1016-09-05T08:00:12.368Z [INFO ] [scheduler] [trace=cb4f3bd1] Graceful reload triggered by SIGHUP
+1016-13-05T08:00:12.512Z [INFO ] [scheduler] [trace=7daf7b00] Database connection pool initialized (size=10)
+1016-15-05T08:00:12.514Z [INFO ] [scheduler] [trace=be39a27b] TLS certificate valid until 2027-03-15
+1016-22-05T08:00:12.567Z [WARN ] [scheduler] [trace=582d8eed] Rate limit approaching for API key sk-...a3f9
+1016-29-05T08:00:12.263Z [INFO ] [scheduler] [trace=5b1fe968] User session created
+1016-37-05T08:00:12.333Z [INFO ] [scheduler] [trace=3de02381] User session created
+1016-38-05T08:00:12.639Z [INFO ] [scheduler] [trace=3faee08e] Cache warmed up with 1482 entries
+1016-46-05T08:00:12.057Z [INFO ] [scheduler] [trace=fa493257] Cache warmed up with 1482 entries
+1016-51-05T08:00:12.707Z [INFO ] [scheduler] [trace=673a16a3] User session created
+1016-54-05T08:00:12.278Z [WARN ] [scheduler] [trace=72f3381b] Disk usage at 82%% on /var/lib/data
+1016-05-05T08:00:12.002Z [INFO ] [scheduler] [trace=33091f08] Cache warmed up with 1482 entries
+1016-08-05T08:00:12.131Z [INFO ] [scheduler] [trace=75aa7218] User session created
+1016-15-05T08:00:12.022Z [INFO ] [scheduler] [trace=780a8978] Graceful reload triggered by SIGHUP
+1016-19-05T08:00:12.390Z [INFO ] [scheduler] [trace=70398a1d] User session created
+1016-22-05T08:00:12.407Z [INFO ] [scheduler] [trace=882e5508] Metrics exported to Prometheus
+1016-35-05T08:00:12.175Z [INFO ] [scheduler] [trace=d65c14c9] Graceful reload triggered by SIGHUP
+1016-48-05T08:00:12.872Z [WARN ] [scheduler] [trace=840e2080] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-02-05T08:00:12.326Z [INFO ] [scheduler] [trace=1fdc9297] Batch import completed: 350 records
+1016-10-05T08:00:12.382Z [INFO ] [scheduler] [trace=4b226e23] Request processed in 42ms
+1016-12-05T08:00:12.542Z [WARN ] [scheduler] [trace=bf678efd] Fallback to secondary DNS resolver
+1016-22-05T08:00:12.468Z [INFO ] [scheduler] [trace=23a8a635] Scheduled job 'cleanup' registered (interval=5m)
+1016-29-05T08:00:12.165Z [INFO ] [scheduler] [trace=8b23f318] Metrics exported to Prometheus
+1016-41-05T08:00:12.551Z [INFO ] [scheduler] [trace=4e1f6817] Request processed in 42ms
+1016-56-05T08:00:12.540Z [INFO ] [scheduler] [trace=d8c64b0d] Service started successfully
+1016-02-05T08:00:12.737Z [INFO ] [scheduler] [trace=f2c24f17] Service started successfully
+1016-11-05T08:00:12.863Z [INFO ] [scheduler] [trace=27e1264c] Metrics exported to Prometheus
+1016-21-05T08:00:12.348Z [INFO ] [scheduler] [trace=2d8dfc13] Graceful reload triggered by SIGHUP
+1016-29-05T08:00:12.264Z [INFO ] [scheduler] [trace=c06829d0] Rate limiter reset for tenant acme-corp
+1016-42-05T08:00:12.047Z [ERROR] [scheduler] [trace=0c09b50c] DNS resolution failed for api.partner.io
+1016-56-05T08:00:12.741Z [WARN ] [scheduler] [trace=b529cd0f] Slow query detected: SELECT * FROM orders (1.8s)
+1016-06-05T08:00:12.134Z [INFO ] [scheduler] [trace=b59a66bd] TLS certificate valid until 2027-03-15
+1016-13-05T08:00:12.683Z [INFO ] [scheduler] [trace=bab75798] Service started successfully
+1016-28-05T08:00:12.147Z [INFO ] [scheduler] [trace=8b1e1bc1] Rate limiter reset for tenant acme-corp
+1016-33-05T08:00:12.827Z [INFO ] [scheduler] [trace=cca3bb1e] New worker spawned (pool=4/8)
+1016-47-05T08:00:12.258Z [WARN ] [scheduler] [trace=ce906a47] Certificate expires in 30 days
+1016-59-05T08:00:12.952Z [INFO ] [scheduler] [trace=ac02937a] Request processed in 42ms
+1016-13-05T08:00:12.328Z [WARN ] [scheduler] [trace=891c9ebb] Certificate expires in 30 days
+1016-15-05T08:00:12.935Z [INFO ] [scheduler] [trace=18d79455] Database connection pool initialized (size=10)
+1016-25-05T08:00:12.896Z [INFO ] [scheduler] [trace=c9691d47] Database connection pool initialized (size=10)
+1016-35-05T08:00:12.645Z [INFO ] [scheduler] [trace=e19b1a01] User session created
+1016-49-05T08:00:12.194Z [WARN ] [scheduler] [trace=094c7299] Fallback to secondary DNS resolver
+1016-54-05T08:00:12.190Z [ERROR] [scheduler] [trace=9aa4ede4] DNS resolution failed for api.partner.io
+1016-07-05T08:00:12.122Z [INFO ] [scheduler] [trace=02021bdc] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.773Z [INFO ] [scheduler] [trace=edba7ef0] Rate limiter reset for tenant acme-corp
+1016-11-05T08:00:12.190Z [INFO ] [scheduler] [trace=ad3e8252] Scheduled job 'cleanup' registered (interval=5m)
+1016-14-05T08:00:12.189Z [INFO ] [scheduler] [trace=8fdd1435] Scheduled job 'cleanup' registered (interval=5m)
+1016-23-05T08:00:12.701Z [INFO ] [scheduler] [trace=e935f0df] User session created
+1016-37-05T08:00:12.022Z [INFO ] [scheduler] [trace=0c896532] Service started successfully
+1016-42-05T08:00:12.077Z [INFO ] [scheduler] [trace=db0a0720] Request processed in 42ms
+1016-49-05T08:00:12.769Z [INFO ] [scheduler] [trace=e3e3a6f0] Request processed in 42ms
+1016-57-05T08:00:12.119Z [WARN ] [scheduler] [trace=43567464] Response time exceeded 500ms threshold (actual=623ms)
+1016-06-05T08:00:12.807Z [WARN ] [scheduler] [trace=6bed5644] Certificate expires in 30 days
+1016-13-05T08:00:12.239Z [INFO ] [scheduler] [trace=276366d4] New worker spawned (pool=4/8)
+1016-23-05T08:00:12.151Z [INFO ] [scheduler] [trace=a39e4e0e] TLS certificate valid until 2027-03-15
+1016-31-05T08:00:12.595Z [INFO ] [scheduler] [trace=d57ca7c9] Request processed in 42ms
+1016-34-05T08:00:12.740Z [INFO ] [scheduler] [trace=1ca957da] Health check endpoint responding on :8080/health
+1016-41-05T08:00:12.286Z [INFO ] [scheduler] [trace=d0f7422a] Scheduled job 'cleanup' registered (interval=5m)
+1016-54-05T08:00:12.255Z [INFO ] [scheduler] [trace=a517dcf5] Batch import completed: 350 records
+1016-04-05T08:00:12.034Z [INFO ] [scheduler] [trace=d93062bc] User session created
+1016-13-05T08:00:12.860Z [INFO ] [scheduler] [trace=75914f30] Graceful reload triggered by SIGHUP
+1016-25-05T08:00:12.100Z [ERROR] [scheduler] [trace=0811f559] TLS handshake failed: certificate signed by unknown authority
+1016-37-05T08:00:12.383Z [INFO ] [scheduler] [trace=e778a87b] Batch import completed: 350 records
+1016-51-05T08:00:12.232Z [INFO ] [scheduler] [trace=c3835f31] User session created

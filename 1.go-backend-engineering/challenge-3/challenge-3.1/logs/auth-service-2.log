@@ -1,0 +1,300 @@
+1016-01-05T08:00:12.459Z [ERROR] [auth-service] [trace=61350e3c] Request timeout after 30s: POST /api/v1/reports/generate
+1016-14-05T08:00:12.550Z [INFO ] [auth-service] [trace=82f79c8b] Scheduled job 'cleanup' registered (interval=5m)
+1016-28-05T08:00:12.501Z [INFO ] [auth-service] [trace=db966ec2] Webhook delivered to https://hooks.example.com/notify
+1016-39-05T08:00:12.929Z [ERROR] [auth-service] [trace=a7317532] Invalid JWT token: signature verification failed
+1016-53-05T08:00:12.424Z [INFO ] [auth-service] [trace=4dba2459] Cache warmed up with 1482 entries
+1016-55-05T08:00:12.458Z [INFO ] [auth-service] [trace=650c24b3] Metrics exported to Prometheus
+1016-01-05T08:00:12.669Z [INFO ] [auth-service] [trace=cc74f261] Cache warmed up with 1482 entries
+1016-09-05T08:00:12.379Z [INFO ] [auth-service] [trace=0fd85159] Configuration loaded from /etc/app/config.yaml
+1016-19-05T08:00:12.566Z [INFO ] [auth-service] [trace=c9d81a85] Health check endpoint responding on :8080/health
+1016-30-05T08:00:12.108Z [INFO ] [auth-service] [trace=1d79c892] Service started successfully
+1016-42-05T08:00:12.082Z [WARN ] [auth-service] [trace=406619bb] Fallback to secondary DNS resolver
+1016-50-05T08:00:12.108Z [INFO ] [auth-service] [trace=010030bc] Configuration loaded from /etc/app/config.yaml
+1016-53-05T08:00:12.870Z [INFO ] [auth-service] [trace=a276ab92] Scheduled job 'cleanup' registered (interval=5m)
+1016-06-05T08:00:12.391Z [INFO ] [auth-service] [trace=059143e8] Webhook delivered to https://hooks.example.com/notify
+1016-14-05T08:00:12.029Z [INFO ] [auth-service] [trace=e2e70770] Health check endpoint responding on :8080/health
+1016-24-05T08:00:12.420Z [WARN ] [auth-service] [trace=ece0c01d] Rate limit approaching for API key sk-...a3f9
+1016-31-05T08:00:12.725Z [INFO ] [auth-service] [trace=b60ae2c8] Service started successfully
+1016-35-05T08:00:12.713Z [WARN ] [auth-service] [trace=ced7cfed] Connection pool nearing capacity (8/10)
+1016-41-05T08:00:12.194Z [INFO ] [auth-service] [trace=2d3edb28] User session created
+1016-48-05T08:00:12.595Z [WARN ] [auth-service] [trace=c8f8b5b7] Unrecognized query parameter 'debug' ignored
+1016-02-05T08:00:12.610Z [INFO ] [auth-service] [trace=6a7ecca3] Cache warmed up with 1482 entries
+1016-14-05T08:00:12.679Z [WARN ] [auth-service] [trace=df65ce44] Clock skew detected: 1.3s drift from NTP server
+1016-28-05T08:00:12.832Z [INFO ] [auth-service] [trace=48d61af4] User session created
+1016-30-05T08:00:12.489Z [ERROR] [auth-service] [trace=2e2ba155] DNS resolution failed for api.partner.io
+1016-41-05T08:00:12.361Z [INFO ] [auth-service] [trace=aa90d628] Rate limiter reset for tenant acme-corp
+1016-45-05T08:00:12.350Z [INFO ] [auth-service] [trace=f8111f57] Graceful reload triggered by SIGHUP
+1016-50-05T08:00:12.568Z [ERROR] [auth-service] [trace=f35d186c] S3 upload failed: AccessDenied on bucket prod-assets
+1016-05-05T08:00:12.185Z [INFO ] [auth-service] [trace=d3da7d18] Webhook delivered to https://hooks.example.com/notify
+1016-09-05T08:00:12.070Z [WARN ] [auth-service] [trace=69d34097] Rate limit approaching for API key sk-...a3f9
+1016-22-05T08:00:12.566Z [WARN ] [auth-service] [trace=59d86ee6] Rate limit approaching for API key sk-...a3f9
+1016-33-05T08:00:12.740Z [WARN ] [auth-service] [trace=0af3c65c] Fallback to secondary DNS resolver
+1016-38-05T08:00:12.747Z [INFO ] [auth-service] [trace=d24a7b3c] Rate limiter reset for tenant acme-corp
+1016-47-05T08:00:12.757Z [INFO ] [auth-service] [trace=003afc29] Rate limiter reset for tenant acme-corp
+1016-51-05T08:00:12.910Z [WARN ] [auth-service] [trace=100af68d] Unrecognized query parameter 'debug' ignored
+1016-57-05T08:00:12.588Z [INFO ] [auth-service] [trace=094529d9] Configuration loaded from /etc/app/config.yaml
+1016-06-05T08:00:12.152Z [INFO ] [auth-service] [trace=9a0f3101] Batch import completed: 350 records
+1016-13-05T08:00:12.171Z [WARN ] [auth-service] [trace=1dc28d5f] Rate limit approaching for API key sk-...a3f9
+1016-22-05T08:00:12.359Z [ERROR] [auth-service] [trace=ae458b85] Request timeout after 30s: POST /api/v1/reports/generate
+1016-33-05T08:00:12.006Z [ERROR] [auth-service] [trace=d87b134e] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-44-05T08:00:12.737Z [WARN ] [auth-service] [trace=271b79d2] Certificate expires in 30 days
+1016-53-05T08:00:12.447Z [INFO ] [auth-service] [trace=48312b15] Batch import completed: 350 records
+1016-58-05T08:00:12.683Z [INFO ] [auth-service] [trace=1bd2db58] Webhook delivered to https://hooks.example.com/notify
+1016-06-05T08:00:12.954Z [INFO ] [auth-service] [trace=da0cffe5] TLS certificate valid until 2027-03-15
+1016-19-05T08:00:12.005Z [INFO ] [auth-service] [trace=4bc2141a] Health check endpoint responding on :8080/health
+1016-22-05T08:00:12.352Z [INFO ] [auth-service] [trace=b47b2536] Database connection pool initialized (size=10)
+1016-26-05T08:00:12.061Z [INFO ] [auth-service] [trace=92cc383f] Graceful reload triggered by SIGHUP
+1016-30-05T08:00:12.124Z [ERROR] [auth-service] [trace=a81bfc42] Invalid JWT token: signature verification failed
+1016-35-05T08:00:12.037Z [INFO ] [auth-service] [trace=8bdea022] Request processed in 42ms
+1016-44-05T08:00:12.363Z [WARN ] [auth-service] [trace=0176d369] Clock skew detected: 1.3s drift from NTP server
+1016-45-05T08:00:12.843Z [INFO ] [auth-service] [trace=ccee5e1c] Health check endpoint responding on :8080/health
+1016-58-05T08:00:12.379Z [INFO ] [auth-service] [trace=2e4e5769] Rate limiter reset for tenant acme-corp
+1016-10-05T08:00:12.611Z [INFO ] [auth-service] [trace=3f5cd6d5] Request processed in 42ms
+1016-17-05T08:00:12.608Z [INFO ] [auth-service] [trace=b6e27fa4] Graceful reload triggered by SIGHUP
+1016-21-05T08:00:12.441Z [INFO ] [auth-service] [trace=2987f970] Batch import completed: 350 records
+1016-29-05T08:00:12.369Z [INFO ] [auth-service] [trace=99ee127c] Webhook delivered to https://hooks.example.com/notify
+1016-35-05T08:00:12.369Z [INFO ] [auth-service] [trace=cc7b277b] TLS certificate valid until 2027-03-15
+1016-45-05T08:00:12.456Z [INFO ] [auth-service] [trace=5142b7df] Health check endpoint responding on :8080/health
+1016-51-05T08:00:12.704Z [ERROR] [auth-service] [trace=59c6e4a7] Invalid JWT token: signature verification failed
+1016-05-05T08:00:12.236Z [INFO ] [auth-service] [trace=a22bec08] Configuration loaded from /etc/app/config.yaml
+1016-08-05T08:00:12.206Z [INFO ] [auth-service] [trace=f18ce478] Scheduled job 'cleanup' registered (interval=5m)
+1016-09-05T08:00:12.378Z [INFO ] [auth-service] [trace=ed9e334d] Webhook delivered to https://hooks.example.com/notify
+1016-20-05T08:00:12.721Z [WARN ] [auth-service] [trace=97457cdb] Response time exceeded 500ms threshold (actual=623ms)
+1016-24-05T08:00:12.357Z [INFO ] [auth-service] [trace=4efc504a] User session created
+1016-38-05T08:00:12.387Z [INFO ] [auth-service] [trace=38da8e24] Request processed in 42ms
+1016-45-05T08:00:12.359Z [ERROR] [auth-service] [trace=9e386070] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-52-05T08:00:12.504Z [INFO ] [auth-service] [trace=b32c1d8e] Service started successfully
+1016-59-05T08:00:12.253Z [INFO ] [auth-service] [trace=8fffe1d7] Health check endpoint responding on :8080/health
+1016-05-05T08:00:12.758Z [INFO ] [auth-service] [trace=f1b494b4] Rate limiter reset for tenant acme-corp
+1016-18-05T08:00:12.825Z [INFO ] [auth-service] [trace=6b330400] Graceful reload triggered by SIGHUP
+1016-22-05T08:00:12.935Z [INFO ] [auth-service] [trace=5ce5471c] Rate limiter reset for tenant acme-corp
+1016-28-05T08:00:12.053Z [INFO ] [auth-service] [trace=1b4f107b] TLS certificate valid until 2027-03-15
+1016-39-05T08:00:12.140Z [INFO ] [auth-service] [trace=5159f8e6] Configuration loaded from /etc/app/config.yaml
+1016-42-05T08:00:12.062Z [INFO ] [auth-service] [trace=353d45a2] Batch import completed: 350 records
+1016-51-05T08:00:12.536Z [INFO ] [auth-service] [trace=7fad7be2] Rate limiter reset for tenant acme-corp
+1016-57-05T08:00:12.122Z [INFO ] [auth-service] [trace=76e248d2] Webhook delivered to https://hooks.example.com/notify
+1016-58-05T08:00:12.648Z [INFO ] [auth-service] [trace=5d543335] Request processed in 42ms
+1016-09-05T08:00:12.084Z [WARN ] [auth-service] [trace=fbce2404] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-12-05T08:00:12.969Z [INFO ] [auth-service] [trace=7a65b27f] Health check endpoint responding on :8080/health
+1016-25-05T08:00:12.934Z [INFO ] [auth-service] [trace=03a89fc0] Request processed in 42ms
+1016-39-05T08:00:12.619Z [INFO ] [auth-service] [trace=8ebdd941] Service started successfully
+1016-47-05T08:00:12.366Z [WARN ] [auth-service] [trace=ecbd7a04] Retry attempt 2/5 for upstream service payment-api
+1016-54-05T08:00:12.342Z [ERROR] [auth-service] [trace=7148c75d] Request timeout after 30s: POST /api/v1/reports/generate
+1016-05-05T08:00:12.708Z [INFO ] [auth-service] [trace=0fb92ba0] Graceful reload triggered by SIGHUP
+1016-17-05T08:00:12.207Z [INFO ] [auth-service] [trace=6ca27b3c] Graceful reload triggered by SIGHUP
+1016-24-05T08:00:12.388Z [INFO ] [auth-service] [trace=6cdd2fb5] Configuration loaded from /etc/app/config.yaml
+1016-26-05T08:00:12.632Z [ERROR] [auth-service] [trace=6afd8496] Out of memory: cannot allocate 256MB for image processing
+1016-35-05T08:00:12.345Z [INFO ] [auth-service] [trace=f3f379d2] TLS certificate valid until 2027-03-15
+1016-45-05T08:00:12.109Z [INFO ] [auth-service] [trace=9255413f] Database connection pool initialized (size=10)
+1016-00-05T08:00:12.041Z [INFO ] [auth-service] [trace=f2ea7c7c] Rate limiter reset for tenant acme-corp
+1016-05-05T08:00:12.097Z [WARN ] [auth-service] [trace=16bbfc86] Connection pool nearing capacity (8/10)
+1016-09-05T08:00:12.774Z [INFO ] [auth-service] [trace=480d67bf] User session created
+1016-12-05T08:00:12.315Z [INFO ] [auth-service] [trace=2a49b3f3] Scheduled job 'cleanup' registered (interval=5m)
+1016-14-05T08:00:12.075Z [INFO ] [auth-service] [trace=fa993689] TLS certificate valid until 2027-03-15
+1016-27-05T08:00:12.716Z [INFO ] [auth-service] [trace=613f8ff5] Graceful reload triggered by SIGHUP
+1016-41-05T08:00:12.568Z [INFO ] [auth-service] [trace=78f30083] Service started successfully
+1016-47-05T08:00:12.005Z [INFO ] [auth-service] [trace=29a2f04a] Rate limiter reset for tenant acme-corp
+1016-48-05T08:00:12.153Z [ERROR] [auth-service] [trace=a0c178e1] Migration 0042_add_index.sql failed: duplicate column name
+1016-59-05T08:00:12.143Z [INFO ] [auth-service] [trace=1e59a157] Database connection pool initialized (size=10)
+1016-01-05T08:00:12.107Z [INFO ] [auth-service] [trace=6fd2443a] Service started successfully
+1016-11-05T08:00:12.908Z [INFO ] [auth-service] [trace=dd274bb4] Configuration loaded from /etc/app/config.yaml
+1016-26-05T08:00:12.572Z [INFO ] [auth-service] [trace=d8ea3207] New worker spawned (pool=4/8)
+1016-37-05T08:00:12.886Z [ERROR] [auth-service] [trace=d3575f32] Request timeout after 30s: POST /api/v1/reports/generate
+1016-42-05T08:00:12.193Z [WARN ] [auth-service] [trace=099c4691] Config key 'legacy_mode' is deprecated, migrate to v2 schema
+1016-46-05T08:00:12.344Z [INFO ] [auth-service] [trace=521632f9] Service started successfully
+1016-56-05T08:00:12.513Z [WARN ] [auth-service] [trace=5f6c3444] Stale cache entry served for key user:9281
+1016-08-05T08:00:12.940Z [ERROR] [auth-service] [trace=4c8b42e0] Out of memory: cannot allocate 256MB for image processing
+1016-21-05T08:00:12.001Z [INFO ] [auth-service] [trace=3ee78ce4] Metrics exported to Prometheus
+1016-34-05T08:00:12.531Z [INFO ] [auth-service] [trace=0350f824] Request processed in 42ms
+1016-42-05T08:00:12.596Z [WARN ] [auth-service] [trace=42836515] Certificate expires in 30 days
+1016-52-05T08:00:12.748Z [INFO ] [auth-service] [trace=c974e0d5] Batch import completed: 350 records
+1016-01-05T08:00:12.302Z [WARN ] [auth-service] [trace=a47df6da] Unrecognized query parameter 'debug' ignored
+1016-11-05T08:00:12.217Z [WARN ] [auth-service] [trace=eb51fd62] Memory usage above 75%% (current=78%%)
+1016-17-05T08:00:12.024Z [INFO ] [auth-service] [trace=c7611522] Cache warmed up with 1482 entries
+1016-27-05T08:00:12.998Z [INFO ] [auth-service] [trace=65b09b4f] Request processed in 42ms
+1016-31-05T08:00:12.232Z [ERROR] [auth-service] [trace=a657e288] Migration 0042_add_index.sql failed: duplicate column name
+1016-32-05T08:00:12.267Z [INFO ] [auth-service] [trace=89892dcb] Health check endpoint responding on :8080/health
+1016-46-05T08:00:12.443Z [INFO ] [auth-service] [trace=31374dd1] Service started successfully
+1016-56-05T08:00:12.126Z [INFO ] [auth-service] [trace=d907b2d4] Cache warmed up with 1482 entries
+1016-07-05T08:00:12.120Z [INFO ] [auth-service] [trace=f55df665] User session created
+1016-22-05T08:00:12.013Z [WARN ] [auth-service] [trace=0435f088] Memory usage above 75%% (current=78%%)
+1016-27-05T08:00:12.604Z [INFO ] [auth-service] [trace=e1054839] Scheduled job 'cleanup' registered (interval=5m)
+1016-41-05T08:00:12.619Z [INFO ] [auth-service] [trace=7b8ec733] Database connection pool initialized (size=10)
+1016-45-05T08:00:12.652Z [INFO ] [auth-service] [trace=8db2b1d0] Health check endpoint responding on :8080/health
+1016-58-05T08:00:12.075Z [INFO ] [auth-service] [trace=b877a2d7] New worker spawned (pool=4/8)
+1016-01-05T08:00:12.887Z [WARN ] [auth-service] [trace=536d5d66] Stale cache entry served for key user:9281
+1016-07-05T08:00:12.547Z [INFO ] [auth-service] [trace=b5ad9c2e] Rate limiter reset for tenant acme-corp
+1016-17-05T08:00:12.049Z [WARN ] [auth-service] [trace=3dbb1056] Memory usage above 75%% (current=78%%)
+1016-18-05T08:00:12.168Z [ERROR] [auth-service] [trace=dad2230f] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-32-05T08:00:12.435Z [INFO ] [auth-service] [trace=294bba33] Rate limiter reset for tenant acme-corp
+1016-35-05T08:00:12.089Z [INFO ] [auth-service] [trace=5363301b] Configuration loaded from /etc/app/config.yaml
+1016-45-05T08:00:12.806Z [INFO ] [auth-service] [trace=01b0006c] Service started successfully
+1016-54-05T08:00:12.996Z [ERROR] [auth-service] [trace=85e6021d] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-09-05T08:00:12.122Z [INFO ] [auth-service] [trace=aedb8a03] Webhook delivered to https://hooks.example.com/notify
+1016-12-05T08:00:12.335Z [INFO ] [auth-service] [trace=51183ddd] Rate limiter reset for tenant acme-corp
+1016-16-05T08:00:12.290Z [WARN ] [auth-service] [trace=b11f7721] Certificate expires in 30 days
+1016-29-05T08:00:12.696Z [INFO ] [auth-service] [trace=8f9dd87e] Configuration loaded from /etc/app/config.yaml
+1016-40-05T08:00:12.136Z [INFO ] [auth-service] [trace=87f8e623] TLS certificate valid until 2027-03-15
+1016-41-05T08:00:12.323Z [INFO ] [auth-service] [trace=3529f179] User session created
+1016-49-05T08:00:12.624Z [INFO ] [auth-service] [trace=bed13f5c] Database connection pool initialized (size=10)
+1016-50-05T08:00:12.748Z [WARN ] [auth-service] [trace=a0f4132e] Disk usage at 82%% on /var/lib/data
+1016-01-05T08:00:12.028Z [ERROR] [auth-service] [trace=8ca8b091] Kafka consumer lag exceeded 10000 messages on topic=events
+1016-13-05T08:00:12.653Z [ERROR] [auth-service] [trace=78909500] Panic recovered in handler /api/v1/orders: index out of range [5]
+1016-17-05T08:00:12.359Z [INFO ] [auth-service] [trace=bcfe99bb] Service started successfully
+1016-18-05T08:00:12.954Z [INFO ] [auth-service] [trace=0dfe1594] User session created
+1016-20-05T08:00:12.312Z [INFO ] [auth-service] [trace=3e1a7ef3] Database connection pool initialized (size=10)
+1016-33-05T08:00:12.814Z [ERROR] [auth-service] [trace=b83513ed] Request timeout after 30s: POST /api/v1/reports/generate
+1016-40-05T08:00:12.836Z [INFO ] [auth-service] [trace=e281e80a] Webhook delivered to https://hooks.example.com/notify
+1016-46-05T08:00:12.560Z [WARN ] [auth-service] [trace=0d64ae6a] Partial response returned: 3 of 5 shards responded
+1016-52-05T08:00:12.095Z [INFO ] [auth-service] [trace=104887af] Cache warmed up with 1482 entries
+1016-03-05T08:00:12.152Z [ERROR] [auth-service] [trace=ecaf8d4e] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-07-05T08:00:12.064Z [INFO ] [auth-service] [trace=42d5aea4] Scheduled job 'cleanup' registered (interval=5m)
+1016-14-05T08:00:12.840Z [INFO ] [auth-service] [trace=29cc5701] Database connection pool initialized (size=10)
+1016-24-05T08:00:12.587Z [INFO ] [auth-service] [trace=a2b8561d] Service started successfully
+1016-37-05T08:00:12.211Z [INFO ] [auth-service] [trace=91016e39] Database connection pool initialized (size=10)
+1016-46-05T08:00:12.810Z [ERROR] [auth-service] [trace=e61e8315] Invalid JWT token: signature verification failed
+1016-01-05T08:00:12.265Z [INFO ] [auth-service] [trace=ae569469] Cache warmed up with 1482 entries
+1016-11-05T08:00:12.905Z [WARN ] [auth-service] [trace=06801a10] Slow query detected: SELECT * FROM orders (1.8s)
+1016-22-05T08:00:12.048Z [ERROR] [auth-service] [trace=e0fdb2bf] Failed to connect to postgres://db:5432/app — connection refused
+1016-27-05T08:00:12.494Z [INFO ] [auth-service] [trace=ae7a5e96] Configuration loaded from /etc/app/config.yaml
+1016-38-05T08:00:12.434Z [INFO ] [auth-service] [trace=7b2e3425] TLS certificate valid until 2027-03-15
+1016-45-05T08:00:12.281Z [WARN ] [auth-service] [trace=52eba4c9] Disk usage at 82%% on /var/lib/data
+1016-53-05T08:00:12.100Z [WARN ] [auth-service] [trace=76489525] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-00-05T08:00:12.745Z [INFO ] [auth-service] [trace=9ee351c4] New worker spawned (pool=4/8)
+1016-12-05T08:00:12.639Z [INFO ] [auth-service] [trace=2f5f682b] Graceful reload triggered by SIGHUP
+1016-27-05T08:00:12.311Z [WARN ] [auth-service] [trace=ba351a7f] Connection pool nearing capacity (8/10)
+1016-34-05T08:00:12.357Z [WARN ] [auth-service] [trace=5edff845] Disk usage at 82%% on /var/lib/data
+1016-36-05T08:00:12.392Z [INFO ] [auth-service] [trace=aa6b367b] Metrics exported to Prometheus
+1016-42-05T08:00:12.825Z [INFO ] [auth-service] [trace=b88883a4] Metrics exported to Prometheus
+1016-57-05T08:00:12.189Z [ERROR] [auth-service] [trace=b7c7744b] DNS resolution failed for api.partner.io
+1016-01-05T08:00:12.307Z [INFO ] [auth-service] [trace=107d1d16] Configuration loaded from /etc/app/config.yaml
+1016-08-05T08:00:12.579Z [INFO ] [auth-service] [trace=b4be8a0d] User session created
+1016-22-05T08:00:12.032Z [INFO ] [auth-service] [trace=5c06267e] Batch import completed: 350 records
+1016-28-05T08:00:12.017Z [INFO ] [auth-service] [trace=89a726c1] Metrics exported to Prometheus
+1016-30-05T08:00:12.869Z [INFO ] [auth-service] [trace=bb4fe299] Batch import completed: 350 records
+1016-41-05T08:00:12.208Z [ERROR] [auth-service] [trace=c470af47] Unhandled exception in middleware chain: nil pointer dereference
+1016-46-05T08:00:12.663Z [ERROR] [auth-service] [trace=a061d237] Migration 0042_add_index.sql failed: duplicate column name
+1016-57-05T08:00:12.557Z [INFO ] [auth-service] [trace=331cdd1b] Service started successfully
+1016-01-05T08:00:12.014Z [INFO ] [auth-service] [trace=ba46e5a1] Rate limiter reset for tenant acme-corp
+1016-04-05T08:00:12.586Z [INFO ] [auth-service] [trace=997094df] Scheduled job 'cleanup' registered (interval=5m)
+1016-14-05T08:00:12.772Z [INFO ] [auth-service] [trace=8476d00f] Batch import completed: 350 records
+1016-19-05T08:00:12.672Z [INFO ] [auth-service] [trace=df544497] Health check endpoint responding on :8080/health
+1016-29-05T08:00:12.550Z [WARN ] [auth-service] [trace=f9426e27] Stale cache entry served for key user:9281
+1016-38-05T08:00:12.984Z [INFO ] [auth-service] [trace=860b2c22] TLS certificate valid until 2027-03-15
+1016-51-05T08:00:12.924Z [INFO ] [auth-service] [trace=c3005ad5] Configuration loaded from /etc/app/config.yaml
+1016-06-05T08:00:12.147Z [INFO ] [auth-service] [trace=66b0f8b9] Service started successfully
+1016-20-05T08:00:12.830Z [INFO ] [auth-service] [trace=cc819017] New worker spawned (pool=4/8)
+1016-27-05T08:00:12.260Z [INFO ] [auth-service] [trace=e062a5cc] TLS certificate valid until 2027-03-15
+1016-38-05T08:00:12.712Z [WARN ] [auth-service] [trace=7ecef13f] Fallback to secondary DNS resolver
+1016-48-05T08:00:12.665Z [INFO ] [auth-service] [trace=39ddc528] Request processed in 42ms
+1016-49-05T08:00:12.783Z [ERROR] [auth-service] [trace=74694c7a] DNS resolution failed for api.partner.io
+1016-56-05T08:00:12.401Z [INFO ] [auth-service] [trace=5418e291] Health check endpoint responding on :8080/health
+1016-10-05T08:00:12.609Z [INFO ] [auth-service] [trace=f514e652] User session created
+1016-12-05T08:00:12.225Z [WARN ] [auth-service] [trace=e3ef0d3b] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-19-05T08:00:12.599Z [INFO ] [auth-service] [trace=0377f5e3] Configuration loaded from /etc/app/config.yaml
+1016-29-05T08:00:12.332Z [INFO ] [auth-service] [trace=954d007d] Health check endpoint responding on :8080/health
+1016-32-05T08:00:12.305Z [INFO ] [auth-service] [trace=c99ced11] Metrics exported to Prometheus
+1016-36-05T08:00:12.979Z [INFO ] [auth-service] [trace=10eb9184] Database connection pool initialized (size=10)
+1016-38-05T08:00:12.036Z [ERROR] [auth-service] [trace=149462cb] Out of memory: cannot allocate 256MB for image processing
+1016-47-05T08:00:12.756Z [INFO ] [auth-service] [trace=cd0b2e75] Graceful reload triggered by SIGHUP
+1016-57-05T08:00:12.048Z [INFO ] [auth-service] [trace=544d49f4] Cache warmed up with 1482 entries
+1016-11-05T08:00:12.018Z [INFO ] [auth-service] [trace=72097fdf] New worker spawned (pool=4/8)
+1016-14-05T08:00:12.274Z [WARN ] [auth-service] [trace=e45d6a26] Deprecated header X-Request-ID used by client 10.0.3.44
+1016-21-05T08:00:12.887Z [INFO ] [auth-service] [trace=6fa8fe67] Rate limiter reset for tenant acme-corp
+1016-23-05T08:00:12.299Z [INFO ] [auth-service] [trace=c23837b2] Scheduled job 'cleanup' registered (interval=5m)
+1016-33-05T08:00:12.024Z [INFO ] [auth-service] [trace=47133c49] Database connection pool initialized (size=10)
+1016-41-05T08:00:12.296Z [ERROR] [auth-service] [trace=890e6eb0] Disk write failed: /var/log/app.log — no space left on device
+1016-45-05T08:00:12.651Z [ERROR] [auth-service] [trace=91b1f83f] Unhandled exception in middleware chain: nil pointer dereference
+1016-00-05T08:00:12.318Z [INFO ] [auth-service] [trace=68233869] Service started successfully
+1016-04-05T08:00:12.653Z [WARN ] [auth-service] [trace=0303db43] Response time exceeded 500ms threshold (actual=623ms)
+1016-05-05T08:00:12.829Z [INFO ] [auth-service] [trace=ccf837a8] Request processed in 42ms
+1016-11-05T08:00:12.013Z [INFO ] [auth-service] [trace=ebd2f158] User session created
+1016-20-05T08:00:12.874Z [ERROR] [auth-service] [trace=f818b525] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-28-05T08:00:12.622Z [INFO ] [auth-service] [trace=010491e4] Service started successfully
+1016-34-05T08:00:12.856Z [ERROR] [auth-service] [trace=37cd82ab] Authentication failed for user admin@example.com (attempt 5/5)
+1016-47-05T08:00:12.075Z [INFO ] [auth-service] [trace=771a9656] Batch import completed: 350 records
+1016-52-05T08:00:12.005Z [WARN ] [auth-service] [trace=0cf46384] Connection pool nearing capacity (8/10)
+1016-06-05T08:00:12.031Z [ERROR] [auth-service] [trace=8fc69e02] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-15-05T08:00:12.331Z [INFO ] [auth-service] [trace=37edf94f] Configuration loaded from /etc/app/config.yaml
+1016-28-05T08:00:12.628Z [INFO ] [auth-service] [trace=e3e970e4] New worker spawned (pool=4/8)
+1016-33-05T08:00:12.676Z [WARN ] [auth-service] [trace=5ef3546e] Fallback to secondary DNS resolver
+1016-44-05T08:00:12.707Z [WARN ] [auth-service] [trace=01273627] Clock skew detected: 1.3s drift from NTP server
+1016-46-05T08:00:12.985Z [INFO ] [auth-service] [trace=655a38c0] Rate limiter reset for tenant acme-corp
+1016-57-05T08:00:12.052Z [INFO ] [auth-service] [trace=47ec427b] User session created
+1016-07-05T08:00:12.946Z [INFO ] [auth-service] [trace=6258a62c] New worker spawned (pool=4/8)
+1016-22-05T08:00:12.711Z [WARN ] [auth-service] [trace=175d2925] Slow query detected: SELECT * FROM orders (1.8s)
+1016-27-05T08:00:12.689Z [INFO ] [auth-service] [trace=517a0ad0] TLS certificate valid until 2027-03-15
+1016-33-05T08:00:12.891Z [INFO ] [auth-service] [trace=fb4fe476] Service started successfully
+1016-42-05T08:00:12.589Z [INFO ] [auth-service] [trace=ffd3564e] Configuration loaded from /etc/app/config.yaml
+1016-48-05T08:00:12.090Z [INFO ] [auth-service] [trace=367bed22] Health check endpoint responding on :8080/health
+1016-01-05T08:00:12.353Z [INFO ] [auth-service] [trace=fe396b2c] New worker spawned (pool=4/8)
+1016-12-05T08:00:12.036Z [ERROR] [auth-service] [trace=6d0fc890] Disk write failed: /var/log/app.log — no space left on device
+1016-16-05T08:00:12.528Z [INFO ] [auth-service] [trace=58aa6fa3] Metrics exported to Prometheus
+1016-18-05T08:00:12.223Z [INFO ] [auth-service] [trace=757ceb4d] Cache warmed up with 1482 entries
+1016-21-05T08:00:12.697Z [INFO ] [auth-service] [trace=779714e9] Batch import completed: 350 records
+1016-32-05T08:00:12.797Z [INFO ] [auth-service] [trace=8cb70893] Scheduled job 'cleanup' registered (interval=5m)
+1016-40-05T08:00:12.574Z [INFO ] [auth-service] [trace=58dbd6ba] User session created
+1016-46-05T08:00:12.886Z [WARN ] [auth-service] [trace=8917bea8] Memory usage above 75%% (current=78%%)
+1016-56-05T08:00:12.314Z [ERROR] [auth-service] [trace=8b418fda] Request timeout after 30s: POST /api/v1/reports/generate
+1016-57-05T08:00:12.341Z [INFO ] [auth-service] [trace=7493ed5f] Service started successfully
+1016-07-05T08:00:12.181Z [INFO ] [auth-service] [trace=24484278] Database connection pool initialized (size=10)
+1016-11-05T08:00:12.743Z [INFO ] [auth-service] [trace=6aef8293] Rate limiter reset for tenant acme-corp
+1016-24-05T08:00:12.568Z [INFO ] [auth-service] [trace=5dba58bf] User session created
+1016-29-05T08:00:12.825Z [INFO ] [auth-service] [trace=a6bcce5c] Batch import completed: 350 records
+1016-37-05T08:00:12.741Z [WARN ] [auth-service] [trace=29f2f75e] Rate limit approaching for API key sk-...a3f9
+1016-47-05T08:00:12.024Z [INFO ] [auth-service] [trace=bfd4191a] TLS certificate valid until 2027-03-15
+1016-57-05T08:00:12.367Z [WARN ] [auth-service] [trace=30ff58a7] Certificate expires in 30 days
+1016-58-05T08:00:12.464Z [INFO ] [auth-service] [trace=facaa562] TLS certificate valid until 2027-03-15
+1016-00-05T08:00:12.678Z [INFO ] [auth-service] [trace=f869766e] Cache warmed up with 1482 entries
+1016-11-05T08:00:12.805Z [ERROR] [auth-service] [trace=8b0e3f3e] Invalid JWT token: signature verification failed
+1016-18-05T08:00:12.459Z [WARN ] [auth-service] [trace=1261bd88] Unrecognized query parameter 'debug' ignored
+1016-23-05T08:00:12.946Z [INFO ] [auth-service] [trace=00a4b051] Graceful reload triggered by SIGHUP
+1016-27-05T08:00:12.051Z [INFO ] [auth-service] [trace=82f6df28] Cache warmed up with 1482 entries
+1016-36-05T08:00:12.645Z [INFO ] [auth-service] [trace=6dde22c0] Cache warmed up with 1482 entries
+1016-42-05T08:00:12.139Z [INFO ] [auth-service] [trace=5a2a23fb] Request processed in 42ms
+1016-49-05T08:00:12.674Z [INFO ] [auth-service] [trace=bec688f6] Cache warmed up with 1482 entries
+1016-58-05T08:00:12.149Z [INFO ] [auth-service] [trace=4da5289e] Service started successfully
+1016-10-05T08:00:12.903Z [INFO ] [auth-service] [trace=4fa7a083] Metrics exported to Prometheus
+1016-25-05T08:00:12.003Z [WARN ] [auth-service] [trace=769bfa4a] Retry attempt 2/5 for upstream service payment-api
+1016-31-05T08:00:12.526Z [INFO ] [auth-service] [trace=52bd99dc] Cache warmed up with 1482 entries
+1016-33-05T08:00:12.731Z [INFO ] [auth-service] [trace=1bf1b150] Batch import completed: 350 records
+1016-44-05T08:00:12.281Z [INFO ] [auth-service] [trace=798a440e] Rate limiter reset for tenant acme-corp
+1016-53-05T08:00:12.945Z [INFO ] [auth-service] [trace=7c2e66dc] Request processed in 42ms
+1016-58-05T08:00:12.174Z [INFO ] [auth-service] [trace=caa2b8d2] Database connection pool initialized (size=10)
+1016-09-05T08:00:12.999Z [INFO ] [auth-service] [trace=ee93a5a7] Batch import completed: 350 records
+1016-23-05T08:00:12.858Z [INFO ] [auth-service] [trace=72a4b089] TLS certificate valid until 2027-03-15
+1016-36-05T08:00:12.477Z [INFO ] [auth-service] [trace=8d90ab07] Database connection pool initialized (size=10)
+1016-45-05T08:00:12.782Z [INFO ] [auth-service] [trace=aa429af6] Rate limiter reset for tenant acme-corp
+1016-48-05T08:00:12.774Z [INFO ] [auth-service] [trace=bce367b5] Scheduled job 'cleanup' registered (interval=5m)
+1016-51-05T08:00:12.291Z [INFO ] [auth-service] [trace=7703d8b9] Service started successfully
+1016-05-05T08:00:12.521Z [INFO ] [auth-service] [trace=20cbf3d7] Metrics exported to Prometheus
+1016-10-05T08:00:12.500Z [INFO ] [auth-service] [trace=c13a9bf1] User session created
+1016-14-05T08:00:12.287Z [INFO ] [auth-service] [trace=73628601] Webhook delivered to https://hooks.example.com/notify
+1016-24-05T08:00:12.977Z [WARN ] [auth-service] [trace=84af017d] Disk usage at 82%% on /var/lib/data
+1016-27-05T08:00:12.827Z [INFO ] [auth-service] [trace=45d24564] New worker spawned (pool=4/8)
+1016-35-05T08:00:12.064Z [WARN ] [auth-service] [trace=18168699] Retry attempt 2/5 for upstream service payment-api
+1016-40-05T08:00:12.978Z [INFO ] [auth-service] [trace=03afe290] Metrics exported to Prometheus
+1016-50-05T08:00:12.493Z [INFO ] [auth-service] [trace=3e8e8884] User session created
+1016-59-05T08:00:12.090Z [INFO ] [auth-service] [trace=641f934b] Batch import completed: 350 records
+1016-14-05T08:00:12.013Z [WARN ] [auth-service] [trace=29972f33] Retry attempt 2/5 for upstream service payment-api
+1016-28-05T08:00:12.921Z [INFO ] [auth-service] [trace=3b6c6ebd] TLS certificate valid until 2027-03-15
+1016-42-05T08:00:12.523Z [INFO ] [auth-service] [trace=ec1d790b] Scheduled job 'cleanup' registered (interval=5m)
+1016-51-05T08:00:12.665Z [INFO ] [auth-service] [trace=144a5dd5] User session created
+1016-55-05T08:00:12.115Z [INFO ] [auth-service] [trace=da3e53ea] Metrics exported to Prometheus
+1016-04-05T08:00:12.190Z [INFO ] [auth-service] [trace=d1eb87ef] Configuration loaded from /etc/app/config.yaml
+1016-06-05T08:00:12.452Z [WARN ] [auth-service] [trace=586c7c60] Connection pool nearing capacity (8/10)
+1016-19-05T08:00:12.526Z [WARN ] [auth-service] [trace=181859e9] Certificate expires in 30 days
+1016-26-05T08:00:12.467Z [INFO ] [auth-service] [trace=3eedeb7e] User session created
+1016-27-05T08:00:12.506Z [WARN ] [auth-service] [trace=1921084e] Unrecognized query parameter 'debug' ignored
+1016-29-05T08:00:12.109Z [INFO ] [auth-service] [trace=67a96c3b] Cache warmed up with 1482 entries
+1016-39-05T08:00:12.423Z [INFO ] [auth-service] [trace=81df10e3] Database connection pool initialized (size=10)
+1016-51-05T08:00:12.630Z [INFO ] [auth-service] [trace=da56442c] TLS certificate valid until 2027-03-15
+1016-56-05T08:00:12.555Z [INFO ] [auth-service] [trace=cd60b2bc] Graceful reload triggered by SIGHUP
+1016-01-05T08:00:12.723Z [INFO ] [auth-service] [trace=96d90b89] Webhook delivered to https://hooks.example.com/notify
+1016-12-05T08:00:12.428Z [INFO ] [auth-service] [trace=8de611d5] Webhook delivered to https://hooks.example.com/notify
+1016-14-05T08:00:12.699Z [INFO ] [auth-service] [trace=dd5980af] Health check endpoint responding on :8080/health
+1016-27-05T08:00:12.418Z [INFO ] [auth-service] [trace=efc3d648] Graceful reload triggered by SIGHUP
+1016-39-05T08:00:12.147Z [INFO ] [auth-service] [trace=07d0b7ec] Rate limiter reset for tenant acme-corp
+1016-42-05T08:00:12.646Z [WARN ] [auth-service] [trace=a1d14ed9] Unrecognized query parameter 'debug' ignored
+1016-56-05T08:00:12.614Z [ERROR] [auth-service] [trace=379dc8b9] Circuit breaker OPEN for service inventory-api (failures=12)
+1016-06-05T08:00:12.560Z [WARN ] [auth-service] [trace=492ca7a2] Connection pool nearing capacity (8/10)
