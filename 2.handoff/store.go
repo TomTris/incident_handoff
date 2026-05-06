@@ -7,5 +7,5 @@ type Store interface {
 	GetIncident(ctx context.Context, id string) (Incident, error)
 	// ListIncidents(ctx context.Context, filter IncidentFilter) ([]Incident, error)
 	// UpdateIncident(ctx context.Context, id string, update IncidentUpdate) error
-	// AddEntry(ctx context.Context, incidentID string, entry TimelineEntry) error
+	AddEntry(ctx context.Context, incidentID string, entry TimelineEntry) (TimelineEntry, error)
 }

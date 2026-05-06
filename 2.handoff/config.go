@@ -6,12 +6,22 @@ type Config struct {
 	Environment string // default "development", env: HANDOFF_ENV
 }
 
+// Incident status
 const (
 	TRIGGERED     = "triggered"
 	ACKNOWLEDGED  = "acknowledged"
 	INVESTIGATING = "investigating"
 	MITIGATED     = "mitigated"
 	RESOLVED      = "resolved"
+)
+
+// Entry type
+const (
+	OBSERVATION   = "observation"
+	ACTION        = "action"
+	DISCOVERY     = "discovery"
+	OPEN_QUESTION = "open_question"
+	STATE_CHANGE  = "state_change"
 )
 
 const requestIDKey = "request_id"

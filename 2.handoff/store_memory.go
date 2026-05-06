@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"errors"
 	"strconv"
 	"time"
 )
@@ -27,40 +26,26 @@ func (m *MemoryStore) CreateIncident(ctx context.Context, inc Incident) (Inciden
 func (m *MemoryStore) GetIncident(ctx context.Context, id string) (Incident, error) {
 	inc, ok := m.incidents[id]
 	if ok == false {
-		return inc, errors.New("Incident not found")
+		return inc, ErrIncidentNotFound
 	}
 	return inc, nil
 }
 
-// func defaultNewTimelineEntry() TimelineEntry {
-// 	nextEntryTimelineID++
-// 	return TimelineEntry{
-// 		ID:   entryIDPrefix + strconv.Itoa(nextEntryTimelineID),
-// 		Time: time.Now(),
-// 	}
-// }
-
-// func addTimelineEntry(w http.ResponseWriter, r *http.Request) {
-// 	newTimelineEntry := defaultNewTimelineEntry()
-// 	err := json.NewDecoder(r.Body).Decode(&newTimelineEntry)
-// 	if err != nil {
-// 		http.Error(w, "failed to read body", http.StatusBadRequest)
-// 		return
-// 	}
-// 	defer r.Body.Close()
-
-// 	incidentId := r.PathValue("id")
-// 	for idx, _ := range incidents {
-// 		if incidents[idx].ID == incidentId {
-// 			incidents[idx].Entries = append(incidents[idx].Entries, newTimelineEntry)
-// 			w.Header().Set("Content-Type", "application/json")
-// 			w.WriteHeader(http.StatusCreated)
-// 			json.NewEncoder(w).Encode(newTimelineEntry)
-// 			return
-// 		}
-// 	}
-// 	http.Error(w, "incident not found", http.StatusNotFound)
-// }
+func (m *MemoryStore) AddEntry(ctx context.Context, incidentID string, entry TimelineEntry) (TimelineEntry, error) {
+	inc, ok := m.incidents[incidentID]
+	if ok == false {
+		return TimelineEntry{}, ErrIncidentNotFound
+	}
+	if inc.Status == RESOLVED {
+		return TimelineEntry{}, ErrConflict
+	}
+	m.nextEntryTimelineID++
+	entry.ID = entryIDPrefix + strconv.Itoa(m.nextEntryTimelineID)
+	entry.Time = time.Now()
+	inc.Entries = append(inc.Entries, entry)
+	m.incidents[incidentID] = inc
+	return entry, nil
+}
 
 // func listAllIncidents(w http.ResponseWriter, r *http.Request) {
 // 	w.Header().Set("Content-Type", "allication/json")

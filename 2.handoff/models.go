@@ -27,6 +27,27 @@ type TimelineEntry struct {
 	Text   string    `json:"text"`
 }
 
+func (c *TimelineEntry) Validate() error {
+	var validEntryTypes = map[string]bool{
+		OBSERVATION:   true,
+		ACTION:        true,
+		DISCOVERY:     true,
+		OPEN_QUESTION: true,
+		STATE_CHANGE:  true,
+	}
+
+	if strings.Trim(c.Author, " ") == "" {
+		return errors.New("Request doesn't contain Author")
+	}
+	if validEntryTypes[strings.Trim(c.Type, " ")] == false {
+		return errors.New("Request doesn't have valid entry type")
+	}
+	if strings.Trim(c.Text, " ") == "" {
+		return errors.New("Request doesn't contain text")
+	}
+	return nil
+}
+
 // type IncidentFilter struct {
 // }
 
@@ -38,10 +59,6 @@ type CreateIncidentRequest struct {
 	Service  string `json:"service"`
 	Severity string `json:"severity"` // SEV1, SEV2, SEV3
 	OpenedBy string `json:"opened_by"`
-}
-
-type GetIncidentRequest struct {
-	IncidentID string `json:"incident_id"`
 }
 
 func (c *CreateIncidentRequest) Validate() error {
