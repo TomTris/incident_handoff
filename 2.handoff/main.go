@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"log/slog"
 	"net/http"
@@ -16,9 +17,12 @@ func main() {
 	incHandler := IncidentHandler{Store: &memoryStore}
 	router := getRouter(incHandler)
 
-	var srv http.Server
-	srv.Addr = ":8080"
-	srv.Handler = router
+	config := loadConfig()
+	srv := http.Server{
+		Addr:    ":" + config.Port,
+		Handler: router,
+	}
+	fmt.Println(srv.Addr)
 
 	go func() {
 		slog.Info("server running")

@@ -138,7 +138,7 @@ func (incHandler *IncidentHandler) ListIncidents(w http.ResponseWriter, r *http.
 
 	err := incidentFilter.Validate()
 	if err != nil {
-		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
 			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
@@ -162,7 +162,7 @@ func (incHandler *IncidentHandler) UpdateIncident(w http.ResponseWriter, r *http
 	incidentUpdate := IncidentUpdate{}
 	err := json.NewDecoder(r.Body).Decode(&incidentUpdate)
 	if err != nil {
-		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
 			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
@@ -171,7 +171,7 @@ func (incHandler *IncidentHandler) UpdateIncident(w http.ResponseWriter, r *http
 	}
 	err = incidentUpdate.Validate()
 	if err != nil {
-		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
 			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),

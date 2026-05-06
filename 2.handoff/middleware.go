@@ -46,6 +46,7 @@ func LoggingMiddleware(nextHandler http.Handler) http.Handler {
 func RequestIDMiddleware(nextHandler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		newRequestID := uuid.New().String()
+		w.Header().Add("X-Request-ID", newRequestID)
 		ctxWithNewRequestID := context.WithValue(r.Context(), requestIDKey, newRequestID)
 		nextHandler.ServeHTTP(w, r.WithContext(ctxWithNewRequestID))
 	})
