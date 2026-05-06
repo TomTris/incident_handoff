@@ -6,8 +6,14 @@ import (
 )
 
 func main() {
+
 	memoryStore := MemoryStore{incidents: make(map[string]Incident)}
 	incHandler := IncidentHandler{Store: &memoryStore}
 	router := getRouter(incHandler)
-	log.Fatal(http.ListenAndServe(":8080", router))
+
+	var srv http.Server
+	srv.Addr = ":8080"
+	srv.Handler = router
+
+	log.Fatal(srv.ListenAndServe())
 }

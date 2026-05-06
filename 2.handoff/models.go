@@ -66,7 +66,6 @@ func (f *IncidentUpdate) Validate() error {
 		return errors.New("Invalid Incident Severity")
 	}
 	if f.OnCall != nil && strings.Trim(*f.OnCall, " ") == "" {
-		f
 		return errors.New("On Call can't be empty")
 	}
 	return nil
@@ -97,4 +96,15 @@ func (c *CreateIncidentRequest) Validate() error {
 		return errors.New("The variable on_call must be either empty or non-existent")
 	}
 	return nil
+}
+
+type HandoffBrief struct {
+	Severity      string          `json:"severity"`
+	Status        string          `json:"status"`
+	Service       string          `json:"service"`
+	TotalEntry    int             `json:"total_entry"`
+	ElapsedMinute int             `json:"elapsed_minute"`
+	TakenActions  []TimelineEntry `json:"taken_actions"`
+	OpenQuestion  []TimelineEntry `json:"open_question"`
+	CreatedAt     time.Time       `json:"created_at"`
 }

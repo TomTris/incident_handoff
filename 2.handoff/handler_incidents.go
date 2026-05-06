@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
+	"time"
 )
 
 type IncidentHandler struct {
@@ -197,4 +198,51 @@ func (incHandler *IncidentHandler) UpdateIncident(w http.ResponseWriter, r *http
 	}
 
 	w.WriteHeader(http.StatusNoContent)
+}
+
+func (incHandler *IncidentHandler) GetHandoffBrief(w http.ResponseWriter, r *http.Request) {
+	incidentID := r.PathValue("id")
+	inc, err := incHandler.Store.GetIncident(r.Context(), incidentID)
+	if err != nil {
+		if errors.Is(err, ErrIncidentNotFound) {
+			writeError(w, http.StatusNotFound, ErrorMessageJSON{
+				ErrorCode: INCIDENT_NOT_FOUND,
+				Message:   err.Error(),
+				RequestID: r.Context().Value(requestIDKey).(string),
+			})
+			return
+		}
+		writeError(w, http.StatusInternalServerError, ErrorMessageJSON{
+			ErrorCode: INTERNAL_SERVER_ERROR,
+			Message:   err.Error(),
+			RequestID: r.Context().Value(requestIDKey).(string),
+		})
+		return
+	}
+	writeJSON(w, http.StatusOK, buildHandoffBrief(inc))
+}
+
+func buildHandoffBrief(inc Incident) HandoffBrief {
+	actions := []TimelineEntry{}
+	openQuestions := []TimelineEntry{}
+
+	for _, entry := range inc.Entries {
+		switch entry.Type {
+		case ACTION:
+			actions = append(actions, entry)
+		case OPEN_QUESTION:
+			openQuestions = append(openQuestions, entry)
+		}
+	}
+
+	return HandoffBrief{
+		Severity:      inc.Severity,
+		Status:        inc.Status,
+		Service:       inc.Service,
+		ElapsedMinute: int(time.Since(inc.CreatedAt).Minutes()),
+		TotalEntry:    len(inc.Entries),
+		TakenActions:  actions,
+		OpenQuestion:  openQuestions,
+		CreatedAt:     inc.CreatedAt,
+	}
 }
