@@ -52,11 +52,24 @@ func (f *IncidentFilter) Validate() error {
 	return nil
 }
 
-// type IncidentFilter struct {
-// }
+type IncidentUpdate struct {
+	Status   *string
+	Severity *string
+	OnCall   *string
+}
 
-// type IncidentUpdate struct {
-// }
+func (f *IncidentUpdate) Validate() error {
+	if f.Status != nil && IncidentStatus[strings.Trim(*f.Status, " ")] == false {
+		return errors.New("Invalid Incident status")
+	}
+	if f.Severity != nil && IncidentSeverity[strings.Trim(*f.Severity, " ")] == false {
+		return errors.New("Invalid Incident Severity")
+	}
+	if f.OnCall != nil && strings.Trim(*f.OnCall, " ") == "" {
+		return errors.New("On Call can't be empty")
+	}
+	return nil
+}
 
 type CreateIncidentRequest struct {
 	Title    string `json:"title"`

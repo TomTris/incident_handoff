@@ -15,7 +15,7 @@ func (incHandler *IncidentHandler) GetIncident(w http.ResponseWriter, r *http.Re
 	inc, err := incHandler.Store.GetIncident(r.Context(), incidentID)
 	if err != nil {
 		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -29,7 +29,7 @@ func (incHandler *IncidentHandler) AddEntry(w http.ResponseWriter, r *http.Reque
 	err := json.NewDecoder(r.Body).Decode(&timelineEntry)
 	if err != nil {
 		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -38,7 +38,7 @@ func (incHandler *IncidentHandler) AddEntry(w http.ResponseWriter, r *http.Reque
 	err = timelineEntry.Validate()
 	if err != nil {
 		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -49,7 +49,7 @@ func (incHandler *IncidentHandler) AddEntry(w http.ResponseWriter, r *http.Reque
 	if err != nil {
 		if errors.Is(err, ErrIncidentNotFound) {
 			writeError(w, http.StatusBadRequest, ErrorMessageJSON{
-				ErrorCode: "BAD_REQUEST",
+				ErrorCode: BAD_REQUEST,
 				Message:   err.Error(),
 				RequestID: r.Context().Value(requestIDKey).(string),
 			})
@@ -58,14 +58,14 @@ func (incHandler *IncidentHandler) AddEntry(w http.ResponseWriter, r *http.Reque
 		// If the incident is already resolved
 		if errors.Is(err, ErrConflict) {
 			writeError(w, http.StatusConflict, ErrorMessageJSON{
-				ErrorCode: "CONFLICT",
+				ErrorCode: CONFLICT,
 				Message:   err.Error(),
 				RequestID: r.Context().Value(requestIDKey).(string),
 			})
 			return
 		}
 		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "INTERNAL_ERROR",
+			ErrorCode: INTERNAL_ERROR,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -79,7 +79,7 @@ func (incHandler *IncidentHandler) CreateIncident(w http.ResponseWriter, r *http
 	err := json.NewDecoder(r.Body).Decode(&newCreateIncidentRequest)
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -89,7 +89,7 @@ func (incHandler *IncidentHandler) CreateIncident(w http.ResponseWriter, r *http
 	err = newCreateIncidentRequest.Validate()
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -105,7 +105,7 @@ func (incHandler *IncidentHandler) CreateIncident(w http.ResponseWriter, r *http
 
 	if err != nil {
 		writeJSON(w, http.StatusInternalServerError, ErrorMessageJSON{
-			ErrorCode: "INTERNAL_ERROR",
+			ErrorCode: INTERNAL_ERROR,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -125,7 +125,7 @@ func (incHandler *IncidentHandler) ListIncidents(w http.ResponseWriter, r *http.
 	err := incidentFilter.Validate()
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
@@ -135,11 +135,59 @@ func (incHandler *IncidentHandler) ListIncidents(w http.ResponseWriter, r *http.
 	filteredIncidents, err := incHandler.Store.ListIncidents(r.Context(), incidentFilter)
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
-			ErrorCode: "BAD_REQUEST",
+			ErrorCode: BAD_REQUEST,
 			Message:   err.Error(),
 			RequestID: r.Context().Value(requestIDKey).(string),
 		})
 		return
 	}
 	writeJSON(w, http.StatusCreated, filteredIncidents)
+}
+
+func (incHandler *IncidentHandler) UpdateIncident(w http.ResponseWriter, r *http.Request) {
+	incidentUpdate := IncidentUpdate{}
+	err := json.NewDecoder(r.Body).Decode(&incidentUpdate)
+	if err != nil {
+		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+			ErrorCode: BAD_REQUEST,
+			Message:   err.Error(),
+			RequestID: r.Context().Value(requestIDKey).(string),
+		})
+		return
+	}
+	err = incidentUpdate.Validate()
+	if err != nil {
+		writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+			ErrorCode: BAD_REQUEST,
+			Message:   err.Error(),
+			RequestID: r.Context().Value(requestIDKey).(string),
+		})
+		return
+	}
+	incidentID := r.PathValue("id")
+	err = incHandler.Store.UpdateIncident(r.Context(), incidentID, incidentUpdate)
+	if err != nil {
+		if errors.Is(err, ErrIncidentNotFound) {
+			writeError(w, http.StatusBadRequest, ErrorMessageJSON{
+				ErrorCode: BAD_REQUEST,
+				Message:   err.Error(),
+				RequestID: r.Context().Value(requestIDKey).(string),
+			})
+			return
+		}
+		// If we use database
+		writeError(w, http.StatusInternalServerError, ErrorMessageJSON{
+			ErrorCode: INTERNAL_ERROR,
+			Message:   err.Error(),
+			RequestID: r.Context().Value(requestIDKey).(string),
+		})
+		return
+	}
+
+	writeJSON(w, http.StatusBadRequest, ErrorMessageJSON{
+		ErrorCode: BAD_REQUEST,
+		Message:   err.Error(),
+		RequestID: r.Context().Value(requestIDKey).(string),
+	})
+
 }

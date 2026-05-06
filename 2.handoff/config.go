@@ -6,6 +6,19 @@ type Config struct {
 	Environment string // default "development", env: HANDOFF_ENV
 }
 
+// Incident Severity
+const (
+	SEV1 = "SEV1"
+	SEV2 = "SEV2"
+	SEV3 = "SEV3"
+)
+
+var IncidentSeverity = map[string]bool{
+	SEV1: true,
+	SEV2: true,
+	SEV3: true,
+}
+
 // Incident status
 const (
 	TRIGGERED     = "triggered"

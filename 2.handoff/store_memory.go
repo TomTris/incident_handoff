@@ -69,3 +69,21 @@ func (m *MemoryStore) ListIncidents(ctx context.Context, filter IncidentFilter) 
 	})
 	return array, nil
 }
+
+func (m *MemoryStore) UpdateIncident(ctx context.Context, id string, update IncidentUpdate) error {
+	incident, ok := m.incidents[id]
+	if ok != true {
+		return ErrIncidentNotFound
+	}
+	if update.Status != nil {
+		incident.Status = *update.Status
+	}
+	if update.Severity != nil {
+		incident.Severity = *update.Severity
+	}
+	if update.OnCall != nil {
+		incident.OnCall = *update.OnCall
+	}
+	m.incidents[id] = incident
+	return nil
+}

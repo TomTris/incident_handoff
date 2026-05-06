@@ -20,3 +20,9 @@ var ErrConflict = errors.New("The Incident is already resolved")
 
 // Will use if we have database
 var ErrInternal = errors.New("Internal Error")
+
+const (
+	INTERNAL_ERROR = "INTERNAL_ERROR"
+	BAD_REQUEST    = "BAD_REQUEST"
+	CONFLICT       = "CONFLICT"
+)

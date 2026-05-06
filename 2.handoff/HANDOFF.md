@@ -60,7 +60,7 @@ type TimelineEntry struct {
 | `GET` | `/incidents` | List all incidents (filter: `?status=active&service=order-service`) |
 | `GET` | `/incidents/:id` | Get one incident with full timeline |
 | `POST` | `/incidents/:id/entries` | Add a timeline entry |
-| `PATCH` | `/incidents/:id` | Update severity or status |
+| `PATCH` | `/incidents/:id` | Update severity, status or on call|
 | `GET` | `/incidents/:id/handoff` | Auto-generated handoff brief |
 | `GET` | `/healthz` | Health check (returns 200 + `{"status":"ok"}`) |
 
