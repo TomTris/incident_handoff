@@ -27,7 +27,7 @@ func TestCreateIncident(t *testing.T) {
 		json.NewDecoder(rec.Body).Decode(&got)
 
 		expect := Incident{
-			ID:       "inc-1",
+			ID:       "INC-1",
 			Title:    "order-service request drop",
 			Service:  "order-service",
 			Severity: "SEV1",
@@ -102,7 +102,7 @@ func TestGetIncident(t *testing.T) {
 	t.Run("Normal Get Incident", func(t *testing.T) {
 
 		rec2 := httptest.NewRecorder()
-		req2 := httptest.NewRequest("GET", "/incidents/inc-1", strings.NewReader(body))
+		req2 := httptest.NewRequest("GET", "/incidents/INC-1", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -114,7 +114,7 @@ func TestGetIncident(t *testing.T) {
 		json.NewDecoder(rec2.Body).Decode(&got2)
 
 		expect := Incident{
-			ID:       "inc-1",
+			ID:       "INC-1",
 			Title:    "order-service request drop",
 			Service:  "order-service",
 			Severity: "SEV1",
@@ -139,7 +139,7 @@ func TestGetIncident(t *testing.T) {
 	})
 	t.Run("Failed GetIncident", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
-		req2 := httptest.NewRequest("GET", "/incidents/inc-2", strings.NewReader(body))
+		req2 := httptest.NewRequest("GET", "/incidents/INC-2", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -216,7 +216,7 @@ func TestUpdateIncident(t *testing.T) {
 	t.Run("Normal UpdateIncident ", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"status":"resolved"}`
-		req2 := httptest.NewRequest("PATCH", "/incidents/inc-1", strings.NewReader(body))
+		req2 := httptest.NewRequest("PATCH", "/incidents/INC-1", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -228,7 +228,7 @@ func TestUpdateIncident(t *testing.T) {
 	t.Run("fail UpdateIncident ", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"status":"resolve"}`
-		req2 := httptest.NewRequest("PATCH", "/incidents/inc-1", strings.NewReader(body))
+		req2 := httptest.NewRequest("PATCH", "/incidents/INC-1", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -251,7 +251,7 @@ func TestAddTimelineEntry(t *testing.T) {
 	t.Run("Normal addEntry ", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"author":"Anh Nguyen","type":"observation","text":"Connection pool exhaustion. Pool at 100/100."}`
-		req2 := httptest.NewRequest("POST", "/incidents/inc-1/entries", strings.NewReader(body))
+		req2 := httptest.NewRequest("POST", "/incidents/INC-1/entries", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -281,7 +281,7 @@ func TestAddTimelineEntry(t *testing.T) {
 	t.Run("Fail addEntry Missing field", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"author":"","type":"observation","text":"Connection pool exhaustion. Pool at 100/100."}`
-		req2 := httptest.NewRequest("POST", "/incidents/inc-1/entries", strings.NewReader(body))
+		req2 := httptest.NewRequest("POST", "/incidents/INC-1/entries", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -292,7 +292,7 @@ func TestAddTimelineEntry(t *testing.T) {
 	t.Run("Fail addEntry bad entry type", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"author":"Anhh","type":"observa","text":"Connection pool exhaustion. Pool at 100/100."}`
-		req2 := httptest.NewRequest("POST", "/incidents/inc-1/entries", strings.NewReader(body))
+		req2 := httptest.NewRequest("POST", "/incidents/INC-1/entries", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -303,7 +303,7 @@ func TestAddTimelineEntry(t *testing.T) {
 	t.Run("Fail addEntry non-existent incident", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"author":"Anhh","type":"observation","text":"Connection pool exhaustion. Pool at 100/100."}`
-		req2 := httptest.NewRequest("POST", "/incidents/inc-2/entries", strings.NewReader(body))
+		req2 := httptest.NewRequest("POST", "/incidents/INC-2/entries", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -314,7 +314,7 @@ func TestAddTimelineEntry(t *testing.T) {
 	t.Run("Fail addEntry conficht", func(t *testing.T) {
 		rec2 := httptest.NewRecorder()
 		body := `{"status":"resolved"}`
-		req2 := httptest.NewRequest("PATCH", "/incidents/inc-1", strings.NewReader(body))
+		req2 := httptest.NewRequest("PATCH", "/incidents/INC-1", strings.NewReader(body))
 		req2.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec2, req2)
 
@@ -324,7 +324,7 @@ func TestAddTimelineEntry(t *testing.T) {
 
 		rec3 := httptest.NewRecorder()
 		body3 := `{"author":"abc","type":"observation","text":"Connection pool exhaustion. Pool at 100/100."}`
-		req3 := httptest.NewRequest("POST", "/incidents/inc-1/entries", strings.NewReader(body3))
+		req3 := httptest.NewRequest("POST", "/incidents/INC-1/entries", strings.NewReader(body3))
 		req3.Header.Set("Content-Type", "application/json")
 		router.ServeHTTP(rec3, req3)
 

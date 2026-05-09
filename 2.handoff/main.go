@@ -13,11 +13,11 @@ import (
 )
 
 func main() {
-	memoryStore := MemoryStore{incidents: make(map[string]Incident)}
-	incHandler := IncidentHandler{Store: &memoryStore}
+	config := loadConfig()
+	mongoStore := NewMongoStore(config.ConnectionString, config.DatabaseName)
+	incHandler := IncidentHandler{Store: mongoStore}
 	router := getRouter(incHandler)
 
-	config := loadConfig()
 	srv := http.Server{
 		Addr:    ":" + config.Port,
 		Handler: router,

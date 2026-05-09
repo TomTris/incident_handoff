@@ -25,6 +25,9 @@ func (m *MemoryStore) CreateIncident(ctx context.Context, inc Incident) (Inciden
 	inc.CreatedAt = time.Now()
 	inc.UpdatedAt = time.Now()
 	inc.Entries = []TimelineEntry{}
+	if inc.OnCall == "" {
+		inc.OnCall = inc.OpenedBy
+	}
 	m.incidents[inc.ID] = inc
 	return inc, nil
 }

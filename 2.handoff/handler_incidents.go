@@ -53,6 +53,7 @@ func (incHandler *IncidentHandler) AddEntry(w http.ResponseWriter, r *http.Reque
 				Message:   err.Error(),
 				RequestID: RequestID,
 			})
+			return
 		}
 		writeError(w, http.StatusBadRequest, ErrorMessageJSON{
 			ErrorCode: MISSING_FIELD,
@@ -121,16 +122,12 @@ func (incHandler *IncidentHandler) CreateIncident(w http.ResponseWriter, r *http
 		return
 	}
 
-	onCall := req.OpenedBy
-	if req.OnCall != nil {
-		onCall = *req.OnCall
-	}
 	createdIncident, err := incHandler.Store.CreateIncident(r.Context(), Incident{
 		Title:    req.Title,
 		Service:  req.Service,
 		Severity: req.Severity,
 		OpenedBy: req.OpenedBy,
-		OnCall:   onCall,
+		OnCall:   derefOrEmpty(req.OnCall),
 	})
 
 	if err != nil {

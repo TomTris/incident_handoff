@@ -13,11 +13,11 @@ func TestBuildHandoffBrief(t *testing.T) {
 			Service:   "payments",
 			CreatedAt: time.Now().Add(-30 * time.Minute),
 			Entries: []TimelineEntry{
-				{ID: "ent-1", Type: ACTION, Text: "restarted pod", Author: "alice"},
-				{ID: "ent-2", Type: OPEN_QUESTION, Text: "why did latency spike?", Author: "bob"},
-				{ID: "ent-3", Type: OBSERVATION, Text: "error rate at 5%", Author: "alice"},
-				{ID: "ent-4", Type: DISCOVERY, Text: "found memory leak", Author: "carol"},
-				{ID: "ent-5", Type: ACTION, Text: "rolled back deploy", Author: "bob"},
+				{ID: entryIDPrefix + "-1", Type: ACTION, Text: "restarted pod", Author: "alice"},
+				{ID: entryIDPrefix + "-2", Type: OPEN_QUESTION, Text: "why did latency spike?", Author: "bob"},
+				{ID: entryIDPrefix + "-3", Type: OBSERVATION, Text: "error rate at 5%", Author: "alice"},
+				{ID: entryIDPrefix + "-4", Type: DISCOVERY, Text: "found memory leak", Author: "carol"},
+				{ID: entryIDPrefix + "-5", Type: ACTION, Text: "rolled back deploy", Author: "bob"},
 			},
 		}
 

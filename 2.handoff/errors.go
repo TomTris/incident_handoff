@@ -6,9 +6,9 @@ import (
 )
 
 type ErrorMessageJSON struct {
-	ErrorCode string `json:"code"`
-	Message   string `json:"message"`
-	RequestID string `json:"request_id"`
+	ErrorCode string `json:"code" bson:"code"`
+	Message   string `json:"message" bson:"message"`
+	RequestID string `json:"request_id" bson:"request_id"`
 }
 
 func writeError(w http.ResponseWriter, status int, e ErrorMessageJSON) {
@@ -19,7 +19,7 @@ var ErrNoAuthor = errors.New("Invalid Author")
 var ErrBadEntryType = errors.New("Bad Timeline Entry Type")
 var ErrNoText = errors.New("Invalid Text")
 
-var ErrBadStatus = errors.New("Bad Service")
+var ErrBadIncidentStatus = errors.New("Bad Service")
 var ErrIncidentNotFound = errors.New("Incident not found")
 var ErrIncidentConflict = errors.New("Incident resolved")
 var ErrNoTitle = errors.New("Invalid Title")
