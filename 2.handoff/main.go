@@ -34,7 +34,7 @@ func main() {
 	}
 	go incHandler.Registry.run()
 	go func() {
-		slog.Info(fmt.Sprintf("server starting port=%s, store=%s", srv.Addr))
+		slog.Info(fmt.Sprintf("server starting port=%s", srv.Addr))
 		err := srv.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
 			log.Fatal(err)

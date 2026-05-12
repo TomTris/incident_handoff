@@ -58,8 +58,9 @@ func (c *Client) readPump() {
 			}
 			break
 		}
+		// these 2 lines are not important for Handoff yet.
 		msg = bytes.TrimSpace(bytes.Replace(msg, newline, space, -1))
-		c.hub.broadcast <- msg
+		// c.hub.broadcast <- msg
 	}
 }
 
@@ -79,7 +80,7 @@ func (c *Client) writePump() {
 			}
 
 			if err := c.conn.WriteMessage(websocket.TextMessage, msg); err != nil {
-				slog.Error("error: %v", err)
+				slog.Error("WriteMessage broken", "err", err)
 				return
 			}
 

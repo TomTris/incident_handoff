@@ -13,7 +13,7 @@ This track builds Handoff's backend: a production-grade Go API with database per
 
 ## Challenge 5.1 — Build the Handoff Incident API
 ### `🔴 Intermediate → Advanced`
-**🕐 Expected duration: 25–30 hours**
+**🕐 Expected duration: 28–35 hours**
 
 ### 1. Context
 
@@ -292,7 +292,7 @@ $ curl -s http://localhost:8080/incidents/inc-999 | jq .
 
 ## Challenge 5.Test — Test the Handoff API
 ### `🟡 Beginner → Intermediate`
-**🕐 Expected duration: 8–10 hours**
+**🕐 Expected duration: 8–12 hours**
 
 ### 1. Context
 
@@ -459,7 +459,7 @@ If you choose a different database than this curriculum uses, every phase still 
 
 ## Challenge 6.1 — Replace the In-Memory Store with a Database
 ### `🟠 Intermediate`
-**🕐 Expected duration: 15–20 hours**
+**🕐 Expected duration: 18–25 hours**
 
 ### 1. Context
 
@@ -614,7 +614,7 @@ $ curl -s http://localhost:8080/incidents | jq '.[] | .title'
 
 ## Challenge 7.1 — Real-Time Incident Timeline
 ### `🟠 Intermediate`
-**🕐 Expected duration: 12–15 hours**
+**🕐 Expected duration: 20–30 hours**
 
 ### 1. Context
 
@@ -666,9 +666,11 @@ State change:
 {
     "type": "state_change",
     "incident_id": "inc-001",
-    "field": "severity",
-    "old_value": "SEV1",
-    "new_value": "SEV2"
+    "update":{
+      "status":null,
+      "severity":"SEV2",
+      "on_call":null
+    }
 }
 ```
 
@@ -768,7 +770,7 @@ The standard solution is called the "hub pattern." A central struct holds a map 
 
 ## Challenge 8.1 — Instrument Handoff with Metrics
 ### `🟠 Intermediate`
-**🕐 Expected duration: 10–12 hours**
+**🕐 Expected duration: 11–14 hours**
 
 ### 1. Context
 
@@ -922,7 +924,7 @@ $ curl -s http://localhost:8080/readyz | jq .
 
 ## Challenge 8.2 — Build a Feature Flag System
 ### `🟡 Beginner → Intermediate`
-**🕐 Expected duration: 8–10 hours**
+**🕐 Expected duration: 9–12 hours**
 
 ### 1. Context
 
@@ -1065,7 +1067,7 @@ $ curl -s 'http://localhost:8080/flags/detailed_handoff_brief/evaluate?user_id=m
 
 ## Challenge 9.1 — Add JWT Auth to Handoff
 ### `🟠 Intermediate`
-**🕐 Expected duration: 12–15 hours**
+**🕐 Expected duration: 18–22 hours**
 
 ### 1. Context
 
@@ -1780,7 +1782,7 @@ This track builds Handoff's frontend: a typed Vue.js application with state mana
 
 ## Challenge 11.1 — Vue Fundamentals + Component Library
 ### `🟡 Beginner → Intermediate`
-**🕐 Expected duration: 25–30 hours**
+**🕐 Expected duration: 35–50 hours**
 
 ### 1. Context
 
@@ -2014,7 +2016,7 @@ const mockIncident: Incident = {
 
 ## Challenge 12.1 — Build the Handoff Dashboard
 ### `🟠 Intermediate → Advanced`
-**🕐 Expected duration: 25–30 hours**
+**🕐 Expected duration: 30–40 hours**
 
 ### 1. Context
 
@@ -2334,11 +2336,11 @@ This track completes test coverage, containerizes the stack, automates the pipel
 
 ## Challenge 13.1 — Complete the Go Test Suite
 ### `🟠 Intermediate`
-**🕐 Expected duration: 8–10 hours**
+**🕐 Expected duration: 6–12 hours**
 
 ### 1. Context
 
-Phase 5.Test covered validation and basic handler tests. Since then you've added database persistence, WebSocket, metrics, feature flags, and auth. If you wrote tests as you built (as instructed), some of this is covered. If you didn't, this is where you catch up.
+Phase 5.Test covered validation and basic handler tests. Since then you've added database persistence, WebSocket, metrics, feature flags, and auth. If you wrote tests as you built (as instructed), some of this is covered. For the rest, this is where you catch up.
 
 ### 2. Goal
 
@@ -2388,7 +2390,7 @@ go test ./... -race -cover -v
 
 ## Challenge 13.2 — Complete the Vue Test Suite
 ### `🟡 Beginner → Intermediate`
-**🕐 Expected duration: 5–7 hours**
+**🕐 Expected duration: 4–7 hours**
 
 ### 1. Context
 
@@ -2452,7 +2454,7 @@ npx vitest run --coverage
 
 ## Challenge 14.1 — Containerize, Automate, Deploy
 ### `🟠 Intermediate → Advanced`
-**🕐 Expected duration: 18–22 hours**
+**🕐 Expected duration: 25–30 hours**
 
 ### 1. Context
 

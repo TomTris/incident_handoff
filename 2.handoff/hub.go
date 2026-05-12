@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Hub struct {
 	// registry *Registry
 
@@ -20,6 +18,7 @@ func NewHub() *Hub {
 		register:   make(chan *Client, 8),
 		unregister: make(chan *Client, 8),
 		broadcast:  make(chan []byte, 256),
+		done:       make(chan byte),
 	}
 }
 
@@ -35,9 +34,7 @@ func (h *Hub) run() {
 				close(client.send)
 			}
 		case message := <-h.broadcast:
-			fmt.Println(111)
 			for client := range h.clients {
-				fmt.Println(112)
 				select {
 				case client.send <- message:
 				default:
