@@ -25,15 +25,13 @@ func marshalNewEntryEvent(incidentID string, entry TimelineEntry) json.RawMessag
 	return data
 }
 
-func marshalStateChangeEvent(incidentID string, update IncidentUpdate) json.RawMessage {
-	// One message per changed field
-	// Or one message with all changes — your call
+func marshalIncidentUpdateEvent(incidentID string, update IncidentUpdate) json.RawMessage {
 	event := struct {
 		Type       string         `json:"type"`
 		IncidentID string         `json:"incident_id"`
 		Update     IncidentUpdate `json:"update"`
 	}{
-		Type:       "state_change",
+		Type:       "incident_update",
 		IncidentID: incidentID,
 		Update:     update,
 	}
@@ -251,7 +249,7 @@ func (incHandler *IncidentHandler) UpdateIncident(w http.ResponseWriter, r *http
 	}
 	incHandler.Registry.broadcast <- BroadcastMessage{
 		incidentID: incidentID,
-		msg:        marshalStateChangeEvent(incidentID, incidentUpdate),
+		msg:        marshalIncidentUpdateEvent(incidentID, incidentUpdate),
 	}
 	w.WriteHeader(http.StatusNoContent)
 }

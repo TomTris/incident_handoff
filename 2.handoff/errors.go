@@ -19,6 +19,7 @@ var ErrNoAuthor = errors.New("Invalid Author")
 var ErrBadEntryType = errors.New("Bad Timeline Entry Type")
 var ErrNoText = errors.New("Invalid Text")
 
+var ErrBadRequest = errors.New("Bad Request")
 var ErrBadIncidentStatus = errors.New("Bad Service")
 var ErrIncidentNotFound = errors.New("Incident not found")
 var ErrIncidentConflict = errors.New("Incident resolved")

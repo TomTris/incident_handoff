@@ -100,15 +100,16 @@ func (m *MemoryStore) UpdateIncident(ctx context.Context, id string, update Inci
 	if ok == false {
 		return ErrIncidentNotFound
 	}
-	if update.Status != nil {
+
+	switch {
+	case update.Status != nil:
 		incident.Status = *update.Status
-	}
-	if update.Severity != nil {
+	case update.Severity != nil:
 		incident.Severity = *update.Severity
-	}
-	if update.OnCall != nil {
+	case update.OnCall != nil:
 		incident.OnCall = *update.OnCall
 	}
+
 	incident.UpdatedAt = time.Now()
 	m.incidents[id] = incident
 	return nil

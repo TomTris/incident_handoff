@@ -27,13 +27,16 @@ type TimelineEntry struct {
 }
 
 func (c *TimelineEntry) Validate() error {
-	if strings.TrimSpace(c.Author) == "" {
+	c.Author = strings.TrimSpace(c.Author)
+	if c.Author == "" {
 		return ErrNoAuthor
 	}
-	if validEntryTypes[strings.TrimSpace(c.Type)] == false {
+	c.Type = strings.TrimSpace(c.Type)
+	if validEntryTypes[c.Type] == false {
 		return ErrBadEntryType
 	}
-	if strings.TrimSpace(c.Text) == "" {
+	c.Text = strings.TrimSpace(c.Text)
+	if c.Text == "" {
 		return ErrNoText
 	}
 	return nil
@@ -45,29 +48,46 @@ type IncidentFilter struct {
 }
 
 func (f *IncidentFilter) Validate() error {
-	if f.Status != "" && !IncidentStatus[strings.TrimSpace(f.Status)] {
+	f.Status = strings.TrimSpace(f.Status)
+	f.Service = strings.TrimSpace(f.Status)
+	if f.Status != "" && !IncidentStatus[f.Status] {
 		return ErrBadIncidentStatus
 	}
 	return nil
 }
 
 type IncidentUpdate struct {
-	Status   *string `json:"status" bson:"status"`
-	Severity *string `json:"severity" bson:"severity"`
-	OnCall   *string `json:"on_call" bson:"on_call"`
+	Status   *string `json:"status,omitempty" bson:"status"`
+	Severity *string `json:"severity,omitempty" bson:"severity"`
+	OnCall   *string `json:"on_call,omitempty" bson:"on_call"`
 }
 
 func (f *IncidentUpdate) Validate() error {
-	if f.Status != nil && IncidentStatus[strings.TrimSpace(*f.Status)] == false {
-		return ErrBadIncidentStatus
+	switch {
+	case f.Status != nil:
+		trimmed := strings.TrimSpace(*f.Status)
+		if IncidentStatus[trimmed] == false {
+			return ErrBadIncidentStatus
+		}
+		*f = IncidentUpdate{Status: &trimmed}
+		return nil
+	case f.Severity != nil:
+		trimmed := strings.TrimSpace(*f.Severity)
+		if IncidentSeverity[trimmed] == false {
+			return ErrInvalidSeverity
+		}
+		*f = IncidentUpdate{Severity: &trimmed}
+		return nil
+	case f.OnCall != nil:
+		trimmed := strings.TrimSpace(*f.OnCall)
+		if trimmed == "" {
+			return ErrOnCall
+		}
+		*f = IncidentUpdate{OnCall: &trimmed}
+		return nil
+	default:
+		return ErrBadRequest
 	}
-	if f.Severity != nil && IncidentSeverity[strings.TrimSpace(*f.Severity)] == false {
-		return ErrInvalidSeverity
-	}
-	if f.OnCall != nil && strings.TrimSpace(*f.OnCall) == "" {
-		return ErrOnCall
-	}
-	return nil
 }
 
 type CreateIncidentRequest struct {
@@ -79,20 +99,31 @@ type CreateIncidentRequest struct {
 }
 
 func (c *CreateIncidentRequest) Validate() error {
-	if strings.TrimSpace(c.Title) == "" {
+	c.Title = strings.TrimSpace(c.Title)
+	if c.Title == "" {
 		return ErrNoTitle
 	}
-	if strings.TrimSpace(c.Service) == "" {
+
+	c.Service = strings.TrimSpace(c.Service)
+	if c.Service == "" {
 		return ErrNoService
 	}
-	if IncidentSeverity[strings.TrimSpace(c.Severity)] == false {
+
+	c.Severity = strings.TrimSpace(c.Severity)
+	if IncidentSeverity[c.Severity] == false {
 		return ErrInvalidSeverity
 	}
-	if strings.TrimSpace(c.OpenedBy) == "" {
+
+	c.OpenedBy = strings.TrimSpace(c.OpenedBy)
+	if c.OpenedBy == "" {
 		return ErrOpenedBy
 	}
-	if c.OnCall != nil && strings.TrimSpace(*c.OnCall) == "" {
-		return ErrOnCall
+
+	if c.OnCall != nil {
+		*c.OnCall = strings.TrimSpace(*c.OnCall)
+		if *c.OnCall == "" {
+			return ErrOnCall
+		}
 	}
 	return nil
 }

@@ -174,15 +174,15 @@ func (m *MongoStore) ListIncidents(ctx context.Context, incFilter IncidentFilter
 func (m *MongoStore) UpdateIncident(ctx context.Context, incidentId string, update IncidentUpdate) error {
 	DBUpdate := bson.M{}
 
-	if update.Status != nil {
+	switch {
+	case update.Status != nil:
 		DBUpdate["status"] = *update.Status
-	}
-	if update.Severity != nil {
+	case update.Severity != nil:
 		DBUpdate["severity"] = *update.Severity
-	}
-	if update.OnCall != nil {
+	case update.OnCall != nil:
 		DBUpdate["on_call"] = *update.OnCall
 	}
+
 	DBUpdate["updated_at"] = time.Now()
 
 	col := m.db.Collection(CollectionIncidents)
