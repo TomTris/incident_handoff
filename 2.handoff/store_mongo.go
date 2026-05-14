@@ -21,15 +21,18 @@ func (m *MongoStore) DropAll(ctx context.Context) error {
 	return m.db.Drop(ctx)
 }
 
-func NewMongoStore(uri string, DBName string) *MongoStore {
+func connectMongoDB(uri string) *mongo.Client {
 	client, err := mongo.Connect(options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
 	}
+	return client
+}
 
+func NewMongoStore(client *mongo.Client, DBName string) *MongoStore {
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	err = client.Ping(ctx, nil)
+	err := client.Ping(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}

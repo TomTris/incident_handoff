@@ -10,23 +10,27 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"go.mongodb.org/mongo-driver/v2/mongo"
 )
 
-func NewStore(conf Config) Store {
+func NewStore(conf Config) (*mongo.Client, Store) {
 	if conf.ConnectionString != "" {
 		slog.Info("using mongo store", "db", conf.DatabaseName)
-		return NewMongoStore(conf.ConnectionString, conf.DatabaseName)
+		client := connectMongoDB(conf.ConnectionString)
+		mongoStore := NewMongoStore(client, conf.DatabaseName)
+		return client, mongoStore
 	}
 	slog.Info("no connection string, using in-memory store")
-	return NewMemoryStore()
+	return nil, NewMemoryStore()
 }
 
 func main() {
 	config := loadConfig()
-	store := NewStore(config)
+	client, store := NewStore(config)
 	registry := NewRegistry()
 	incHandler := IncidentHandler{Store: store, Registry: registry}
-	router := getRouter(&incHandler)
+	router := getRouter(&incHandler, client)
 
 	srv := http.Server{
 		Addr:    ":" + config.Port,
