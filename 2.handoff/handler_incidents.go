@@ -289,7 +289,8 @@ func (incHandler *IncidentHandler) GetHandoffBrief(w http.ResponseWriter, r *htt
 		})
 		return
 	}
-	writeJSON(w, http.StatusOK, RequestID, buildHandoffBrief(inc))
+	userID := r.URL.Query().Get("user_id")
+	writeJSON(w, http.StatusOK, RequestID, buildHandoffBrief(inc, &incHandler.FlagStore, userID))
 }
 
 func (incHandler *IncidentHandler) HandleIncidentWebSocket(w http.ResponseWriter, r *http.Request) {

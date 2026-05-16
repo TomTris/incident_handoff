@@ -130,15 +130,17 @@ func (c *CreateIncidentRequest) Validate() error {
 }
 
 type HandoffBrief struct {
-	Severity      string    `json:"severity"`
-	Status        string    `json:"status"`
-	Service       string    `json:"service"`
-	TotalEntry    int       `json:"total_entry"`
-	ElapsedMinute int       `json:"elapsed_minute"`
-	TakenActions  int       `json:"taken_actions"`
-	OpenQuestion  int       `json:"open_question"`
-	HandoffCount  int       `json:"handoff_count"`
-	CreatedAt     time.Time `json:"created_at"`
+	Severity         string           `json:"severity"`
+	Status           string           `json:"status"`
+	Service          string           `json:"service"`
+	TotalEntry       int              `json:"total_entry"`
+	ElapsedMinute    int              `json:"elapsed_minute"`
+	TakenActions     int              `json:"taken_actions"`
+	OpenQuestion     int              `json:"open_question"`
+	HandoffCount     int              `json:"handoff_count"`
+	TakenActionsList *[]TimelineEntry `json:"taken_actions_list,omitempty"`
+	OpenQuestionList *[]TimelineEntry `json:"open_question_list,omitempty"`
+	CreatedAt        time.Time        `json:"created_at"`
 }
 
 type FeatureFlag struct {
