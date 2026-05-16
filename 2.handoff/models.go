@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"strings"
 	"time"
 )
@@ -129,13 +130,61 @@ func (c *CreateIncidentRequest) Validate() error {
 }
 
 type HandoffBrief struct {
-	Severity      string    `json:"severity"`
-	Status        string    `json:"status"`
-	Service       string    `json:"service"`
-	TotalEntry    int       `json:"total_entry"`
-	ElapsedMinute int       `json:"elapsed_minute"`
-	TakenActions  int       `json:"taken_actions"`
-	OpenQuestion  int       `json:"open_question"`
-	HandoffCount  int       `json:"handoff_count"`
-	CreatedAt     time.Time `json:"created_at"`
+	Severity         string           `json:"severity"`
+	Status           string           `json:"status"`
+	Service          string           `json:"service"`
+	TotalEntry       int              `json:"total_entry"`
+	ElapsedMinute    int              `json:"elapsed_minute"`
+	TakenActions     int              `json:"taken_actions"`
+	OpenQuestion     int              `json:"open_question"`
+	HandoffCount     int              `json:"handoff_count"`
+	TakenActionsList *[]TimelineEntry `json:"taken_actions_list,omitempty"`
+	OpenQuestionList *[]TimelineEntry `json:"open_question_list,omitempty"`
+	CreatedAt        time.Time        `json:"created_at"`
+}
+
+type FeatureFlag struct {
+	Name     string   `json:"name"`
+	Enabled  bool     `json:"enabled"`
+	Rollout  int      `json:"rollout"`  // 0–100, percentage of users who see the feature
+	Variants []string `json:"variants"` // e.g., ["control", "variant_a", "variant_b"]
+}
+
+func (f *FeatureFlag) Validate() error {
+	if strings.TrimSpace(f.Name) == "" {
+		return ErrBadRequest
+	}
+	if f.Rollout < 0 && 100 > f.Rollout {
+		return ErrBadRequest
+	}
+	if f.Variants == nil {
+		return ErrBadRequest
+	}
+	variants := make(map[string]bool)
+	for _, variant := range f.Variants {
+		if strings.TrimSpace(variant) == "" || variants[variant] == true {
+			return ErrBadRequest
+		}
+		variants[variant] = true
+	}
+	return nil
+}
+
+type FeatureFlagUpdate struct {
+	Name    string `json:"name"`
+	Enabled *bool  `json:"enabled"`
+	Rollout *int   `json:"rollout"` // 0–100, percentage of users who see the feature
+}
+
+func (u *FeatureFlagUpdate) Validate() error {
+	if strings.TrimSpace(u.Name) == "" {
+		return errors.New("Bad Flag Name")
+	}
+	if u.Enabled == nil && u.Rollout == nil {
+		return errors.New("both enabled and rollout are empty")
+	}
+	if u.Rollout != nil && *u.Rollout < 0 && 100 > *u.Rollout {
+		return errors.New("invalid rollout")
+	}
+	return nil
 }

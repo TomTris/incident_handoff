@@ -4,9 +4,9 @@ import (
 	"time"
 )
 
-func buildHandoffBrief(inc Incident) HandoffBrief {
-	actions := 0
-	openQuestions := 0
+func buildHandoffBrief(inc Incident, flagStore *FlagStore, userID string) HandoffBrief {
+	actionsList := []TimelineEntry{}
+	openQuestionsList := []TimelineEntry{}
 	author := ""
 	handoffCount := 0
 	for _, entry := range inc.Entries {
@@ -16,9 +16,9 @@ func buildHandoffBrief(inc Incident) HandoffBrief {
 		}
 		switch entry.Type {
 		case ACTION:
-			actions++
+			actionsList = append(actionsList, entry)
 		case OPEN_QUESTION:
-			openQuestions++
+			openQuestionsList = append(openQuestionsList, entry)
 		}
 	}
 
@@ -26,15 +26,22 @@ func buildHandoffBrief(inc Incident) HandoffBrief {
 		handoffCount--
 	}
 
-	return HandoffBrief{
+	brief := HandoffBrief{
 		Severity:      inc.Severity,
 		Status:        inc.Status,
 		Service:       inc.Service,
 		ElapsedMinute: int(time.Since(inc.CreatedAt).Minutes()),
 		TotalEntry:    len(inc.Entries),
-		TakenActions:  actions,
-		OpenQuestion:  openQuestions,
+		TakenActions:  len(actionsList),
+		OpenQuestion:  len(openQuestionsList),
 		HandoffCount:  handoffCount,
 		CreatedAt:     inc.CreatedAt,
 	}
+
+	flagAnswer, err := flagStore.Evaluate("detailed_handoff_brief", userID)
+	if err == nil && flagAnswer.InRollout == true && *flagAnswer.Variant == "detailed" {
+		brief.OpenQuestionList = &openQuestionsList
+		brief.TakenActionsList = &actionsList
+	}
+	return brief
 }

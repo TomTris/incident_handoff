@@ -29,8 +29,9 @@ var ErrInvalidSeverity = errors.New("Invalid Severity")
 var ErrOpenedBy = errors.New("Invalid open_by")
 var ErrOnCall = errors.New("Invalid on_call") //The variable on_call must be either empty or non-existent
 
-// Will use if we have database
 var ErrInternal = errors.New("Internal Error")
+
+var ErrFlagNotfound = errors.New("Flag Not Found")
 
 const (
 	INCIDENT_NOT_FOUND    = "INCIDENT_NOT_FOUND"
@@ -38,4 +39,6 @@ const (
 	BAD_REQUEST           = "BAD_REQUEST"
 	CONFLICT              = "CONFLICT"
 	MISSING_FIELD         = "MISSING_FIELD"
+
+	FLAG_NOT_FOUND = "FLAG_NOT_FOUND"
 )

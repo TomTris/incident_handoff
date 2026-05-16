@@ -41,7 +41,7 @@ func main() {
 	registry := NewRegistry()
 	promRegistry := prometheus.NewRegistry()
 	NewMetrics(promRegistry)
-	incHandler := IncidentHandler{Store: store, Registry: registry}
+	incHandler := IncidentHandler{Store: store, Registry: registry, FlagStore: CreateFlagStore()}
 	router := getRouter(&incHandler, client, promRegistry)
 
 	srv := http.Server{

@@ -21,6 +21,11 @@ func getRouter(incHandler *IncidentHandler, mongoClient *mongo.Client, promRegis
 	mux.HandleFunc("GET /healthz", healthCheck)
 	mux.HandleFunc("GET /readyz", readyCheck(mongoClient))
 	mux.Handle("/metrics", promhttp.HandlerFor(promRegistry, promhttp.HandlerOpts{Registry: promRegistry}))
+
+	mux.HandleFunc("POST /flags", incHandler.CreateFlag)
+	mux.HandleFunc("GET /flags", incHandler.ListAllFlag)
+	mux.HandleFunc("PATCH /flags/{name}", incHandler.UpdateFlag)
+	mux.HandleFunc("GET /flags/{name}/evaluate", incHandler.Evaluate)
 	router := RequestIDMiddleware(ObservabilityMiddleware(CORSMiddleware(TimeoutMiddleware(mux))))
 	return router
 }

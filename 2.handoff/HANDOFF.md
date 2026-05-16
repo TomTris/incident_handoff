@@ -928,7 +928,7 @@ $ curl -s http://localhost:8080/readyz | jq .
 
 Feature flags control whether a feature is on or off — and for whom. In A/B testing, the flag assigns users to variant A or variant B, and you measure which variant performs better. The team doesn't deploy a new feature to 100% on day one. They roll it out to 5%, measure, then 20%, measure, then 100%. This is how products improve based on data.
 
-This challenge builds a minimal feature flag system inside Handoff.
+This challenge builds a minimal feature flag system inside Handoff so you understand its mechanics.
 
 ### 2. Goal
 
