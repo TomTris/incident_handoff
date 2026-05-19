@@ -88,13 +88,7 @@ func (incHandler *IncidentHandler) CreateIncident(w http.ResponseWriter, r *http
 		return
 	}
 
-	createdIncident, err := incHandler.Store.CreateIncident(r.Context(), Incident{
-		Title:    req.Title,
-		Service:  req.Service,
-		Severity: req.Severity,
-		OpenedBy: req.OpenedBy,
-		OnCall:   derefOrEmpty(req.OnCall),
-	})
+	createdIncident, err := incHandler.Store.CreateIncident(r.Context(), req)
 
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, ErrorMessageJSON{

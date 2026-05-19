@@ -68,23 +68,30 @@ func (m *MongoStore) nextID(ctx context.Context, name string, prefix string) (st
 	return prefix + strconv.Itoa(result.Seq), nil
 }
 
-func (m *MongoStore) CreateIncident(ctx context.Context, inc Incident) (Incident, error) {
+func (m *MongoStore) CreateIncident(ctx context.Context, req CreateIncidentRequest) (Incident, error) {
 	id, err := m.nextID(ctx, "incident", incidentIDPrefix)
 	if err != nil {
-		return inc, err
+		return Incident{}, errors.New("Failed to get next incident Id: " + err.Error())
 	}
-	inc.ID = id
-	inc.Status = TRIGGERED
-	inc.CreatedAt = time.Now()
-	inc.UpdatedAt = time.Now()
-	inc.Entries = []TimelineEntry{}
-	if inc.OnCall == "" {
-		inc.OnCall = inc.OpenedBy
+	inc := Incident{
+		ID:        id,
+		Title:     req.Title,
+		Service:   req.Service,
+		Severity:  req.Severity,
+		OpenedBy:  req.OpenedBy,
+		OnCall:    derefOrDefault(req.OnCall, req.OpenedBy),
+		Status:    TRIGGERED,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+		Entries:   []TimelineEntry{},
 	}
 
 	col := m.db.Collection(CollectionIncidents)
 	_, err = col.InsertOne(ctx, inc)
-	return inc, err
+	if err != nil {
+		return Incident{}, errors.New("Failed to insert Incident: " + err.Error())
+	}
+	return inc, nil
 }
 
 func (m *MongoStore) GetIncident(ctx context.Context, id string) (Incident, error) {

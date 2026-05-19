@@ -1,8 +1,8 @@
 package main
 
-func derefOrEmpty(s *string) string {
+func derefOrDefault(s *string, de string) string {
 	if s == nil {
-		return ""
+		return de
 	}
 	return *s
 }
