@@ -138,14 +138,14 @@ func TestMongoStore_CreateIncident(t *testing.T) {
 }
 
 func TestMongoStore_UpdateIncident(t *testing.T) {
-	ms := setupMongoTestEnv(t)
+	m := setupMongoTestEnv(t)
 
-	ms.CreateIncident(context.Background(), CreateIncidentRequest{
+	m.CreateIncident(context.Background(), CreateIncidentRequest{
 		Title: "outage", Service: "api", Severity: "SEV1", OpenedBy: "anh",
 	})
 
 	t.Run("update status", func(t *testing.T) {
-		inc, err := ms.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
+		inc, err := m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
 			Status: strPtr(RESOLVED),
 		})
 		if err != nil {
@@ -157,7 +157,7 @@ func TestMongoStore_UpdateIncident(t *testing.T) {
 	})
 
 	t.Run("update severity", func(t *testing.T) {
-		inc, err := ms.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
+		inc, err := m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
 			Severity: strPtr("SEV2"),
 		})
 		if err != nil {
@@ -169,7 +169,7 @@ func TestMongoStore_UpdateIncident(t *testing.T) {
 	})
 
 	t.Run("update on_call", func(t *testing.T) {
-		inc, err := ms.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
+		inc, err := m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
 			OnCall: strPtr("tom"),
 		})
 		if err != nil {
@@ -181,7 +181,7 @@ func TestMongoStore_UpdateIncident(t *testing.T) {
 	})
 
 	t.Run("multiple fields at once", func(t *testing.T) {
-		inc, err := ms.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
+		inc, err := m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
 			Status:   strPtr(TRIGGERED),
 			Severity: strPtr("SEV3"),
 			OnCall:   strPtr("carl"),
@@ -201,9 +201,9 @@ func TestMongoStore_UpdateIncident(t *testing.T) {
 	})
 
 	t.Run("updated_at changes", func(t *testing.T) {
-		before, _ := ms.GetIncident(context.Background(), "INC-1")
+		before, _ := m.GetIncident(context.Background(), "INC-1")
 		time.Sleep(10 * time.Millisecond) //Give Buffer to compare updated_at
-		after, _ := ms.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
+		after, _ := m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{
 			Status: strPtr(TRIGGERED),
 		})
 		if after.UpdatedAt.After(before.UpdatedAt) == false {
@@ -212,7 +212,7 @@ func TestMongoStore_UpdateIncident(t *testing.T) {
 	})
 
 	t.Run("not found", func(t *testing.T) {
-		_, err := ms.UpdateIncident(context.Background(), "INC-999", IncidentUpdate{
+		_, err := m.UpdateIncident(context.Background(), "INC-999", IncidentUpdate{
 			Status: strPtr(RESOLVED),
 		})
 		if !errors.Is(err, ErrIncidentNotFound) {
@@ -276,6 +276,129 @@ func TestMongoStore_AddEntry(t *testing.T) {
 		})
 		if !errors.Is(err, ErrIncidentConflict) {
 			t.Errorf("expected ErrIncidentConflict, got %v", err)
+		}
+	})
+}
+
+func TestMongoStore_ListIncidents(t *testing.T) {
+	m := setupMongoTestEnv(t)
+
+	m.CreateIncident(context.Background(), CreateIncidentRequest{
+		Title: "a", Service: "api", Severity: "SEV1", OpenedBy: "x",
+	})
+	m.CreateIncident(context.Background(), CreateIncidentRequest{
+		Title: "b", Service: "chatbot", Severity: "SEV2", OpenedBy: "x", OnCall: strPtr("anh"),
+	})
+	m.CreateIncident(context.Background(), CreateIncidentRequest{
+		Title: "c", Service: "biling", Severity: "SEV1", OpenedBy: "y", OnCall: strPtr("anh"),
+	})
+	m.CreateIncident(context.Background(), CreateIncidentRequest{
+		Title: "d", Service: "api", Severity: "SEV3", OpenedBy: "z",
+	})
+
+	m.UpdateIncident(context.Background(), "INC-1", IncidentUpdate{Status: strPtr(RESOLVED)})
+	m.UpdateIncident(context.Background(), "INC-2", IncidentUpdate{Status: strPtr(RESOLVED)})
+	m.UpdateIncident(context.Background(), "INC-3", IncidentUpdate{Status: strPtr(INVESTIGATING)})
+
+	t.Run("no filter returns all", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(list) != 4 {
+			t.Errorf("expected 4, got %d", len(list))
+		}
+	})
+
+	t.Run("filter by service", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{
+			Service: "api",
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(list) != 2 {
+			t.Errorf("expected 2, got %d", len(list))
+		}
+		for _, inc := range list {
+			if inc.Service != "api" {
+				t.Errorf("expected service api, got %s", inc.Service)
+			}
+		}
+	})
+
+	t.Run("status active excludes resolved", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{
+			Status: "active",
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(list) != 2 {
+			t.Errorf("expected 2, got %d", len(list))
+		}
+		for _, inc := range list {
+			if inc.Status == RESOLVED {
+				t.Errorf("should not include resolved incidents")
+			}
+		}
+	})
+
+	t.Run("specific status", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{
+			Status: RESOLVED,
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(list) != 2 {
+			t.Errorf("expected 1, got %d", len(list))
+		}
+		if list[0].ID != "INC-1" {
+			t.Errorf("expected INC-1, got %s", list[0].ID)
+		}
+		if list[1].ID != "INC-2" {
+			t.Errorf("expected INC-2, got %s", list[0].ID)
+		}
+	})
+
+	t.Run("combined service and status", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{
+			Service: "api",
+			Status:  "active",
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(list) != 1 {
+			t.Errorf("expected 1, got %d", len(list))
+		}
+		if list[0].ID != "INC-4" {
+			t.Errorf("expected INC-4, got %s", list[0].ID)
+		}
+	})
+
+	t.Run("sorted by created_at ascending", func(t *testing.T) {
+		list, _ := m.ListIncidents(context.Background(), IncidentFilter{})
+		for i := 1; i < len(list); i++ {
+			if list[i].CreatedAt.Before(list[i-1].CreatedAt) {
+				t.Errorf("index %d created before index %d", i, i-1)
+			}
+		}
+	})
+
+	t.Run("no match returns empty slice not nil", func(t *testing.T) {
+		list, err := m.ListIncidents(context.Background(), IncidentFilter{
+			Service: "nonexistent",
+		})
+		if err != nil {
+			t.Fatal(err)
+		}
+		if list == nil {
+			t.Error("expected empty slice, got nil")
+		}
+		if len(list) != 0 {
+			t.Errorf("expected 0, got %d", len(list))
 		}
 	})
 }
