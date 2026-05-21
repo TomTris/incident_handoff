@@ -123,9 +123,8 @@ func ResponseMiddleware(next func(http.ResponseWriter, *http.Request) (*AppRespo
 	return func(w http.ResponseWriter, r *http.Request) {
 		requestID := r.Context().Value(requestIDKey).(string)
 		res, err := next(w, r)
-
 		if err != nil {
-			var appErr AppError
+			var appErr *AppError
 			if errors.As(err, &appErr) {
 				writeError(w, appErr.Status, ErrorMessageJSON{
 					ErrorCode: appErr.Code,
