@@ -19,7 +19,7 @@ type RegistryMetric struct {
 	wsConnections prometheus.Gauge
 }
 
-func NewHttpMetrics(reg *prometheus.Registry) *HTTPMetrics {
+func NewHttpMetrics(promReg *prometheus.Registry) *HTTPMetrics {
 	m := HTTPMetrics{}
 	m.HTTPRequestTotal = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
@@ -38,11 +38,11 @@ func NewHttpMetrics(reg *prometheus.Registry) *HTTPMetrics {
 		},
 		[]string{"method", "path"},
 	)
-	reg.MustRegister(m.HTTPRequestTotal, m.HttpDurationSeconds)
+	promReg.MustRegister(m.HTTPRequestTotal, m.HttpDurationSeconds)
 	return &m
 }
 
-func NewIncidentStoreMetric(reg *prometheus.Registry) *IncidentStoreMetrics {
+func NewIncidentStoreMetric(promReg *prometheus.Registry) *IncidentStoreMetrics {
 	m := IncidentStoreMetrics{}
 	m.IncidentTotal = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
@@ -67,11 +67,11 @@ func NewIncidentStoreMetric(reg *prometheus.Registry) *IncidentStoreMetrics {
 		},
 		[]string{"operation"},
 	)
-	reg.MustRegister(m.IncidentTotal, m.TotalEntries, m.DbQueryDurationSeconds)
+	promReg.MustRegister(m.IncidentTotal, m.TotalEntries, m.DbQueryDurationSeconds)
 	return &m
 }
 
-func NewRegistryMetric(reg *prometheus.Registry) *RegistryMetric {
+func NewRegistryMetric(promReg *prometheus.Registry) *RegistryMetric {
 	m := RegistryMetric{}
 	m.wsConnections = prometheus.NewGauge(
 		prometheus.GaugeOpts{
@@ -79,6 +79,6 @@ func NewRegistryMetric(reg *prometheus.Registry) *RegistryMetric {
 			Help: "Current number of active WebSocket connections",
 		},
 	)
-	reg.MustRegister(m.wsConnections)
+	promReg.MustRegister(m.wsConnections)
 	return &m
 }

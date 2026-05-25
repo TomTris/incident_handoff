@@ -71,13 +71,8 @@ func TestMarshalIncidentUpdateEvent(t *testing.T) {
 
 func TestGetIncidentOK(t *testing.T) {
 	store := NewMemoryIncidentStore()
-	store.CreateIncident(context.Background(), CreateIncidentRequest{
-		Title:    "test inc title",
-		Service:  "test inc service",
-		Severity: "SEV1",
-		OpenedBy: "tom",
-		OnCall:   new("tom"),
-	})
+	validIncRequest := validCreateIncidentRequest()
+	store.CreateIncident(context.Background(), validIncRequest)
 
 	handler := IncidentHandler{IncidentStore: store}
 	req := httptest.NewRequest("GET", "/incident/INC-1", nil)
@@ -95,20 +90,20 @@ func TestGetIncidentOK(t *testing.T) {
 	if inc.ID != "INC-1" {
 		t.Fatalf("expected id %v, get %v", "INC-1", inc.ID)
 	}
-	if inc.Title != "test inc title" {
-		t.Fatalf("expected Title %v, get %v", "test inc title", inc.Title)
+	if inc.Title != validIncRequest.Title {
+		t.Fatalf("expected Title %v, get %v", validIncRequest.Title, inc.Title)
 	}
-	if inc.Service != "test inc service" {
-		t.Fatalf("expected Service %v, get %v", "test inc service", inc.Service)
+	if inc.Service != validIncRequest.Service {
+		t.Fatalf("expected Service %v, get %v", validIncRequest.Service, inc.Service)
 	}
-	if inc.Severity != "SEV1" {
-		t.Fatalf("expected Severity %v, get %v", "SEV1", inc.Severity)
+	if inc.Severity != validIncRequest.Severity {
+		t.Fatalf("expected Severity %v, get %v", validIncRequest.Severity, inc.Severity)
 	}
-	if inc.OpenedBy != "tom" {
-		t.Fatalf("expected OpenedBy %v, get %v", "tom", inc.OpenedBy)
+	if inc.OpenedBy != validIncRequest.OpenedBy {
+		t.Fatalf("expected OpenedBy %v, get %v", validIncRequest.OpenedBy, inc.OpenedBy)
 	}
-	if inc.OnCall != "tom" {
-		t.Fatalf("expected OnCall %v, get %v", new("tom"), inc.OnCall)
+	if inc.OnCall != *validIncRequest.OnCall {
+		t.Fatalf("expected OnCall %v, get %v", validIncRequest.OnCall, inc.OnCall)
 	}
 }
 

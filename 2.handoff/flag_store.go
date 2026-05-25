@@ -21,7 +21,7 @@ func (flagStore *FlagStore) Create(f FeatureFlag) error {
 	defer flagStore.m.Unlock()
 	_, ok := flagStore.Flags[f.Name]
 	if ok == true {
-		return ErrIncidentConflict
+		return ErrFlagAlreadyExist
 	}
 	flagStore.Flags[f.Name] = f
 	return nil

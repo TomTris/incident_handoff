@@ -33,7 +33,6 @@ func (flagHandler *FlagHandler) UpdateFlag(r *http.Request) (*AppResponse, error
 	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
 		return nil, BadRequest(err)
 	}
-
 	u.Name = r.PathValue("name")
 	if err := u.Validate(); err != nil {
 		return nil, BadRequest(err)
