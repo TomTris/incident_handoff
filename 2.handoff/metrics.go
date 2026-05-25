@@ -6,7 +6,7 @@ import (
 
 type HTTPMetrics struct {
 	HTTPRequestTotal    *prometheus.CounterVec
-	HttpDurationSeconds *prometheus.HistogramVec
+	HTTPDurationSeconds *prometheus.HistogramVec
 }
 
 type IncidentStoreMetrics struct {
@@ -29,7 +29,7 @@ func NewHttpMetrics(promReg *prometheus.Registry) *HTTPMetrics {
 		[]string{"method", "path", "status_code"},
 	)
 
-	m.HttpDurationSeconds = prometheus.NewHistogramVec(
+	m.HTTPDurationSeconds = prometheus.NewHistogramVec(
 		prometheus.HistogramOpts{
 			Name: "handoff_http_request_duration_seconds",
 			Help: "Request latency distribution",
@@ -38,7 +38,7 @@ func NewHttpMetrics(promReg *prometheus.Registry) *HTTPMetrics {
 		},
 		[]string{"method", "path"},
 	)
-	promReg.MustRegister(m.HTTPRequestTotal, m.HttpDurationSeconds)
+	promReg.MustRegister(m.HTTPRequestTotal, m.HTTPDurationSeconds)
 	return &m
 }
 

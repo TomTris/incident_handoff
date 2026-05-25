@@ -11,6 +11,7 @@ type Registry struct {
 	unregister    chan *Client
 	broadcast     chan BroadcastMessage
 	done          chan struct{}
+	metrics       *RegistryMetric
 }
 
 type BroadcastMessage struct {
@@ -18,7 +19,7 @@ type BroadcastMessage struct {
 	incidentID string
 }
 
-func NewRegistry() Registry {
+func NewRegistry(metrics *RegistryMetric) Registry {
 	return Registry{
 		hubs:          make(map[string]*Hub),
 		clientCounter: make(map[string]int),
@@ -26,6 +27,7 @@ func NewRegistry() Registry {
 		unregister:    make(chan *Client), // no buffered on purpose
 		broadcast:     make(chan BroadcastMessage),
 		done:          make(chan struct{}),
+		metrics:       metrics,
 	}
 }
 
@@ -49,7 +51,7 @@ func (r *Registry) run() {
 }
 
 func (r *Registry) joinRegistry(client *Client) {
-	// wsConnections.Inc()
+	r.metrics.wsConnections.Inc()
 
 	incID := client.incidentID
 	r.clientCounter[incID]++
@@ -64,7 +66,7 @@ func (r *Registry) joinRegistry(client *Client) {
 }
 
 func (r *Registry) leaveRegister(client *Client) {
-	// wsConnections.Dec()
+	r.metrics.wsConnections.Dec()
 
 	incID := client.incidentID
 	r.clientCounter[incID]--

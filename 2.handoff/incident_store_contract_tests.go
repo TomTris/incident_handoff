@@ -8,13 +8,13 @@ import (
 )
 
 func runStoreContractsTests(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
-	t.Run("CreateIncident", func(t *testing.T) { TestCreateIncident(t, makeStore) })
-	t.Run("CreateIncident", func(t *testing.T) { TestUpdateIncident(t, makeStore) })
-	t.Run("CreateIncident", func(t *testing.T) { TestAddEntry(t, makeStore) })
-	t.Run("CreateIncident", func(t *testing.T) { TestListIncidents(t, makeStore) })
+	t.Run("CreateIncident", func(t *testing.T) { TestIncidentStoreCreateIncident(t, makeStore) })
+	t.Run("CreateIncident", func(t *testing.T) { TestIncidentStoreUpdateIncident(t, makeStore) })
+	t.Run("CreateIncident", func(t *testing.T) { TestIncidentStoreAddEntry(t, makeStore) })
+	t.Run("CreateIncident", func(t *testing.T) { TestIncidentStoreListIncidents(t, makeStore) })
 }
 
-func TestCreateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
+func TestIncidentStoreCreateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	m := makeStore(t)
 
 	t.Run("defaults OnCall to OpenedBy", func(t *testing.T) {
@@ -104,7 +104,7 @@ func TestCreateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore
 	})
 }
 
-func TestUpdateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
+func TestIncidentStoreUpdateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	m := makeStore(t)
 
 	m.CreateIncident(context.Background(), CreateIncidentRequest{
@@ -188,7 +188,7 @@ func TestUpdateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore
 	})
 }
 
-func TestAddEntry(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
+func TestIncidentStoreAddEntry(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	m := makeStore(t)
 
 	m.CreateIncident(context.Background(), CreateIncidentRequest{
@@ -247,7 +247,7 @@ func TestAddEntry(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	})
 }
 
-func TestListIncidents(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
+func TestIncidentStoreListIncidents(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	m := makeStore(t)
 
 	m.CreateIncident(context.Background(), CreateIncidentRequest{

@@ -126,3 +126,69 @@ func TestGetIncident404(t *testing.T) {
 		}
 	}
 }
+
+// func newTestServer(t *testing.T) *httptest.Server {
+// 	t.Helper()
+// 	promRegistry := prometheus.NewRegistry()
+// 	httpMetrics := NewHttpMetrics(promRegistry)
+// 	registryMetric := NewRegistryMetric(promRegistry)
+// 	incidentStoreMetric := NewIncidentStoreMetric(promRegistry)
+// 	registry := NewRegistry(registryMetric)
+// 	go registry.run()
+// 	t.Cleanup(func() { close(registry.done) })
+
+// 	flagHandler := FlagHandler{store: CreateFlagStore()}
+// 	instrumentedIncidentStore := InstrumentedIncidentStore{
+// 		inner:   NewMemoryIncidentStore(),
+// 		metrics: incidentStoreMetric,
+// 	}
+// 	incHandler := IncidentHandler{
+// 		IncidentStore: &instrumentedIncidentStore,
+// 		Registry:      NewRegistry(registryMetric),
+// 		FlagEvaluator: &flagHandler.store,
+// 	}
+
+// 	router := getRouter(&incHandler, &flagHandler, nil, promRegistry, httpMetrics)
+// 	return httptest.NewServer(router)
+// }
+
+// func TestCreateIncident(t *testing.T) {
+// 	srv := newTestServer(t)
+// 	defer srv.Close()
+
+// 	t.Run("Create Incident", func(t *testing.T) {
+// 		incCreateRequest := validCreateIncidentRequest()
+// 		body, err := json.Marshal(incCreateRequest)
+// 		if err != nil {
+// 			t.Fatalf("can't Marshal CreateIncidentRequest, err %v", err)
+// 		}
+// 		// Send request
+// 		res, err := http.Post(srv.URL+"/incidents", "application/json", bytes.NewReader(body))
+// 		if err != nil {
+// 			t.Fatalf("expected non error, get %v", err)
+// 		}
+
+// 		if res.StatusCode != http.StatusCreated {
+// 			t.Fatalf("status code expected %v, get %v", http.StatusCreated, res.StatusCode)
+// 		}
+// 		// Evaluate
+// 		var response Incident
+// 		json.NewDecoder(res.Body).Decode(&response)
+
+// 		if res.StatusCode != http.StatusCreated {
+// 			t.Fatalf("status code expected %v, get %v", http.StatusCreated, res.StatusCode)
+// 		}
+// 		if response.ID != "INC-1" {
+// 			t.Fatalf("status code expected %v, get %v", "INC-1", response.ID)
+// 		}
+// 		if response.Title != incCreateRequest.Title {
+// 			t.Fatalf("title expected %v, got %v", incCreateRequest.Title, response.Title)
+// 		}
+// 		if response.Severity != incCreateRequest.Severity {
+// 			t.Fatalf("Severity expected %v, got %v", incCreateRequest.Severity, response.Severity)
+// 		}
+// 		if response.Service != incCreateRequest.Service {
+// 			t.Fatalf("Service expected %v, got %v", incCreateRequest.Service, response.Service)
+// 		}
+// 	})
+// }
