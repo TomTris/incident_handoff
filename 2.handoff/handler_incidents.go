@@ -101,6 +101,7 @@ func (incHandler *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, erro
 		incidentID: incidentID,
 		msg:        marshalNewEntryEvent(incidentID, newEntry),
 	}
+
 	return newAppResponse(http.StatusCreated, newEntry), nil
 }
 

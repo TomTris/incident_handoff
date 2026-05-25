@@ -184,3 +184,68 @@ func TestCreateIncident(t *testing.T) {
 		t.Fatalf("Service expected %v, got %v", incCreateRequest.Service, response.Service)
 	}
 }
+
+func TestListIncident(t *testing.T) {
+
+	store := NewMemoryIncidentStore()
+	incCreateRequest := validCreateIncidentRequest()
+	store.CreateIncident(context.Background(), incCreateRequest)
+	incCreateRequest.Title = "123"
+	store.CreateIncident(context.Background(), incCreateRequest)
+	incCreateRequest.Service = "no services"
+	store.CreateIncident(context.Background(), incCreateRequest)
+	incCreateRequest.Severity = "SEV3"
+	store.CreateIncident(context.Background(), incCreateRequest)
+
+	handler := IncidentHandler{IncidentStore: store}
+
+	req := httptest.NewRequest("GET", "/incidents", nil)
+	appRes, err := handler.ListIncidents(req)
+	if err != nil {
+		t.Fatalf("expected no error, get %v", err)
+	}
+	if appRes.Status != http.StatusOK {
+		t.Fatalf("status code expected %v, get %v", http.StatusOK, appRes.Status)
+	}
+
+	// Evaluate
+	response := appRes.Body.([]Incident)
+	if len(response) != 4 {
+		t.Fatalf("len expect %v, get %v", 4, len(response))
+	}
+}
+
+// func TestAddEntry(t *testing.T) {
+
+// 	store := NewMemoryIncidentStore()
+// 	incCreateRequest := validCreateIncidentRequest()
+// 	inc, _ := store.CreateIncident(context.Background(), incCreateRequest)
+// 	fmt.Println(inc)
+// 	handler := IncidentHandler{IncidentStore: store}
+// 	go  <- handler.Registry.broadcast (t)
+// 	entry := TimelineEntry{
+// 		Author: "tom",
+// 		Type:   ACTION,
+// 		Text:   "test action entry",
+// 	}
+
+// 	bodyRaw, _ := json.Marshal(entry)
+// 	req := httptest.NewRequest("POST", "/incident/INC-1", bytes.NewReader(bodyRaw))
+// 	req.SetPathValue("id", "INC-1")
+// 	appRes, err := handler.AddEntry(req)
+// 	if err != nil {
+// 		t.Fatalf("expected no error, get %v", err)
+// 	}
+// 	if appRes.Status != http.StatusCreated {
+// 		t.Fatalf("status code expected %v, get %v", http.StatusCreated, appRes.Status)
+// 	}
+
+// 	// Evaluate
+// 	response := appRes.Body.(TimelineEntry)
+// 	if response.ID != "TLE-1" {
+// 		t.Fatalf("status code expected %v, get %v", "TLE-1", response.ID)
+// 	}
+// 	if response.Type != ACTION {
+// 		t.Fatalf("title expected %v, got %v", ACTION, response.Type)
+// 	}
+// }
