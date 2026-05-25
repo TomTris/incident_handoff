@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -108,5 +109,25 @@ func TestGetIncidentOK(t *testing.T) {
 	}
 	if inc.OnCall != "tom" {
 		t.Fatalf("expected OnCall %v, get %v", new("tom"), inc.OnCall)
+	}
+}
+
+func TestGetIncident404(t *testing.T) {
+	store := NewMemoryIncidentStore()
+	handler := IncidentHandler{IncidentStore: store}
+	req := httptest.NewRequest("GET", "/incident/INC-1", nil)
+	req.SetPathValue("id", "INC-1")
+
+	_, err := handler.GetIncident(req)
+
+	if err != nil {
+		var appErr *AppError
+		if errors.As(err, &appErr) {
+			if appErr.Status != 404 {
+				t.Fatalf("expected code 404, get %v", appErr.Status)
+			}
+		} else {
+			t.Fatalf("expected no *AppError")
+		}
 	}
 }
