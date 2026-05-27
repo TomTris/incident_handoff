@@ -347,3 +347,31 @@ func TestUpdateIncident(t *testing.T) {
 		t.Fatalf("type expected %v, get %v", "SEV2", resIncident["severity"])
 	}
 }
+
+func TestGetHandoffBrief(t *testing.T) {
+	store := NewMemoryIncidentStore()
+	validIncRequest := validCreateIncidentRequest()
+	store.CreateIncident(context.Background(), validIncRequest)
+
+	handler := IncidentHandler{IncidentStore: store}
+	req := httptest.NewRequest("GET", "/incidents/INC-1/handoff?user_id=tom", nil)
+	req.SetPathValue("id", "INC-1")
+
+	res, err := handler.GetHandoffBrief(req)
+	if err != nil {
+		t.Fatalf("expected no error, get %v", err.Error())
+	}
+	if res.Status != http.StatusOK {
+		t.Fatalf("expected status %v, get %v", http.StatusOK, res.Status)
+	}
+
+	bodyRaw, err := json.Marshal(res.Body)
+	if err != nil {
+		t.Fatalf("expected not nil, get %v", err.Error())
+	}
+	var body HandoffBrief
+	err = json.Unmarshal(bodyRaw, &body)
+	if err != nil {
+		t.Fatalf("expected not nil, get %v", err.Error())
+	}
+}
