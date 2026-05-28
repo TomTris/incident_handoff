@@ -28,10 +28,6 @@ func Conflict(err error) error {
 	return &AppError{Status: http.StatusConflict, Code: "CONFLICT", Err: err}
 }
 
-func Unauthorized(err error) error {
-	return &AppError{Status: http.StatusUnauthorized, Code: "NOT_AUTHORIZED", Err: err}
-}
-
 type ErrorMessageJSON struct {
 	ErrorCode string `json:"code" bson:"code"`
 	Message   string `json:"message" bson:"message"`
