@@ -8,8 +8,10 @@ import (
 	"net"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 )
 
@@ -121,6 +123,51 @@ func RequestIDMiddleware(nextHandler http.Handler) http.Handler {
 		ctxWithNewRequestID := context.WithValue(r.Context(), requestIDKey, newRequestID)
 		nextHandler.ServeHTTP(w, r.WithContext(ctxWithNewRequestID))
 	})
+}
+
+func AuthMiddleware(JWT_SECRET []byte) func(http.Handler) http.Handler {
+	return func(nextHandler http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			auth := r.Header.Get("Authorization")
+			if strings.HasPrefix(auth, "Bearer ") == false {
+				writeError(w, http.StatusUnauthorized, ErrorMessageJSON{
+					ErrorCode: "NO_AUTHENTICATION_HEADER",
+					Message:   "Bearer not found",
+					RequestID: r.Context().Value(requestIDKey).(string),
+				})
+			}
+
+			claims := CustomClaims{}
+			tokenRaw := strings.TrimPrefix(auth, "Bearer ")
+			token, err := jwt.ParseWithClaims(tokenRaw, &claims, func(t *jwt.Token) (any, error) {
+				if t.Method.Alg() != jwt.SigningMethodHS256.Alg() {
+					return nil, errors.New("unexpected signing method")
+				}
+				return JWT_SECRET, nil
+			})
+
+			if err != nil || token.Valid == false {
+				msg := "jwt invalid"
+				if err != nil {
+					msg = err.Error()
+				}
+
+				writeError(w, http.StatusUnauthorized, ErrorMessageJSON{
+					ErrorCode: "BAD_JWT_TOKEN",
+					Message:   msg,
+					RequestID: r.Context().Value(requestIDKey).(string),
+				})
+				return
+			}
+
+			ctx := context.WithValue(r.Context(), userContextKey, UserContext{
+				ID:       claims.Subject,
+				Username: claims.Username,
+				Role:     claims.Role,
+			})
+			nextHandler.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
 }
 
 func ResponseMiddleware(next func(*http.Request) (*AppResponse, error)) http.HandlerFunc {

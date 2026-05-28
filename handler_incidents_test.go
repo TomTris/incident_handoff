@@ -220,7 +220,7 @@ func newTestServer(t *testing.T) *httptest.Server {
 	}
 
 	memStore.CreateIncident(context.Background(), validCreateIncidentRequest())
-	router := getRouter(&incHandler, &flagHandler, nil, promRegistry, httpMetrics)
+	router := getRouter(&incHandler, &flagHandler, nil, nil, promRegistry, httpMetrics)
 	return httptest.NewServer(router)
 }
 

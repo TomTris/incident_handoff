@@ -28,6 +28,10 @@ func Conflict(err error) error {
 	return &AppError{Status: http.StatusConflict, Code: "CONFLICT", Err: err}
 }
 
+func Unauthorized(err error) error {
+	return &AppError{Status: http.StatusUnauthorized, Code: "NOT_AUTHORIZED", Err: err}
+}
+
 type ErrorMessageJSON struct {
 	ErrorCode string `json:"code" bson:"code"`
 	Message   string `json:"message" bson:"message"`
@@ -56,6 +60,9 @@ var ErrInternal = errors.New("Internal Error")
 
 var ErrFlagNotfound = errors.New("Flag Not Found")
 var ErrFlagAlreadyExist = errors.New("Flag is already in use")
+
+// auth
+var ErrUserNotFound = errors.New("User Not Found")
 
 const (
 	INCIDENT_NOT_FOUND    = "INCIDENT_NOT_FOUND"

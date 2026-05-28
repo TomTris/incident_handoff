@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 	"time"
 
@@ -13,16 +14,22 @@ type Config struct {
 	Environment      string // default "development", env: HANDOFF_ENV
 	ConnectionString string // default "", env HANDOFF_CONNECT_STRING
 	DatabaseName     string
+	JWT_SECRET       string
 }
 
 func loadConfig() Config {
-	return Config{
+	config := Config{
 		Port:             envOr("HANDOFF_PORT", "8080"),
 		LogLevel:         envOr("HANDOFF_LOG_LEVEL", "info"),
 		Environment:      envOr("HANDOFF_ENV", "development"),
 		ConnectionString: envOr("HANDOFF_CONNECT_STRING", ""),
 		DatabaseName:     envOr("HANDOFF_DB", "incident_tracker"),
+		JWT_SECRET:       envOr("JWT_SECRET", ""),
 	}
+	if len(config.JWT_SECRET) == 0 {
+		log.Fatalln("JWT_SECRET empty")
+	}
+	return config
 }
 
 func envOr(envKey string, defaultValue string) string {
@@ -100,5 +107,6 @@ var validEntryTypes = map[string]bool{
 }
 
 const requestIDKey = "request_id"
+const userContextKey = "user"
 const incidentIDPrefix = "INC-"
 const entryIDPrefix = "TLE-"

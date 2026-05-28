@@ -63,8 +63,17 @@ func main() {
 		FlagEvaluator: &flagHandler.store,
 	}
 
+	// init authHandler
+	var seedUsers = []User{
+		{ID: "u1", Username: "anh", Password: hashPassword("anh123"), Role: "engineer"},
+		{ID: "u2", Username: "bernd", Password: hashPassword("bernd123"), Role: "engineer"},
+		{ID: "u3", Username: "admin", Password: hashPassword("admin123"), Role: "admin"},
+	}
+	userStore := NewInMemoryUserStore(seedUsers)
+	authHandler := NewAuthHandler(userStore, []byte(config.JWT_SECRET), time.Duration(15))
+
 	// Set router
-	router := getRouter(&incHandler, &flagHandler, client, promRegistry, httpMetrics)
+	router := getRouter(&incHandler, &flagHandler, authHandler, client, promRegistry, httpMetrics)
 
 	// run server
 	srv := http.Server{

@@ -8,31 +8,42 @@ import (
 	"go.mongodb.org/mongo-driver/v2/mongo"
 )
 
-func getRouter(incHandler *IncidentHandler, flagHander *FlagHandler,
-	mongoClient *mongo.Client, promRegistry *prometheus.Registry, httpMatrics *HTTPMetrics) http.Handler {
-	mux := http.NewServeMux()
+func getRouter(incHandler *IncidentHandler, flagHandler *FlagHandler, authHandler *AuthHandler,
+	mongoClient *mongo.Client, promRegistry *prometheus.Registry, httpMetrics *HTTPMetrics) http.Handler {
 
 	// Incident handler
-	mux.HandleFunc("POST /incidents", ResponseMiddleware(incHandler.CreateIncident))
-	mux.HandleFunc("POST /incidents/{id}/entries", ResponseMiddleware(incHandler.AddEntry))
-	mux.HandleFunc("GET /incidents/{id}", ResponseMiddleware(incHandler.GetIncident))
-	mux.HandleFunc("GET /incidents", ResponseMiddleware(incHandler.ListIncidents))
-	mux.HandleFunc("GET /incidents/{id}/handoff", ResponseMiddleware(incHandler.GetHandoffBrief))
-	mux.HandleFunc("PATCH /incidents/{id}", ResponseMiddleware(incHandler.UpdateIncident))
+	protected := http.NewServeMux()
+	protected.HandleFunc("POST /incidents", ResponseMiddleware(incHandler.CreateIncident))
+	protected.HandleFunc("POST /incidents/{id}/entries", ResponseMiddleware(incHandler.AddEntry))
+	protected.HandleFunc("GET /incidents/{id}", ResponseMiddleware(incHandler.GetIncident))
+	protected.HandleFunc("GET /incidents", ResponseMiddleware(incHandler.ListIncidents))
+	protected.HandleFunc("GET /incidents/{id}/handoff", ResponseMiddleware(incHandler.GetHandoffBrief))
+	protected.HandleFunc("PATCH /incidents/{id}", ResponseMiddleware(incHandler.UpdateIncident))
+	// auth
+	protected.HandleFunc("GET/auth/me", ResponseMiddleware(authHandler.WhoAmI))
 	// WebsocketHandler
-	mux.HandleFunc("GET /incidents/{id}/ws", incHandler.HandleIncidentWebSocket)
+	protected.HandleFunc("GET /incidents/{id}/ws", incHandler.HandleIncidentWebSocket)
 
 	// Flag Handler
-	mux.HandleFunc("POST /flags", ResponseMiddleware(flagHander.CreateFlag))
-	mux.HandleFunc("GET /flags", ResponseMiddleware(flagHander.ListAllFlag))
-	mux.HandleFunc("PATCH /flags/{name}", ResponseMiddleware(flagHander.UpdateFlag))
-	mux.HandleFunc("GET /flags/{name}/evaluate", ResponseMiddleware(flagHander.Evaluate))
+	admin := http.NewServeMux()
+	admin.HandleFunc("POST /flags", ResponseMiddleware(flagHandler.CreateFlag))
+	admin.HandleFunc("GET /flags", ResponseMiddleware(flagHandler.ListAllFlag))
+	admin.HandleFunc("PATCH /flags/{name}", ResponseMiddleware(flagHandler.UpdateFlag))
+	admin.HandleFunc("GET /flags/{name}/evaluate", ResponseMiddleware(flagHandler.Evaluate))
 
 	// metrics, health and ready
-	mux.Handle("/metrics", promhttp.HandlerFor(promRegistry, promhttp.HandlerOpts{Registry: promRegistry}))
-	mux.HandleFunc("GET /healthz", healthCheck)
-	mux.HandleFunc("GET /readyz", readyCheck(mongoClient))
+	public := http.NewServeMux()
+	public.Handle("GET /metrics", promhttp.HandlerFor(promRegistry, promhttp.HandlerOpts{Registry: promRegistry}))
+	public.HandleFunc("GET /healthz", healthCheck)
+	public.HandleFunc("GET /readyz", readyCheck(mongoClient))
+	public.HandleFunc("POST /login", authHandler.LoginHandler)
 
-	router := RequestIDMiddleware(ObservabilityMiddleware(httpMatrics)(CORSMiddleware(TimeoutMiddleware(mux))))
+	root := http.NewServeMux()
+	authMW := AuthMiddleware(authHandler.Secret)
+	root.Handle("/api/", http.StripPrefix("/api/", authMW(protected)))
+	root.Handle("/admin/", http.StripPrefix("/admin/", authMW(admin)))
+	root.Handle("/", public)
+
+	router := RequestIDMiddleware(ObservabilityMiddleware(httpMetrics)(CORSMiddleware(TimeoutMiddleware(root))))
 	return router
 }
