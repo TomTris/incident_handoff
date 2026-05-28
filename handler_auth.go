@@ -70,7 +70,7 @@ func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 		HttpOnly: true,
 		SameSite: http.SameSiteStrictMode,
 	})
-	w.WriteHeader(http.StatusNoContent)
+	writeJSON(w, http.StatusOK, requestID, map[string]string{"status": "ok"})
 }
 
 func (h *AuthHandler) WhoAmI(r *http.Request) (*AppResponse, error) {
