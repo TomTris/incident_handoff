@@ -75,7 +75,7 @@ func TestTimeoutMiddleware(t *testing.T) {
 func TestResponseMiddleware(t *testing.T) {
 	testRequestID := "Test-Request-ID"
 	t.Run("Success", func(t *testing.T) {
-		inner := func(r *http.Request) (*AppResponse, error) {
+		inner := func(r *http.Request) (*AppResponse, *AppError) {
 			return newAppResponse(http.StatusOK, Incident{Title: "Title"}), nil
 		}
 		rec := httptest.NewRecorder()
@@ -95,7 +95,7 @@ func TestResponseMiddleware(t *testing.T) {
 		}
 	})
 	t.Run("Success Nil-Body", func(t *testing.T) {
-		inner := func(r *http.Request) (*AppResponse, error) {
+		inner := func(r *http.Request) (*AppResponse, *AppError) {
 			return newAppResponse(http.StatusNoContent, nil), nil
 		}
 		rec := httptest.NewRecorder()
@@ -110,7 +110,7 @@ func TestResponseMiddleware(t *testing.T) {
 	})
 
 	t.Run("error with AppError", func(t *testing.T) {
-		inner := func(r *http.Request) (*AppResponse, error) {
+		inner := func(r *http.Request) (*AppResponse, *AppError) {
 			return nil, BadRequest(errors.New("test-Error"))
 		}
 		rec := httptest.NewRecorder()
@@ -133,8 +133,11 @@ func TestResponseMiddleware(t *testing.T) {
 	})
 
 	t.Run("error with Unknown Error", func(t *testing.T) {
-		inner := func(r *http.Request) (*AppResponse, error) {
-			return nil, errors.New("Unknown Error")
+		inner := func(r *http.Request) (*AppResponse, *AppError) {
+			return nil, &AppError{
+				Code:   "UNKNOWN",
+				Status: 500,
+				Err:    errors.New("Unknown Error")}
 		}
 		rec := httptest.NewRecorder()
 		req := httptest.NewRequest("GET", "/", nil)
@@ -272,6 +275,49 @@ func TestAuthMiddleware(t *testing.T) {
 		json.NewDecoder(rec.Body).Decode(&res)
 		if res["error"]["code"] != "BAD_JWT_TOKEN" {
 			t.Fatalf("expect error with code %v, get %v", "BAD_JWT_TOKEN", res["error"]["code"])
+		}
+	})
+}
+
+func TestAuthAdminOnlyMiddleware(t *testing.T) {
+	inner := func(r *http.Request) (*AppResponse, *AppError) {
+		return newAppResponse(http.StatusOK, nil), nil
+	}
+	t.Run("test with admin role", func(t *testing.T) {
+		adminOnlyMW := AuthAdminOnlyMiddleware(inner)
+		userAdminCtx := UserContext{
+			Role: "admin",
+		}
+		req := httptest.NewRequest("GET", "/", nil)
+		ctx := context.WithValue(context.Background(), userContextKey, userAdminCtx)
+		appRes, err := adminOnlyMW(req.WithContext(ctx))
+		if err != nil {
+			t.Fatalf("expect no error, get %v", err.Error())
+		}
+		if appRes.Status != http.StatusOK {
+			t.Fatalf("expect status %v, get %v", http.StatusOK, appRes.Status)
+		}
+	})
+	t.Run("test with engineer role", func(t *testing.T) {
+		adminOnlyMW := AuthAdminOnlyMiddleware(inner)
+		userEngineerCtx := UserContext{
+			Role: "engineer",
+		}
+		req := httptest.NewRequest("GET", "/", nil)
+		ctx := context.WithValue(context.Background(), userContextKey, userEngineerCtx)
+		_, err := adminOnlyMW(req.WithContext(ctx))
+		if err == nil {
+			t.Fatalf("expect error, get no error")
+		}
+		var appErr *AppError
+		if errors.As(err, &appErr) == false {
+			t.Fatalf("expect error has type *AppError")
+		}
+		if appErr.Status != http.StatusForbidden {
+			t.Fatalf("expect status %v, get %v", http.StatusForbidden, appErr.Status)
+		}
+		if appErr.Code != "FORBIDDEN" {
+			t.Fatalf("expect Code %v, get %v", "FORBIDDEN", appErr.Code)
 		}
 	})
 

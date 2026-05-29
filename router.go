@@ -8,8 +8,15 @@ import (
 	"go.mongodb.org/mongo-driver/v2/mongo"
 )
 
-func getRouter(incHandler *IncidentHandler, flagHandler *FlagHandler, authHandler *AuthHandler,
-	mongoClient *mongo.Client, promRegistry *prometheus.Registry, httpMetrics *HTTPMetrics) http.Handler {
+func getRouter(
+	incHandler *IncidentHandler,
+	flagHandler *FlagHandler,
+	authHandler *AuthHandler,
+	onCallHandler *OnCallHandler,
+
+	mongoClient *mongo.Client,
+	promRegistry *prometheus.Registry,
+	httpMetrics *HTTPMetrics) http.Handler {
 
 	// Incident handler
 	protected := http.NewServeMux()
@@ -26,10 +33,12 @@ func getRouter(incHandler *IncidentHandler, flagHandler *FlagHandler, authHandle
 
 	// Flag Handler
 	admin := http.NewServeMux()
-	admin.HandleFunc("POST /flags", ResponseMiddleware(flagHandler.CreateFlag))
-	admin.HandleFunc("GET /flags", ResponseMiddleware(flagHandler.ListAllFlag))
-	admin.HandleFunc("PATCH /flags/{name}", ResponseMiddleware(flagHandler.UpdateFlag))
-	admin.HandleFunc("GET /flags/{name}/evaluate", ResponseMiddleware(flagHandler.Evaluate))
+	admin.HandleFunc("POST /flags", ResponseMiddleware(AuthAdminOnlyMiddleware(flagHandler.CreateFlag)))
+	admin.HandleFunc("GET /flags", ResponseMiddleware(AuthAdminOnlyMiddleware(flagHandler.ListAllFlag)))
+	admin.HandleFunc("PATCH /flags/{name}", ResponseMiddleware(AuthAdminOnlyMiddleware(flagHandler.UpdateFlag)))
+	admin.HandleFunc("GET /flags/{name}/evaluate", ResponseMiddleware(AuthAdminOnlyMiddleware(flagHandler.Evaluate)))
+	admin.HandleFunc("POST /oncall", ResponseMiddleware(AuthAdminOnlyMiddleware(onCallHandler.CreateShift)))
+	admin.HandleFunc("GET /oncall/current", ResponseMiddleware(AuthAdminOnlyMiddleware(onCallHandler.CurrentOnCall)))
 
 	// metrics, health and ready
 	public := http.NewServeMux()

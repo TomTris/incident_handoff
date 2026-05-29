@@ -24,10 +24,9 @@ func setup_testInstrumented_Env(t *testing.T) *InstrumentedIncidentStore {
 func validCreateIncidentRequest() CreateIncidentRequest {
 	return CreateIncidentRequest{
 		Title:    "Title",
-		Service:  "Service",
+		Service:  "payment",
 		Severity: "SEV1",
 		OpenedBy: "OpenedBy",
-		OnCall:   new("OnCall"),
 	}
 }
 

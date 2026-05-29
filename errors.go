@@ -13,19 +13,23 @@ type AppError struct {
 
 func (e AppError) Error() string { return e.Err.Error() }
 
-func BadRequest(err error) error {
+func BadRequest(err error) *AppError {
 	return &AppError{Status: http.StatusBadRequest, Code: "BAD_REQUEST", Err: err}
 }
-func InternalServerError(err error) error {
+func InternalServerError(err error) *AppError {
 	return &AppError{Status: http.StatusInternalServerError, Code: "INTERNAL_ERROR", Err: err}
 }
 
-func NotFound(err error) error {
+func NotFound(err error) *AppError {
 	return &AppError{Status: http.StatusNotFound, Code: "NOT FOUND", Err: err}
 }
 
-func Conflict(err error) error {
+func Conflict(err error) *AppError {
 	return &AppError{Status: http.StatusConflict, Code: "CONFLICT", Err: err}
+}
+
+func Forbidden(err error) *AppError {
+	return &AppError{Status: http.StatusForbidden, Code: "FORBIDDEN", Err: err}
 }
 
 type ErrorMessageJSON struct {
@@ -56,6 +60,9 @@ var ErrInternal = errors.New("Internal Error")
 
 var ErrFlagNotfound = errors.New("Flag Not Found")
 var ErrFlagAlreadyExist = errors.New("Flag is already in use")
+var ErrUserAlreadyExist = errors.New("username already exist")
+var OnCallUserNotFound = errors.New("No OnCall is available")
+var ErrServiceRequired = errors.New("service required")
 
 // auth
 var ErrUserNotFound = errors.New("User Not Found")

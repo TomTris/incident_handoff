@@ -73,7 +73,7 @@ func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, requestID, map[string]string{"status": "ok"})
 }
 
-func (h *AuthHandler) WhoAmI(r *http.Request) (*AppResponse, error) {
+func (h *AuthHandler) WhoAmI(r *http.Request) (*AppResponse, *AppError) {
 	claims := r.Context().Value(userContextKey).(UserContext)
 	return newAppResponse(http.StatusOK, claims), nil
 }

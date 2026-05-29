@@ -20,11 +20,11 @@ type Incident struct {
 }
 
 type CreateIncidentRequest struct {
-	Title    string  `json:"title" bson:"title"`
-	Service  string  `json:"service" bson:"service"`
-	Severity string  `json:"severity" bson:"severity"` // SEV1, SEV2, SEV3
-	OpenedBy string  `json:"opened_by" bson:"opened_by"`
-	OnCall   *string `json:"on_call,omitempty" bson:"on_call"`
+	Title    string `json:"title" bson:"title"`
+	Service  string `json:"service" bson:"service"`
+	Severity string `json:"severity" bson:"severity"` // SEV1, SEV2, SEV3
+	OpenedBy string `json:"opened_by" bson:"opened_by"`
+	OnCall   string `json:"on_call,omitempty" bson:"on_call"`
 }
 
 func (c *CreateIncidentRequest) Validate() error {
@@ -46,13 +46,6 @@ func (c *CreateIncidentRequest) Validate() error {
 	c.OpenedBy = strings.TrimSpace(c.OpenedBy)
 	if c.OpenedBy == "" {
 		return ErrOpenedBy
-	}
-
-	if c.OnCall != nil {
-		*c.OnCall = strings.TrimSpace(*c.OnCall)
-		if *c.OnCall == "" {
-			return ErrOnCall
-		}
 	}
 	return nil
 }

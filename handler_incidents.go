@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"net/http"
@@ -10,10 +11,15 @@ type FlagEvaluator interface {
 	Evaluate(flagName string, userID string) (*FlagEvaluateAnswer, error)
 }
 
+type CurrentOnCall interface {
+	CurrentOnCall(ctx context.Context, service string) (string, error)
+}
+
 type IncidentHandler struct {
 	IncidentStore IncidentStore
 	Registry      Registry
 	FlagEvaluator FlagEvaluator
+	CurrentOnCall CurrentOnCall
 }
 
 func marshalNewEntryEvent(incidentID string, entry TimelineEntry) json.RawMessage {
@@ -43,7 +49,7 @@ func marshalIncidentUpdateEvent(incAfter Incident) json.RawMessage {
 	return data
 }
 
-func (incHandler *IncidentHandler) CreateIncident(r *http.Request) (*AppResponse, error) {
+func (h *IncidentHandler) CreateIncident(r *http.Request) (*AppResponse, *AppError) {
 	req := CreateIncidentRequest{}
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		return nil, BadRequest(err)
@@ -53,7 +59,17 @@ func (incHandler *IncidentHandler) CreateIncident(r *http.Request) (*AppResponse
 		return nil, BadRequest(err)
 	}
 
-	createdIncident, err := incHandler.IncidentStore.CreateIncident(r.Context(), req)
+	onCall, err := h.CurrentOnCall.CurrentOnCall(r.Context(), req.Service)
+	if err != nil {
+		if errors.Is(err, OnCallUserNotFound) {
+			onCall = ""
+		} else {
+			return nil, InternalServerError(err)
+		}
+	}
+	req.OnCall = onCall
+
+	createdIncident, err := h.IncidentStore.CreateIncident(r.Context(), req)
 	if err != nil {
 		return nil, InternalServerError(err)
 	}
@@ -61,9 +77,9 @@ func (incHandler *IncidentHandler) CreateIncident(r *http.Request) (*AppResponse
 	return newAppResponse(http.StatusCreated, createdIncident), nil
 }
 
-func (incHandler *IncidentHandler) GetIncident(r *http.Request) (*AppResponse, error) {
+func (h *IncidentHandler) GetIncident(r *http.Request) (*AppResponse, *AppError) {
 	incidentID := r.PathValue("id")
-	inc, err := incHandler.IncidentStore.GetIncident(r.Context(), incidentID)
+	inc, err := h.IncidentStore.GetIncident(r.Context(), incidentID)
 
 	if err != nil {
 		if errors.Is(err, ErrIncidentNotFound) {
@@ -75,9 +91,21 @@ func (incHandler *IncidentHandler) GetIncident(r *http.Request) (*AppResponse, e
 	return newAppResponse(http.StatusOK, inc), nil
 }
 
-func (incHandler *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, error) {
-	timelineEntry := TimelineEntry{}
+// TODO Handle error cases properly
+func (h *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, *AppError) {
+	user := r.Context().Value(userContextKey).(UserContext)
+	inc, err := h.IncidentStore.GetIncident(r.Context(), r.PathValue("id"))
+	if err != nil {
+		if errors.Is(err, ErrIncidentNotFound) {
+			return nil, NotFound(err)
+		}
+		return nil, InternalServerError(err)
+	}
+	if err := AuthorizeIncidentAction(user, inc, ActionAddEntry); err != nil {
+		return nil, Forbidden(err)
+	}
 
+	timelineEntry := TimelineEntry{}
 	if err := json.NewDecoder(r.Body).Decode(&timelineEntry); err != nil {
 		return nil, BadRequest(err)
 	}
@@ -85,7 +113,8 @@ func (incHandler *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, erro
 		return nil, BadRequest(err)
 	}
 	incidentID := r.PathValue("id")
-	newEntry, err := incHandler.IncidentStore.AddEntry(r.Context(), incidentID, timelineEntry)
+
+	newEntry, err := h.IncidentStore.AddEntry(r.Context(), incidentID, timelineEntry)
 
 	if err != nil {
 		if errors.Is(err, ErrIncidentNotFound) {
@@ -97,7 +126,7 @@ func (incHandler *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, erro
 		return nil, InternalServerError(err)
 	}
 
-	incHandler.Registry.broadcast <- BroadcastMessage{
+	h.Registry.broadcast <- BroadcastMessage{
 		incidentID: incidentID,
 		msg:        marshalNewEntryEvent(incidentID, newEntry),
 	}
@@ -105,7 +134,7 @@ func (incHandler *IncidentHandler) AddEntry(r *http.Request) (*AppResponse, erro
 	return newAppResponse(http.StatusCreated, newEntry), nil
 }
 
-func (incHandler *IncidentHandler) ListIncidents(r *http.Request) (*AppResponse, error) {
+func (h *IncidentHandler) ListIncidents(r *http.Request) (*AppResponse, *AppError) {
 	incidentFilter := IncidentFilter{
 		Status:  r.URL.Query().Get("status"),
 		Service: r.URL.Query().Get("service"),
@@ -115,14 +144,26 @@ func (incHandler *IncidentHandler) ListIncidents(r *http.Request) (*AppResponse,
 		return nil, BadRequest(err)
 	}
 
-	filteredIncidents, err := incHandler.IncidentStore.ListIncidents(r.Context(), incidentFilter)
+	filteredIncidents, err := h.IncidentStore.ListIncidents(r.Context(), incidentFilter)
 	if err != nil {
 		return nil, InternalServerError(err)
 	}
 	return newAppResponse(http.StatusOK, filteredIncidents), nil
 }
 
-func (incHandler *IncidentHandler) UpdateIncident(r *http.Request) (*AppResponse, error) {
+func (h *IncidentHandler) UpdateIncident(r *http.Request) (*AppResponse, *AppError) {
+	user := r.Context().Value(userContextKey).(UserContext)
+	inc, err := h.IncidentStore.GetIncident(r.Context(), r.PathValue("id"))
+	if err != nil {
+		if errors.Is(err, ErrIncidentNotFound) {
+			return nil, NotFound(err)
+		}
+		return nil, InternalServerError(err)
+	}
+	if err := AuthorizeIncidentAction(user, inc, ActionUpdateIncident); err != nil {
+		return nil, Forbidden(err)
+	}
+
 	incidentUpdate := IncidentUpdate{}
 	if err := json.NewDecoder(r.Body).Decode(&incidentUpdate); err != nil {
 		return nil, BadRequest(err)
@@ -132,7 +173,7 @@ func (incHandler *IncidentHandler) UpdateIncident(r *http.Request) (*AppResponse
 	}
 
 	incidentID := r.PathValue("id")
-	incAfter, err := incHandler.IncidentStore.UpdateIncident(r.Context(), incidentID, incidentUpdate)
+	incAfter, err := h.IncidentStore.UpdateIncident(r.Context(), incidentID, incidentUpdate)
 	if err != nil {
 		if errors.Is(err, ErrIncidentNotFound) {
 			return nil, NotFound(err)
@@ -140,16 +181,16 @@ func (incHandler *IncidentHandler) UpdateIncident(r *http.Request) (*AppResponse
 		return nil, InternalServerError(err)
 	}
 
-	incHandler.Registry.broadcast <- BroadcastMessage{
+	h.Registry.broadcast <- BroadcastMessage{
 		msg:        marshalIncidentUpdateEvent(incAfter),
 		incidentID: incidentID,
 	}
 	return newAppResponse(http.StatusNoContent, nil), nil
 }
 
-func (incHandler *IncidentHandler) GetHandoffBrief(r *http.Request) (*AppResponse, error) {
+func (h *IncidentHandler) GetHandoffBrief(r *http.Request) (*AppResponse, *AppError) {
 	incidentID := r.PathValue("id")
-	inc, err := incHandler.IncidentStore.GetIncident(r.Context(), incidentID)
+	inc, err := h.IncidentStore.GetIncident(r.Context(), incidentID)
 
 	if err != nil {
 		if errors.Is(err, ErrIncidentNotFound) {
@@ -159,11 +200,11 @@ func (incHandler *IncidentHandler) GetHandoffBrief(r *http.Request) (*AppRespons
 	}
 
 	userID := r.URL.Query().Get("user_id")
-	body := buildHandoffBrief(inc, incHandler.FlagEvaluator, userID)
+	body := buildHandoffBrief(inc, h.FlagEvaluator, userID)
 	return newAppResponse(http.StatusOK, body), nil
 }
 
-func (incHandler *IncidentHandler) HandleIncidentWebSocket(w http.ResponseWriter, r *http.Request) {
+func (h *IncidentHandler) HandleIncidentWebSocket(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 
 	if err != nil {
@@ -178,7 +219,7 @@ func (incHandler *IncidentHandler) HandleIncidentWebSocket(w http.ResponseWriter
 
 	incidentID := r.PathValue("id")
 	client := newClient(incidentID, conn)
-	client.joinRegistry(&incHandler.Registry)
+	client.joinRegistry(&h.Registry)
 
 	go client.writePump()
 	go client.readPump()

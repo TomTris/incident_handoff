@@ -135,6 +135,7 @@ func AuthMiddleware(JWT_SECRET []byte) func(http.Handler) http.Handler {
 					Message:   "Bearer not found",
 					RequestID: r.Context().Value(requestIDKey).(string),
 				})
+				return
 			}
 
 			claims := CustomClaims{}
@@ -170,25 +171,30 @@ func AuthMiddleware(JWT_SECRET []byte) func(http.Handler) http.Handler {
 	}
 }
 
-func ResponseMiddleware(next func(*http.Request) (*AppResponse, error)) http.HandlerFunc {
+func AuthAdminOnlyMiddleware(next func(*http.Request) (*AppResponse, *AppError)) func(*http.Request) (*AppResponse, *AppError) {
+	return func(r *http.Request) (*AppResponse, *AppError) {
+		user := r.Context().Value(userContextKey).(UserContext)
+		if user.Role != "admin" {
+			return nil, &AppError{
+				Status: http.StatusForbidden,
+				Code:   "FORBIDDEN",
+				Err:    errors.New("admin only"),
+			}
+		}
+		return next(r)
+	}
+}
+
+func ResponseMiddleware(next func(*http.Request) (*AppResponse, *AppError)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		requestID := r.Context().Value(requestIDKey).(string)
-		res, err := next(r)
-		if err != nil {
-			var appErr *AppError
-			if errors.As(err, &appErr) {
-				writeError(w, appErr.Status, ErrorMessageJSON{
-					ErrorCode: appErr.Code,
-					Message:   appErr.Err.Error(),
-					RequestID: requestID,
-				})
-			} else {
-				writeError(w, http.StatusInternalServerError, ErrorMessageJSON{
-					ErrorCode: "INTERNAL_SERVER_ERROR",
-					Message:   "Error Type not detected",
-					RequestID: requestID,
-				})
-			}
+		res, appErr := next(r)
+		if appErr != nil {
+			writeError(w, appErr.Status, ErrorMessageJSON{
+				ErrorCode: appErr.Code,
+				Message:   appErr.Err.Error(),
+				RequestID: requestID,
+			})
 			return
 		}
 		writeJSON(w, res.Status, requestID, res.Body)
