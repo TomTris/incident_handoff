@@ -59,30 +59,6 @@ func TestCreateIncidentRequest_Validate(t *testing.T) {
 		}
 	})
 
-	t.Run("valid on_call", func(t *testing.T) {
-		r := valid()
-		r.OnCall = new("bernd")
-		if err := r.Validate(); err != nil {
-			t.Errorf("expected no error, got %v", err.Error())
-		}
-	})
-
-	t.Run("empty on_call string", func(t *testing.T) {
-		r := valid()
-		r.OnCall = new("")
-		if !errors.Is(r.Validate(), ErrOnCall) {
-			t.Error("expected ErrOnCall")
-		}
-	})
-
-	t.Run("nil on_call is valid", func(t *testing.T) {
-		r := valid()
-		r.OnCall = nil
-		if err := r.Validate(); err != nil {
-			t.Errorf("expected no error, got %v", err.Error())
-		}
-	})
-
 	t.Run("trims whitespace", func(t *testing.T) {
 		r := CreateIncidentRequest{
 			Title: "  outage  ", Service: "  api  ", Severity: "  SEV1  ", OpenedBy: "  anh  ",

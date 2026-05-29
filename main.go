@@ -11,7 +11,6 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/prometheus/client_golang/prometheus"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
@@ -34,8 +33,41 @@ func NewIncidentStore(conf Config) (*mongo.Client, IncidentStore) {
 	return client, store
 }
 
+func NewOnCallStore() OnCallStore {
+	oc1 := OnCallEntry{
+		ID:       "u1",
+		Service:  "payment",
+		Username: "anh",
+		StartsAt: time.Now().Add(-1 * time.Minute),
+		EndsAt:   time.Now().Add(9999 * time.Hour),
+	}
+
+	oc2 := OnCallEntry{
+		ID:       "u2",
+		Service:  "database",
+		Username: "bernd",
+		StartsAt: time.Now().Add(-1 * time.Minute),
+		EndsAt:   time.Now().Add(9999 * time.Hour),
+	}
+
+	seedOnCalls := map[string]OnCallEntry{
+		oc1.Username: oc1,
+		oc2.Username: oc2,
+	}
+
+	return NewInMemoryOnCallStore(seedOnCalls)
+}
+
+func NewUserStore() UserStore {
+	var seedUsers = []User{
+		{ID: "u1", Username: "anh", Password: hashPassword("anh123"), Role: "engineer"},
+		{ID: "u2", Username: "bernd", Password: hashPassword("bernd123"), Role: "engineer"},
+		{ID: "u3", Username: "admin", Password: hashPassword("admin123"), Role: "admin"},
+	}
+	return NewInMemoryUserStore(seedUsers)
+}
+
 func main() {
-	godotenv.Load()
 	// init metrics
 	promRegistry := prometheus.NewRegistry()
 	httpMetrics := NewHttpMetrics(promRegistry)
@@ -50,6 +82,9 @@ func main() {
 	// init flagHandler
 	flagHandler := FlagHandler{store: CreateFlagStore()}
 
+	// init onCallHandler
+	onCallHandler := &OnCallHandler{Store: NewOnCallStore()}
+
 	// Init IncidentHandler and its store
 	config := loadConfig()
 	client, incidentStore := NewIncidentStore(config)
@@ -61,10 +96,15 @@ func main() {
 		IncidentStore: &instrumentedIncidentStore,
 		Registry:      registry,
 		FlagEvaluator: &flagHandler.store,
+		CurrentOnCall: onCallHandler.Store,
 	}
 
+	// init authHandler
+	userStore := NewUserStore()
+	authHandler := NewAuthHandler(userStore, []byte(config.JWT_SECRET), time.Duration(15))
+
 	// Set router
-	router := getRouter(&incHandler, &flagHandler, client, promRegistry, httpMetrics)
+	router := getRouter(&incHandler, &flagHandler, authHandler, onCallHandler, client, promRegistry, httpMetrics)
 
 	// run server
 	srv := http.Server{

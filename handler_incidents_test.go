@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"errors"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -107,8 +106,8 @@ func TestGetIncidentOK(t *testing.T) {
 	if inc.OpenedBy != validIncRequest.OpenedBy {
 		t.Fatalf("expected OpenedBy %v, get %v", validIncRequest.OpenedBy, inc.OpenedBy)
 	}
-	if inc.OnCall != *validIncRequest.OnCall {
-		t.Fatalf("expected OnCall %v, get %v", validIncRequest.OnCall, inc.OnCall)
+	if inc.OnCall != "" {
+		t.Fatalf("expected OnCall %v, get %v", "", inc.OnCall)
 	}
 }
 
@@ -118,17 +117,13 @@ func TestGetIncident404(t *testing.T) {
 	req := httptest.NewRequest("GET", "/incident/INC-1", nil)
 	req.SetPathValue("id", "INC-1")
 
-	_, err := handler.GetIncident(req)
+	_, appErr := handler.GetIncident(req)
 
-	if err != nil {
-		var appErr *AppError
-		if errors.As(err, &appErr) {
-			if appErr.Status != 404 {
-				t.Fatalf("expected code 404, get %v", appErr.Status)
-			}
-		} else {
-			t.Fatalf("expected no *AppError")
-		}
+	if appErr == nil {
+		t.Fatal("expect error")
+	}
+	if appErr.Status != 404 {
+		t.Fatalf("expected code 404, get %v", appErr.Status)
 	}
 }
 
@@ -137,11 +132,18 @@ func TestCreateIncident(t *testing.T) {
 	incCreateRequest := validCreateIncidentRequest()
 	store := NewMemoryIncidentStore()
 	store.CreateIncident(context.Background(), incCreateRequest)
-	handler := IncidentHandler{IncidentStore: store}
+	onCallHandler := &OnCallHandler{Store: NewOnCallStore()}
+	handler := IncidentHandler{
+		IncidentStore: store,
+		CurrentOnCall: onCallHandler.Store,
+	}
+
+	// fmt.Println(onCallHandler.Store.(*InMemoryOnCallStore).OnCallEntries)
 
 	bodyRaw, _ := json.Marshal(incCreateRequest)
 	req := httptest.NewRequest("POST", "/incident", bytes.NewReader(bodyRaw))
 	appRes, err := handler.CreateIncident(req)
+
 	if err != nil {
 		t.Fatalf("expected no error, get %v", err.Error())
 	}
@@ -171,31 +173,49 @@ func TestListIncident(t *testing.T) {
 	store.CreateIncident(context.Background(), incCreateRequest)
 	incCreateRequest.Title = "123"
 	store.CreateIncident(context.Background(), incCreateRequest)
-	incCreateRequest.Service = "no services"
+	incCreateRequest.Service = "no_services"
 	store.CreateIncident(context.Background(), incCreateRequest)
 	incCreateRequest.Severity = "SEV3"
 	store.CreateIncident(context.Background(), incCreateRequest)
 
 	handler := IncidentHandler{IncidentStore: store}
 
-	req := httptest.NewRequest("GET", "/incidents", nil)
-	appRes, err := handler.ListIncidents(req)
-	if err != nil {
-		t.Fatalf("expected no error, get %v", err.Error())
-	}
-	if appRes.Status != http.StatusOK {
-		t.Fatalf("status code expected %v, get %v", http.StatusOK, appRes.Status)
-	}
+	t.Run("listAll", func(t *testing.T) {
+		req := httptest.NewRequest("GET", "/incidents", nil)
+		appRes, err := handler.ListIncidents(req)
+		if err != nil {
+			t.Fatalf("expected no error, get %v", err.Error())
+		}
+		if appRes.Status != http.StatusOK {
+			t.Fatalf("status code expected %v, get %v", http.StatusOK, appRes.Status)
+		}
 
-	// Evaluate
-	response := appRes.Body.([]Incident)
-	if len(response) != 4 {
-		t.Fatalf("len expect %v, get %v", 4, len(response))
-	}
+		// Evaluate
+		response := appRes.Body.([]Incident)
+		if len(response) != 4 {
+			t.Fatalf("len expect %v, get %v", 4, len(response))
+		}
+	})
+	t.Run("listByStatus", func(t *testing.T) {
+		req := httptest.NewRequest("GET", "/incidents?service=no_services", nil)
+		appRes, err := handler.ListIncidents(req)
+		if err != nil {
+			t.Fatalf("expected no error, get %v", err.Error())
+		}
+		if appRes.Status != http.StatusOK {
+			t.Fatalf("status code expected %v, get %v", http.StatusOK, appRes.Status)
+		}
+
+		// Evaluate
+		response := appRes.Body.([]Incident)
+		if len(response) != 2 {
+			t.Fatalf("len expect %v, get %v", 2, len(response))
+		}
+	})
 }
 
 // init a server with an incident available
-func newTestServer(t *testing.T) *httptest.Server {
+func newTestServer(t *testing.T) (*httptest.Server, string, string) {
 	t.Helper()
 
 	promRegistry := prometheus.NewRegistry()
@@ -207,6 +227,7 @@ func newTestServer(t *testing.T) *httptest.Server {
 	go registry.run()
 	t.Cleanup(func() { close(registry.done) })
 
+	onCallHandler := &OnCallHandler{Store: NewOnCallStore()}
 	flagHandler := FlagHandler{store: CreateFlagStore()}
 	memStore := NewMemoryIncidentStore()
 	instrumentedIncidentStore := InstrumentedIncidentStore{
@@ -217,19 +238,35 @@ func newTestServer(t *testing.T) *httptest.Server {
 		IncidentStore: &instrumentedIncidentStore,
 		Registry:      registry,
 		FlagEvaluator: &flagHandler.store,
+		CurrentOnCall: onCallHandler.Store,
 	}
 
+	var seedUsers = []User{
+		{ID: "u1", Username: "anh", Password: hashPassword("anh123"), Role: "engineer"},
+		{ID: "u2", Username: "bernd", Password: hashPassword("bernd123"), Role: "engineer"},
+		{ID: "u3", Username: "admin", Password: hashPassword("admin123"), Role: "admin"},
+	}
+	userStore := NewInMemoryUserStore(seedUsers)
+	jwt_secret := "testing-JWT-secret"
+	authHandler := NewAuthHandler(userStore, []byte(jwt_secret), time.Duration(15))
+	ttl := time.Duration(15 * time.Minute)
+	engineerTokenSigned, _ := IssueToken(seedUsers[0], []byte(jwt_secret), ttl, time.Now())
+	adminTokenSigned, _ := IssueToken(seedUsers[2], []byte(jwt_secret), ttl, time.Now())
+
 	memStore.CreateIncident(context.Background(), validCreateIncidentRequest())
-	router := getRouter(&incHandler, &flagHandler, nil, promRegistry, httpMetrics)
-	return httptest.NewServer(router)
+
+	router := getRouter(&incHandler, &flagHandler, authHandler, onCallHandler, nil, promRegistry, httpMetrics)
+	return httptest.NewServer(router), engineerTokenSigned, adminTokenSigned
 }
 
 func TestAddEntry(t *testing.T) {
-	srv := newTestServer(t)
+	srv, engineerTokenSigned, adminTokenSigned := newTestServer(t)
 	defer srv.Close()
 
-	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/incidents/INC-1/ws"
-	conn, _, err := websocket.DefaultDialer.Dial(wsURL, nil)
+	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/api/incidents/INC-1/ws"
+	header := http.Header{}
+	header.Set("Authorization", "Bearer "+engineerTokenSigned)
+	conn, _, err := websocket.DefaultDialer.Dial(wsURL, header)
 	if err != nil {
 		t.Fatalf("expected no error, get error %v", err.Error())
 	}
@@ -243,59 +280,80 @@ func TestAddEntry(t *testing.T) {
 	bodyRaw, _ := json.Marshal(entry)
 
 	// HTTP Respsone
-	resp, err := http.Post(srv.URL+"/incidents/INC-1/entries", "application/json", bytes.NewReader(bodyRaw))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if resp.StatusCode != http.StatusCreated {
-		t.Fatalf("status code expected %v, got %v", http.StatusCreated, resp.StatusCode)
-	}
-	var resEntry1 TimelineEntry
-	json.NewDecoder(resp.Body).Decode(&resEntry1)
+	t.Run("Test forbidden request with engineer role", func(t *testing.T) {
+		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/incidents/INC-1/entries", bytes.NewReader(bodyRaw))
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+engineerTokenSigned)
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if resp.StatusCode != http.StatusForbidden {
+			t.Fatalf("status code expected %v, got %v", http.StatusForbidden, resp.StatusCode)
+		}
+	})
 
-	if resEntry1.ID != "TLE-1" {
-		t.Fatalf("entry ID expected %v, got %v", "TLE-1", resEntry1.ID)
-	}
-	if resEntry1.Type != OBSERVATION {
-		t.Fatalf("entry type expected %v, got %v", OBSERVATION, resEntry1.Type)
-	}
+	t.Run("Test normal request with admin role", func(t *testing.T) {
+		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/incidents/INC-1/entries", bytes.NewReader(bodyRaw))
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+adminTokenSigned)
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if resp.StatusCode != http.StatusCreated {
+			t.Fatalf("status code expected %v, got %v", http.StatusCreated, resp.StatusCode)
+		}
+		var resEntry1 TimelineEntry
+		json.NewDecoder(resp.Body).Decode(&resEntry1)
 
-	// Websocket Response
-	_, msgRaw, err := conn.ReadMessage()
-	if err != nil {
-		t.Fatalf("Expected no error, get %v", err)
-	}
-	var wsMsg map[string]any
-	json.Unmarshal(msgRaw, &wsMsg)
-	if wsMsg["type"] != "new_entry" {
-		t.Fatalf("expected type %v, get %v", "new_entry", wsMsg["type"])
-	}
-	if wsMsg["incident_id"] != "INC-1" {
-		t.Fatalf("expected Incident ID %v, get %v", "INC-1", wsMsg["incident_id"])
-	}
+		if resEntry1.ID != "TLE-1" {
+			t.Fatalf("entry ID expected %v, got %v", "TLE-1", resEntry1.ID)
+		}
+		if resEntry1.Type != OBSERVATION {
+			t.Fatalf("entry type expected %v, got %v", OBSERVATION, resEntry1.Type)
+		}
 
-	entryRaw, err := json.Marshal(wsMsg["entry"])
-	if err != nil {
-		t.Fatalf("Expected no error, got %v", err.Error())
-	}
+		// Websocket Response
+		_, msgRaw, err := conn.ReadMessage()
+		if err != nil {
+			t.Fatalf("Expected no error, get %v", err)
+		}
+		var wsMsg map[string]any
+		json.Unmarshal(msgRaw, &wsMsg)
+		if wsMsg["type"] != "new_entry" {
+			t.Fatalf("expected type %v, get %v", "new_entry", wsMsg["type"])
+		}
+		if wsMsg["incident_id"] != "INC-1" {
+			t.Fatalf("expected Incident ID %v, get %v", "INC-1", wsMsg["incident_id"])
+		}
 
-	var respEntry2 map[string]string
-	json.Unmarshal(entryRaw, &respEntry2)
+		entryRaw, err := json.Marshal(wsMsg["entry"])
+		if err != nil {
+			t.Fatalf("Expected no error, got %v", err.Error())
+		}
 
-	if respEntry2["author"] != "tom" {
-		t.Fatalf("author expected %v, get %v", "tom", respEntry2["author"])
-	}
-	if respEntry2["type"] != OBSERVATION {
-		t.Fatalf("type expected %v, get %v", OBSERVATION, respEntry2["type"])
-	}
+		var respEntry2 map[string]string
+		json.Unmarshal(entryRaw, &respEntry2)
+
+		if respEntry2["author"] != "tom" {
+			t.Fatalf("author expected %v, get %v", "tom", respEntry2["author"])
+		}
+		if respEntry2["type"] != OBSERVATION {
+			t.Fatalf("type expected %v, get %v", OBSERVATION, respEntry2["type"])
+		}
+	})
+
 }
 
 func TestUpdateIncident(t *testing.T) {
-	srv := newTestServer(t)
+	srv, engineerTokenSigned, adminTokenSigned := newTestServer(t)
 	defer srv.Close()
 
-	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/incidents/INC-1/ws"
-	conn, _, err := websocket.DefaultDialer.Dial(wsURL, nil)
+	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/api/incidents/INC-1/ws"
+	header := http.Header{}
+	header.Set("Authorization", "Bearer "+engineerTokenSigned)
+	conn, _, err := websocket.DefaultDialer.Dial(wsURL, header)
 	if err != nil {
 		t.Fatalf("expected no error, get error %v", err.Error())
 	}
@@ -308,44 +366,62 @@ func TestUpdateIncident(t *testing.T) {
 	bodyRaw, _ := json.Marshal(incidentUpdate)
 
 	// HTTP Respsone
-	req, err := http.NewRequest(http.MethodPatch, srv.URL+"/incidents/INC-1", bytes.NewReader(bodyRaw))
-	req.Header.Set("Content-Type", "application/json")
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if resp.StatusCode != http.StatusNoContent {
-		t.Fatalf("status code expected %v, got %v", http.StatusNoContent, resp.StatusCode)
-	}
+	t.Run("test with engineer role", func(t *testing.T) {
+		req, err := http.NewRequest(http.MethodPatch, srv.URL+"/api/incidents/INC-1", bytes.NewReader(bodyRaw))
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+engineerTokenSigned)
+		req.Header.Set("Content-Type", "application/json")
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if resp.StatusCode != http.StatusForbidden {
+			t.Fatalf("status code expected %v, got %v", http.StatusForbidden, resp.StatusCode)
+		}
+	})
+	t.Run("test with admin role", func(t *testing.T) {
 
-	// Websocket Response
-	_, msgRaw, err := conn.ReadMessage()
-	if err != nil {
-		t.Fatalf("Expected no error, get %v", err)
-	}
-	var wsMsg map[string]any
-	json.Unmarshal(msgRaw, &wsMsg)
-	if wsMsg["type"] != "incident_updated" {
-		t.Fatalf("expected type %v, get %v", "incident_updated", wsMsg["type"])
-	}
+		req, err := http.NewRequest(http.MethodPatch, srv.URL+"/api/incidents/INC-1", bytes.NewReader(bodyRaw))
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+adminTokenSigned)
+		req.Header.Set("Content-Type", "application/json")
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if resp.StatusCode != http.StatusNoContent {
+			t.Fatalf("status code expected %v, got %v", http.StatusNoContent, resp.StatusCode)
+		}
 
-	incidentRaw, err := json.Marshal(wsMsg["incident"])
-	if err != nil {
-		t.Fatalf("Expected no error, got %v", err.Error())
-	}
+		// Websocket Response
+		_, msgRaw, err := conn.ReadMessage()
+		if err != nil {
+			t.Fatalf("Expected no error, get %v", err)
+		}
+		var wsMsg map[string]any
+		json.Unmarshal(msgRaw, &wsMsg)
+		if wsMsg["type"] != "incident_updated" {
+			t.Fatalf("expected type %v, get %v", "incident_updated", wsMsg["type"])
+		}
 
-	var resIncident map[string]string
-	json.Unmarshal(incidentRaw, &resIncident)
+		incidentRaw, err := json.Marshal(wsMsg["incident"])
+		if err != nil {
+			t.Fatalf("Expected no error, got %v", err.Error())
+		}
 
-	if resIncident["id"] != "INC-1" {
-		t.Fatalf("expected Incident ID %v, get %v", "INC-1", wsMsg["incident_id"])
-	}
-	if resIncident["status"] != RESOLVED {
-		t.Fatalf("author expected %v, get %v", RESOLVED, resIncident["status"])
-	}
-	if resIncident["severity"] != "SEV2" {
-		t.Fatalf("type expected %v, get %v", "SEV2", resIncident["severity"])
-	}
+		var resIncident map[string]string
+		json.Unmarshal(incidentRaw, &resIncident)
+
+		if resIncident["id"] != "INC-1" {
+			t.Fatalf("expected Incident ID %v, get %v", "INC-1", wsMsg["incident_id"])
+		}
+		if resIncident["status"] != RESOLVED {
+			t.Fatalf("author expected %v, get %v", RESOLVED, resIncident["status"])
+		}
+		if resIncident["severity"] != "SEV2" {
+			t.Fatalf("type expected %v, get %v", "SEV2", resIncident["severity"])
+		}
+	})
 }
 
 func TestGetHandoffBrief(t *testing.T) {
@@ -357,15 +433,15 @@ func TestGetHandoffBrief(t *testing.T) {
 	req := httptest.NewRequest("GET", "/incidents/INC-1/handoff?user_id=tom", nil)
 	req.SetPathValue("id", "INC-1")
 
-	res, err := handler.GetHandoffBrief(req)
-	if err != nil {
-		t.Fatalf("expected no error, get %v", err.Error())
+	appRes, appErr := handler.GetHandoffBrief(req)
+	if appErr != nil {
+		t.Fatalf("expected no error, get %v", appErr.Error())
 	}
-	if res.Status != http.StatusOK {
-		t.Fatalf("expected status %v, get %v", http.StatusOK, res.Status)
+	if appRes.Status != http.StatusOK {
+		t.Fatalf("expected status %v, get %v", http.StatusOK, appRes.Status)
 	}
 
-	bodyRaw, err := json.Marshal(res.Body)
+	bodyRaw, err := json.Marshal(appRes.Body)
 	if err != nil {
 		t.Fatalf("expected not nil, get %v", err.Error())
 	}

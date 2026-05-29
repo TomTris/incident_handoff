@@ -17,7 +17,7 @@ func runStoreContractsTests(t *testing.T, makeStore func(t *testing.T) IncidentS
 func TestIncidentStoreCreateIncident(t *testing.T, makeStore func(t *testing.T) IncidentStore) {
 	m := makeStore(t)
 
-	t.Run("defaults OnCall to OpenedBy", func(t *testing.T) {
+	t.Run("normal creation", func(t *testing.T) {
 		inc, err := m.CreateIncident(context.Background(), CreateIncidentRequest{
 			Title:    "outage",
 			Service:  "api",
@@ -27,25 +27,8 @@ func TestIncidentStoreCreateIncident(t *testing.T, makeStore func(t *testing.T) 
 		if err != nil {
 			t.Fatal(err)
 		}
-		if inc.OnCall != "anh" {
-			t.Errorf("Oncall expected `anh`, got `%s`", inc.OnCall)
-		}
-	})
-
-	t.Run("uses explicit OnCall", func(t *testing.T) {
-		onCall := "tom"
-		inc, err := m.CreateIncident(context.Background(), CreateIncidentRequest{
-			Title:    "outage2",
-			Service:  "api",
-			Severity: "SEV1",
-			OpenedBy: "anh",
-			OnCall:   &onCall,
-		})
-		if err != nil {
-			t.Fatal(err)
-		}
-		if inc.OnCall != onCall {
-			t.Errorf("Oncall expected `%s`, got `%s`", onCall, inc.OnCall)
+		if inc.Title != "outage" {
+			t.Errorf("Title expected `outage`, got `%s`", inc.Title)
 		}
 	})
 
@@ -254,10 +237,10 @@ func TestIncidentStoreListIncidents(t *testing.T, makeStore func(t *testing.T) I
 		Title: "a", Service: "api", Severity: "SEV1", OpenedBy: "x",
 	})
 	m.CreateIncident(context.Background(), CreateIncidentRequest{
-		Title: "b", Service: "chatbot", Severity: "SEV2", OpenedBy: "x", OnCall: new("anh"),
+		Title: "b", Service: "chatbot", Severity: "SEV2", OpenedBy: "x",
 	})
 	m.CreateIncident(context.Background(), CreateIncidentRequest{
-		Title: "c", Service: "biling", Severity: "SEV1", OpenedBy: "y", OnCall: new("anh"),
+		Title: "c", Service: "biling", Severity: "SEV1", OpenedBy: "y",
 	})
 	m.CreateIncident(context.Background(), CreateIncidentRequest{
 		Title: "d", Service: "api", Severity: "SEV3", OpenedBy: "z",

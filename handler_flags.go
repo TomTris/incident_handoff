@@ -10,7 +10,7 @@ type FlagHandler struct {
 	store FlagStore
 }
 
-func (flagHandler *FlagHandler) CreateFlag(r *http.Request) (*AppResponse, error) {
+func (flagHandler *FlagHandler) CreateFlag(r *http.Request) (*AppResponse, *AppError) {
 	f := FeatureFlag{}
 	if err := json.NewDecoder(r.Body).Decode(&f); err != nil {
 		return nil, BadRequest(err)
@@ -28,7 +28,7 @@ func (flagHandler *FlagHandler) CreateFlag(r *http.Request) (*AppResponse, error
 	return newAppResponse(http.StatusCreated, f), nil
 }
 
-func (flagHandler *FlagHandler) UpdateFlag(r *http.Request) (*AppResponse, error) {
+func (flagHandler *FlagHandler) UpdateFlag(r *http.Request) (*AppResponse, *AppError) {
 	u := FeatureFlagUpdate{}
 	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
 		return nil, BadRequest(err)
@@ -48,7 +48,7 @@ func (flagHandler *FlagHandler) UpdateFlag(r *http.Request) (*AppResponse, error
 	return newAppResponse(http.StatusNoContent, nil), nil
 }
 
-func (flagHandler *FlagHandler) ListAllFlag(r *http.Request) (*AppResponse, error) {
+func (flagHandler *FlagHandler) ListAllFlag(r *http.Request) (*AppResponse, *AppError) {
 	allFlags, err := flagHandler.store.AllFlags()
 	if err != nil {
 		return nil, InternalServerError(err)
@@ -56,7 +56,7 @@ func (flagHandler *FlagHandler) ListAllFlag(r *http.Request) (*AppResponse, erro
 	return newAppResponse(http.StatusOK, allFlags), nil
 }
 
-func (flagHandler *FlagHandler) Evaluate(r *http.Request) (*AppResponse, error) {
+func (flagHandler *FlagHandler) Evaluate(r *http.Request) (*AppResponse, *AppError) {
 	flagName := r.PathValue("name")
 	userID := r.URL.Query().Get("user_id")
 

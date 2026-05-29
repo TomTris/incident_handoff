@@ -30,7 +30,7 @@ func (m *MemoryIncidentStore) CreateIncident(ctx context.Context, req CreateInci
 		Service:   req.Service,
 		Severity:  req.Severity,
 		OpenedBy:  req.OpenedBy,
-		OnCall:    derefOrDefault(req.OnCall, req.OpenedBy),
+		OnCall:    req.OnCall,
 		Status:    TRIGGERED,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),

@@ -8,8 +8,10 @@ import (
 	"net"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 )
 
@@ -123,25 +125,76 @@ func RequestIDMiddleware(nextHandler http.Handler) http.Handler {
 	})
 }
 
-func ResponseMiddleware(next func(*http.Request) (*AppResponse, error)) http.HandlerFunc {
+func AuthMiddleware(JWT_SECRET []byte) func(http.Handler) http.Handler {
+	return func(nextHandler http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			auth := r.Header.Get("Authorization")
+			if strings.HasPrefix(auth, "Bearer ") == false {
+				writeError(w, http.StatusUnauthorized, ErrorMessageJSON{
+					ErrorCode: "NO_AUTHENTICATION_HEADER",
+					Message:   "Bearer not found",
+					RequestID: r.Context().Value(requestIDKey).(string),
+				})
+				return
+			}
+
+			claims := CustomClaims{}
+			tokenRaw := strings.TrimPrefix(auth, "Bearer ")
+			token, err := jwt.ParseWithClaims(tokenRaw, &claims, func(t *jwt.Token) (any, error) {
+				if t.Method.Alg() != jwt.SigningMethodHS256.Alg() {
+					return nil, errors.New("unexpected signing method")
+				}
+				return JWT_SECRET, nil
+			})
+
+			if err != nil || token.Valid == false {
+				msg := "jwt invalid"
+				if err != nil {
+					msg = err.Error()
+				}
+
+				writeError(w, http.StatusUnauthorized, ErrorMessageJSON{
+					ErrorCode: "BAD_JWT_TOKEN",
+					Message:   msg,
+					RequestID: r.Context().Value(requestIDKey).(string),
+				})
+				return
+			}
+
+			ctx := context.WithValue(r.Context(), userContextKey, UserContext{
+				ID:       claims.Subject,
+				Username: claims.Username,
+				Role:     claims.Role,
+			})
+			nextHandler.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
+}
+
+func AuthAdminOnlyMiddleware(next func(*http.Request) (*AppResponse, *AppError)) func(*http.Request) (*AppResponse, *AppError) {
+	return func(r *http.Request) (*AppResponse, *AppError) {
+		user := r.Context().Value(userContextKey).(UserContext)
+		if user.Role != "admin" {
+			return nil, &AppError{
+				Status: http.StatusForbidden,
+				Code:   "FORBIDDEN",
+				Err:    errors.New("admin only"),
+			}
+		}
+		return next(r)
+	}
+}
+
+func ResponseMiddleware(next func(*http.Request) (*AppResponse, *AppError)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		requestID := r.Context().Value(requestIDKey).(string)
-		res, err := next(r)
-		if err != nil {
-			var appErr *AppError
-			if errors.As(err, &appErr) {
-				writeError(w, appErr.Status, ErrorMessageJSON{
-					ErrorCode: appErr.Code,
-					Message:   appErr.Err.Error(),
-					RequestID: requestID,
-				})
-			} else {
-				writeError(w, http.StatusInternalServerError, ErrorMessageJSON{
-					ErrorCode: "INTERNAL_SERVER_ERROR",
-					Message:   "Error Type not detected",
-					RequestID: requestID,
-				})
-			}
+		res, appErr := next(r)
+		if appErr != nil {
+			writeError(w, appErr.Status, ErrorMessageJSON{
+				ErrorCode: appErr.Code,
+				Message:   appErr.Err.Error(),
+				RequestID: requestID,
+			})
 			return
 		}
 		writeJSON(w, res.Status, requestID, res.Body)
