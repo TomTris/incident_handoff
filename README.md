@@ -10,6 +10,7 @@ Handoff captures timestamped actions as the engineer works and generates a struc
 - [x] Phase 3 — WebSocket & Real-Time
 - [x] Phase 4 — Observability & Feature Flags
 - [x] Phase 5 — Authentication
+- [ ] Phase 6.0 — Frontend Basic
 - [ ] Phase 6 — TypeScript + Vue.js
 - [ ] Phase 7 — Full Handoff Frontend
 - [ ] Phase 8 — Testing
