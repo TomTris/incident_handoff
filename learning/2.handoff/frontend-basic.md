@@ -60,10 +60,10 @@ The smallest vertical slice that still exercises every foundation: **log in, the
 Build two responsive screens, no JavaScript: (1) a login screen — header, centered form with username/password inputs using native `required` validation, submit button; (2) an incident-list screen — header bar and a list of 4–5 hardcoded incident cards (severity badge, title, timestamp, status).
 
 **Gate**
-- [ ] Layout uses flexbox/grid, not positioning hacks.
-- [ ] No overflow or overlap at 375px width.
-- [ ] Semantic HTML — `<form>`/`<label>`/`<input>` and `<ul>`/`<li>`, not `div` soup.
-- [ ] You can explain `margin` vs `padding` and `rem` vs `px` unprompted.
+- [x] Layout uses flexbox/grid, not positioning hacks.
+- [x] No overflow or overlap at 375px width.
+- [x] Semantic HTML — `<form>`/`<label>`/`<input>` and `<ul>`/`<li>`, not `div` soup.
+- [x] You can explain `margin` vs `padding` and `rem` vs `px` unprompted.
 
 ### F2 — Incident-array logic
 A pure-logic program over a hardcoded array of incident objects (`{ id, severity, status, title, createdAt, resolvedAt }`) shaped like your real incidents: count by severity, count open vs resolved, the list filtered to open, the list sorted by severity then recency. Array methods only. Node or browser console. No DOM.

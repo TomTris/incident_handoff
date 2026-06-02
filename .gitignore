@@ -4,3 +4,5 @@ curriculum*
 cover.out
 *.env
 *abc.txt
+
+frontend/**/node_modules
