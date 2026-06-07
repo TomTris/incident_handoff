@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,36 +13,27 @@
             <legend>Create Incident</legend>
             <label>
                 Title
-                <input id="title" type="text" required>
+                <input id="incident-title" type="text" required>
             </label>
             <label>
                 Service
-                <input id="service" type="text" required>
+                <input id="incident-service" type="text" required>
             </label>
             <label>
                 Severity
-                <input id="severity" type="text" required>
+                <input id="incident-severity" type="text" required>
             </label>
+            <div id="error-message" style="display: none; color: red;"></div>
             <button type="submit">Create Incident</button>
         </form>
-        <fieldset>
-            <legend>Filter by status</legend>
-            <label>
-                <input type="radio" name="status" value="all" checked> All
-            </label>
-            <label>
-                <input type="radio" name="status" value="open"> Open
-            </label>
-            <label>
-                <input type="radio" name="status" value="resolved"> Resolved
-            </label>
-        </fieldset>
         <ul id="incident-list">
         </ul>
         <button id="logout" onclick="logout()">logout</button>
     </body>
     <script>
-        incidents = []
+        var incidents = []
+        const ul = document.querySelector("#incident-list")
+        
         async function loadIncidents() {
             const res = await fetch("/api/incidents", {
                 credentials: "include"
@@ -49,33 +41,23 @@
             if (!res.ok) {
                 alert(res.error)
             }
-            console.log(await res.json())
+            incidents = await res.json()
         }
 
-        const filteredOpen = (incidents) => incidents.filter(inc => inc.resolvedAt === null)
-        const filteredResolve = (incident) => incidents.filter(inc => inc.resolvedAt !== null)
-        const radios = document.querySelectorAll('input[name="status"]')
-        const ul = document.querySelector("#incident-list")
         function render() {
             ul.innerHTML = ""
-            
-            let toRender = incidents
-            const selected = document.querySelector('input[name="status"]:checked').value;
-            if (selected === "open") {
-                toRender = filteredOpen(incidents)
-            } else if (selected === "resolved") {
-                toRender = filteredResolve(incidents)
-            }
-
-            toRender.forEach(inc => {
+            incidents.forEach(inc => {
+                const date = new Date(inc.created_at);
+                const formatted = date.toISOString().slice(5, 16).replace('T', ' ');
                 const li = document.createElement("li")
                 li.innerHTML = `<span class=${inc.severity}>${inc.severity}</span>
                 <h3>${inc.title}</h3>
-                <p>${inc.createdAt}</p>
-                <p>Status: ${inc.resolvedAt === null ? "Open" : "Resolved"}</p>`
+                <p>${formatted}</p>
+                <p>Status: ${inc.status}</p>`
                 ul.appendChild(li)
             })
         }
+        
         async function logout() {
             await fetch("/api/auth/logout", {
                 method: "POST",
@@ -83,24 +65,42 @@
             })
             window.location.href = "/login.html"
         }
-
-        async function createIncident() {
-            res = await fetch("/api/incidents", {
-                method: "POST",
-                credentials: "include"
-            })
-            console.log(await res.json())
+        async function createIncident(title, service, severity) {
+            const errorDiv = document.getElementById("error-message");
+            try {
+                res = await fetch("/api/incidents", {
+                    method: "POST",
+                    credentials: "include",
+                    body: JSON.stringify({ title, service, severity }),
+                })
+                const data = await res.json();
+                if (!res.ok) {
+                    const errorCode = data.error.code;
+                    const message = data.error.message;
+                    throw new Error(`${errorCode}: ${message}`);
+                }
+                await refreshIncidents()
+            } catch (err) {
+                errorDiv.textContent = err.message;
+                errorDiv.style.display = "block";
+            }
         }
 
-        
-        radios.forEach(radio => radio.addEventListener("change", render));
+
         const form = document.getElementById("add-incident-form");
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            createIncident()
+            const title = document.getElementById("incident-title").value;
+            const service = document.getElementById("incident-service").value;
+            const severity = document.getElementById("incident-severity").value;
+            createIncident(title, service, severity)
         })
-        
-        loadIncidents()
-        render()
+
+        async function refreshIncidents() {
+            await loadIncidents()
+            await render()
+        }
+
+        refreshIncidents()
     </script>
 </html>
