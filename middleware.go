@@ -8,7 +8,6 @@ import (
 	"net"
 	"net/http"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -49,15 +48,6 @@ func TimeoutMiddleware(nextHandler http.Handler) http.Handler {
 		ctx, cancel := context.WithTimeout(r.Context(), timeout)
 		defer cancel()
 		nextHandler.ServeHTTP(w, r.WithContext(ctx))
-	})
-}
-
-func CORSMiddleware(nextHandler http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Method", "GET, POST, PATCH, DELETE")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-type, Authorization")
-		nextHandler.ServeHTTP(w, r)
 	})
 }
 
@@ -128,19 +118,18 @@ func RequestIDMiddleware(nextHandler http.Handler) http.Handler {
 func AuthMiddleware(JWT_SECRET []byte) func(http.Handler) http.Handler {
 	return func(nextHandler http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			auth := r.Header.Get("Authorization")
-			if strings.HasPrefix(auth, "Bearer ") == false {
+			cookie, err := r.Cookie("access_token")
+			if err != nil {
 				writeError(w, http.StatusUnauthorized, ErrorMessageJSON{
-					ErrorCode: "NO_AUTHENTICATION_HEADER",
-					Message:   "Bearer not found",
+					ErrorCode: "NO_AUTH_COOKIE",
+					Message:   "access_token cookie not found",
 					RequestID: r.Context().Value(requestIDKey).(string),
 				})
 				return
 			}
 
 			claims := CustomClaims{}
-			tokenRaw := strings.TrimPrefix(auth, "Bearer ")
-			token, err := jwt.ParseWithClaims(tokenRaw, &claims, func(t *jwt.Token) (any, error) {
+			token, err := jwt.ParseWithClaims(cookie.Value, &claims, func(t *jwt.Token) (any, error) {
 				if t.Method.Alg() != jwt.SigningMethodHS256.Alg() {
 					return nil, errors.New("unexpected signing method")
 				}

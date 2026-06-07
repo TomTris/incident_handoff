@@ -5,7 +5,9 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"net/http/cookiejar"
 	"net/http/httptest"
+	"net/url"
 	"strings"
 	"testing"
 	"time"
@@ -264,9 +266,11 @@ func TestAddEntry(t *testing.T) {
 	defer srv.Close()
 
 	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/api/incidents/INC-1/ws"
-	header := http.Header{}
-	header.Set("Authorization", "Bearer "+engineerTokenSigned)
-	conn, _, err := websocket.DefaultDialer.Dial(wsURL, header)
+	jar, _ := cookiejar.New(nil)
+	srvURL, _ := url.Parse(srv.URL)
+	jar.SetCookies(srvURL, []*http.Cookie{{Name: "access_token", Value: engineerTokenSigned}})
+	dialer := websocket.Dialer{Jar: jar}
+	conn, _, err := dialer.Dial(wsURL, nil)
 	if err != nil {
 		t.Fatalf("expected no error, get error %v", err.Error())
 	}
@@ -283,7 +287,7 @@ func TestAddEntry(t *testing.T) {
 	t.Run("Test forbidden request with engineer role", func(t *testing.T) {
 		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/incidents/INC-1/entries", bytes.NewReader(bodyRaw))
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+engineerTokenSigned)
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: engineerTokenSigned})
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
 			t.Fatal(err)
@@ -296,7 +300,7 @@ func TestAddEntry(t *testing.T) {
 	t.Run("Test normal request with admin role", func(t *testing.T) {
 		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/incidents/INC-1/entries", bytes.NewReader(bodyRaw))
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+adminTokenSigned)
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: adminTokenSigned})
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
 			t.Fatal(err)
@@ -351,9 +355,11 @@ func TestUpdateIncident(t *testing.T) {
 	defer srv.Close()
 
 	wsURL := "ws" + strings.TrimPrefix(srv.URL, "http") + "/api/incidents/INC-1/ws"
-	header := http.Header{}
-	header.Set("Authorization", "Bearer "+engineerTokenSigned)
-	conn, _, err := websocket.DefaultDialer.Dial(wsURL, header)
+	jar, _ := cookiejar.New(nil)
+	srvURL, _ := url.Parse(srv.URL)
+	jar.SetCookies(srvURL, []*http.Cookie{{Name: "access_token", Value: engineerTokenSigned}})
+	dialer := websocket.Dialer{Jar: jar}
+	conn, _, err := dialer.Dial(wsURL, nil)
 	if err != nil {
 		t.Fatalf("expected no error, get error %v", err.Error())
 	}
@@ -369,7 +375,7 @@ func TestUpdateIncident(t *testing.T) {
 	t.Run("test with engineer role", func(t *testing.T) {
 		req, err := http.NewRequest(http.MethodPatch, srv.URL+"/api/incidents/INC-1", bytes.NewReader(bodyRaw))
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+engineerTokenSigned)
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: engineerTokenSigned})
 		req.Header.Set("Content-Type", "application/json")
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
@@ -383,7 +389,7 @@ func TestUpdateIncident(t *testing.T) {
 
 		req, err := http.NewRequest(http.MethodPatch, srv.URL+"/api/incidents/INC-1", bytes.NewReader(bodyRaw))
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+adminTokenSigned)
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: adminTokenSigned})
 		req.Header.Set("Content-Type", "application/json")
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {

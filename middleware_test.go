@@ -33,28 +33,6 @@ func TestRequestIDMiddleware(t *testing.T) {
 	}
 }
 
-func TestCORSMiddleware(t *testing.T) {
-	inner := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-	})
-	rec := httptest.NewRecorder()
-	req := httptest.NewRequest("GET", "/", nil)
-	CORSMiddleware(inner).ServeHTTP(rec, req)
-
-	if rec.Code != http.StatusOK {
-		t.Fatalf("status expected %v, got %v", http.StatusOK, rec.Code)
-	}
-	if rec.Header().Get("Access-Control-Allow-Origin") != "*" {
-		t.Fatalf("Header expected %v, got %v", "*", rec.Header().Get("Access-Control-Allow-Origin"))
-	}
-	if rec.Header().Get("Access-Control-Allow-Method") != "GET, POST, PATCH, DELETE" {
-		t.Fatalf("Header expected %v, got %v", "GET, POST, PATCH, DELETE", rec.Header().Get("Access-Control-Allow-Method"))
-	}
-	if rec.Header().Get("Access-Control-Allow-Headers") != "Content-type, Authorization" {
-		t.Fatalf("Header expected %v, got %v", "Content-type, Authorization", rec.Header().Get("Access-Control-Allow-Headers"))
-	}
-}
-
 func TestTimeoutMiddleware(t *testing.T) {
 	var gotDeadline bool
 	inner := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -227,7 +205,7 @@ func TestAuthMiddleware(t *testing.T) {
 		w.WriteHeader(http.StatusOK)
 	})
 
-	t.Run("no Bearer in Authentication Header", func(t *testing.T) {
+	t.Run("no access_token in Cookie", func(t *testing.T) {
 		rec := httptest.NewRecorder()
 		req := httptest.NewRequest("GET", "/", nil)
 		ctx := req.Context()
@@ -239,18 +217,18 @@ func TestAuthMiddleware(t *testing.T) {
 		}
 		var res map[string]map[string]string
 		json.NewDecoder(rec.Body).Decode(&res)
-		if res["error"]["code"] != "NO_AUTHENTICATION_HEADER" {
-			t.Fatalf("expect error with code %v, get %v", "NO_AUTHENTICATION_HEADER", res["error"]["code"])
+		if res["error"]["code"] != "NO_AUTH_COOKIE" {
+			t.Fatalf("expect error with code %v, get %v", "NO_AUTH_COOKIE", res["error"]["code"])
 		}
 	})
 
-	t.Run("Bearer in Authentication Header", func(t *testing.T) {
+	t.Run("access_token in Cookie", func(t *testing.T) {
 		rec := httptest.NewRecorder()
 		req := httptest.NewRequest("GET", "/", nil)
 		ctx := req.Context()
 		ctx = context.WithValue(ctx, requestIDKey, testRequestID)
 		tokenSigned, _ := IssueToken(user, []byte(secret), ttl, now)
-		req.Header.Set("Authorization", "Bearer "+tokenSigned)
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: tokenSigned})
 		AuthMiddleware([]byte(secret))(inner).ServeHTTP(rec, req.WithContext(ctx))
 
 		if rec.Code != http.StatusOK {
@@ -259,13 +237,13 @@ func TestAuthMiddleware(t *testing.T) {
 			t.Errorf("expect error code %v, get %v, reason $%v$", http.StatusOK, rec.Code, res["error"]["code"])
 		}
 	})
-	t.Run("fake JWT in Header", func(t *testing.T) {
+	t.Run("fake JWT in access_token", func(t *testing.T) {
 		rec := httptest.NewRecorder()
 		req := httptest.NewRequest("GET", "/", nil)
 		ctx := req.Context()
 		ctx = context.WithValue(ctx, requestIDKey, testRequestID)
-		tokenSigned := "fake-jwts"
-		req.Header.Set("Authorization", "Bearer "+tokenSigned)
+		fakeTokenSigned := "fake-jwts"
+		req.AddCookie(&http.Cookie{Name: "access_token", Value: fakeTokenSigned})
 		AuthMiddleware([]byte(secret))(inner).ServeHTTP(rec, req.WithContext(ctx))
 
 		if rec.Code != http.StatusUnauthorized {

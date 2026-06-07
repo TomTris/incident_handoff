@@ -27,7 +27,8 @@ func getRouter(
 	protected.HandleFunc("GET /incidents/{id}/handoff", ResponseMiddleware(incHandler.GetHandoffBrief))
 	protected.HandleFunc("PATCH /incidents/{id}", ResponseMiddleware(incHandler.UpdateIncident))
 	// auth
-	protected.HandleFunc("GET/auth/me", ResponseMiddleware(authHandler.WhoAmI))
+	protected.HandleFunc("GET /auth/me", ResponseMiddleware(authHandler.WhoAmI))
+	protected.HandleFunc("GET /auth/logout", authHandler.LogoutHandler)
 	// WebsocketHandler
 	protected.HandleFunc("GET /incidents/{id}/ws", incHandler.HandleIncidentWebSocket)
 
@@ -45,7 +46,11 @@ func getRouter(
 	public.Handle("GET /metrics", promhttp.HandlerFor(promRegistry, promhttp.HandlerOpts{Registry: promRegistry}))
 	public.HandleFunc("GET /healthz", healthCheck)
 	public.HandleFunc("GET /readyz", readyCheck(mongoClient))
+	public.HandleFunc("GET /login", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./frontend/vanilla/login.html")
+	})
 	public.HandleFunc("POST /login", authHandler.LoginHandler)
+	public.Handle("GET /", http.FileServer(http.Dir("./frontend/vanilla")))
 
 	root := http.NewServeMux()
 	authMW := AuthMiddleware(authHandler.Secret)
@@ -53,6 +58,6 @@ func getRouter(
 	root.Handle("/admin/", http.StripPrefix("/admin", authMW(admin)))
 	root.Handle("/", public)
 
-	router := RequestIDMiddleware(ObservabilityMiddleware(httpMetrics)(CORSMiddleware(TimeoutMiddleware(root))))
+	router := RequestIDMiddleware(ObservabilityMiddleware(httpMetrics)(TimeoutMiddleware(root)))
 	return router
 }

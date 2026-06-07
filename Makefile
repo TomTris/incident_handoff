@@ -1,5 +1,5 @@
 run:
-	go run .
+	JWT_SECRET=Dap7IWYkO2Dq0yRxlJnHUBTi7OM7D3liOkhswob6poY= go run .
 
 env:
 	go run .

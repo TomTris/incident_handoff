@@ -1,3 +1,5 @@
+Note: This curriculum is not evaluated yet.
+
 # PART 2 — Backend Service (Phases 5–9)
 
 This track builds Handoff's backend: a production-grade Go API with database persistence, WebSocket, authentication, observability, and feature flags. By the end, the backend is complete, tested, and instrumented.

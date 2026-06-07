@@ -8,16 +8,46 @@
     </head>
     <body>
         <h1>Incident Handoff</h1>
-        <form>
+        <div id="error-message" style="display: none; color: red;"></div>
+        <form id="login-form">
             <label>
                 Username
-                <input type="text" required>
+                <input id="username" type="text" required>
             </label>
             <label>
                 Password
-                <input type="password" required>
+                <input id="password" type="password" required>
             </label>
             <button type="submit">Authenticate</button>
         </form>
     </body>
+    <script>
+        async function login(username, password) {
+            const errorDiv = document.getElementById("error-message");
+            try {
+                const res = await fetch("/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password }),
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    const errorCode = data.error.code;
+                    const message = data.error.message;
+                    throw new Error(`${errorCode}: ${message}`);
+                }
+                console.log(res)
+            } catch (err) {
+                errorDiv.textContent = err.message;
+                errorDiv.style.display = "block";
+            }
+        }
+        const form = document.getElementById("login-form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            login(username, password);
+        });
+    </script>
 </html>

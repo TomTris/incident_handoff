@@ -3,7 +3,7 @@
 ## What is this folder?
 A challenge-based curriculum for building production-grade full-stack services. You learn by shipping — not by reading slides.
 
-Every phase from Phase 5 onward builds **Handoff** — an on-call incident handoff platform. The curriculum and the project are the same thing. See here [`fullstack-engineering-curriculum.md`](./fullstack-engineering-curriculum.md)
+Every phase from Phase 5 onward builds **Handoff** — an on-call incident handoff platform. The curriculum and the project are the same thing. See here [`fullstack-engineering-curriculum.md`](./fullstack-engineering-curriculum.md). Note: This curriculum (from phase 5 onwards is not evaluated yet).
 
 ## Repository Structure
 

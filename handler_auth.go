@@ -73,6 +73,19 @@ func (h *AuthHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, requestID, map[string]string{"status": "ok"})
 }
 
+func (h *AuthHandler) LogoutHandler(w http.ResponseWriter, r *http.Request) {
+	requestID, _ := r.Context().Value(requestIDKey).(string)
+	http.SetCookie(w, &http.Cookie{
+		Name:     "access_token",
+		Value:    "",
+		Path:     "/",
+		MaxAge:   -1,
+		Secure:   true,
+		HttpOnly: true,
+		SameSite: http.SameSiteStrictMode,
+	})
+	writeJSON(w, http.StatusOK, requestID, map[string]string{"status": "ok"})
+}
 func (h *AuthHandler) WhoAmI(r *http.Request) (*AppResponse, *AppError) {
 	claims := r.Context().Value(userContextKey).(UserContext)
 	return newAppResponse(http.StatusOK, claims), nil
