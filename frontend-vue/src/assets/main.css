@@ -31,6 +31,12 @@
 
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
   --font-sans: "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
+
+  --status-triggered:     #f85149;
+  --status-acknowledged:  #d29922;
+  --status-investigating: #58a6ff;
+  --status-mitigated:     #a371f7;
+  --status-resolved:      #3fb950;
 }
 
 /* ---- Reset ---- */
@@ -187,10 +193,37 @@ a {
   color: var(--color-sev3);
 }
 
+.status-triggered {
+  color: var(--status-triggered);
+  background-color: rgba(248, 81, 73, 0.12);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+}
+.status-acknowledged {
+  color: var(--status-acknowledged);
+  background-color: rgba(210, 153, 34, 0.12);
+  border: 1px solid rgba(210, 153, 34, 0.4);
+}
+.status-investigating {
+  color: var(--status-investigating);
+  background-color: rgba(88, 166, 255, 0.12);
+  border: 1px solid rgba(88, 166, 255, 0.4);
+}
+.status-mitigated {
+  color: var(--status-mitigated);
+  background-color: rgba(163, 113, 247, 0.12);
+  border: 1px solid rgba(163, 113, 247, 0.4);
+}
+.status-resolved {
+  color: var(--status-resolved);
+  background-color: rgba(63, 185, 80, 0.12);
+  border: 1px solid rgba(63, 185, 80, 0.4);
+}
+
+
 /* Messages */
 
 .success-message {
-  color: var(--color-success, #4dbf5c);
+  color: var(--color-success, #0cce6b);
   font-size: 13px;
 }
 

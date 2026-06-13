@@ -1,10 +1,12 @@
-<template>
-  <span class="badge" :class="'sev-' + level">{{ level }}</span>
-</template>
+<script setup lang="ts">
+import type { Severity } from '@/types';
 
-<script>
-export default {
-  name: "SeverityBadge",
-  props: { level: { type: String, default: "SEV3" } },
-};
+const props = defineProps<{
+  severity: Severity;
+}>()
+
 </script>
+
+<template>
+  <span class="badge" :class="'sev-' + props.severity">{{ props.severity }}</span>
+</template>

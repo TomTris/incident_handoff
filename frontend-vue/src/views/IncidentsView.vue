@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { createIncident, isAuthenticated, loadIncidents, logout } from '@/api';
-import AddIncidentForm from '@/components/AddIncidentForm.vue';
 import AppHeader from '@/components/AppHeader.vue';
 import IncidentList from '@/components/IncidentList.vue';
 import IncidentListItem from '@/components/IncidentListItem.vue';
 import type { Severity, CreateIncidentRequest, Incident } from '@/types';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 const incidents = ref<Incident[]>([])
 
 async function handleLogout() {
@@ -20,9 +19,19 @@ onMounted(async() => {
   incidents.value = await loadIncidents()
 })
 
-const filterStatus = ref('All')
+const filterStatus = ref('')
 const service = ref('')
+const filteredIncidents = computed(() => {
+  var filteredIncidents = incidents.value
+  if (service.value.trim() != '') {
+    filteredIncidents = incidents.value.filter((inc)=>inc.service.includes(service.value.trim()))
+  }
+  if (filterStatus.value != '') {
+    filteredIncidents = incidents.value.filter((inc)=>inc.status == filterStatus.value)
+  }
 
+  return filteredIncidents
+})
 </script>
 
 <template>
@@ -57,11 +66,10 @@ const service = ref('')
       </div>
 
       <ul class="incident-list">
-        <li v-for="inc in incidents">
+        <li v-for="inc in filteredIncidents">
           <IncidentListItem :key="inc.id" :inc="inc"></IncidentListItem>
         </li>
       </ul>
-
 
 
     </div>
@@ -83,5 +91,12 @@ const service = ref('')
 
 .filter {
   width: 220px;
+}
+
+.incident-list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 </style>
