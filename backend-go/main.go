@@ -58,11 +58,11 @@ func main() {
 	// init metrics
 	promRegistry := prometheus.NewRegistry()
 	httpMetrics := NewHttpMetrics(promRegistry)
-	registryMetric := NewRegistryMetric(promRegistry)
+	metricRegistry := NewMetricRegistry(promRegistry)
 	incidentStoreMetric := NewIncidentStoreMetric(promRegistry)
 
 	// init Registry (Websocket connection)
-	registry := NewRegistry(registryMetric)
+	registry := NewRegistry(metricRegistry)
 	go registry.run()
 	defer close(registry.done)
 

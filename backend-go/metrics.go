@@ -71,7 +71,7 @@ func NewIncidentStoreMetric(promReg *prometheus.Registry) *IncidentStoreMetrics 
 	return &m
 }
 
-func NewRegistryMetric(promReg *prometheus.Registry) *RegistryMetric {
+func NewMetricRegistry(promReg *prometheus.Registry) *RegistryMetric {
 	m := RegistryMetric{}
 	m.wsConnections = prometheus.NewGauge(
 		prometheus.GaugeOpts{

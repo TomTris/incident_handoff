@@ -224,10 +224,10 @@ func newTestServer(t *testing.T) (*httptest.Server, string, string) {
 
 	promRegistry := prometheus.NewRegistry()
 	httpMetrics := NewHttpMetrics(promRegistry)
-	registryMetric := NewRegistryMetric(promRegistry)
+	metricRegistry := NewMetricRegistry(promRegistry)
 	incidentStoreMetric := NewIncidentStoreMetric(promRegistry)
 
-	registry := NewRegistry(registryMetric)
+	registry := NewRegistry(metricRegistry)
 	go registry.run()
 	t.Cleanup(func() { close(registry.done) })
 
