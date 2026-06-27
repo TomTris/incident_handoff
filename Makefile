@@ -12,6 +12,6 @@ test:
 	
 test-race:
 	cd ./backend-go && go test -race -coverprofile=cover.out && go tool cover -html=cover.out
-	
+
 test-ci:
-	./bin/act --container-architecture linux/amd64 -P ubuntu-latest=catthehacker/ubuntu:act-latest
+	./bin/act --container-architecture linux/amd64 -P ubuntu-latest=catthehacker/ubuntu:act-latest -j build
