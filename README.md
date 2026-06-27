@@ -1,3 +1,6 @@
+The project is now [`LIVE`](https://tomtris--incident-handoff--k66vxjf79gbd.code.run/)
+
+
 # Handoff `//`
 
 A full-stack **incident handoff** tool: a Go HTTP backend plus a Vue 3 frontend that turn the messy,
