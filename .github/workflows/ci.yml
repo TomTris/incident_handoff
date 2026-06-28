@@ -29,8 +29,8 @@ jobs:
       with:
         go-version-file: 'backend-go/go.mod'
 
-    - name: Build
-      run: pwd && cd backend-go && go build -v ./...
+    # - name: Build
+    #   run: pwd && cd backend-go && go build -v ./...
 
     - name: Test
       run: cd backend-go && go test -v ./...

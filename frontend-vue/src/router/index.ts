@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { isAuthenticated } from '@/api.ts'
 
-const routesForAuthedOnly : Record<string, boolean> = {
-  "incident-detail" : true,
+const routesForAuthedOnly: Record<string, boolean> = {
+  "incident-detail": true,
   "incidents": true,
   "incidents-new": true,
 }
 
-const routesForUnauthedOnly : Record<string, boolean> = {
-  "log-in" : true,
+const routesForUnauthedOnly: Record<string, boolean> = {
+  "log-in": true,
 }
 
-const publicRoutes : Record<string, boolean> = {
-  "trial-accounts" : true,
-  "sandbox" : true,
+const publicRoutes: Record<string, boolean> = {
+  "trial-accounts": true,
+  "sandbox": true,
 }
 
 const router = createRouter({
@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: '/entry',
       name: 'entry',
-      component: () => {},
+      component: () => { },
     },
     {
       path: '/incident-detail/:id',
@@ -69,16 +69,16 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   if (typeof to.name === "string") {
-  
+
     const authed = await isAuthenticated()
     if (to.name == "entry") {
-      return authed == true ? {name:"incidents"} : {name:"log-in"}
+      return authed == true ? { name: "incidents" } : { name: "log-in" }
     }
     if (authed && routesForUnauthedOnly[to.name]) {
-      return {name:"incidents"}
+      return { name: "incidents" }
     }
     if (!authed && routesForAuthedOnly[to.name]) {
-      return {name:"log-in"}
+      return { name: "log-in" }
     }
   }
 })

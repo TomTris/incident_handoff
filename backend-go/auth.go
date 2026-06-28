@@ -15,6 +15,15 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+type UserRole string
+
+const (
+	EngineerRole UserRole = "engineer"
+	AdminRole    UserRole = "admin"
+)
+
+const DefaultAdminToken string = "adminTokenIncidentHandoff"
+
 type User struct {
 	ID       string `json:"id"`
 	Username string `json:"username"`
@@ -70,8 +79,10 @@ func IssueToken(user User, secret []byte, ttl time.Duration, now time.Time) (str
 }
 
 type UserRegistration struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Username   string  `json:"username"`
+	Password   string  `json:"password"`
+	Role       string  `json:"role"`
+	AdminToken *string `json:"admin_token"`
 }
 
 const (
@@ -82,7 +93,17 @@ const (
 )
 
 func (u *UserRegistration) Validate() error {
-	u.Username = strings.TrimSpace(u.Username) // normalize what you store
+	u.Username = strings.TrimSpace(u.Username)
+
+	fmt.Println(u.AdminToken)
+
+	if u.Role != string(EngineerRole) && u.Role != string(AdminRole) {
+		return fmt.Errorf("Bad role")
+	}
+	if u.Role == string(AdminRole) &&
+		(u.AdminToken == nil || *u.AdminToken != DefaultAdminToken) {
+		return fmt.Errorf("Admin Token is not correct")
+	}
 
 	switch n := utf8.RuneCountInString(u.Username); {
 	case n == 0:

@@ -6,19 +6,28 @@ const error = ref('')
 const successMsg = ref('')
 const username = ref('')
 const password = ref('')
+const role = ref<'engineer' | 'admin'>('engineer')
+const adminToken = ref('')
 async function handleRegistration()  {
     error.value = ''
     successMsg.value = ''
+    console.log(role.value)
+    console.log(adminToken.value)
+    console.log(role.value === 'admin' ? adminToken.value : undefined)
+    
     try {
-    console.log(123)
-    await registration(username.value, password.value)
-    successMsg.value = "Your account is successfully created!"
-    console.log(456)
-} catch (e) {
-        console.log(789)
-      error.value = (e as Error).message ?? 'Registration failed'
+        await registration(
+            username.value,
+            password.value,
+            role.value,
+            role.value === 'admin' ? adminToken.value : undefined
+        )
+        successMsg.value = "Your account is successfully created!"
+    } catch (e) {
+        error.value = (e as Error).message ?? 'Registration failed'
     }
 }
+
 </script>
 
 <template>
@@ -41,6 +50,25 @@ async function handleRegistration()  {
                     <label class="field-label">Password</label>
                     <input class="input" v-model="password" type="password" placeholder="●●●●●●●●" autocomplete="current-password" required>
                     <p class="field-hint">Min 8 characters. Letters, numbers, symbols allowed.</p>
+                </div>
+                <div class="field">
+                    <label class="field-label">Role</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" v-model="role" value="engineer">
+                            <span>Engineer</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" v-model="role" value="admin">
+                            <span>Admin</span>
+                        </label>
+                    </div>
+                </div>
+                 <div v-if="role === 'admin'" class="field">
+                    <label class="field-label">Admin Token</label>
+                    <input class="input" type="password" v-model="adminToken" placeholder="●●●●●●●●" autocomplete="off" required>
+                    <p class="field-hint">Admin Token is "adminTokenIncidentHandoff"</p>
+
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Register</button>
             </form>
@@ -114,6 +142,24 @@ async function handleRegistration()  {
 
 .registration-form {
     margin-bottom: 20px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+    margin-top: 6px;
+}
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--color-text);
+}
+.radio-option input[type="radio"] {
+    accent-color: var(--color-accent);
+    width: 15px;
+    height: 15px;
 }
 
 .registration-foot{

@@ -26,6 +26,9 @@ func NewAuthHandler(users UserStore, secret []byte, ttl time.Duration) *AuthHand
 
 func (h *AuthHandler) RegistrationHandler(r *http.Request) (*AppResponse, *AppError) {
 	u := UserRegistration{}
+	// body, err := io.ReadAll(r.Body)
+	// fmt.Println(string(body))
+
 	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
 		return nil, BadRequest(MalformedRequestBody)
 	}
@@ -42,6 +45,7 @@ func (h *AuthHandler) RegistrationHandler(r *http.Request) (*AppResponse, *AppEr
 	_, err = h.Users.Create(r.Context(), User{
 		Username: u.Username,
 		Password: hashedPassword,
+		Role:     u.Role,
 	})
 	if err != nil {
 		if errors.Is(err, ErrUserAlreadyExist) {
